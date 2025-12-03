@@ -17,36 +17,44 @@ jobs:
         with:
           node-version: 20
 
-      # ----------------------------------
-      # FIX : installer en ignorant conflits
-      # ----------------------------------
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      # Tests Unitaires
-      - name: Run Unit Tests (Vitest)
-        run: npm run test -- --run
+      # -----------------------
+      # 1. Tests Unitaires (Vitest ou tests natifs CRA)
+      # -----------------------
+      - name: Run Tests
+        run: npm run test
+        # si tu veux éviter que ça bloque ton CI :
+        # continue-on-error: true
 
-      # Cypress Component Testing (optionnel)
+      # -----------------------
+      # 2. Cypress Component Testing (optionnel)
+      # -----------------------
       - name: Run Cypress Component Tests
         run: npm run ct:run || true
 
-      # Build
+      # -----------------------
+      # 3. Build + Start server
+      # -----------------------
       - name: Build application
         run: npm run build
 
-      # Serveur pour E2E
-      - name: Start server in background
+      - name: Start server
         run: npm run preview &
-
+      
       - name: Wait for server
         run: npx wait-on http://localhost:4173
 
-      # E2E
+      # -----------------------
+      # 4. Cypress E2E
+      # -----------------------
       - name: Run Cypress E2E Tests
         run: npm run e2e:run
 
-      # Artifacts
+      # -----------------------
+      # 5. Artifacts
+      # -----------------------
       - name: Upload Cypress Videos
         if: always()
         uses: actions/upload-artifact@v4
