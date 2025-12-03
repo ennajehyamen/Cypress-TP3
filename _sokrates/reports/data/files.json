@@ -1,0 +1,817 @@
+[ {
+  "relativePath" : "aws-exports-es5.js",
+  "extension" : "js",
+  "linesOfCode" : 18,
+  "components" : [ "primary::ROOT" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/app.ts",
+  "extension" : "ts",
+  "linesOfCode" : 98,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/auth.ts",
+  "extension" : "ts",
+  "linesOfCode" : 50,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/bankaccount-routes.ts",
+  "extension" : "ts",
+  "linesOfCode" : 43,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/banktransfer-routes.ts",
+  "extension" : "ts",
+  "linesOfCode" : 10,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/comment-routes.ts",
+  "extension" : "ts",
+  "linesOfCode" : 28,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/contact-routes.ts",
+  "extension" : "ts",
+  "linesOfCode" : 34,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/database.ts",
+  "extension" : "ts",
+  "linesOfCode" : 665,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/gql-playground-routes.ts",
+  "extension" : "ts",
+  "linesOfCode" : 5,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/graphql/resolvers/index.ts",
+  "extension" : "ts",
+  "linesOfCode" : 7,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/graphql/resolvers/Mutation.ts",
+  "extension" : "ts",
+  "linesOfCode" : 11,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/graphql/resolvers/Query.ts",
+  "extension" : "ts",
+  "linesOfCode" : 11,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/graphql/schema.graphql",
+  "extension" : "graphql",
+  "linesOfCode" : 18,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/helpers.ts",
+  "extension" : "ts",
+  "linesOfCode" : 94,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/like-routes.ts",
+  "extension" : "ts",
+  "linesOfCode" : 27,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/notification-routes.ts",
+  "extension" : "ts",
+  "linesOfCode" : 40,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/testdata-routes.ts",
+  "extension" : "ts",
+  "linesOfCode" : 17,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/transaction-routes.ts",
+  "extension" : "ts",
+  "linesOfCode" : 145,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/types.ts",
+  "extension" : "ts",
+  "linesOfCode" : 6,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/user-routes.ts",
+  "extension" : "ts",
+  "linesOfCode" : 70,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "backend/validators.ts",
+  "extension" : "ts",
+  "linesOfCode" : 96,
+  "components" : [ "primary::backend" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress/support/auth-provider-commands/auth0.ts",
+  "extension" : "ts",
+  "linesOfCode" : 28,
+  "components" : [ "primary::cypress" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress/support/auth-provider-commands/cognito.ts",
+  "extension" : "ts",
+  "linesOfCode" : 76,
+  "components" : [ "primary::cypress" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress/support/auth-provider-commands/okta.ts",
+  "extension" : "ts",
+  "linesOfCode" : 77,
+  "components" : [ "primary::cypress" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress/support/commands.ts",
+  "extension" : "ts",
+  "linesOfCode" : 309,
+  "components" : [ "primary::cypress" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress/support/component-index.html",
+  "extension" : "html",
+  "linesOfCode" : 12,
+  "components" : [ "primary::cypress" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress/support/component.ts",
+  "extension" : "ts",
+  "linesOfCode" : 4,
+  "components" : [ "primary::cypress" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress/support/e2e.ts",
+  "extension" : "ts",
+  "linesOfCode" : 16,
+  "components" : [ "primary::cypress" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress/support/utils.ts",
+  "extension" : "ts",
+  "linesOfCode" : 3,
+  "components" : [ "primary::cypress" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "cypress.config.ts",
+  "extension" : "ts",
+  "linesOfCode" : 95,
+  "components" : [ "primary::ROOT" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "eslint.config.mjs",
+  "extension" : "mjs",
+  "linesOfCode" : 37,
+  "components" : [ "primary::ROOT" ],
+  "concerns" : [ "::TODOs" ]
+}, {
+  "relativePath" : "index.html",
+  "extension" : "html",
+  "linesOfCode" : 24,
+  "components" : [ "primary::ROOT" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "scripts/generateSeedData.ts",
+  "extension" : "ts",
+  "linesOfCode" : 13,
+  "components" : [ "primary::scripts" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "scripts/mock-aws-exports-es5.js",
+  "extension" : "js",
+  "linesOfCode" : 18,
+  "components" : [ "primary::scripts" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "scripts/mock-aws-exports.js",
+  "extension" : "js",
+  "linesOfCode" : 18,
+  "components" : [ "primary::scripts" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "scripts/seedDataUtils.ts",
+  "extension" : "ts",
+  "linesOfCode" : 505,
+  "components" : [ "primary::scripts" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "scripts/testServer.ts",
+  "extension" : "ts",
+  "linesOfCode" : 10,
+  "components" : [ "primary::scripts" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/aws-exports.js",
+  "extension" : "js",
+  "linesOfCode" : 18,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/AlertBar.cy.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 18,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/AlertBar.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 41,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/BankAccountForm.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 144,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/BankAccountItem.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 39,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/BankAccountList.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 29,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/CommentForm.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 63,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/CommentList.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 16,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/CommentListItem.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 14,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/EmptyList.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 46,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/Footer.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 28,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/MainLayout.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 111,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::TODOs" ]
+}, {
+  "relativePath" : "src/components/NavBar.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 178,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/NavDrawer.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 273,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/NotificationList.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 32,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/NotificationListItem.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 109,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/PrivateRoute.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 25,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/SignInForm.cy.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 41,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/SignInForm.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 155,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/SignUpForm.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 181,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/SkeletonList.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 63,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/SvgCypressLogo.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 80,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/SvgUndrawNavigatorA479.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 112,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/SvgUndrawPersonalFinanceTqcd.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 82,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/SvgUndrawReminders697P.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 126,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/SvgUndrawTransferMoneyRywa.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 276,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/TransactionAmount.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 42,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/TransactionContactsList.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 45,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/TransactionCreateStepOne.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 33,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/TransactionCreateStepThree.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 134,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/TransactionCreateStepTwo.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 198,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/TransactionDateRangeFilter.cy.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 48,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/TransactionDateRangeFilter.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 180,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/TransactionDetail.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 231,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/TransactionInfiniteList.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 78,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/TransactionItem.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 141,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/TransactionList.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 84,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/TransactionListAmountRangeFilter.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 150,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/TransactionListFilters.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 64,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/TransactionNavTabs.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 28,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/TransactionPersonalList.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 45,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/TransactionPublicList.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 45,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/TransactionTitle.cy.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 6,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/TransactionTitle.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 69,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/UserListItem.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 52,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/UserListSearchForm.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 50,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/UserSettingsForm.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 156,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/components/UsersList.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 19,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/containers/App.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 65,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/containers/AppAuth0.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 57,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/containers/AppCognito.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 82,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/containers/AppGoogle.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 84,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/containers/AppOkta.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 67,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/containers/BankAccountsContainer.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 91,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/containers/NotificationsContainer.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 56,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/containers/PrivateRoutesContainer.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 87,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/containers/TransactionCreateContainer.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 88,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/containers/TransactionDetailContainer.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 50,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/containers/TransactionsContainer.cy.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 48,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/containers/TransactionsContainer.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 42,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/containers/UserOnboardingContainer.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 128,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/containers/UserSettingsContainer.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 47,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/index.auth0.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 45,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/index.cognito.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 35,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/index.google.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 35,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/index.okta.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 51,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/index.tsx",
+  "extension" : "tsx",
+  "linesOfCode" : 47,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/machines/authMachine.ts",
+  "extension" : "ts",
+  "linesOfCode" : 254,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/machines/bankAccountsMachine.ts",
+  "extension" : "ts",
+  "linesOfCode" : 72,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/machines/contactsTransactionsMachine.ts",
+  "extension" : "ts",
+  "linesOfCode" : 15,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/machines/createTransactionMachine.ts",
+  "extension" : "ts",
+  "linesOfCode" : 80,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/machines/dataMachine.ts",
+  "extension" : "ts",
+  "linesOfCode" : 127,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/machines/drawerMachine.ts",
+  "extension" : "ts",
+  "linesOfCode" : 46,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/machines/notificationsMachine.ts",
+  "extension" : "ts",
+  "linesOfCode" : 23,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/machines/personalTransactionsMachine.ts",
+  "extension" : "ts",
+  "linesOfCode" : 15,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/machines/publicTransactionsMachine.ts",
+  "extension" : "ts",
+  "linesOfCode" : 15,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/machines/snackbarMachine.ts",
+  "extension" : "ts",
+  "linesOfCode" : 53,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/machines/transactionDetailMachine.ts",
+  "extension" : "ts",
+  "linesOfCode" : 36,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/machines/transactionFiltersMachine.ts",
+  "extension" : "ts",
+  "linesOfCode" : 100,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/machines/userOnboardingMachine.ts",
+  "extension" : "ts",
+  "linesOfCode" : 47,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/machines/usersMachine.ts",
+  "extension" : "ts",
+  "linesOfCode" : 16,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/models/bankaccount.ts",
+  "extension" : "ts",
+  "linesOfCode" : 15,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/models/banktransfer.ts",
+  "extension" : "ts",
+  "linesOfCode" : 16,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/models/comment.ts",
+  "extension" : "ts",
+  "linesOfCode" : 9,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/models/contact.ts",
+  "extension" : "ts",
+  "linesOfCode" : 8,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/models/db-schema.ts",
+  "extension" : "ts",
+  "linesOfCode" : 18,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/models/index.ts",
+  "extension" : "ts",
+  "linesOfCode" : 8,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/models/like.ts",
+  "extension" : "ts",
+  "linesOfCode" : 8,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/models/notification.ts",
+  "extension" : "ts",
+  "linesOfCode" : 60,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/models/transaction.ts",
+  "extension" : "ts",
+  "linesOfCode" : 93,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/models/user.ts",
+  "extension" : "ts",
+  "linesOfCode" : 28,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/setup-tests.js",
+  "extension" : "js",
+  "linesOfCode" : 7,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/setupProxy.js",
+  "extension" : "js",
+  "linesOfCode" : 11,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/utils/asyncUtils.ts",
+  "extension" : "ts",
+  "linesOfCode" : 17,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/utils/historyUtils.ts",
+  "extension" : "ts",
+  "linesOfCode" : 2,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/utils/portUtils.ts",
+  "extension" : "ts",
+  "linesOfCode" : 22,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "src/utils/transactionUtils.ts",
+  "extension" : "ts",
+  "linesOfCode" : 182,
+  "components" : [ "primary::src" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "vite.config.ts",
+  "extension" : "ts",
+  "linesOfCode" : 43,
+  "components" : [ "primary::ROOT" ],
+  "concerns" : [ "::Unclassified" ]
+}, {
+  "relativePath" : "vite.cypress.config.ts",
+  "extension" : "ts",
+  "linesOfCode" : 15,
+  "components" : [ "primary::ROOT" ],
+  "concerns" : [ "::Unclassified" ]
+} ]

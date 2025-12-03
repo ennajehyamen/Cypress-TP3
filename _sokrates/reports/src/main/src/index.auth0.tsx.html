@@ -1,0 +1,81 @@
+<html>
+<head>
+    <title>src/index.auth0.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/index.auth0.tsx (<b>45</b> lines of code) (<a href="index.auth0.tsx">raw</a>):</h3>
+<div id="editor">import React from &quot;react&quot;;
+import { createRoot } from &quot;react-dom/client&quot;;
+import { Router } from &quot;react-router-dom&quot;;
+import {
+  createTheme,
+  ThemeProvider,
+  Theme,
+  StyledEngineProvider,
+  adaptV4Theme,
+} from &quot;@mui/material&quot;;
+import { Auth0Provider } from &quot;@auth0/auth0-react&quot;;
+import AppAuth0 from &quot;./containers/AppAuth0&quot;;
+import { history } from &quot;./utils/historyUtils&quot;;
+
+const theme = createTheme(
+  adaptV4Theme({
+    palette: {
+      secondary: {
+        main: &quot;#fff&quot;,
+      },
+    },
+  })
+);
+
+/* istanbul ignore next */
+const onRedirectCallback = (appState: any) =&gt; {
+  history.replace((appState &amp;&amp; appState.returnTo) || window.location.pathname);
+};
+
+const root = createRoot(document.getElementById(&quot;root&quot;)!);
+
+/* istanbul ignore if */
+if (process.env.VITE_AUTH0) {
+  root.render(
+    &lt;Auth0Provider
+      domain={process.env.VITE_AUTH0_DOMAIN!}
+      clientId={process.env.VITE_AUTH0_CLIENTID!}
+      redirectUri={window.location.origin}
+      audience={process.env.VITE_AUTH0_AUDIENCE}
+      scope={process.env.VITE_AUTH0_SCOPE}
+      onRedirectCallback={onRedirectCallback}
+      cacheLocation=&quot;localstorage&quot;
+    &gt;
+      &lt;Router history={history}&gt;
+        &lt;StyledEngineProvider injectFirst&gt;
+          &lt;ThemeProvider theme={theme}&gt;
+            &lt;AppAuth0 /&gt;
+          &lt;/ThemeProvider&gt;
+        &lt;/StyledEngineProvider&gt;
+      &lt;/Router&gt;
+    &lt;/Auth0Provider&gt;
+  );
+} else {
+  console.error(&quot;Auth0 is not configured.&quot;);
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

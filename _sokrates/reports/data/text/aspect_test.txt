@@ -1,0 +1,13 @@
+Path	Lines of Code
+cypress/tests/ui/auth.spec.ts	143
+cypress/tests/ui/bankaccounts.spec.ts	136
+cypress/tests/ui/new-transaction.spec.ts	225
+src/__tests__/bankaccounts.test.ts	48
+src/__tests__/comments.test.ts	31
+src/__tests__/contacts.test.ts	47
+src/__tests__/generateSeedData.test.ts	51
+src/__tests__/likes.test.ts	29
+src/__tests__/notifications.test.ts	120
+src/__tests__/transactions.test.ts	258
+src/__tests__/users.test.ts	38
+src/utils/__tests__/transactionUtils.test.ts	139

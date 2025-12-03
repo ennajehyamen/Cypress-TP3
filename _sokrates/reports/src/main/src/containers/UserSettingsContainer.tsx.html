@@ -1,0 +1,83 @@
+<html>
+<head>
+    <title>src/containers/UserSettingsContainer.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/containers/UserSettingsContainer.tsx (<b>47</b> lines of code) (<a href="UserSettingsContainer.tsx">raw</a>):</h3>
+<div id="editor">import React from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { Paper, Typography, Grid } from &quot;@mui/material&quot;;
+import UserSettingsForm from &quot;../components/UserSettingsForm&quot;;
+import { Interpreter } from &quot;xstate&quot;;
+import { AuthMachineContext, AuthMachineEvents } from &quot;../machines/authMachine&quot;;
+import { useActor } from &quot;@xstate/react&quot;;
+import PersonalSettingsIllustration from &quot;../components/SvgUndrawPersonalSettingsKihd&quot;;
+
+const PREFIX = &quot;UserSettingsContainer&quot;;
+
+const classes = {
+  paper: `${PREFIX}-paper`,
+};
+
+const StyledPaper = styled(Paper)(({ theme }) =&gt; ({
+  [`&amp;.${classes.paper}`]: {
+    padding: theme.spacing(2),
+    display: &quot;flex&quot;,
+    overflow: &quot;auto&quot;,
+    flexDirection: &quot;column&quot;,
+  },
+}));
+
+export interface Props {
+  authService: Interpreter&lt;AuthMachineContext, any, AuthMachineEvents, any&gt;;
+}
+
+const UserSettingsContainer: React.FC&lt;Props&gt; = ({ authService }) =&gt; {
+  const [authState, sendAuth] = useActor(authService);
+
+  const currentUser = authState?.context?.user;
+  const updateUser = (payload: any) =&gt; sendAuth({ type: &quot;UPDATE&quot;, ...payload });
+
+  return (
+    &lt;StyledPaper className={classes.paper}&gt;
+      &lt;Typography component=&quot;h2&quot; variant=&quot;h6&quot; color=&quot;primary&quot; gutterBottom&gt;
+        User Settings
+      &lt;/Typography&gt;
+      &lt;Grid
+        container
+        spacing={2}
+        direction=&quot;row&quot;
+        justifyContent=&quot;flex-start&quot;
+        alignItems=&quot;flex-start&quot;
+      &gt;
+        &lt;Grid item&gt;
+          &lt;PersonalSettingsIllustration style={{ height: 200, width: 300 }} /&gt;
+        &lt;/Grid&gt;
+        &lt;Grid item style={{ width: &quot;50%&quot; }}&gt;
+          {currentUser &amp;&amp; &lt;UserSettingsForm userProfile={currentUser} updateUser={updateUser} /&gt;}
+        &lt;/Grid&gt;
+      &lt;/Grid&gt;
+    &lt;/StyledPaper&gt;
+  );
+};
+export default UserSettingsContainer;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

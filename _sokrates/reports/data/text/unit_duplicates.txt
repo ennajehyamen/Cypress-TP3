@@ -1,0 +1,6 @@
+duplicated block id: 1
+size: 6 cleaned lines of code
+in 2 files:
+ - src/machines/authMachine.ts (215:222)
+ - src/machines/notificationsMachine.ts (15:22)
+

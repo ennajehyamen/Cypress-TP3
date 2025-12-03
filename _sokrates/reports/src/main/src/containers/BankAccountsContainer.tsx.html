@@ -1,0 +1,129 @@
+<html>
+<head>
+    <title>src/containers/BankAccountsContainer.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/containers/BankAccountsContainer.tsx (<b>91</b> lines of code) (<a href="BankAccountsContainer.tsx">raw</a>):</h3>
+<div id="editor">import React, { useEffect } from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { useActor } from &quot;@xstate/react&quot;;
+import {
+  BaseActionObject,
+  Interpreter,
+  ResolveTypegenMeta,
+  ServiceMap,
+  TypegenDisabled,
+} from &quot;xstate&quot;;
+import { Link as RouterLink, useRouteMatch } from &quot;react-router-dom&quot;;
+import { Grid, Button, Paper, Typography } from &quot;@mui/material&quot;;
+
+import { AuthMachineContext, AuthMachineEvents, AuthMachineSchema } from &quot;../machines/authMachine&quot;;
+import { DataContext, DataEvents, DataSchema } from &quot;../machines/dataMachine&quot;;
+import BankAccountForm from &quot;../components/BankAccountForm&quot;;
+import BankAccountList from &quot;../components/BankAccountList&quot;;
+
+export interface Props {
+  authService: Interpreter&lt;AuthMachineContext, AuthMachineSchema, AuthMachineEvents, any, any&gt;;
+  bankAccountsService: Interpreter&lt;
+    DataContext,
+    DataSchema,
+    DataEvents,
+    any,
+    ResolveTypegenMeta&lt;TypegenDisabled, DataEvents, BaseActionObject, ServiceMap&gt;
+  &gt;;
+}
+const PREFIX = &quot;BankAccountsContainer&quot;;
+
+const classes = {
+  paper: `${PREFIX}-paper`,
+};
+
+const StyledPaper = styled(Paper)(({ theme }) =&gt; ({
+  [`&amp;.${classes.paper}`]: {
+    padding: theme.spacing(2),
+    display: &quot;flex&quot;,
+    overflow: &quot;auto&quot;,
+    flexDirection: &quot;column&quot;,
+  },
+}));
+
+const BankAccountsContainer: React.FC&lt;Props&gt; = ({ authService, bankAccountsService }) =&gt; {
+  const match = useRouteMatch();
+
+  const [authState] = useActor(authService);
+  const [bankAccountsState, sendBankAccounts] = useActor(bankAccountsService);
+
+  const currentUser = authState?.context.user;
+
+  const createBankAccount = (payload: any) =&gt; {
+    sendBankAccounts({ type: &quot;CREATE&quot;, ...payload });
+  };
+
+  const deleteBankAccount = (payload: any) =&gt; {
+    sendBankAccounts({ type: &quot;DELETE&quot;, ...payload });
+  };
+
+  useEffect(() =&gt; {
+    sendBankAccounts(&quot;FETCH&quot;);
+  }, [sendBankAccounts]);
+
+  if (match.url === &quot;/bankaccounts/new&quot; &amp;&amp; currentUser?.id) {
+    return (
+      &lt;StyledPaper className={classes.paper}&gt;
+        &lt;Typography component=&quot;h2&quot; variant=&quot;h6&quot; color=&quot;primary&quot; gutterBottom&gt;
+          Create Bank Account
+        &lt;/Typography&gt;
+        &lt;BankAccountForm userId={currentUser?.id} createBankAccount={createBankAccount} /&gt;
+      &lt;/StyledPaper&gt;
+    );
+  }
+
+  return (
+    &lt;StyledPaper className={classes.paper}&gt;
+      &lt;Grid container direction=&quot;row&quot; justifyContent=&quot;space-between&quot; alignItems=&quot;center&quot;&gt;
+        &lt;Grid item&gt;
+          &lt;Typography component=&quot;h2&quot; variant=&quot;h6&quot; color=&quot;primary&quot; gutterBottom&gt;
+            Bank Accounts
+          &lt;/Typography&gt;
+        &lt;/Grid&gt;
+        &lt;Grid item&gt;
+          &lt;Button
+            variant=&quot;contained&quot;
+            color=&quot;primary&quot;
+            size=&quot;large&quot;
+            component={RouterLink}
+            to=&quot;/bankaccounts/new&quot;
+            data-test=&quot;bankaccount-new&quot;
+          &gt;
+            Create
+          &lt;/Button&gt;
+        &lt;/Grid&gt;
+      &lt;/Grid&gt;
+      &lt;BankAccountList
+        bankAccounts={bankAccountsState?.context.results!}
+        deleteBankAccount={deleteBankAccount}
+      /&gt;
+    &lt;/StyledPaper&gt;
+  );
+};
+export default BankAccountsContainer;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

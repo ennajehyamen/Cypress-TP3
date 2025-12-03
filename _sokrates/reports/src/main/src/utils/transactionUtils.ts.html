@@ -1,0 +1,283 @@
+<html>
+<head>
+    <title>src/utils/transactionUtils.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/utils/transactionUtils.ts (<b>182</b> lines of code) (<a href="transactionUtils.ts">raw</a>):</h3>
+<div id="editor">import {
+  Transaction,
+  User,
+  TransactionRequestStatus,
+  NotificationType,
+  PaymentNotificationStatus,
+  TransactionResponseItem,
+  TransactionQueryPayload,
+  TransactionDateRangePayload,
+  TransactionAmountRangePayload,
+  LikeNotification,
+  CommentNotification,
+  ValuePiece,
+} from &quot;../models&quot;;
+import { faker } from &quot;@faker-js/faker&quot;;
+import Dinero from &quot;dinero.js&quot;;
+import {
+  flow,
+  get,
+  isEmpty,
+  negate,
+  curry,
+  isEqual,
+  join,
+  pick,
+  values,
+  has,
+  find,
+  omit,
+  map,
+  drop,
+} from &quot;lodash/fp&quot;;
+import { parseISO } from &quot;date-fns&quot;;
+import { formatInTimeZone, fromZonedTime } from &quot;date-fns-tz&quot;;
+
+const timezone = &quot;UTC&quot;;
+
+export const isRequestTransaction = (transaction: Transaction) =&gt;
+  flow(get(&quot;requestStatus&quot;), negate(isEmpty))(transaction);
+
+/* istanbul ignore next */
+export const isPendingRequestTransaction = (transaction: Transaction) =&gt;
+  flow(get(&quot;requestStatus&quot;), isEqual(TransactionRequestStatus.pending))(transaction);
+
+/* istanbul ignore next */
+export const isAcceptedRequestTransaction = (transaction: Transaction) =&gt;
+  flow(get(&quot;requestStatus&quot;), isEqual(TransactionRequestStatus.accepted))(transaction);
+
+/* istanbul ignore next */
+export const isRejectedRequestTransaction = (transaction: Transaction) =&gt;
+  flow(get(&quot;requestStatus&quot;), isEqual(TransactionRequestStatus.rejected))(transaction);
+
+export const isPayment = negate(isRequestTransaction);
+
+/* istanbul ignore next */
+export const getFakeAmount = (min: number = 1000, max: number = 50000) =&gt;
+  parseInt(faker.finance.amount(min, max), 10);
+
+/* istanbul ignore next */
+export const formatAmount = (amount: number) =&gt; Dinero({ amount }).toFormat();
+
+/* istanbul ignore next */
+export const formatAmountSlider = (amount: number) =&gt; Dinero({ amount }).toFormat(&quot;$0,0&quot;);
+
+export const payAppDifference = curry((sender: User, transaction: Transaction) =&gt;
+  Dinero({ amount: get(&quot;balance&quot;, sender) }).subtract(
+    Dinero({ amount: get(&quot;amount&quot;, transaction) })
+  )
+);
+
+export const payAppAddition = curry((sender: User, transaction: Transaction) =&gt;
+  Dinero({ amount: get(&quot;balance&quot;, sender) }).add(Dinero({ amount: get(&quot;amount&quot;, transaction) }))
+);
+
+export const getChargeAmount = (sender: User, transaction: Transaction) =&gt;
+  Math.abs(payAppDifference(sender, transaction).getAmount());
+
+export const getTransferAmount = curry((sender: User, transaction: Transaction) =&gt;
+  Math.abs(payAppDifference(sender, transaction).getAmount())
+);
+
+export const getPayAppCreditedAmount = (receiver: User, transaction: Transaction) =&gt;
+  Math.abs(payAppAddition(receiver, transaction).getAmount());
+
+export const hasSufficientFunds = (sender: User, transaction: Transaction) =&gt;
+  payAppDifference(sender, transaction).isPositive();
+
+/* istanbul ignore next */
+export const receiverIsCurrentUser = (currentUser: User, transaction: Transaction) =&gt;
+  isEqual(get(&quot;id&quot;, currentUser), get(&quot;receiverId&quot;, transaction));
+
+export const formatFullName = (user: User) =&gt;
+  flow(pick([&quot;firstName&quot;, &quot;lastName&quot;]), values, join(&quot; &quot;))(user);
+
+export const isCommentNotification = (
+  notification: NotificationType
+): notification is CommentNotification =&gt; has(&quot;commentId&quot;)(notification);
+
+export const isLikeNotification = (
+  notification: NotificationType
+): notification is LikeNotification =&gt; has(&quot;likeId&quot;)(notification);
+
+export const isPaymentNotification = (notification: NotificationType) =&gt;
+  has(&quot;status&quot;)(notification);
+
+/* istanbul ignore next */
+export const isPaymentRequestedNotification = (notification: NotificationType) =&gt;
+  flow(get(&quot;status&quot;), isEqual(PaymentNotificationStatus.requested))(notification);
+
+/* istanbul ignore next */
+export const isPaymentReceivedNotification = (notification: NotificationType) =&gt;
+  flow(get(&quot;status&quot;), isEqual(PaymentNotificationStatus.received))(notification);
+
+/* istanbul ignore next */
+export const currentUserLikesTransaction = (
+  currentUser: User,
+  transaction: TransactionResponseItem
+) =&gt;
+  flow(
+    find((like) =&gt; flow(get(&quot;userId&quot;), isEqual(get(&quot;id&quot;, currentUser)))(like)),
+    negate(isEmpty)
+  )(transaction.likes);
+
+export const hasDateQueryFields = (query: TransactionQueryPayload | TransactionDateRangePayload) =&gt;
+  has(&quot;dateRangeStart&quot;, query) &amp;&amp; has(&quot;dateRangeEnd&quot;, query);
+
+export const getDateQueryFields = (query: TransactionDateRangePayload) =&gt;
+  pick([&quot;dateRangeStart&quot;, &quot;dateRangeEnd&quot;], query);
+
+export const omitDateQueryFields = (query: TransactionQueryPayload) =&gt;
+  omit([&quot;dateRangeStart&quot;, &quot;dateRangeEnd&quot;], query);
+
+export const hasAmountQueryFields = (
+  query: TransactionQueryPayload | TransactionAmountRangePayload
+) =&gt; has(&quot;amountMin&quot;, query) &amp;&amp; has(&quot;amountMax&quot;, query);
+
+export const getAmountQueryFields = (query: TransactionAmountRangePayload) =&gt;
+  pick([&quot;amountMin&quot;, &quot;amountMax&quot;], query);
+
+export const omitAmountQueryFields = (query: TransactionQueryPayload) =&gt;
+  omit([&quot;amountMin&quot;, &quot;amountMax&quot;], query);
+
+/* istanbul ignore next */
+export const hasPaginationQueryFields = (
+  query: TransactionQueryPayload | TransactionAmountRangePayload
+) =&gt; has(&quot;page&quot;, query) &amp;&amp; has(&quot;limit&quot;, query);
+
+export const omitPaginationQueryFields = (query: TransactionQueryPayload) =&gt;
+  omit([&quot;page&quot;, &quot;limit&quot;], query);
+
+/* istanbul ignore next */
+export const getQueryWithoutDateFields = (query: TransactionQueryPayload) =&gt;
+  query &amp;&amp; hasDateQueryFields(query) ? omitDateQueryFields(query) : query;
+
+/* istanbul ignore next */
+export const getQueryWithoutAmountFields = (query: TransactionQueryPayload) =&gt;
+  query &amp;&amp; hasAmountQueryFields(query) ? omitAmountQueryFields(query) : query;
+
+export const getQueryWithoutFilterFields = (query: TransactionQueryPayload) =&gt;
+  flow(omitAmountQueryFields, omitDateQueryFields, omitPaginationQueryFields)(query);
+
+/* istanbul ignore next */
+export const padAmountWithZeros = (number: number) =&gt; Math.ceil(number * 1000);
+
+/* istanbul ignore next */
+export const amountRangeValueText = (value: number) =&gt;
+  flow(padAmountWithZeros, formatAmount)(value);
+
+/* istanbul ignore next */
+export const amountRangeValueTextLabel = (value: number) =&gt;
+  /* istanbul ignore next */
+  flow(padAmountWithZeros, formatAmountSlider)(value);
+
+/* istanbul ignore next */
+export const formatAmountRangeValues = (amountRangeValues: number[]) =&gt;
+  /* istanbul ignore next */
+  flow(map(padAmountWithZeros), map(formatAmountSlider), join(&quot; - &quot;))(amountRangeValues);
+
+export const getPaginatedItems = (page: number, limit: number, items: any) =&gt; {
+  const offset = (page - 1) * limit;
+  const pagedItems = drop(offset, items).slice(0, limit);
+
+  return {
+    totalPages: Math.ceil(items.length / limit),
+    data: pagedItems,
+  };
+};
+
+const getDateParts = (isoString: string) =&gt; {
+  const date = parseISO(isoString);
+  const day = Number(formatInTimeZone(date, timezone, &quot;d&quot;));
+  const month = Number(formatInTimeZone(date, timezone, &quot;M&quot;)) - 1;
+  const year = Number(formatInTimeZone(date, timezone, &quot;Y&quot;));
+  const hour = Number(formatInTimeZone(date, timezone, &quot;H&quot;));
+  const minute = Number(formatInTimeZone(date, timezone, &quot;m&quot;));
+  const second = Number(formatInTimeZone(date, timezone, &quot;s&quot;));
+  const ms = Number(formatInTimeZone(date, timezone, &quot;SSS&quot;));
+  return { day, month, year, hour, minute, second, ms };
+};
+
+export function isoStringToLocalMidnightStart(isoString: string) {
+  const { year, month, day } = getDateParts(isoString);
+  return new Date(year, month, day, 0, 0, 0, 0);
+}
+
+export function isoStringToLocalMidnightEnd(isoString: string) {
+  const { year, month, day } = getDateParts(isoString);
+  return new Date(year, month, day, 23, 59, 59, 999);
+}
+
+export function isoStringToLocalDateFull(isoString: string): Date {
+  const { year, month, day, hour, minute, second, ms = 0 } = getDateParts(isoString);
+  return new Date(year, month, day, hour, minute, second, ms);
+}
+
+export function localDateToIsoString(date: Date): string {
+  return fromZonedTime(date, timezone).toISOString();
+}
+
+export function localDateToUTCISOString(localDate: ValuePiece) {
+  if (!(localDate instanceof Date)) return new Date().toISOString();
+  const utcDate = new Date(
+    Date.UTC(
+      localDate.getFullYear(),
+      localDate.getMonth(),
+      localDate.getDate(),
+      localDate.getHours(),
+      localDate.getMinutes(),
+      localDate.getSeconds(),
+      localDate.getMilliseconds()
+    )
+  );
+  return utcDate.toISOString();
+}
+
+// Custom UTC functions per:
+// https://github.com/date-fns/date-fns/issues/376#issuecomment-544274031
+// not used in application code
+/* istanbul ignore next */
+export const startOfDayUTC = (date: Date): Date =&gt; {
+  if (!(date instanceof Date)) date = new Date();
+  const utcDate = new Date(
+    Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0)
+  );
+
+  return utcDate;
+};
+// not used in application code
+/* istanbul ignore next */
+export const endOfDayUTC = (date: Date): Date =&gt; {
+  if (!(date instanceof Date)) date = new Date();
+  const utcDate = new Date(
+    Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), 23, 59, 59, 999)
+  );
+
+  return utcDate;
+};
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

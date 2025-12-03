@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+    .node {
+        cursor: pointer;
+    }
+
+    .node:hover {
+        stroke: #000;
+        stroke-width: 1.5px;
+    }
+
+    .node--leaf {
+        fill: white;
+    }
+
+    .label {
+        font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-anchor: middle;
+        text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+    }
+
+    .label,
+    .node--root,
+    .node--leaf {
+        pointer-events: none;
+    }
+
+</style>
+<svg width="960" height="960"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+
+    var svg = d3.select("svg"),
+        margin = 20,
+        diameter = +svg.attr("width"),
+        g = svg.append("g").attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
+
+    var color = d3.scaleLinear()
+        .domain([-1, 5])
+        .range(["hsl(152,80%,100%)", "hsl(228,30%,40%)"])
+        .interpolate(d3.interpolateHcl);
+
+    var pack = d3.pack()
+        .size([diameter - margin, diameter - margin])
+        .padding(2);
+
+
+    var root = {
+        "name": "cluster",
+        "children": [ {
+  "name" : "aws-exports-es5.js (18)",
+  "color" : "#1a9641",
+  "size" : 18,
+  "children" : [ ]
+}, {
+  "name" : "backend",
+  "color" : "#1a9641",
+  "size" : 0,
+  "children" : [ {
+    "name" : "app.ts (98)",
+    "color" : "#1a9641",
+    "size" : 98,
+    "children" : [ ]
+  }, {
+    "name" : "auth.ts (50)",
+    "color" : "#1a9641",
+    "size" : 50,
+    "children" : [ ]
+  }, {
+    "name" : "bankaccount-routes.ts (43)",
+    "color" : "#1a9641",
+    "size" : 43,
+    "children" : [ ]
+  }, {
+    "name" : "banktransfer-routes.ts (10)",
+    "color" : "#1a9641",
+    "size" : 10,
+    "children" : [ ]
+  }, {
+    "name" : "comment-routes.ts (28)",
+    "color" : "#1a9641",
+    "size" : 28,
+    "children" : [ ]
+  }, {
+    "name" : "contact-routes.ts (34)",
+    "color" : "#1a9641",
+    "size" : 34,
+    "children" : [ ]
+  }, {
+    "name" : "database.ts (665)",
+    "color" : "#fdae61",
+    "size" : 665,
+    "children" : [ ]
+  }, {
+    "name" : "gql-playground-routes.ts (5)",
+    "color" : "#1a9641",
+    "size" : 5,
+    "children" : [ ]
+  }, {
+    "name" : "graphql",
+    "color" : "#1a9641",
+    "size" : 0,
+    "children" : [ {
+      "name" : "resolvers",
+      "color" : "#1a9641",
+      "size" : 0,
+      "children" : [ {
+        "name" : "index.ts (7)",
+        "color" : "#1a9641",
+        "size" : 7,
+        "children" : [ ]
+      }, {
+        "name" : "Mutation.ts (11)",
+        "color" : "#1a9641",
+        "size" : 11,
+        "children" : [ ]
+      }, {
+        "name" : "Query.ts (11)",
+        "color" : "#1a9641",
+        "size" : 11,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "schema.graphql (18)",
+      "color" : "#1a9641",
+      "size" : 18,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "helpers.ts (94)",
+    "color" : "#1a9641",
+    "size" : 94,
+    "children" : [ ]
+  }, {
+    "name" : "like-routes.ts (27)",
+    "color" : "#1a9641",
+    "size" : 27,
+    "children" : [ ]
+  }, {
+    "name" : "notification-routes.ts (40)",
+    "color" : "#1a9641",
+    "size" : 40,
+    "children" : [ ]
+  }, {
+    "name" : "testdata-routes.ts (17)",
+    "color" : "#1a9641",
+    "size" : 17,
+    "children" : [ ]
+  }, {
+    "name" : "transaction-routes.ts (145)",
+    "color" : "#a6d96a",
+    "size" : 145,
+    "children" : [ ]
+  }, {
+    "name" : "types.ts (6)",
+    "color" : "#1a9641",
+    "size" : 6,
+    "children" : [ ]
+  }, {
+    "name" : "user-routes.ts (70)",
+    "color" : "#1a9641",
+    "size" : 70,
+    "children" : [ ]
+  }, {
+    "name" : "validators.ts (96)",
+    "color" : "#1a9641",
+    "size" : 96,
+    "children" : [ ]
+  } ]
+}, {
+  "name" : "cypress",
+  "color" : "#1a9641",
+  "size" : 0,
+  "children" : [ {
+    "name" : "support",
+    "color" : "#1a9641",
+    "size" : 0,
+    "children" : [ {
+      "name" : "auth-provider-commands",
+      "color" : "#1a9641",
+      "size" : 0,
+      "children" : [ {
+        "name" : "auth0.ts (28)",
+        "color" : "#1a9641",
+        "size" : 28,
+        "children" : [ ]
+      }, {
+        "name" : "cognito.ts (76)",
+        "color" : "#1a9641",
+        "size" : 76,
+        "children" : [ ]
+      }, {
+        "name" : "okta.ts (77)",
+        "color" : "#1a9641",
+        "size" : 77,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "commands.ts (309)",
+      "color" : "#ffffbf",
+      "size" : 309,
+      "children" : [ ]
+    }, {
+      "name" : "component-index.html (12)",
+      "color" : "#1a9641",
+      "size" : 12,
+      "children" : [ ]
+    }, {
+      "name" : "component.ts (4)",
+      "color" : "#1a9641",
+      "size" : 4,
+      "children" : [ ]
+    }, {
+      "name" : "e2e.ts (16)",
+      "color" : "#1a9641",
+      "size" : 16,
+      "children" : [ ]
+    }, {
+      "name" : "utils.ts (3)",
+      "color" : "#1a9641",
+      "size" : 3,
+      "children" : [ ]
+    } ]
+  } ]
+}, {
+  "name" : "cypress.config.ts (95)",
+  "color" : "#1a9641",
+  "size" : 95,
+  "children" : [ ]
+}, {
+  "name" : "eslint.config.mjs (37)",
+  "color" : "#1a9641",
+  "size" : 37,
+  "children" : [ ]
+}, {
+  "name" : "index.html (24)",
+  "color" : "#1a9641",
+  "size" : 24,
+  "children" : [ ]
+}, {
+  "name" : "scripts",
+  "color" : "#1a9641",
+  "size" : 0,
+  "children" : [ {
+    "name" : "generateSeedData.ts (13)",
+    "color" : "#1a9641",
+    "size" : 13,
+    "children" : [ ]
+  }, {
+    "name" : "mock-aws-exports-es5.js (18)",
+    "color" : "#1a9641",
+    "size" : 18,
+    "children" : [ ]
+  }, {
+    "name" : "mock-aws-exports.js (18)",
+    "color" : "#1a9641",
+    "size" : 18,
+    "children" : [ ]
+  }, {
+    "name" : "seedDataUtils.ts (505)",
+    "color" : "#fdae61",
+    "size" : 505,
+    "children" : [ ]
+  }, {
+    "name" : "testServer.ts (10)",
+    "color" : "#1a9641",
+    "size" : 10,
+    "children" : [ ]
+  } ]
+}, {
+  "name" : "src",
+  "color" : "#1a9641",
+  "size" : 0,
+  "children" : [ {
+    "name" : "aws-exports.js (18)",
+    "color" : "#1a9641",
+    "size" : 18,
+    "children" : [ ]
+  }, {
+    "name" : "components",
+    "color" : "#1a9641",
+    "size" : 0,
+    "children" : [ {
+      "name" : "AlertBar.cy.tsx (18)",
+      "color" : "#1a9641",
+      "size" : 18,
+      "children" : [ ]
+    }, {
+      "name" : "AlertBar.tsx (41)",
+      "color" : "#1a9641",
+      "size" : 41,
+      "children" : [ ]
+    }, {
+      "name" : "BankAccountForm.tsx (144)",
+      "color" : "#a6d96a",
+      "size" : 144,
+      "children" : [ ]
+    }, {
+      "name" : "BankAccountItem.tsx (39)",
+      "color" : "#1a9641",
+      "size" : 39,
+      "children" : [ ]
+    }, {
+      "name" : "BankAccountList.tsx (29)",
+      "color" : "#1a9641",
+      "size" : 29,
+      "children" : [ ]
+    }, {
+      "name" : "CommentForm.tsx (63)",
+      "color" : "#1a9641",
+      "size" : 63,
+      "children" : [ ]
+    }, {
+      "name" : "CommentList.tsx (16)",
+      "color" : "#1a9641",
+      "size" : 16,
+      "children" : [ ]
+    }, {
+      "name" : "CommentListItem.tsx (14)",
+      "color" : "#1a9641",
+      "size" : 14,
+      "children" : [ ]
+    }, {
+      "name" : "EmptyList.tsx (46)",
+      "color" : "#1a9641",
+      "size" : 46,
+      "children" : [ ]
+    }, {
+      "name" : "Footer.tsx (28)",
+      "color" : "#1a9641",
+      "size" : 28,
+      "children" : [ ]
+    }, {
+      "name" : "MainLayout.tsx (111)",
+      "color" : "#a6d96a",
+      "size" : 111,
+      "children" : [ ]
+    }, {
+      "name" : "NavBar.tsx (178)",
+      "color" : "#a6d96a",
+      "size" : 178,
+      "children" : [ ]
+    }, {
+      "name" : "NavDrawer.tsx (273)",
+      "color" : "#ffffbf",
+      "size" : 273,
+      "children" : [ ]
+    }, {
+      "name" : "NotificationList.tsx (32)",
+      "color" : "#1a9641",
+      "size" : 32,
+      "children" : [ ]
+    }, {
+      "name" : "NotificationListItem.tsx (109)",
+      "color" : "#a6d96a",
+      "size" : 109,
+      "children" : [ ]
+    }, {
+      "name" : "PrivateRoute.tsx (25)",
+      "color" : "#1a9641",
+      "size" : 25,
+      "children" : [ ]
+    }, {
+      "name" : "SignInForm.cy.tsx (41)",
+      "color" : "#1a9641",
+      "size" : 41,
+      "children" : [ ]
+    }, {
+      "name" : "SignInForm.tsx (155)",
+      "color" : "#a6d96a",
+      "size" : 155,
+      "children" : [ ]
+    }, {
+      "name" : "SignUpForm.tsx (181)",
+      "color" : "#a6d96a",
+      "size" : 181,
+      "children" : [ ]
+    }, {
+      "name" : "SkeletonList.tsx (63)",
+      "color" : "#1a9641",
+      "size" : 63,
+      "children" : [ ]
+    }, {
+      "name" : "SvgCypressLogo.tsx (80)",
+      "color" : "#1a9641",
+      "size" : 80,
+      "children" : [ ]
+    }, {
+      "name" : "SvgUndrawNavigatorA479.tsx (112)",
+      "color" : "#a6d96a",
+      "size" : 112,
+      "children" : [ ]
+    }, {
+      "name" : "SvgUndrawPersonalFinanceTqcd.tsx (82)",
+      "color" : "#1a9641",
+      "size" : 82,
+      "children" : [ ]
+    }, {
+      "name" : "SvgUndrawReminders697P.tsx (126)",
+      "color" : "#a6d96a",
+      "size" : 126,
+      "children" : [ ]
+    }, {
+      "name" : "SvgUndrawTransferMoneyRywa.tsx (276)",
+      "color" : "#ffffbf",
+      "size" : 276,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionAmount.tsx (42)",
+      "color" : "#1a9641",
+      "size" : 42,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionContactsList.tsx (45)",
+      "color" : "#1a9641",
+      "size" : 45,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionCreateStepOne.tsx (33)",
+      "color" : "#1a9641",
+      "size" : 33,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionCreateStepThree.tsx (134)",
+      "color" : "#a6d96a",
+      "size" : 134,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionCreateStepTwo.tsx (198)",
+      "color" : "#a6d96a",
+      "size" : 198,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionDateRangeFilter.cy.tsx (48)",
+      "color" : "#1a9641",
+      "size" : 48,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionDateRangeFilter.tsx (180)",
+      "color" : "#a6d96a",
+      "size" : 180,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionDetail.tsx (231)",
+      "color" : "#ffffbf",
+      "size" : 231,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionInfiniteList.tsx (78)",
+      "color" : "#1a9641",
+      "size" : 78,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionItem.tsx (141)",
+      "color" : "#a6d96a",
+      "size" : 141,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionList.tsx (84)",
+      "color" : "#1a9641",
+      "size" : 84,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionListAmountRangeFilter.tsx (150)",
+      "color" : "#a6d96a",
+      "size" : 150,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionListFilters.tsx (64)",
+      "color" : "#1a9641",
+      "size" : 64,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionNavTabs.tsx (28)",
+      "color" : "#1a9641",
+      "size" : 28,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionPersonalList.tsx (45)",
+      "color" : "#1a9641",
+      "size" : 45,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionPublicList.tsx (45)",
+      "color" : "#1a9641",
+      "size" : 45,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionTitle.cy.tsx (6)",
+      "color" : "#1a9641",
+      "size" : 6,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionTitle.tsx (69)",
+      "color" : "#1a9641",
+      "size" : 69,
+      "children" : [ ]
+    }, {
+      "name" : "UserListItem.tsx (52)",
+      "color" : "#1a9641",
+      "size" : 52,
+      "children" : [ ]
+    }, {
+      "name" : "UserListSearchForm.tsx (50)",
+      "color" : "#1a9641",
+      "size" : 50,
+      "children" : [ ]
+    }, {
+      "name" : "UserSettingsForm.tsx (156)",
+      "color" : "#a6d96a",
+      "size" : 156,
+      "children" : [ ]
+    }, {
+      "name" : "UsersList.tsx (19)",
+      "color" : "#1a9641",
+      "size" : 19,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "containers",
+    "color" : "#1a9641",
+    "size" : 0,
+    "children" : [ {
+      "name" : "App.tsx (65)",
+      "color" : "#1a9641",
+      "size" : 65,
+      "children" : [ ]
+    }, {
+      "name" : "AppAuth0.tsx (57)",
+      "color" : "#1a9641",
+      "size" : 57,
+      "children" : [ ]
+    }, {
+      "name" : "AppCognito.tsx (82)",
+      "color" : "#1a9641",
+      "size" : 82,
+      "children" : [ ]
+    }, {
+      "name" : "AppGoogle.tsx (84)",
+      "color" : "#1a9641",
+      "size" : 84,
+      "children" : [ ]
+    }, {
+      "name" : "AppOkta.tsx (67)",
+      "color" : "#1a9641",
+      "size" : 67,
+      "children" : [ ]
+    }, {
+      "name" : "BankAccountsContainer.tsx (91)",
+      "color" : "#1a9641",
+      "size" : 91,
+      "children" : [ ]
+    }, {
+      "name" : "NotificationsContainer.tsx (56)",
+      "color" : "#1a9641",
+      "size" : 56,
+      "children" : [ ]
+    }, {
+      "name" : "PrivateRoutesContainer.tsx (87)",
+      "color" : "#1a9641",
+      "size" : 87,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionCreateContainer.tsx (88)",
+      "color" : "#1a9641",
+      "size" : 88,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionDetailContainer.tsx (50)",
+      "color" : "#1a9641",
+      "size" : 50,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionsContainer.cy.tsx (48)",
+      "color" : "#1a9641",
+      "size" : 48,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionsContainer.tsx (42)",
+      "color" : "#1a9641",
+      "size" : 42,
+      "children" : [ ]
+    }, {
+      "name" : "UserOnboardingContainer.tsx (128)",
+      "color" : "#a6d96a",
+      "size" : 128,
+      "children" : [ ]
+    }, {
+      "name" : "UserSettingsContainer.tsx (47)",
+      "color" : "#1a9641",
+      "size" : 47,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "index.auth0.tsx (45)",
+    "color" : "#1a9641",
+    "size" : 45,
+    "children" : [ ]
+  }, {
+    "name" : "index.cognito.tsx (35)",
+    "color" : "#1a9641",
+    "size" : 35,
+    "children" : [ ]
+  }, {
+    "name" : "index.google.tsx (35)",
+    "color" : "#1a9641",
+    "size" : 35,
+    "children" : [ ]
+  }, {
+    "name" : "index.okta.tsx (51)",
+    "color" : "#1a9641",
+    "size" : 51,
+    "children" : [ ]
+  }, {
+    "name" : "index.tsx (47)",
+    "color" : "#1a9641",
+    "size" : 47,
+    "children" : [ ]
+  }, {
+    "name" : "machines",
+    "color" : "#1a9641",
+    "size" : 0,
+    "children" : [ {
+      "name" : "authMachine.ts (254)",
+      "color" : "#ffffbf",
+      "size" : 254,
+      "children" : [ ]
+    }, {
+      "name" : "bankAccountsMachine.ts (72)",
+      "color" : "#1a9641",
+      "size" : 72,
+      "children" : [ ]
+    }, {
+      "name" : "contactsTransactionsMachine.ts (15)",
+      "color" : "#1a9641",
+      "size" : 15,
+      "children" : [ ]
+    }, {
+      "name" : "createTransactionMachine.ts (80)",
+      "color" : "#1a9641",
+      "size" : 80,
+      "children" : [ ]
+    }, {
+      "name" : "dataMachine.ts (127)",
+      "color" : "#a6d96a",
+      "size" : 127,
+      "children" : [ ]
+    }, {
+      "name" : "drawerMachine.ts (46)",
+      "color" : "#1a9641",
+      "size" : 46,
+      "children" : [ ]
+    }, {
+      "name" : "notificationsMachine.ts (23)",
+      "color" : "#1a9641",
+      "size" : 23,
+      "children" : [ ]
+    }, {
+      "name" : "personalTransactionsMachine.ts (15)",
+      "color" : "#1a9641",
+      "size" : 15,
+      "children" : [ ]
+    }, {
+      "name" : "publicTransactionsMachine.ts (15)",
+      "color" : "#1a9641",
+      "size" : 15,
+      "children" : [ ]
+    }, {
+      "name" : "snackbarMachine.ts (53)",
+      "color" : "#1a9641",
+      "size" : 53,
+      "children" : [ ]
+    }, {
+      "name" : "transactionDetailMachine.ts (36)",
+      "color" : "#1a9641",
+      "size" : 36,
+      "children" : [ ]
+    }, {
+      "name" : "transactionFiltersMachine.ts (100)",
+      "color" : "#1a9641",
+      "size" : 100,
+      "children" : [ ]
+    }, {
+      "name" : "userOnboardingMachine.ts (47)",
+      "color" : "#1a9641",
+      "size" : 47,
+      "children" : [ ]
+    }, {
+      "name" : "usersMachine.ts (16)",
+      "color" : "#1a9641",
+      "size" : 16,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "models",
+    "color" : "#1a9641",
+    "size" : 0,
+    "children" : [ {
+      "name" : "bankaccount.ts (15)",
+      "color" : "#1a9641",
+      "size" : 15,
+      "children" : [ ]
+    }, {
+      "name" : "banktransfer.ts (16)",
+      "color" : "#1a9641",
+      "size" : 16,
+      "children" : [ ]
+    }, {
+      "name" : "comment.ts (9)",
+      "color" : "#1a9641",
+      "size" : 9,
+      "children" : [ ]
+    }, {
+      "name" : "contact.ts (8)",
+      "color" : "#1a9641",
+      "size" : 8,
+      "children" : [ ]
+    }, {
+      "name" : "db-schema.ts (18)",
+      "color" : "#1a9641",
+      "size" : 18,
+      "children" : [ ]
+    }, {
+      "name" : "index.ts (8)",
+      "color" : "#1a9641",
+      "size" : 8,
+      "children" : [ ]
+    }, {
+      "name" : "like.ts (8)",
+      "color" : "#1a9641",
+      "size" : 8,
+      "children" : [ ]
+    }, {
+      "name" : "notification.ts (60)",
+      "color" : "#1a9641",
+      "size" : 60,
+      "children" : [ ]
+    }, {
+      "name" : "transaction.ts (93)",
+      "color" : "#1a9641",
+      "size" : 93,
+      "children" : [ ]
+    }, {
+      "name" : "user.ts (28)",
+      "color" : "#1a9641",
+      "size" : 28,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "setup-tests.js (7)",
+    "color" : "#1a9641",
+    "size" : 7,
+    "children" : [ ]
+  }, {
+    "name" : "setupProxy.js (11)",
+    "color" : "#1a9641",
+    "size" : 11,
+    "children" : [ ]
+  }, {
+    "name" : "utils",
+    "color" : "#1a9641",
+    "size" : 0,
+    "children" : [ {
+      "name" : "asyncUtils.ts (17)",
+      "color" : "#1a9641",
+      "size" : 17,
+      "children" : [ ]
+    }, {
+      "name" : "historyUtils.ts (2)",
+      "color" : "#1a9641",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "portUtils.ts (22)",
+      "color" : "#1a9641",
+      "size" : 22,
+      "children" : [ ]
+    }, {
+      "name" : "transactionUtils.ts (182)",
+      "color" : "#a6d96a",
+      "size" : 182,
+      "children" : [ ]
+    } ]
+  } ]
+}, {
+  "name" : "vite.config.ts (43)",
+  "color" : "#1a9641",
+  "size" : 43,
+  "children" : [ ]
+}, {
+  "name" : "vite.cypress.config.ts (15)",
+  "color" : "#1a9641",
+  "size" : 15,
+  "children" : [ ]
+} ]
+    }
+
+    root = d3.hierarchy(root)
+        .sum(function (d) {
+            return d.size;
+        })
+        .sort(function (a, b) {
+            return b.value - a.value;
+        });
+
+    var focus = root,
+        nodes = pack(root).descendants(),
+        view;
+
+    var circle = g.selectAll("circle")
+        .data(nodes)
+        .enter().append("circle")
+        .attr("class", function (d) {
+            return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root";
+        })
+        .style("fill", function (d) {
+            return d.children ? color(d.depth) : (d.data.color ? d.data.color : null);
+        })
+        .on("click", function (d) {
+            if (focus !== d) zoom(d), d3.event.stopPropagation();
+        });
+
+    var text = g.selectAll("text")
+        .data(nodes)
+        .enter().append("text")
+        .attr("class", "label")
+        .style("fill-opacity", function (d) {
+            return d.parent === root ? 1 : 0;
+        })
+        .style("display", function (d) {
+            return d.parent === root ? "inline" : "none";
+        })
+        .text(function (d) {
+            return d.data.name.length > 33 ? (d.data.name.substr(0, 14) + "..." + d.data.name.substr(d.data.name.length - 14))  : d.data.name;
+        });
+
+    var node = g.selectAll("circle,text");
+
+    svg
+        .style("background", color(-1))
+        .on("click", function () {
+            zoom(root);
+        });
+
+    zoomTo([root.x, root.y, root.r * 2 + margin]);
+
+    function zoom(d) {
+        var focus0 = focus;
+        focus = d;
+
+        var transition = d3.transition()
+            .duration(d3.event.altKey ? 7500 : 750)
+            .tween("zoom", function (d) {
+                var i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2 + margin]);
+                return function (t) {
+                    zoomTo(i(t));
+                };
+            });
+
+        transition.selectAll("text")
+            .filter(function (d) {
+                return d.parent === focus || this.style.display === "inline";
+            })
+            .style("fill-opacity", function (d) {
+                return d.parent === focus ? 1 : 0;
+            })
+            .on("start", function (d) {
+                if (d.parent === focus) this.style.display = "inline";
+            })
+            .on("end", function (d) {
+                if (d.parent !== focus) this.style.display = "none";
+            });
+    }
+
+    function zoomTo(v) {
+        var k = diameter / v[2];
+        view = v;
+        node.attr("transform", function (d) {
+            return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")";
+        });
+        circle.attr("r", function (d) {
+            return d.r * k;
+        });
+    }
+
+</script>

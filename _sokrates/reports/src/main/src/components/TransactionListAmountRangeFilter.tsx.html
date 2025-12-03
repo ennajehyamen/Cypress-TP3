@@ -1,0 +1,191 @@
+<html>
+<head>
+    <title>src/components/TransactionListAmountRangeFilter.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/TransactionListAmountRangeFilter.tsx (<b>150</b> lines of code) (<a href="TransactionListAmountRangeFilter.tsx">raw</a>):</h3>
+<div id="editor">import React from &quot;react&quot;;
+import {
+  Grid,
+  Popover,
+  Typography,
+  Slider,
+  Chip,
+  Button,
+  useTheme,
+  useMediaQuery,
+  Drawer,
+} from &quot;@mui/material&quot;;
+import { ArrowDropDown as ArrowDropDownIcon } from &quot;@mui/icons-material&quot;;
+import { TransactionAmountRangePayload } from &quot;../models&quot;;
+import {
+  formatAmountRangeValues,
+  amountRangeValueText,
+  amountRangeValueTextLabel,
+  padAmountWithZeros,
+  //hasAmountQueryFields
+} from &quot;../utils/transactionUtils&quot;;
+import { first, last } from &quot;lodash/fp&quot;;
+
+export type TransactionListAmountRangeFilterProps = {
+  filterAmountRange: Function;
+  amountRangeFilters: TransactionAmountRangePayload;
+  resetAmountRange: Function;
+};
+
+const TransactionListAmountRangeFilter: React.FC&lt;TransactionListAmountRangeFilterProps&gt; = ({
+  filterAmountRange,
+  amountRangeFilters,
+  resetAmountRange,
+}) =&gt; {
+  const theme = useTheme();
+  const xsBreakpoint = useMediaQuery(theme.breakpoints.only(&quot;xs&quot;));
+
+  const initialAmountRange = [0, 100];
+  const [amountRangeValue, setAmountRangeValue] = React.useState&lt;number[]&gt;(initialAmountRange);
+
+  const [amountRangeAnchorEl, setAmountRangeAnchorEl] = React.useState&lt;HTMLDivElement | null&gt;(null);
+
+  const handleAmountRangeClick = (event: React.MouseEvent&lt;HTMLDivElement&gt;) =&gt; {
+    setAmountRangeAnchorEl(event.currentTarget);
+  };
+
+  const handleAmountRangeClose = () =&gt; {
+    setAmountRangeAnchorEl(null);
+  };
+
+  const handleAmountRangeChange = (_event: any, amountRange: number | number[]) =&gt; {
+    filterAmountRange({
+      amountMin: padAmountWithZeros(first(amountRange as number[]) as number),
+      amountMax: padAmountWithZeros(last(amountRange as number[]) as number),
+    });
+    setAmountRangeValue(amountRange as number[]);
+  };
+
+  const amountRangeOpen = Boolean(amountRangeAnchorEl);
+  const amountRangeId = amountRangeOpen ? &quot;amount-range-popover&quot; : undefined;
+
+  const AmountRangeFilter = () =&gt; (
+    &lt;Grid
+      data-test=&quot;transaction-list-filter-amount-range&quot;
+      container
+      direction=&quot;column&quot;
+      justifyContent=&quot;flex-start&quot;
+      alignItems=&quot;flex-start&quot;
+      spacing={1}
+      sx={{ width: &quot;300px&quot;, margin: &quot;30px&quot; }}
+    &gt;
+      &lt;Grid item&gt;
+        &lt;Grid
+          container
+          direction=&quot;row&quot;
+          justifyContent=&quot;space-between&quot;
+          alignItems=&quot;center&quot;
+          sx={{ width: &quot;100%&quot; }}
+        &gt;
+          &lt;Grid item sx={{ width: &quot;225px&quot; }}&gt;
+            &lt;Typography color=&quot;textSecondary&quot; data-test=&quot;transaction-list-filter-amount-range-text&quot;&gt;
+              Amount Range: {formatAmountRangeValues(amountRangeValue)}
+            &lt;/Typography&gt;
+          &lt;/Grid&gt;
+          &lt;Grid item&gt;
+            &lt;Button
+              data-test=&quot;transaction-list-filter-amount-clear-button&quot;
+              onClick={() =&gt; {
+                setAmountRangeValue(initialAmountRange);
+                resetAmountRange();
+              }}
+            &gt;
+              Clear
+            &lt;/Button&gt;
+          &lt;/Grid&gt;
+        &lt;/Grid&gt;
+      &lt;/Grid&gt;
+      &lt;Grid item&gt;
+        &lt;Slider
+          data-test=&quot;transaction-list-filter-amount-range-slider&quot;
+          sx={{ width: &quot;200px&quot; }}
+          value={amountRangeValue}
+          min={0}
+          max={100}
+          onChange={handleAmountRangeChange}
+          valueLabelDisplay=&quot;auto&quot;
+          aria-labelledby=&quot;range-slider&quot;
+          getAriaValueText={amountRangeValueText}
+          valueLabelFormat={amountRangeValueTextLabel}
+        /&gt;
+      &lt;/Grid&gt;
+    &lt;/Grid&gt;
+  );
+
+  return (
+    &lt;div&gt;
+      &lt;Chip
+        color=&quot;primary&quot;
+        variant=&quot;outlined&quot;
+        onClick={handleAmountRangeClick}
+        data-test=&quot;transaction-list-filter-amount-range-button&quot;
+        label={`Amount: ${formatAmountRangeValues(amountRangeValue)}`}
+        deleteIcon={&lt;ArrowDropDownIcon /&gt;}
+        onDelete={handleAmountRangeClick}
+      /&gt;
+      {!xsBreakpoint &amp;&amp; (
+        &lt;Popover
+          id={amountRangeId}
+          open={amountRangeOpen}
+          anchorEl={amountRangeAnchorEl}
+          onClose={handleAmountRangeClose}
+          anchorOrigin={{
+            vertical: &quot;bottom&quot;,
+            horizontal: &quot;left&quot;,
+          }}
+          transformOrigin={{
+            vertical: &quot;top&quot;,
+            horizontal: &quot;left&quot;,
+          }}
+        &gt;
+          &lt;AmountRangeFilter /&gt;
+        &lt;/Popover&gt;
+      )}
+      {xsBreakpoint &amp;&amp; (
+        &lt;Drawer
+          id={amountRangeId}
+          open={amountRangeOpen}
+          ModalProps={{ onClose: handleAmountRangeClose }}
+          anchor=&quot;bottom&quot;
+          data-test=&quot;amount-range-filter-drawer&quot;
+        &gt;
+          &lt;Button
+            data-test=&quot;amount-range-filter-drawer-close&quot;
+            onClick={() =&gt; handleAmountRangeClose()}
+          &gt;
+            Close
+          &lt;/Button&gt;
+          &lt;AmountRangeFilter /&gt;
+        &lt;/Drawer&gt;
+      )}
+    &lt;/div&gt;
+  );
+};
+
+export default TransactionListAmountRangeFilter;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

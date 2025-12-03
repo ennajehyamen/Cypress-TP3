@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>function PrivateRoute()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">function PrivateRoute()</h3>
+<p style="margin-top: 4px">in <i>src/components/PrivateRoute.tsx [8:27]</i></p>
+<ul>
+    <li><b>11</b> lines of code</li>
+    <li><b>1</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="tsx">
+function PrivateRoute({ isLoggedIn, children, ...rest }: IPrivateRouteProps) {
+  return (
+    &lt;Route
+      {...rest}
+      render={({ location }) =&gt;
+        isLoggedIn ? (
+          children
+        ) : (
+          /* istanbul ignore next */
+          &lt;Redirect
+            to={{
+              pathname: &quot;/signin&quot;,
+              state: { from: location },
+            }}
+          /&gt;
+        )
+      }
+    /&gt;
+  );
+}
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

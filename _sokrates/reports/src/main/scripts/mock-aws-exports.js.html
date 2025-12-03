@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>scripts/mock-aws-exports.js</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">scripts/mock-aws-exports.js (<b>18</b> lines of code) (<a href="mock-aws-exports.js">raw</a>):</h3>
+<div id="editor">// mock aws-exports.js
+
+const awsmobile = {
+  Auth: {
+    Cognito: {
+      userPoolId: &quot;us-east-1_abcdefghi&quot;,
+      userPoolClientId: &quot;a1b2c3d4e5f6g7h8i9j0k1l2m&quot;,
+      loginWith: {
+        oauth: {
+          domain: &quot;YOUR_COGNITO_USER_POOL_HOSTED_UI_DOMAIN_PREFIX.auth.us-east-1.amazoncognito.com&quot;,
+          scopes: [&quot;email&quot;, &quot;openid&quot;, &quot;aws.cognito.signin.user.admin&quot;],
+          redirectSignIn: [&quot;http://localhost:3000/&quot;],
+          redirectSignOut: [&quot;http://localhost:3000/&quot;],
+          responseType: &quot;token&quot;,
+        },
+      },
+    },
+  },
+};
+
+export default awsmobile;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/javascript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

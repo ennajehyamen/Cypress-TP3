@@ -1,0 +1,5 @@
+Summary: 2 instances, 2 unique
+
+Text	Count
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.	1
+// TODO: review violations of disabled rules	1

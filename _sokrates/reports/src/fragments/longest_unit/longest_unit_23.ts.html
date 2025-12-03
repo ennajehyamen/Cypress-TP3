@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>uuid: v4()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">uuid: v4()</h3>
+<p style="margin-top: 4px">in <i>backend/database.ts [237:267]</i></p>
+<ul>
+    <li><b>20</b> lines of code</li>
+    <li><b>1</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="ts">
+    uuid: v4(),
+    userId,
+    contactUserId,
+    createdAt: new Date(),
+    modifiedAt: new Date(),
+  };
+
+  // Write contact record to the database
+  const result = createContact(contact);
+
+  return result;
+};
+
+// Bank Account
+export const getBankAccountBy = (key: string, value: any) =&gt; getBy(BANK_ACCOUNT_TABLE, key, value);
+
+export const getBankAccountById = (id: string) =&gt; getBankAccountBy(&quot;id&quot;, id);
+
+export const getBankAccountsBy = (key: string, value: any) =&gt;
+  getAllBy(BANK_ACCOUNT_TABLE, key, value);
+
+export const createBankAccount = (bankaccount: BankAccount) =&gt; {
+  db.get(BANK_ACCOUNT_TABLE).push(bankaccount).write();
+
+  // manual lookup after create
+  return getBankAccountBy(&quot;id&quot;, bankaccount.id);
+};
+
+export const createBankAccountForUser = (userId: string, accountDetails: Partial&lt;BankAccount&gt;) =&gt; {
+  const accountId = shortid();
+  const bankaccount: BankAccount = {
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

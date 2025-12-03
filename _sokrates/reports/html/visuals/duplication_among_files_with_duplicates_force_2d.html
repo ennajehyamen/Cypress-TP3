@@ -1,0 +1,7043 @@
+<head>
+    <style> body {
+        margin: 0;
+    } </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/force-graph"></script>
+</head>
+
+<body>
+<div id="graph"></div>
+
+<script>
+    const gData = {
+  "nodes" : [ {
+    "id" : "duplicate40",
+    "size" : 2
+  }, {
+    "id" : "duplicate42",
+    "size" : 2
+  }, {
+    "id" : "duplicate41",
+    "size" : 2
+  }, {
+    "id" : "duplicate44",
+    "size" : 2
+  }, {
+    "id" : "duplicate43",
+    "size" : 2
+  }, {
+    "id" : "duplicate46",
+    "size" : 2
+  }, {
+    "id" : "duplicate45",
+    "size" : 2
+  }, {
+    "id" : "duplicate48",
+    "size" : 2
+  }, {
+    "id" : "duplicate47",
+    "size" : 2
+  }, {
+    "id" : "duplicate49",
+    "size" : 2
+  }, {
+    "id" : "[src/index.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[src/components/UserListSearchForm.tsx]",
+    "size" : 7
+  }, {
+    "id" : "[backend/comment-routes.ts]",
+    "size" : 2
+  }, {
+    "id" : "duplicate51",
+    "size" : 2
+  }, {
+    "id" : "duplicate50",
+    "size" : 2
+  }, {
+    "id" : "[backend/database.ts]",
+    "size" : 7
+  }, {
+    "id" : "duplicate53",
+    "size" : 2
+  }, {
+    "id" : "duplicate52",
+    "size" : 2
+  }, {
+    "id" : "duplicate55",
+    "size" : 2
+  }, {
+    "id" : "duplicate54",
+    "size" : 2
+  }, {
+    "id" : "duplicate57",
+    "size" : 2
+  }, {
+    "id" : "duplicate56",
+    "size" : 2
+  }, {
+    "id" : "duplicate59",
+    "size" : 2
+  }, {
+    "id" : "duplicate58",
+    "size" : 2
+  }, {
+    "id" : "[src/aws-exports.js]",
+    "size" : 3
+  }, {
+    "id" : "[src/machines/transactionDetailMachine.ts]",
+    "size" : 1
+  }, {
+    "id" : "duplicate20",
+    "size" : 2
+  }, {
+    "id" : "duplicate22",
+    "size" : 2
+  }, {
+    "id" : "duplicate21",
+    "size" : 2
+  }, {
+    "id" : "duplicate24",
+    "size" : 2
+  }, {
+    "id" : "duplicate23",
+    "size" : 2
+  }, {
+    "id" : "duplicate26",
+    "size" : 2
+  }, {
+    "id" : "duplicate25",
+    "size" : 2
+  }, {
+    "id" : "[src/machines/authMachine.ts]",
+    "size" : 20
+  }, {
+    "id" : "duplicate28",
+    "size" : 2
+  }, {
+    "id" : "duplicate27",
+    "size" : 2
+  }, {
+    "id" : "duplicate29",
+    "size" : 2
+  }, {
+    "id" : "[src/components/TransactionContactsList.tsx]",
+    "size" : 3
+  }, {
+    "id" : "duplicate31",
+    "size" : 2
+  }, {
+    "id" : "duplicate30",
+    "size" : 2
+  }, {
+    "id" : "duplicate33",
+    "size" : 2
+  }, {
+    "id" : "duplicate32",
+    "size" : 2
+  }, {
+    "id" : "duplicate35",
+    "size" : 2
+  }, {
+    "id" : "duplicate34",
+    "size" : 2
+  }, {
+    "id" : "duplicate37",
+    "size" : 2
+  }, {
+    "id" : "duplicate36",
+    "size" : 2
+  }, {
+    "id" : "duplicate39",
+    "size" : 2
+  }, {
+    "id" : "duplicate38",
+    "size" : 2
+  }, {
+    "id" : "[src/components/SignInForm.tsx]",
+    "size" : 25
+  }, {
+    "id" : "[src/containers/AppGoogle.tsx]",
+    "size" : 9
+  }, {
+    "id" : "duplicate11",
+    "size" : 2
+  }, {
+    "id" : "duplicate10",
+    "size" : 2
+  }, {
+    "id" : "duplicate13",
+    "size" : 2
+  }, {
+    "id" : "duplicate12",
+    "size" : 2
+  }, {
+    "id" : "duplicate15",
+    "size" : 2
+  }, {
+    "id" : "duplicate14",
+    "size" : 2
+  }, {
+    "id" : "duplicate17",
+    "size" : 2
+  }, {
+    "id" : "duplicate16",
+    "size" : 2
+  }, {
+    "id" : "duplicate19",
+    "size" : 2
+  }, {
+    "id" : "[src/containers/AppCognito.tsx]",
+    "size" : 4
+  }, {
+    "id" : "duplicate18",
+    "size" : 2
+  }, {
+    "id" : "[src/containers/UserSettingsContainer.tsx]",
+    "size" : 7
+  }, {
+    "id" : "[scripts/mock-aws-exports-es5.js]",
+    "size" : 3
+  }, {
+    "id" : "duplicate4",
+    "size" : 2
+  }, {
+    "id" : "duplicate3",
+    "size" : 2
+  }, {
+    "id" : "duplicate6",
+    "size" : 2
+  }, {
+    "id" : "duplicate5",
+    "size" : 2
+  }, {
+    "id" : "duplicate8",
+    "size" : 2
+  }, {
+    "id" : "duplicate7",
+    "size" : 2
+  }, {
+    "id" : "duplicate9",
+    "size" : 2
+  }, {
+    "id" : "duplicate2",
+    "size" : 2
+  }, {
+    "id" : "duplicate1",
+    "size" : 2
+  }, {
+    "id" : "[src/components/TransactionListAmountRangeFilter.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[src/components/TransactionPublicList.tsx]",
+    "size" : 3
+  }, {
+    "id" : "[src/components/TransactionCreateStepThree.tsx]",
+    "size" : 12
+  }, {
+    "id" : "[src/index.google.tsx]",
+    "size" : 3
+  }, {
+    "id" : "[src/components/BankAccountForm.tsx]",
+    "size" : 79
+  }, {
+    "id" : "[src/components/TransactionListFilters.tsx]",
+    "size" : 7
+  }, {
+    "id" : "duplicate199",
+    "size" : 2
+  }, {
+    "id" : "duplicate197",
+    "size" : 2
+  }, {
+    "id" : "duplicate198",
+    "size" : 2
+  }, {
+    "id" : "[src/components/TransactionDateRangeFilter.tsx]",
+    "size" : 3
+  }, {
+    "id" : "duplicate195",
+    "size" : 2
+  }, {
+    "id" : "duplicate196",
+    "size" : 2
+  }, {
+    "id" : "duplicate193",
+    "size" : 2
+  }, {
+    "id" : "duplicate194",
+    "size" : 2
+  }, {
+    "id" : "[src/components/TransactionPersonalList.tsx]",
+    "size" : 2
+  }, {
+    "id" : "duplicate188",
+    "size" : 2
+  }, {
+    "id" : "duplicate189",
+    "size" : 2
+  }, {
+    "id" : "duplicate186",
+    "size" : 2
+  }, {
+    "id" : "duplicate187",
+    "size" : 2
+  }, {
+    "id" : "duplicate184",
+    "size" : 2
+  }, {
+    "id" : "duplicate185",
+    "size" : 2
+  }, {
+    "id" : "duplicate182",
+    "size" : 2
+  }, {
+    "id" : "duplicate183",
+    "size" : 2
+  }, {
+    "id" : "duplicate191",
+    "size" : 2
+  }, {
+    "id" : "duplicate192",
+    "size" : 2
+  }, {
+    "id" : "duplicate190",
+    "size" : 2
+  }, {
+    "id" : "[src/components/SignUpForm.tsx]",
+    "size" : 97
+  }, {
+    "id" : "duplicate80",
+    "size" : 2
+  }, {
+    "id" : "duplicate82",
+    "size" : 2
+  }, {
+    "id" : "duplicate81",
+    "size" : 2
+  }, {
+    "id" : "duplicate84",
+    "size" : 2
+  }, {
+    "id" : "duplicate83",
+    "size" : 2
+  }, {
+    "id" : "duplicate86",
+    "size" : 2
+  }, {
+    "id" : "duplicate85",
+    "size" : 2
+  }, {
+    "id" : "duplicate88",
+    "size" : 2
+  }, {
+    "id" : "duplicate87",
+    "size" : 2
+  }, {
+    "id" : "duplicate89",
+    "size" : 2
+  }, {
+    "id" : "[src/machines/dataMachine.ts]",
+    "size" : 2
+  }, {
+    "id" : "[src/machines/usersMachine.ts]",
+    "size" : 3
+  }, {
+    "id" : "duplicate91",
+    "size" : 2
+  }, {
+    "id" : "duplicate90",
+    "size" : 2
+  }, {
+    "id" : "duplicate93",
+    "size" : 2
+  }, {
+    "id" : "duplicate92",
+    "size" : 2
+  }, {
+    "id" : "duplicate95",
+    "size" : 2
+  }, {
+    "id" : "duplicate94",
+    "size" : 2
+  }, {
+    "id" : "duplicate97",
+    "size" : 2
+  }, {
+    "id" : "duplicate96",
+    "size" : 2
+  }, {
+    "id" : "duplicate99",
+    "size" : 2
+  }, {
+    "id" : "duplicate98",
+    "size" : 2
+  }, {
+    "id" : "[src/containers/NotificationsContainer.tsx]",
+    "size" : 18
+  }, {
+    "id" : "duplicate60",
+    "size" : 2
+  }, {
+    "id" : "[src/components/CommentForm.tsx]",
+    "size" : 7
+  }, {
+    "id" : "duplicate62",
+    "size" : 2
+  }, {
+    "id" : "duplicate61",
+    "size" : 2
+  }, {
+    "id" : "duplicate64",
+    "size" : 2
+  }, {
+    "id" : "[src/containers/BankAccountsContainer.tsx]",
+    "size" : 18
+  }, {
+    "id" : "duplicate63",
+    "size" : 2
+  }, {
+    "id" : "duplicate66",
+    "size" : 2
+  }, {
+    "id" : "duplicate65",
+    "size" : 2
+  }, {
+    "id" : "duplicate68",
+    "size" : 2
+  }, {
+    "id" : "duplicate67",
+    "size" : 2
+  }, {
+    "id" : "duplicate69",
+    "size" : 2
+  }, {
+    "id" : "[backend/like-routes.ts]",
+    "size" : 2
+  }, {
+    "id" : "duplicate71",
+    "size" : 2
+  }, {
+    "id" : "duplicate70",
+    "size" : 2
+  }, {
+    "id" : "duplicate73",
+    "size" : 2
+  }, {
+    "id" : "duplicate72",
+    "size" : 2
+  }, {
+    "id" : "duplicate75",
+    "size" : 2
+  }, {
+    "id" : "duplicate74",
+    "size" : 2
+  }, {
+    "id" : "duplicate77",
+    "size" : 2
+  }, {
+    "id" : "duplicate76",
+    "size" : 2
+  }, {
+    "id" : "duplicate79",
+    "size" : 2
+  }, {
+    "id" : "duplicate78",
+    "size" : 2
+  }, {
+    "id" : "[src/machines/publicTransactionsMachine.ts]",
+    "size" : 3
+  }, {
+    "id" : "duplicate133",
+    "size" : 2
+  }, {
+    "id" : "duplicate254",
+    "size" : 2
+  }, {
+    "id" : "duplicate134",
+    "size" : 2
+  }, {
+    "id" : "duplicate255",
+    "size" : 2
+  }, {
+    "id" : "duplicate131",
+    "size" : 2
+  }, {
+    "id" : "duplicate252",
+    "size" : 2
+  }, {
+    "id" : "duplicate132",
+    "size" : 2
+  }, {
+    "id" : "duplicate253",
+    "size" : 2
+  }, {
+    "id" : "duplicate250",
+    "size" : 2
+  }, {
+    "id" : "duplicate130",
+    "size" : 2
+  }, {
+    "id" : "[src/machines/notificationsMachine.ts]",
+    "size" : 1
+  }, {
+    "id" : "duplicate251",
+    "size" : 2
+  }, {
+    "id" : "[src/components/UserListItem.tsx]",
+    "size" : 1
+  }, {
+    "id" : "duplicate139",
+    "size" : 2
+  }, {
+    "id" : "duplicate137",
+    "size" : 2
+  }, {
+    "id" : "duplicate258",
+    "size" : 2
+  }, {
+    "id" : "duplicate138",
+    "size" : 2
+  }, {
+    "id" : "duplicate259",
+    "size" : 2
+  }, {
+    "id" : "duplicate135",
+    "size" : 2
+  }, {
+    "id" : "duplicate256",
+    "size" : 2
+  }, {
+    "id" : "duplicate136",
+    "size" : 2
+  }, {
+    "id" : "duplicate257",
+    "size" : 2
+  }, {
+    "id" : "[src/containers/UserOnboardingContainer.tsx]",
+    "size" : 13
+  }, {
+    "id" : "[src/index.auth0.tsx]",
+    "size" : 3
+  }, {
+    "id" : "duplicate122",
+    "size" : 2
+  }, {
+    "id" : "duplicate243",
+    "size" : 2
+  }, {
+    "id" : "duplicate123",
+    "size" : 2
+  }, {
+    "id" : "duplicate244",
+    "size" : 2
+  }, {
+    "id" : "duplicate120",
+    "size" : 2
+  }, {
+    "id" : "duplicate241",
+    "size" : 2
+  }, {
+    "id" : "duplicate121",
+    "size" : 2
+  }, {
+    "id" : "duplicate242",
+    "size" : 2
+  }, {
+    "id" : "duplicate240",
+    "size" : 2
+  }, {
+    "id" : "[src/components/AlertBar.tsx]",
+    "size" : 10
+  }, {
+    "id" : "duplicate128",
+    "size" : 2
+  }, {
+    "id" : "duplicate249",
+    "size" : 2
+  }, {
+    "id" : "duplicate129",
+    "size" : 2
+  }, {
+    "id" : "duplicate126",
+    "size" : 2
+  }, {
+    "id" : "duplicate247",
+    "size" : 2
+  }, {
+    "id" : "duplicate127",
+    "size" : 2
+  }, {
+    "id" : "duplicate248",
+    "size" : 2
+  }, {
+    "id" : "duplicate124",
+    "size" : 2
+  }, {
+    "id" : "duplicate245",
+    "size" : 2
+  }, {
+    "id" : "duplicate125",
+    "size" : 2
+  }, {
+    "id" : "duplicate246",
+    "size" : 2
+  }, {
+    "id" : "[src/components/TransactionDateRangeFilter.cy.tsx]",
+    "size" : 2
+  }, {
+    "id" : "duplicate111",
+    "size" : 2
+  }, {
+    "id" : "duplicate232",
+    "size" : 2
+  }, {
+    "id" : "duplicate353",
+    "size" : 2
+  }, {
+    "id" : "duplicate112",
+    "size" : 2
+  }, {
+    "id" : "duplicate233",
+    "size" : 2
+  }, {
+    "id" : "duplicate354",
+    "size" : 2
+  }, {
+    "id" : "duplicate230",
+    "size" : 2
+  }, {
+    "id" : "duplicate351",
+    "size" : 2
+  }, {
+    "id" : "duplicate110",
+    "size" : 2
+  }, {
+    "id" : "duplicate231",
+    "size" : 2
+  }, {
+    "id" : "duplicate352",
+    "size" : 2
+  }, {
+    "id" : "duplicate350",
+    "size" : 2
+  }, {
+    "id" : "duplicate119",
+    "size" : 2
+  }, {
+    "id" : "[src/containers/App.tsx]",
+    "size" : 7
+  }, {
+    "id" : "duplicate117",
+    "size" : 2
+  }, {
+    "id" : "duplicate238",
+    "size" : 2
+  }, {
+    "id" : "duplicate359",
+    "size" : 2
+  }, {
+    "id" : "duplicate118",
+    "size" : 2
+  }, {
+    "id" : "duplicate239",
+    "size" : 2
+  }, {
+    "id" : "duplicate115",
+    "size" : 2
+  }, {
+    "id" : "duplicate236",
+    "size" : 2
+  }, {
+    "id" : "duplicate357",
+    "size" : 2
+  }, {
+    "id" : "duplicate116",
+    "size" : 2
+  }, {
+    "id" : "duplicate237",
+    "size" : 2
+  }, {
+    "id" : "duplicate358",
+    "size" : 2
+  }, {
+    "id" : "duplicate113",
+    "size" : 2
+  }, {
+    "id" : "duplicate234",
+    "size" : 2
+  }, {
+    "id" : "duplicate355",
+    "size" : 2
+  }, {
+    "id" : "duplicate114",
+    "size" : 2
+  }, {
+    "id" : "duplicate235",
+    "size" : 2
+  }, {
+    "id" : "duplicate356",
+    "size" : 2
+  }, {
+    "id" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "size" : 52
+  }, {
+    "id" : "[src/machines/personalTransactionsMachine.ts]",
+    "size" : 3
+  }, {
+    "id" : "duplicate100",
+    "size" : 2
+  }, {
+    "id" : "duplicate221",
+    "size" : 2
+  }, {
+    "id" : "duplicate342",
+    "size" : 2
+  }, {
+    "id" : "duplicate101",
+    "size" : 2
+  }, {
+    "id" : "duplicate222",
+    "size" : 2
+  }, {
+    "id" : "duplicate343",
+    "size" : 2
+  }, {
+    "id" : "duplicate340",
+    "size" : 2
+  }, {
+    "id" : "duplicate220",
+    "size" : 2
+  }, {
+    "id" : "duplicate341",
+    "size" : 2
+  }, {
+    "id" : "duplicate108",
+    "size" : 2
+  }, {
+    "id" : "duplicate229",
+    "size" : 2
+  }, {
+    "id" : "duplicate109",
+    "size" : 2
+  }, {
+    "id" : "duplicate106",
+    "size" : 2
+  }, {
+    "id" : "duplicate227",
+    "size" : 2
+  }, {
+    "id" : "duplicate348",
+    "size" : 2
+  }, {
+    "id" : "duplicate107",
+    "size" : 2
+  }, {
+    "id" : "duplicate228",
+    "size" : 2
+  }, {
+    "id" : "duplicate349",
+    "size" : 2
+  }, {
+    "id" : "duplicate104",
+    "size" : 2
+  }, {
+    "id" : "duplicate225",
+    "size" : 2
+  }, {
+    "id" : "duplicate346",
+    "size" : 2
+  }, {
+    "id" : "duplicate105",
+    "size" : 2
+  }, {
+    "id" : "duplicate226",
+    "size" : 2
+  }, {
+    "id" : "duplicate347",
+    "size" : 2
+  }, {
+    "id" : "duplicate102",
+    "size" : 2
+  }, {
+    "id" : "duplicate223",
+    "size" : 2
+  }, {
+    "id" : "duplicate344",
+    "size" : 2
+  }, {
+    "id" : "duplicate103",
+    "size" : 2
+  }, {
+    "id" : "duplicate224",
+    "size" : 2
+  }, {
+    "id" : "duplicate345",
+    "size" : 2
+  }, {
+    "id" : "[src/index.okta.tsx]",
+    "size" : 3
+  }, {
+    "id" : "duplicate177",
+    "size" : 2
+  }, {
+    "id" : "duplicate298",
+    "size" : 2
+  }, {
+    "id" : "duplicate178",
+    "size" : 2
+  }, {
+    "id" : "duplicate299",
+    "size" : 2
+  }, {
+    "id" : "duplicate175",
+    "size" : 2
+  }, {
+    "id" : "duplicate296",
+    "size" : 2
+  }, {
+    "id" : "duplicate176",
+    "size" : 2
+  }, {
+    "id" : "duplicate297",
+    "size" : 2
+  }, {
+    "id" : "duplicate173",
+    "size" : 2
+  }, {
+    "id" : "duplicate294",
+    "size" : 2
+  }, {
+    "id" : "duplicate174",
+    "size" : 2
+  }, {
+    "id" : "duplicate295",
+    "size" : 2
+  }, {
+    "id" : "duplicate171",
+    "size" : 2
+  }, {
+    "id" : "duplicate292",
+    "size" : 2
+  }, {
+    "id" : "duplicate172",
+    "size" : 2
+  }, {
+    "id" : "duplicate293",
+    "size" : 2
+  }, {
+    "id" : "duplicate179",
+    "size" : 2
+  }, {
+    "id" : "duplicate180",
+    "size" : 2
+  }, {
+    "id" : "duplicate181",
+    "size" : 2
+  }, {
+    "id" : "[src/components/UserSettingsForm.tsx]",
+    "size" : 95
+  }, {
+    "id" : "duplicate166",
+    "size" : 2
+  }, {
+    "id" : "duplicate287",
+    "size" : 2
+  }, {
+    "id" : "duplicate167",
+    "size" : 2
+  }, {
+    "id" : "duplicate288",
+    "size" : 2
+  }, {
+    "id" : "duplicate164",
+    "size" : 2
+  }, {
+    "id" : "duplicate285",
+    "size" : 2
+  }, {
+    "id" : "duplicate165",
+    "size" : 2
+  }, {
+    "id" : "duplicate286",
+    "size" : 2
+  }, {
+    "id" : "duplicate162",
+    "size" : 2
+  }, {
+    "id" : "duplicate283",
+    "size" : 2
+  }, {
+    "id" : "duplicate163",
+    "size" : 2
+  }, {
+    "id" : "duplicate284",
+    "size" : 2
+  }, {
+    "id" : "duplicate160",
+    "size" : 2
+  }, {
+    "id" : "duplicate281",
+    "size" : 2
+  }, {
+    "id" : "duplicate161",
+    "size" : 2
+  }, {
+    "id" : "duplicate282",
+    "size" : 2
+  }, {
+    "id" : "[src/containers/TransactionCreateContainer.tsx]",
+    "size" : 10
+  }, {
+    "id" : "duplicate168",
+    "size" : 2
+  }, {
+    "id" : "duplicate289",
+    "size" : 2
+  }, {
+    "id" : "duplicate169",
+    "size" : 2
+  }, {
+    "id" : "duplicate290",
+    "size" : 2
+  }, {
+    "id" : "duplicate170",
+    "size" : 2
+  }, {
+    "id" : "duplicate291",
+    "size" : 2
+  }, {
+    "id" : "[src/containers/AppOkta.tsx]",
+    "size" : 6
+  }, {
+    "id" : "duplicate155",
+    "size" : 2
+  }, {
+    "id" : "duplicate276",
+    "size" : 2
+  }, {
+    "id" : "duplicate156",
+    "size" : 2
+  }, {
+    "id" : "duplicate277",
+    "size" : 2
+  }, {
+    "id" : "duplicate153",
+    "size" : 2
+  }, {
+    "id" : "duplicate274",
+    "size" : 2
+  }, {
+    "id" : "duplicate154",
+    "size" : 2
+  }, {
+    "id" : "duplicate275",
+    "size" : 2
+  }, {
+    "id" : "duplicate151",
+    "size" : 2
+  }, {
+    "id" : "duplicate272",
+    "size" : 2
+  }, {
+    "id" : "duplicate152",
+    "size" : 2
+  }, {
+    "id" : "duplicate273",
+    "size" : 2
+  }, {
+    "id" : "duplicate270",
+    "size" : 2
+  }, {
+    "id" : "duplicate150",
+    "size" : 2
+  }, {
+    "id" : "duplicate271",
+    "size" : 2
+  }, {
+    "id" : "duplicate159",
+    "size" : 2
+  }, {
+    "id" : "duplicate157",
+    "size" : 2
+  }, {
+    "id" : "duplicate278",
+    "size" : 2
+  }, {
+    "id" : "duplicate158",
+    "size" : 2
+  }, {
+    "id" : "duplicate279",
+    "size" : 2
+  }, {
+    "id" : "[src/components/MainLayout.tsx]",
+    "size" : 14
+  }, {
+    "id" : "duplicate280",
+    "size" : 2
+  }, {
+    "id" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "size" : 46
+  }, {
+    "id" : "duplicate144",
+    "size" : 2
+  }, {
+    "id" : "duplicate265",
+    "size" : 2
+  }, {
+    "id" : "duplicate145",
+    "size" : 2
+  }, {
+    "id" : "duplicate266",
+    "size" : 2
+  }, {
+    "id" : "duplicate142",
+    "size" : 2
+  }, {
+    "id" : "duplicate263",
+    "size" : 2
+  }, {
+    "id" : "duplicate143",
+    "size" : 2
+  }, {
+    "id" : "duplicate264",
+    "size" : 2
+  }, {
+    "id" : "duplicate140",
+    "size" : 2
+  }, {
+    "id" : "duplicate261",
+    "size" : 2
+  }, {
+    "id" : "duplicate141",
+    "size" : 2
+  }, {
+    "id" : "duplicate262",
+    "size" : 2
+  }, {
+    "id" : "duplicate260",
+    "size" : 2
+  }, {
+    "id" : "[src/components/SkeletonList.tsx]",
+    "size" : 12
+  }, {
+    "id" : "[backend/transaction-routes.ts]",
+    "size" : 10
+  }, {
+    "id" : "duplicate148",
+    "size" : 2
+  }, {
+    "id" : "duplicate269",
+    "size" : 2
+  }, {
+    "id" : "duplicate149",
+    "size" : 2
+  }, {
+    "id" : "duplicate146",
+    "size" : 2
+  }, {
+    "id" : "duplicate267",
+    "size" : 2
+  }, {
+    "id" : "duplicate147",
+    "size" : 2
+  }, {
+    "id" : "duplicate268",
+    "size" : 2
+  }, {
+    "id" : "[src/containers/AppAuth0.tsx]",
+    "size" : 6
+  }, {
+    "id" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "size" : 22
+  }, {
+    "id" : "[src/components/TransactionItem.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[cypress/support/commands.ts]",
+    "size" : 4
+  }, {
+    "id" : "[aws-exports-es5.js]",
+    "size" : 3
+  }, {
+    "id" : "[src/components/TransactionDetail.tsx]",
+    "size" : 6
+  }, {
+    "id" : "duplicate210",
+    "size" : 2
+  }, {
+    "id" : "duplicate331",
+    "size" : 2
+  }, {
+    "id" : "duplicate211",
+    "size" : 2
+  }, {
+    "id" : "duplicate332",
+    "size" : 2
+  }, {
+    "id" : "duplicate330",
+    "size" : 2
+  }, {
+    "id" : "[src/components/TransactionCreateStepOne.tsx]",
+    "size" : 5
+  }, {
+    "id" : "duplicate218",
+    "size" : 2
+  }, {
+    "id" : "duplicate339",
+    "size" : 2
+  }, {
+    "id" : "duplicate219",
+    "size" : 2
+  }, {
+    "id" : "duplicate216",
+    "size" : 2
+  }, {
+    "id" : "duplicate337",
+    "size" : 2
+  }, {
+    "id" : "duplicate217",
+    "size" : 2
+  }, {
+    "id" : "duplicate338",
+    "size" : 2
+  }, {
+    "id" : "duplicate214",
+    "size" : 2
+  }, {
+    "id" : "duplicate335",
+    "size" : 2
+  }, {
+    "id" : "duplicate215",
+    "size" : 2
+  }, {
+    "id" : "duplicate336",
+    "size" : 2
+  }, {
+    "id" : "duplicate212",
+    "size" : 2
+  }, {
+    "id" : "duplicate333",
+    "size" : 2
+  }, {
+    "id" : "duplicate213",
+    "size" : 2
+  }, {
+    "id" : "duplicate334",
+    "size" : 2
+  }, {
+    "id" : "[src/models/db-schema.ts]",
+    "size" : 1
+  }, {
+    "id" : "[src/components/NavBar.tsx]",
+    "size" : 15
+  }, {
+    "id" : "[src/machines/contactsTransactionsMachine.ts]",
+    "size" : 3
+  }, {
+    "id" : "duplicate320",
+    "size" : 2
+  }, {
+    "id" : "duplicate200",
+    "size" : 2
+  }, {
+    "id" : "duplicate321",
+    "size" : 2
+  }, {
+    "id" : "[scripts/mock-aws-exports.js]",
+    "size" : 3
+  }, {
+    "id" : "duplicate207",
+    "size" : 2
+  }, {
+    "id" : "duplicate328",
+    "size" : 2
+  }, {
+    "id" : "duplicate208",
+    "size" : 2
+  }, {
+    "id" : "duplicate329",
+    "size" : 2
+  }, {
+    "id" : "duplicate205",
+    "size" : 2
+  }, {
+    "id" : "duplicate326",
+    "size" : 2
+  }, {
+    "id" : "duplicate206",
+    "size" : 2
+  }, {
+    "id" : "duplicate327",
+    "size" : 2
+  }, {
+    "id" : "duplicate203",
+    "size" : 2
+  }, {
+    "id" : "duplicate324",
+    "size" : 2
+  }, {
+    "id" : "duplicate204",
+    "size" : 2
+  }, {
+    "id" : "duplicate325",
+    "size" : 2
+  }, {
+    "id" : "duplicate201",
+    "size" : 2
+  }, {
+    "id" : "duplicate322",
+    "size" : 2
+  }, {
+    "id" : "duplicate202",
+    "size" : 2
+  }, {
+    "id" : "duplicate323",
+    "size" : 2
+  }, {
+    "id" : "duplicate209",
+    "size" : 2
+  }, {
+    "id" : "duplicate310",
+    "size" : 2
+  }, {
+    "id" : "duplicate317",
+    "size" : 2
+  }, {
+    "id" : "duplicate318",
+    "size" : 2
+  }, {
+    "id" : "duplicate315",
+    "size" : 2
+  }, {
+    "id" : "duplicate316",
+    "size" : 2
+  }, {
+    "id" : "duplicate313",
+    "size" : 2
+  }, {
+    "id" : "duplicate314",
+    "size" : 2
+  }, {
+    "id" : "duplicate311",
+    "size" : 2
+  }, {
+    "id" : "duplicate312",
+    "size" : 2
+  }, {
+    "id" : "[src/components/NavDrawer.tsx]",
+    "size" : 2
+  }, {
+    "id" : "duplicate319",
+    "size" : 2
+  }, {
+    "id" : "[src/machines/bankAccountsMachine.ts]",
+    "size" : 2
+  }, {
+    "id" : "duplicate306",
+    "size" : 2
+  }, {
+    "id" : "duplicate307",
+    "size" : 2
+  }, {
+    "id" : "duplicate304",
+    "size" : 2
+  }, {
+    "id" : "duplicate305",
+    "size" : 2
+  }, {
+    "id" : "duplicate302",
+    "size" : 2
+  }, {
+    "id" : "duplicate303",
+    "size" : 2
+  }, {
+    "id" : "duplicate300",
+    "size" : 2
+  }, {
+    "id" : "duplicate301",
+    "size" : 2
+  }, {
+    "id" : "[src/index.cognito.tsx]",
+    "size" : 3
+  }, {
+    "id" : "duplicate308",
+    "size" : 2
+  }, {
+    "id" : "duplicate309",
+    "size" : 2
+  } ],
+  "links" : [ {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate1",
+    "count" : 1
+  }, {
+    "source" : "duplicate1",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate1",
+    "count" : 1
+  }, {
+    "source" : "duplicate1",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate2",
+    "count" : 1
+  }, {
+    "source" : "duplicate2",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate2",
+    "count" : 1
+  }, {
+    "source" : "duplicate2",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[scripts/mock-aws-exports.js]",
+    "target" : "duplicate3",
+    "count" : 1
+  }, {
+    "source" : "duplicate3",
+    "target" : "[scripts/mock-aws-exports.js]",
+    "count" : 1
+  }, {
+    "source" : "[src/aws-exports.js]",
+    "target" : "duplicate3",
+    "count" : 1
+  }, {
+    "source" : "duplicate3",
+    "target" : "[src/aws-exports.js]",
+    "count" : 1
+  }, {
+    "source" : "[aws-exports-es5.js]",
+    "target" : "duplicate4",
+    "count" : 1
+  }, {
+    "source" : "duplicate4",
+    "target" : "[aws-exports-es5.js]",
+    "count" : 1
+  }, {
+    "source" : "[scripts/mock-aws-exports-es5.js]",
+    "target" : "duplicate4",
+    "count" : 1
+  }, {
+    "source" : "duplicate4",
+    "target" : "[scripts/mock-aws-exports-es5.js]",
+    "count" : 1
+  }, {
+    "source" : "[backend/transaction-routes.ts]",
+    "target" : "duplicate5",
+    "count" : 1
+  }, {
+    "source" : "duplicate5",
+    "target" : "[backend/transaction-routes.ts]",
+    "count" : 1
+  }, {
+    "source" : "[backend/transaction-routes.ts]",
+    "target" : "duplicate5",
+    "count" : 1
+  }, {
+    "source" : "duplicate5",
+    "target" : "[backend/transaction-routes.ts]",
+    "count" : 1
+  }, {
+    "source" : "[aws-exports-es5.js]",
+    "target" : "duplicate6",
+    "count" : 1
+  }, {
+    "source" : "duplicate6",
+    "target" : "[aws-exports-es5.js]",
+    "count" : 1
+  }, {
+    "source" : "[src/aws-exports.js]",
+    "target" : "duplicate6",
+    "count" : 1
+  }, {
+    "source" : "duplicate6",
+    "target" : "[src/aws-exports.js]",
+    "count" : 1
+  }, {
+    "source" : "[scripts/mock-aws-exports-es5.js]",
+    "target" : "duplicate7",
+    "count" : 1
+  }, {
+    "source" : "duplicate7",
+    "target" : "[scripts/mock-aws-exports-es5.js]",
+    "count" : 1
+  }, {
+    "source" : "[scripts/mock-aws-exports.js]",
+    "target" : "duplicate7",
+    "count" : 1
+  }, {
+    "source" : "duplicate7",
+    "target" : "[scripts/mock-aws-exports.js]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/App.tsx]",
+    "target" : "duplicate8",
+    "count" : 1
+  }, {
+    "source" : "duplicate8",
+    "target" : "[src/containers/App.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppOkta.tsx]",
+    "target" : "duplicate8",
+    "count" : 1
+  }, {
+    "source" : "duplicate8",
+    "target" : "[src/containers/AppOkta.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[aws-exports-es5.js]",
+    "target" : "duplicate9",
+    "count" : 1
+  }, {
+    "source" : "duplicate9",
+    "target" : "[aws-exports-es5.js]",
+    "count" : 1
+  }, {
+    "source" : "[scripts/mock-aws-exports.js]",
+    "target" : "duplicate9",
+    "count" : 1
+  }, {
+    "source" : "duplicate9",
+    "target" : "[scripts/mock-aws-exports.js]",
+    "count" : 1
+  }, {
+    "source" : "[scripts/mock-aws-exports-es5.js]",
+    "target" : "duplicate10",
+    "count" : 1
+  }, {
+    "source" : "duplicate10",
+    "target" : "[scripts/mock-aws-exports-es5.js]",
+    "count" : 1
+  }, {
+    "source" : "[src/aws-exports.js]",
+    "target" : "duplicate10",
+    "count" : 1
+  }, {
+    "source" : "duplicate10",
+    "target" : "[src/aws-exports.js]",
+    "count" : 1
+  }, {
+    "source" : "[src/index.google.tsx]",
+    "target" : "duplicate11",
+    "count" : 1
+  }, {
+    "source" : "duplicate11",
+    "target" : "[src/index.google.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/index.okta.tsx]",
+    "target" : "duplicate11",
+    "count" : 1
+  }, {
+    "source" : "duplicate11",
+    "target" : "[src/index.okta.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/App.tsx]",
+    "target" : "duplicate12",
+    "count" : 1
+  }, {
+    "source" : "duplicate12",
+    "target" : "[src/containers/App.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppAuth0.tsx]",
+    "target" : "duplicate12",
+    "count" : 1
+  }, {
+    "source" : "duplicate12",
+    "target" : "[src/containers/AppAuth0.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/index.cognito.tsx]",
+    "target" : "duplicate13",
+    "count" : 1
+  }, {
+    "source" : "duplicate13",
+    "target" : "[src/index.cognito.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/index.google.tsx]",
+    "target" : "duplicate13",
+    "count" : 1
+  }, {
+    "source" : "duplicate13",
+    "target" : "[src/index.google.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/index.cognito.tsx]",
+    "target" : "duplicate14",
+    "count" : 1
+  }, {
+    "source" : "duplicate14",
+    "target" : "[src/index.cognito.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/index.okta.tsx]",
+    "target" : "duplicate14",
+    "count" : 1
+  }, {
+    "source" : "duplicate14",
+    "target" : "[src/index.okta.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/CommentForm.tsx]",
+    "target" : "duplicate15",
+    "count" : 1
+  }, {
+    "source" : "duplicate15",
+    "target" : "[src/components/CommentForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserListSearchForm.tsx]",
+    "target" : "duplicate15",
+    "count" : 1
+  }, {
+    "source" : "duplicate15",
+    "target" : "[src/components/UserListSearchForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppAuth0.tsx]",
+    "target" : "duplicate16",
+    "count" : 1
+  }, {
+    "source" : "duplicate16",
+    "target" : "[src/containers/AppAuth0.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppOkta.tsx]",
+    "target" : "duplicate16",
+    "count" : 1
+  }, {
+    "source" : "duplicate16",
+    "target" : "[src/containers/AppOkta.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "duplicate17",
+    "count" : 1
+  }, {
+    "source" : "duplicate17",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "duplicate17",
+    "count" : 1
+  }, {
+    "source" : "duplicate17",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/index.auth0.tsx]",
+    "target" : "duplicate18",
+    "count" : 1
+  }, {
+    "source" : "duplicate18",
+    "target" : "[src/index.auth0.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/index.google.tsx]",
+    "target" : "duplicate18",
+    "count" : 1
+  }, {
+    "source" : "duplicate18",
+    "target" : "[src/index.google.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/index.auth0.tsx]",
+    "target" : "duplicate19",
+    "count" : 1
+  }, {
+    "source" : "duplicate19",
+    "target" : "[src/index.auth0.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/index.cognito.tsx]",
+    "target" : "duplicate19",
+    "count" : 1
+  }, {
+    "source" : "duplicate19",
+    "target" : "[src/index.cognito.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/index.auth0.tsx]",
+    "target" : "duplicate20",
+    "count" : 1
+  }, {
+    "source" : "duplicate20",
+    "target" : "[src/index.auth0.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/index.okta.tsx]",
+    "target" : "duplicate20",
+    "count" : 1
+  }, {
+    "source" : "duplicate20",
+    "target" : "[src/index.okta.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppGoogle.tsx]",
+    "target" : "duplicate21",
+    "count" : 1
+  }, {
+    "source" : "duplicate21",
+    "target" : "[src/containers/AppGoogle.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppOkta.tsx]",
+    "target" : "duplicate21",
+    "count" : 1
+  }, {
+    "source" : "duplicate21",
+    "target" : "[src/containers/AppOkta.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/App.tsx]",
+    "target" : "duplicate22",
+    "count" : 1
+  }, {
+    "source" : "duplicate22",
+    "target" : "[src/containers/App.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppGoogle.tsx]",
+    "target" : "duplicate22",
+    "count" : 1
+  }, {
+    "source" : "duplicate22",
+    "target" : "[src/containers/AppGoogle.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[backend/transaction-routes.ts]",
+    "target" : "duplicate23",
+    "count" : 1
+  }, {
+    "source" : "duplicate23",
+    "target" : "[backend/transaction-routes.ts]",
+    "count" : 1
+  }, {
+    "source" : "[backend/transaction-routes.ts]",
+    "target" : "duplicate23",
+    "count" : 1
+  }, {
+    "source" : "duplicate23",
+    "target" : "[backend/transaction-routes.ts]",
+    "count" : 1
+  }, {
+    "source" : "[backend/transaction-routes.ts]",
+    "target" : "duplicate24",
+    "count" : 1
+  }, {
+    "source" : "duplicate24",
+    "target" : "[backend/transaction-routes.ts]",
+    "count" : 1
+  }, {
+    "source" : "[backend/transaction-routes.ts]",
+    "target" : "duplicate24",
+    "count" : 1
+  }, {
+    "source" : "duplicate24",
+    "target" : "[backend/transaction-routes.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppAuth0.tsx]",
+    "target" : "duplicate25",
+    "count" : 1
+  }, {
+    "source" : "duplicate25",
+    "target" : "[src/containers/AppAuth0.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppGoogle.tsx]",
+    "target" : "duplicate25",
+    "count" : 1
+  }, {
+    "source" : "duplicate25",
+    "target" : "[src/containers/AppGoogle.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate26",
+    "count" : 1
+  }, {
+    "source" : "duplicate26",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate26",
+    "count" : 1
+  }, {
+    "source" : "duplicate26",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "duplicate27",
+    "count" : 1
+  }, {
+    "source" : "duplicate27",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionDetail.tsx]",
+    "target" : "duplicate27",
+    "count" : 1
+  }, {
+    "source" : "duplicate27",
+    "target" : "[src/components/TransactionDetail.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionListFilters.tsx]",
+    "target" : "duplicate28",
+    "count" : 1
+  }, {
+    "source" : "duplicate28",
+    "target" : "[src/components/TransactionListFilters.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserSettingsContainer.tsx]",
+    "target" : "duplicate28",
+    "count" : 1
+  }, {
+    "source" : "duplicate28",
+    "target" : "[src/containers/UserSettingsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepOne.tsx]",
+    "target" : "duplicate29",
+    "count" : 1
+  }, {
+    "source" : "duplicate29",
+    "target" : "[src/components/TransactionCreateStepOne.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionListFilters.tsx]",
+    "target" : "duplicate29",
+    "count" : 1
+  }, {
+    "source" : "duplicate29",
+    "target" : "[src/components/TransactionListFilters.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepOne.tsx]",
+    "target" : "duplicate30",
+    "count" : 1
+  }, {
+    "source" : "duplicate30",
+    "target" : "[src/components/TransactionCreateStepOne.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "duplicate30",
+    "count" : 1
+  }, {
+    "source" : "duplicate30",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepOne.tsx]",
+    "target" : "duplicate31",
+    "count" : 1
+  }, {
+    "source" : "duplicate31",
+    "target" : "[src/components/TransactionCreateStepOne.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserSettingsContainer.tsx]",
+    "target" : "duplicate31",
+    "count" : 1
+  }, {
+    "source" : "duplicate31",
+    "target" : "[src/containers/UserSettingsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionListFilters.tsx]",
+    "target" : "duplicate32",
+    "count" : 1
+  }, {
+    "source" : "duplicate32",
+    "target" : "[src/components/TransactionListFilters.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "duplicate32",
+    "count" : 1
+  }, {
+    "source" : "duplicate32",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate33",
+    "count" : 1
+  }, {
+    "source" : "duplicate33",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate33",
+    "count" : 1
+  }, {
+    "source" : "duplicate33",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "duplicate34",
+    "count" : 1
+  }, {
+    "source" : "duplicate34",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserSettingsContainer.tsx]",
+    "target" : "duplicate34",
+    "count" : 1
+  }, {
+    "source" : "duplicate34",
+    "target" : "[src/containers/UserSettingsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate35",
+    "count" : 1
+  }, {
+    "source" : "duplicate35",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate35",
+    "count" : 1
+  }, {
+    "source" : "duplicate35",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate36",
+    "count" : 1
+  }, {
+    "source" : "duplicate36",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate36",
+    "count" : 1
+  }, {
+    "source" : "duplicate36",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SkeletonList.tsx]",
+    "target" : "duplicate37",
+    "count" : 1
+  }, {
+    "source" : "duplicate37",
+    "target" : "[src/components/SkeletonList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SkeletonList.tsx]",
+    "target" : "duplicate37",
+    "count" : 1
+  }, {
+    "source" : "duplicate37",
+    "target" : "[src/components/SkeletonList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SkeletonList.tsx]",
+    "target" : "duplicate38",
+    "count" : 1
+  }, {
+    "source" : "duplicate38",
+    "target" : "[src/components/SkeletonList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SkeletonList.tsx]",
+    "target" : "duplicate38",
+    "count" : 1
+  }, {
+    "source" : "duplicate38",
+    "target" : "[src/components/SkeletonList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate39",
+    "count" : 1
+  }, {
+    "source" : "duplicate39",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/CommentForm.tsx]",
+    "target" : "duplicate39",
+    "count" : 1
+  }, {
+    "source" : "duplicate39",
+    "target" : "[src/components/CommentForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppAuth0.tsx]",
+    "target" : "duplicate40",
+    "count" : 1
+  }, {
+    "source" : "duplicate40",
+    "target" : "[src/containers/AppAuth0.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppOkta.tsx]",
+    "target" : "duplicate40",
+    "count" : 1
+  }, {
+    "source" : "duplicate40",
+    "target" : "[src/containers/AppOkta.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate41",
+    "count" : 1
+  }, {
+    "source" : "duplicate41",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate41",
+    "count" : 1
+  }, {
+    "source" : "duplicate41",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SkeletonList.tsx]",
+    "target" : "duplicate42",
+    "count" : 1
+  }, {
+    "source" : "duplicate42",
+    "target" : "[src/components/SkeletonList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SkeletonList.tsx]",
+    "target" : "duplicate42",
+    "count" : 1
+  }, {
+    "source" : "duplicate42",
+    "target" : "[src/components/SkeletonList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate43",
+    "count" : 1
+  }, {
+    "source" : "duplicate43",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserListSearchForm.tsx]",
+    "target" : "duplicate43",
+    "count" : 1
+  }, {
+    "source" : "duplicate43",
+    "target" : "[src/components/UserListSearchForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SkeletonList.tsx]",
+    "target" : "duplicate44",
+    "count" : 1
+  }, {
+    "source" : "duplicate44",
+    "target" : "[src/components/SkeletonList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SkeletonList.tsx]",
+    "target" : "duplicate44",
+    "count" : 1
+  }, {
+    "source" : "duplicate44",
+    "target" : "[src/components/SkeletonList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "duplicate45",
+    "count" : 1
+  }, {
+    "source" : "duplicate45",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "duplicate45",
+    "count" : 1
+  }, {
+    "source" : "duplicate45",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SkeletonList.tsx]",
+    "target" : "duplicate46",
+    "count" : 1
+  }, {
+    "source" : "duplicate46",
+    "target" : "[src/components/SkeletonList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SkeletonList.tsx]",
+    "target" : "duplicate46",
+    "count" : 1
+  }, {
+    "source" : "duplicate46",
+    "target" : "[src/components/SkeletonList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/App.tsx]",
+    "target" : "duplicate47",
+    "count" : 1
+  }, {
+    "source" : "duplicate47",
+    "target" : "[src/containers/App.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppOkta.tsx]",
+    "target" : "duplicate47",
+    "count" : 1
+  }, {
+    "source" : "duplicate47",
+    "target" : "[src/containers/AppOkta.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/App.tsx]",
+    "target" : "duplicate48",
+    "count" : 1
+  }, {
+    "source" : "duplicate48",
+    "target" : "[src/containers/App.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppAuth0.tsx]",
+    "target" : "duplicate48",
+    "count" : 1
+  }, {
+    "source" : "duplicate48",
+    "target" : "[src/containers/AppAuth0.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SkeletonList.tsx]",
+    "target" : "duplicate49",
+    "count" : 1
+  }, {
+    "source" : "duplicate49",
+    "target" : "[src/components/SkeletonList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SkeletonList.tsx]",
+    "target" : "duplicate49",
+    "count" : 1
+  }, {
+    "source" : "duplicate49",
+    "target" : "[src/components/SkeletonList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionContactsList.tsx]",
+    "target" : "duplicate50",
+    "count" : 1
+  }, {
+    "source" : "duplicate50",
+    "target" : "[src/components/TransactionContactsList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionPersonalList.tsx]",
+    "target" : "duplicate50",
+    "count" : 1
+  }, {
+    "source" : "duplicate50",
+    "target" : "[src/components/TransactionPersonalList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionPersonalList.tsx]",
+    "target" : "duplicate51",
+    "count" : 1
+  }, {
+    "source" : "duplicate51",
+    "target" : "[src/components/TransactionPersonalList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionPublicList.tsx]",
+    "target" : "duplicate51",
+    "count" : 1
+  }, {
+    "source" : "duplicate51",
+    "target" : "[src/components/TransactionPublicList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionContactsList.tsx]",
+    "target" : "duplicate52",
+    "count" : 1
+  }, {
+    "source" : "duplicate52",
+    "target" : "[src/components/TransactionContactsList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionPublicList.tsx]",
+    "target" : "duplicate52",
+    "count" : 1
+  }, {
+    "source" : "duplicate52",
+    "target" : "[src/components/TransactionPublicList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionContactsList.tsx]",
+    "target" : "duplicate53",
+    "count" : 1
+  }, {
+    "source" : "duplicate53",
+    "target" : "[src/components/TransactionContactsList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionPublicList.tsx]",
+    "target" : "duplicate53",
+    "count" : 1
+  }, {
+    "source" : "duplicate53",
+    "target" : "[src/components/TransactionPublicList.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/NavDrawer.tsx]",
+    "target" : "duplicate54",
+    "count" : 1
+  }, {
+    "source" : "duplicate54",
+    "target" : "[src/components/NavDrawer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/NavDrawer.tsx]",
+    "target" : "duplicate54",
+    "count" : 1
+  }, {
+    "source" : "duplicate54",
+    "target" : "[src/components/NavDrawer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppAuth0.tsx]",
+    "target" : "duplicate55",
+    "count" : 1
+  }, {
+    "source" : "duplicate55",
+    "target" : "[src/containers/AppAuth0.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppCognito.tsx]",
+    "target" : "duplicate55",
+    "count" : 1
+  }, {
+    "source" : "duplicate55",
+    "target" : "[src/containers/AppCognito.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/bankAccountsMachine.ts]",
+    "target" : "duplicate56",
+    "count" : 1
+  }, {
+    "source" : "duplicate56",
+    "target" : "[src/machines/bankAccountsMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/bankAccountsMachine.ts]",
+    "target" : "duplicate56",
+    "count" : 1
+  }, {
+    "source" : "duplicate56",
+    "target" : "[src/machines/bankAccountsMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "duplicate57",
+    "count" : 1
+  }, {
+    "source" : "duplicate57",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/TransactionCreateContainer.tsx]",
+    "target" : "duplicate57",
+    "count" : 1
+  }, {
+    "source" : "duplicate57",
+    "target" : "[src/containers/TransactionCreateContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/CommentForm.tsx]",
+    "target" : "duplicate58",
+    "count" : 1
+  }, {
+    "source" : "duplicate58",
+    "target" : "[src/components/CommentForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate58",
+    "count" : 1
+  }, {
+    "source" : "duplicate58",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "duplicate59",
+    "count" : 1
+  }, {
+    "source" : "duplicate59",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "duplicate59",
+    "count" : 1
+  }, {
+    "source" : "duplicate59",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate60",
+    "count" : 1
+  }, {
+    "source" : "duplicate60",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate60",
+    "count" : 1
+  }, {
+    "source" : "duplicate60",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/App.tsx]",
+    "target" : "duplicate61",
+    "count" : 1
+  }, {
+    "source" : "duplicate61",
+    "target" : "[src/containers/App.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppCognito.tsx]",
+    "target" : "duplicate61",
+    "count" : 1
+  }, {
+    "source" : "duplicate61",
+    "target" : "[src/containers/AppCognito.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate62",
+    "count" : 1
+  }, {
+    "source" : "duplicate62",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserSettingsContainer.tsx]",
+    "target" : "duplicate62",
+    "count" : 1
+  }, {
+    "source" : "duplicate62",
+    "target" : "[src/containers/UserSettingsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/TransactionCreateContainer.tsx]",
+    "target" : "duplicate63",
+    "count" : 1
+  }, {
+    "source" : "duplicate63",
+    "target" : "[src/containers/TransactionCreateContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "duplicate63",
+    "count" : 1
+  }, {
+    "source" : "duplicate63",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionDetail.tsx]",
+    "target" : "duplicate64",
+    "count" : 1
+  }, {
+    "source" : "duplicate64",
+    "target" : "[src/components/TransactionDetail.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionListFilters.tsx]",
+    "target" : "duplicate64",
+    "count" : 1
+  }, {
+    "source" : "duplicate64",
+    "target" : "[src/components/TransactionListFilters.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "duplicate65",
+    "count" : 1
+  }, {
+    "source" : "duplicate65",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate65",
+    "count" : 1
+  }, {
+    "source" : "duplicate65",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate66",
+    "count" : 1
+  }, {
+    "source" : "duplicate66",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserSettingsContainer.tsx]",
+    "target" : "duplicate66",
+    "count" : 1
+  }, {
+    "source" : "duplicate66",
+    "target" : "[src/containers/UserSettingsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate67",
+    "count" : 1
+  }, {
+    "source" : "duplicate67",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate67",
+    "count" : 1
+  }, {
+    "source" : "duplicate67",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepOne.tsx]",
+    "target" : "duplicate68",
+    "count" : 1
+  }, {
+    "source" : "duplicate68",
+    "target" : "[src/components/TransactionCreateStepOne.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionDetail.tsx]",
+    "target" : "duplicate68",
+    "count" : 1
+  }, {
+    "source" : "duplicate68",
+    "target" : "[src/components/TransactionDetail.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionDetail.tsx]",
+    "target" : "duplicate69",
+    "count" : 1
+  }, {
+    "source" : "duplicate69",
+    "target" : "[src/components/TransactionDetail.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "duplicate69",
+    "count" : 1
+  }, {
+    "source" : "duplicate69",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[backend/database.ts]",
+    "target" : "duplicate70",
+    "count" : 1
+  }, {
+    "source" : "duplicate70",
+    "target" : "[backend/database.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/models/db-schema.ts]",
+    "target" : "duplicate70",
+    "count" : 1
+  }, {
+    "source" : "duplicate70",
+    "target" : "[src/models/db-schema.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate71",
+    "count" : 1
+  }, {
+    "source" : "duplicate71",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate71",
+    "count" : 1
+  }, {
+    "source" : "duplicate71",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate72",
+    "count" : 1
+  }, {
+    "source" : "duplicate72",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserListSearchForm.tsx]",
+    "target" : "duplicate72",
+    "count" : 1
+  }, {
+    "source" : "duplicate72",
+    "target" : "[src/components/UserListSearchForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionDateRangeFilter.tsx]",
+    "target" : "duplicate73",
+    "count" : 1
+  }, {
+    "source" : "duplicate73",
+    "target" : "[src/components/TransactionDateRangeFilter.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionListAmountRangeFilter.tsx]",
+    "target" : "duplicate73",
+    "count" : 1
+  }, {
+    "source" : "duplicate73",
+    "target" : "[src/components/TransactionListAmountRangeFilter.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate74",
+    "count" : 1
+  }, {
+    "source" : "duplicate74",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate74",
+    "count" : 1
+  }, {
+    "source" : "duplicate74",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppCognito.tsx]",
+    "target" : "duplicate75",
+    "count" : 1
+  }, {
+    "source" : "duplicate75",
+    "target" : "[src/containers/AppCognito.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppOkta.tsx]",
+    "target" : "duplicate75",
+    "count" : 1
+  }, {
+    "source" : "duplicate75",
+    "target" : "[src/containers/AppOkta.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate76",
+    "count" : 1
+  }, {
+    "source" : "duplicate76",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate76",
+    "count" : 1
+  }, {
+    "source" : "duplicate76",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate77",
+    "count" : 1
+  }, {
+    "source" : "duplicate77",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate77",
+    "count" : 1
+  }, {
+    "source" : "duplicate77",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionDetail.tsx]",
+    "target" : "duplicate78",
+    "count" : 1
+  }, {
+    "source" : "duplicate78",
+    "target" : "[src/components/TransactionDetail.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserSettingsContainer.tsx]",
+    "target" : "duplicate78",
+    "count" : 1
+  }, {
+    "source" : "duplicate78",
+    "target" : "[src/containers/UserSettingsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "duplicate79",
+    "count" : 1
+  }, {
+    "source" : "duplicate79",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate79",
+    "count" : 1
+  }, {
+    "source" : "duplicate79",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/App.tsx]",
+    "target" : "duplicate80",
+    "count" : 1
+  }, {
+    "source" : "duplicate80",
+    "target" : "[src/containers/App.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppCognito.tsx]",
+    "target" : "duplicate80",
+    "count" : 1
+  }, {
+    "source" : "duplicate80",
+    "target" : "[src/containers/AppCognito.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "duplicate81",
+    "count" : 1
+  }, {
+    "source" : "duplicate81",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "duplicate81",
+    "count" : 1
+  }, {
+    "source" : "duplicate81",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "duplicate82",
+    "count" : 1
+  }, {
+    "source" : "duplicate82",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate82",
+    "count" : 1
+  }, {
+    "source" : "duplicate82",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionDateRangeFilter.tsx]",
+    "target" : "duplicate83",
+    "count" : 1
+  }, {
+    "source" : "duplicate83",
+    "target" : "[src/components/TransactionDateRangeFilter.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionDateRangeFilter.tsx]",
+    "target" : "duplicate83",
+    "count" : 1
+  }, {
+    "source" : "duplicate83",
+    "target" : "[src/components/TransactionDateRangeFilter.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate84",
+    "count" : 1
+  }, {
+    "source" : "duplicate84",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate84",
+    "count" : 1
+  }, {
+    "source" : "duplicate84",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate85",
+    "count" : 1
+  }, {
+    "source" : "duplicate85",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/TransactionCreateContainer.tsx]",
+    "target" : "duplicate85",
+    "count" : 1
+  }, {
+    "source" : "duplicate85",
+    "target" : "[src/containers/TransactionCreateContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[backend/comment-routes.ts]",
+    "target" : "duplicate86",
+    "count" : 1
+  }, {
+    "source" : "duplicate86",
+    "target" : "[backend/comment-routes.ts]",
+    "count" : 1
+  }, {
+    "source" : "[backend/like-routes.ts]",
+    "target" : "duplicate86",
+    "count" : 1
+  }, {
+    "source" : "duplicate86",
+    "target" : "[backend/like-routes.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "duplicate87",
+    "count" : 1
+  }, {
+    "source" : "duplicate87",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "duplicate87",
+    "count" : 1
+  }, {
+    "source" : "duplicate87",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionDetail.tsx]",
+    "target" : "duplicate88",
+    "count" : 1
+  }, {
+    "source" : "duplicate88",
+    "target" : "[src/components/TransactionDetail.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionItem.tsx]",
+    "target" : "duplicate88",
+    "count" : 1
+  }, {
+    "source" : "duplicate88",
+    "target" : "[src/components/TransactionItem.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "duplicate89",
+    "count" : 1
+  }, {
+    "source" : "duplicate89",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserSettingsContainer.tsx]",
+    "target" : "duplicate89",
+    "count" : 1
+  }, {
+    "source" : "duplicate89",
+    "target" : "[src/containers/UserSettingsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/AlertBar.tsx]",
+    "target" : "duplicate90",
+    "count" : 1
+  }, {
+    "source" : "duplicate90",
+    "target" : "[src/components/AlertBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate90",
+    "count" : 1
+  }, {
+    "source" : "duplicate90",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate91",
+    "count" : 1
+  }, {
+    "source" : "duplicate91",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate91",
+    "count" : 1
+  }, {
+    "source" : "duplicate91",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate92",
+    "count" : 1
+  }, {
+    "source" : "duplicate92",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate92",
+    "count" : 1
+  }, {
+    "source" : "duplicate92",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate93",
+    "count" : 1
+  }, {
+    "source" : "duplicate93",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate93",
+    "count" : 1
+  }, {
+    "source" : "duplicate93",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "duplicate94",
+    "count" : 1
+  }, {
+    "source" : "duplicate94",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate94",
+    "count" : 1
+  }, {
+    "source" : "duplicate94",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "duplicate95",
+    "count" : 1
+  }, {
+    "source" : "duplicate95",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate95",
+    "count" : 1
+  }, {
+    "source" : "duplicate95",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate96",
+    "count" : 1
+  }, {
+    "source" : "duplicate96",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "duplicate96",
+    "count" : 1
+  }, {
+    "source" : "duplicate96",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "duplicate97",
+    "count" : 1
+  }, {
+    "source" : "duplicate97",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate97",
+    "count" : 1
+  }, {
+    "source" : "duplicate97",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate98",
+    "count" : 1
+  }, {
+    "source" : "duplicate98",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate98",
+    "count" : 1
+  }, {
+    "source" : "duplicate98",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate99",
+    "count" : 1
+  }, {
+    "source" : "duplicate99",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/TransactionCreateContainer.tsx]",
+    "target" : "duplicate99",
+    "count" : 1
+  }, {
+    "source" : "duplicate99",
+    "target" : "[src/containers/TransactionCreateContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[backend/transaction-routes.ts]",
+    "target" : "duplicate100",
+    "count" : 1
+  }, {
+    "source" : "duplicate100",
+    "target" : "[backend/transaction-routes.ts]",
+    "count" : 1
+  }, {
+    "source" : "[backend/transaction-routes.ts]",
+    "target" : "duplicate100",
+    "count" : 1
+  }, {
+    "source" : "duplicate100",
+    "target" : "[backend/transaction-routes.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate101",
+    "count" : 1
+  }, {
+    "source" : "duplicate101",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppGoogle.tsx]",
+    "target" : "duplicate101",
+    "count" : 1
+  }, {
+    "source" : "duplicate101",
+    "target" : "[src/containers/AppGoogle.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionDateRangeFilter.cy.tsx]",
+    "target" : "duplicate102",
+    "count" : 1
+  }, {
+    "source" : "duplicate102",
+    "target" : "[src/components/TransactionDateRangeFilter.cy.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionDateRangeFilter.cy.tsx]",
+    "target" : "duplicate102",
+    "count" : 1
+  }, {
+    "source" : "duplicate102",
+    "target" : "[src/components/TransactionDateRangeFilter.cy.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate103",
+    "count" : 1
+  }, {
+    "source" : "duplicate103",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate103",
+    "count" : 1
+  }, {
+    "source" : "duplicate103",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate104",
+    "count" : 1
+  }, {
+    "source" : "duplicate104",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate104",
+    "count" : 1
+  }, {
+    "source" : "duplicate104",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate105",
+    "count" : 1
+  }, {
+    "source" : "duplicate105",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate105",
+    "count" : 1
+  }, {
+    "source" : "duplicate105",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "duplicate106",
+    "count" : 1
+  }, {
+    "source" : "duplicate106",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate106",
+    "count" : 1
+  }, {
+    "source" : "duplicate106",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate107",
+    "count" : 1
+  }, {
+    "source" : "duplicate107",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate107",
+    "count" : 1
+  }, {
+    "source" : "duplicate107",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate108",
+    "count" : 1
+  }, {
+    "source" : "duplicate108",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate108",
+    "count" : 1
+  }, {
+    "source" : "duplicate108",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[backend/database.ts]",
+    "target" : "duplicate109",
+    "count" : 1
+  }, {
+    "source" : "duplicate109",
+    "target" : "[backend/database.ts]",
+    "count" : 1
+  }, {
+    "source" : "[backend/database.ts]",
+    "target" : "duplicate109",
+    "count" : 1
+  }, {
+    "source" : "duplicate109",
+    "target" : "[backend/database.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate110",
+    "count" : 1
+  }, {
+    "source" : "duplicate110",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate110",
+    "count" : 1
+  }, {
+    "source" : "duplicate110",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate111",
+    "count" : 1
+  }, {
+    "source" : "duplicate111",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate111",
+    "count" : 1
+  }, {
+    "source" : "duplicate111",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate112",
+    "count" : 1
+  }, {
+    "source" : "duplicate112",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "duplicate112",
+    "count" : 1
+  }, {
+    "source" : "duplicate112",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate113",
+    "count" : 1
+  }, {
+    "source" : "duplicate113",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate113",
+    "count" : 1
+  }, {
+    "source" : "duplicate113",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate114",
+    "count" : 1
+  }, {
+    "source" : "duplicate114",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate114",
+    "count" : 1
+  }, {
+    "source" : "duplicate114",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/AlertBar.tsx]",
+    "target" : "duplicate115",
+    "count" : 1
+  }, {
+    "source" : "duplicate115",
+    "target" : "[src/components/AlertBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/TransactionCreateContainer.tsx]",
+    "target" : "duplicate115",
+    "count" : 1
+  }, {
+    "source" : "duplicate115",
+    "target" : "[src/containers/TransactionCreateContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate116",
+    "count" : 1
+  }, {
+    "source" : "duplicate116",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate116",
+    "count" : 1
+  }, {
+    "source" : "duplicate116",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate117",
+    "count" : 1
+  }, {
+    "source" : "duplicate117",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate117",
+    "count" : 1
+  }, {
+    "source" : "duplicate117",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate118",
+    "count" : 1
+  }, {
+    "source" : "duplicate118",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "duplicate118",
+    "count" : 1
+  }, {
+    "source" : "duplicate118",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[backend/database.ts]",
+    "target" : "duplicate119",
+    "count" : 1
+  }, {
+    "source" : "duplicate119",
+    "target" : "[backend/database.ts]",
+    "count" : 1
+  }, {
+    "source" : "[backend/database.ts]",
+    "target" : "duplicate119",
+    "count" : 1
+  }, {
+    "source" : "duplicate119",
+    "target" : "[backend/database.ts]",
+    "count" : 1
+  }, {
+    "source" : "[backend/database.ts]",
+    "target" : "duplicate120",
+    "count" : 1
+  }, {
+    "source" : "duplicate120",
+    "target" : "[backend/database.ts]",
+    "count" : 1
+  }, {
+    "source" : "[backend/database.ts]",
+    "target" : "duplicate120",
+    "count" : 1
+  }, {
+    "source" : "duplicate120",
+    "target" : "[backend/database.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate121",
+    "count" : 1
+  }, {
+    "source" : "duplicate121",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate121",
+    "count" : 1
+  }, {
+    "source" : "duplicate121",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate122",
+    "count" : 1
+  }, {
+    "source" : "duplicate122",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate122",
+    "count" : 1
+  }, {
+    "source" : "duplicate122",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate123",
+    "count" : 1
+  }, {
+    "source" : "duplicate123",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate123",
+    "count" : 1
+  }, {
+    "source" : "duplicate123",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate124",
+    "count" : 1
+  }, {
+    "source" : "duplicate124",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate124",
+    "count" : 1
+  }, {
+    "source" : "duplicate124",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate125",
+    "count" : 1
+  }, {
+    "source" : "duplicate125",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate125",
+    "count" : 1
+  }, {
+    "source" : "duplicate125",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate126",
+    "count" : 1
+  }, {
+    "source" : "duplicate126",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate126",
+    "count" : 1
+  }, {
+    "source" : "duplicate126",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate127",
+    "count" : 1
+  }, {
+    "source" : "duplicate127",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate127",
+    "count" : 1
+  }, {
+    "source" : "duplicate127",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate128",
+    "count" : 1
+  }, {
+    "source" : "duplicate128",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate128",
+    "count" : 1
+  }, {
+    "source" : "duplicate128",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate129",
+    "count" : 1
+  }, {
+    "source" : "duplicate129",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate129",
+    "count" : 1
+  }, {
+    "source" : "duplicate129",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[cypress/support/commands.ts]",
+    "target" : "duplicate130",
+    "count" : 1
+  }, {
+    "source" : "duplicate130",
+    "target" : "[cypress/support/commands.ts]",
+    "count" : 1
+  }, {
+    "source" : "[cypress/support/commands.ts]",
+    "target" : "duplicate130",
+    "count" : 1
+  }, {
+    "source" : "duplicate130",
+    "target" : "[cypress/support/commands.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate131",
+    "count" : 1
+  }, {
+    "source" : "duplicate131",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate131",
+    "count" : 1
+  }, {
+    "source" : "duplicate131",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate132",
+    "count" : 1
+  }, {
+    "source" : "duplicate132",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate132",
+    "count" : 1
+  }, {
+    "source" : "duplicate132",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate133",
+    "count" : 1
+  }, {
+    "source" : "duplicate133",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate133",
+    "count" : 1
+  }, {
+    "source" : "duplicate133",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate134",
+    "count" : 1
+  }, {
+    "source" : "duplicate134",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate134",
+    "count" : 1
+  }, {
+    "source" : "duplicate134",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "duplicate135",
+    "count" : 1
+  }, {
+    "source" : "duplicate135",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "duplicate135",
+    "count" : 1
+  }, {
+    "source" : "duplicate135",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate136",
+    "count" : 1
+  }, {
+    "source" : "duplicate136",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate136",
+    "count" : 1
+  }, {
+    "source" : "duplicate136",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate137",
+    "count" : 1
+  }, {
+    "source" : "duplicate137",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate137",
+    "count" : 1
+  }, {
+    "source" : "duplicate137",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate138",
+    "count" : 1
+  }, {
+    "source" : "duplicate138",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate138",
+    "count" : 1
+  }, {
+    "source" : "duplicate138",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate139",
+    "count" : 1
+  }, {
+    "source" : "duplicate139",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate139",
+    "count" : 1
+  }, {
+    "source" : "duplicate139",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/contactsTransactionsMachine.ts]",
+    "target" : "duplicate140",
+    "count" : 1
+  }, {
+    "source" : "duplicate140",
+    "target" : "[src/machines/contactsTransactionsMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/personalTransactionsMachine.ts]",
+    "target" : "duplicate140",
+    "count" : 1
+  }, {
+    "source" : "duplicate140",
+    "target" : "[src/machines/personalTransactionsMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/AlertBar.tsx]",
+    "target" : "duplicate141",
+    "count" : 1
+  }, {
+    "source" : "duplicate141",
+    "target" : "[src/components/AlertBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "duplicate141",
+    "count" : 1
+  }, {
+    "source" : "duplicate141",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate142",
+    "count" : 1
+  }, {
+    "source" : "duplicate142",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate142",
+    "count" : 1
+  }, {
+    "source" : "duplicate142",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate143",
+    "count" : 1
+  }, {
+    "source" : "duplicate143",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate143",
+    "count" : 1
+  }, {
+    "source" : "duplicate143",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate144",
+    "count" : 1
+  }, {
+    "source" : "duplicate144",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate144",
+    "count" : 1
+  }, {
+    "source" : "duplicate144",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate145",
+    "count" : 1
+  }, {
+    "source" : "duplicate145",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate145",
+    "count" : 1
+  }, {
+    "source" : "duplicate145",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate146",
+    "count" : 1
+  }, {
+    "source" : "duplicate146",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate146",
+    "count" : 1
+  }, {
+    "source" : "duplicate146",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate147",
+    "count" : 1
+  }, {
+    "source" : "duplicate147",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate147",
+    "count" : 1
+  }, {
+    "source" : "duplicate147",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate148",
+    "count" : 1
+  }, {
+    "source" : "duplicate148",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate148",
+    "count" : 1
+  }, {
+    "source" : "duplicate148",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate149",
+    "count" : 1
+  }, {
+    "source" : "duplicate149",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate149",
+    "count" : 1
+  }, {
+    "source" : "duplicate149",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate150",
+    "count" : 1
+  }, {
+    "source" : "duplicate150",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate150",
+    "count" : 1
+  }, {
+    "source" : "duplicate150",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate151",
+    "count" : 1
+  }, {
+    "source" : "duplicate151",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate151",
+    "count" : 1
+  }, {
+    "source" : "duplicate151",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate152",
+    "count" : 1
+  }, {
+    "source" : "duplicate152",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate152",
+    "count" : 1
+  }, {
+    "source" : "duplicate152",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate153",
+    "count" : 1
+  }, {
+    "source" : "duplicate153",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate153",
+    "count" : 1
+  }, {
+    "source" : "duplicate153",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate154",
+    "count" : 1
+  }, {
+    "source" : "duplicate154",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate154",
+    "count" : 1
+  }, {
+    "source" : "duplicate154",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate155",
+    "count" : 1
+  }, {
+    "source" : "duplicate155",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate155",
+    "count" : 1
+  }, {
+    "source" : "duplicate155",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate156",
+    "count" : 1
+  }, {
+    "source" : "duplicate156",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate156",
+    "count" : 1
+  }, {
+    "source" : "duplicate156",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate157",
+    "count" : 1
+  }, {
+    "source" : "duplicate157",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate157",
+    "count" : 1
+  }, {
+    "source" : "duplicate157",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate158",
+    "count" : 1
+  }, {
+    "source" : "duplicate158",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate158",
+    "count" : 1
+  }, {
+    "source" : "duplicate158",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate159",
+    "count" : 1
+  }, {
+    "source" : "duplicate159",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate159",
+    "count" : 1
+  }, {
+    "source" : "duplicate159",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate160",
+    "count" : 1
+  }, {
+    "source" : "duplicate160",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate160",
+    "count" : 1
+  }, {
+    "source" : "duplicate160",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate161",
+    "count" : 1
+  }, {
+    "source" : "duplicate161",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate161",
+    "count" : 1
+  }, {
+    "source" : "duplicate161",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "duplicate162",
+    "count" : 1
+  }, {
+    "source" : "duplicate162",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate162",
+    "count" : 1
+  }, {
+    "source" : "duplicate162",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate163",
+    "count" : 1
+  }, {
+    "source" : "duplicate163",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate163",
+    "count" : 1
+  }, {
+    "source" : "duplicate163",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate164",
+    "count" : 1
+  }, {
+    "source" : "duplicate164",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate164",
+    "count" : 1
+  }, {
+    "source" : "duplicate164",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate165",
+    "count" : 1
+  }, {
+    "source" : "duplicate165",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserListSearchForm.tsx]",
+    "target" : "duplicate165",
+    "count" : 1
+  }, {
+    "source" : "duplicate165",
+    "target" : "[src/components/UserListSearchForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/dataMachine.ts]",
+    "target" : "duplicate166",
+    "count" : 1
+  }, {
+    "source" : "duplicate166",
+    "target" : "[src/machines/dataMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/dataMachine.ts]",
+    "target" : "duplicate166",
+    "count" : 1
+  }, {
+    "source" : "duplicate166",
+    "target" : "[src/machines/dataMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/CommentForm.tsx]",
+    "target" : "duplicate167",
+    "count" : 1
+  }, {
+    "source" : "duplicate167",
+    "target" : "[src/components/CommentForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppGoogle.tsx]",
+    "target" : "duplicate167",
+    "count" : 1
+  }, {
+    "source" : "duplicate167",
+    "target" : "[src/containers/AppGoogle.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate168",
+    "count" : 1
+  }, {
+    "source" : "duplicate168",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate168",
+    "count" : 1
+  }, {
+    "source" : "duplicate168",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate169",
+    "count" : 1
+  }, {
+    "source" : "duplicate169",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate169",
+    "count" : 1
+  }, {
+    "source" : "duplicate169",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/index.tsx]",
+    "target" : "duplicate170",
+    "count" : 1
+  }, {
+    "source" : "duplicate170",
+    "target" : "[src/index.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/index.tsx]",
+    "target" : "duplicate170",
+    "count" : 1
+  }, {
+    "source" : "duplicate170",
+    "target" : "[src/index.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate171",
+    "count" : 1
+  }, {
+    "source" : "duplicate171",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate171",
+    "count" : 1
+  }, {
+    "source" : "duplicate171",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate172",
+    "count" : 1
+  }, {
+    "source" : "duplicate172",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate172",
+    "count" : 1
+  }, {
+    "source" : "duplicate172",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate173",
+    "count" : 1
+  }, {
+    "source" : "duplicate173",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate173",
+    "count" : 1
+  }, {
+    "source" : "duplicate173",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate174",
+    "count" : 1
+  }, {
+    "source" : "duplicate174",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate174",
+    "count" : 1
+  }, {
+    "source" : "duplicate174",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate175",
+    "count" : 1
+  }, {
+    "source" : "duplicate175",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate175",
+    "count" : 1
+  }, {
+    "source" : "duplicate175",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate176",
+    "count" : 1
+  }, {
+    "source" : "duplicate176",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate176",
+    "count" : 1
+  }, {
+    "source" : "duplicate176",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "duplicate177",
+    "count" : 1
+  }, {
+    "source" : "duplicate177",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate177",
+    "count" : 1
+  }, {
+    "source" : "duplicate177",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate178",
+    "count" : 1
+  }, {
+    "source" : "duplicate178",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate178",
+    "count" : 1
+  }, {
+    "source" : "duplicate178",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate179",
+    "count" : 1
+  }, {
+    "source" : "duplicate179",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate179",
+    "count" : 1
+  }, {
+    "source" : "duplicate179",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate180",
+    "count" : 1
+  }, {
+    "source" : "duplicate180",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate180",
+    "count" : 1
+  }, {
+    "source" : "duplicate180",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "duplicate181",
+    "count" : 1
+  }, {
+    "source" : "duplicate181",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate181",
+    "count" : 1
+  }, {
+    "source" : "duplicate181",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserListSearchForm.tsx]",
+    "target" : "duplicate182",
+    "count" : 1
+  }, {
+    "source" : "duplicate182",
+    "target" : "[src/components/UserListSearchForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppGoogle.tsx]",
+    "target" : "duplicate182",
+    "count" : 1
+  }, {
+    "source" : "duplicate182",
+    "target" : "[src/containers/AppGoogle.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "duplicate183",
+    "count" : 1
+  }, {
+    "source" : "duplicate183",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "duplicate183",
+    "count" : 1
+  }, {
+    "source" : "duplicate183",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate184",
+    "count" : 1
+  }, {
+    "source" : "duplicate184",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate184",
+    "count" : 1
+  }, {
+    "source" : "duplicate184",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate185",
+    "count" : 1
+  }, {
+    "source" : "duplicate185",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate185",
+    "count" : 1
+  }, {
+    "source" : "duplicate185",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate186",
+    "count" : 1
+  }, {
+    "source" : "duplicate186",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate186",
+    "count" : 1
+  }, {
+    "source" : "duplicate186",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate187",
+    "count" : 1
+  }, {
+    "source" : "duplicate187",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate187",
+    "count" : 1
+  }, {
+    "source" : "duplicate187",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "duplicate188",
+    "count" : 1
+  }, {
+    "source" : "duplicate188",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/TransactionCreateContainer.tsx]",
+    "target" : "duplicate188",
+    "count" : 1
+  }, {
+    "source" : "duplicate188",
+    "target" : "[src/containers/TransactionCreateContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "duplicate189",
+    "count" : 1
+  }, {
+    "source" : "duplicate189",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "duplicate189",
+    "count" : 1
+  }, {
+    "source" : "duplicate189",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate190",
+    "count" : 1
+  }, {
+    "source" : "duplicate190",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate190",
+    "count" : 1
+  }, {
+    "source" : "duplicate190",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate191",
+    "count" : 1
+  }, {
+    "source" : "duplicate191",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate191",
+    "count" : 1
+  }, {
+    "source" : "duplicate191",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate192",
+    "count" : 1
+  }, {
+    "source" : "duplicate192",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate192",
+    "count" : 1
+  }, {
+    "source" : "duplicate192",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "duplicate193",
+    "count" : 1
+  }, {
+    "source" : "duplicate193",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "duplicate193",
+    "count" : 1
+  }, {
+    "source" : "duplicate193",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate194",
+    "count" : 1
+  }, {
+    "source" : "duplicate194",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppGoogle.tsx]",
+    "target" : "duplicate194",
+    "count" : 1
+  }, {
+    "source" : "duplicate194",
+    "target" : "[src/containers/AppGoogle.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate195",
+    "count" : 1
+  }, {
+    "source" : "duplicate195",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate195",
+    "count" : 1
+  }, {
+    "source" : "duplicate195",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate196",
+    "count" : 1
+  }, {
+    "source" : "duplicate196",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate196",
+    "count" : 1
+  }, {
+    "source" : "duplicate196",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate197",
+    "count" : 1
+  }, {
+    "source" : "duplicate197",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate197",
+    "count" : 1
+  }, {
+    "source" : "duplicate197",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate198",
+    "count" : 1
+  }, {
+    "source" : "duplicate198",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate198",
+    "count" : 1
+  }, {
+    "source" : "duplicate198",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate199",
+    "count" : 1
+  }, {
+    "source" : "duplicate199",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate199",
+    "count" : 1
+  }, {
+    "source" : "duplicate199",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate200",
+    "count" : 1
+  }, {
+    "source" : "duplicate200",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate200",
+    "count" : 1
+  }, {
+    "source" : "duplicate200",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate201",
+    "count" : 1
+  }, {
+    "source" : "duplicate201",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate201",
+    "count" : 1
+  }, {
+    "source" : "duplicate201",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate202",
+    "count" : 1
+  }, {
+    "source" : "duplicate202",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate202",
+    "count" : 1
+  }, {
+    "source" : "duplicate202",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate203",
+    "count" : 1
+  }, {
+    "source" : "duplicate203",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate203",
+    "count" : 1
+  }, {
+    "source" : "duplicate203",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate204",
+    "count" : 1
+  }, {
+    "source" : "duplicate204",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate204",
+    "count" : 1
+  }, {
+    "source" : "duplicate204",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate205",
+    "count" : 1
+  }, {
+    "source" : "duplicate205",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate205",
+    "count" : 1
+  }, {
+    "source" : "duplicate205",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate206",
+    "count" : 1
+  }, {
+    "source" : "duplicate206",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate206",
+    "count" : 1
+  }, {
+    "source" : "duplicate206",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "duplicate207",
+    "count" : 1
+  }, {
+    "source" : "duplicate207",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "duplicate207",
+    "count" : 1
+  }, {
+    "source" : "duplicate207",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "duplicate208",
+    "count" : 1
+  }, {
+    "source" : "duplicate208",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/TransactionCreateContainer.tsx]",
+    "target" : "duplicate208",
+    "count" : 1
+  }, {
+    "source" : "duplicate208",
+    "target" : "[src/containers/TransactionCreateContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate209",
+    "count" : 1
+  }, {
+    "source" : "duplicate209",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate209",
+    "count" : 1
+  }, {
+    "source" : "duplicate209",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate210",
+    "count" : 1
+  }, {
+    "source" : "duplicate210",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate210",
+    "count" : 1
+  }, {
+    "source" : "duplicate210",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate211",
+    "count" : 1
+  }, {
+    "source" : "duplicate211",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate211",
+    "count" : 1
+  }, {
+    "source" : "duplicate211",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "duplicate212",
+    "count" : 1
+  }, {
+    "source" : "duplicate212",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate212",
+    "count" : 1
+  }, {
+    "source" : "duplicate212",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "duplicate213",
+    "count" : 1
+  }, {
+    "source" : "duplicate213",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate213",
+    "count" : 1
+  }, {
+    "source" : "duplicate213",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate214",
+    "count" : 1
+  }, {
+    "source" : "duplicate214",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate214",
+    "count" : 1
+  }, {
+    "source" : "duplicate214",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate215",
+    "count" : 1
+  }, {
+    "source" : "duplicate215",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate215",
+    "count" : 1
+  }, {
+    "source" : "duplicate215",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate216",
+    "count" : 1
+  }, {
+    "source" : "duplicate216",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate216",
+    "count" : 1
+  }, {
+    "source" : "duplicate216",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "duplicate217",
+    "count" : 1
+  }, {
+    "source" : "duplicate217",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "duplicate217",
+    "count" : 1
+  }, {
+    "source" : "duplicate217",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate218",
+    "count" : 1
+  }, {
+    "source" : "duplicate218",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate218",
+    "count" : 1
+  }, {
+    "source" : "duplicate218",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate219",
+    "count" : 1
+  }, {
+    "source" : "duplicate219",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate219",
+    "count" : 1
+  }, {
+    "source" : "duplicate219",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate220",
+    "count" : 1
+  }, {
+    "source" : "duplicate220",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate220",
+    "count" : 1
+  }, {
+    "source" : "duplicate220",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate221",
+    "count" : 1
+  }, {
+    "source" : "duplicate221",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate221",
+    "count" : 1
+  }, {
+    "source" : "duplicate221",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/contactsTransactionsMachine.ts]",
+    "target" : "duplicate222",
+    "count" : 1
+  }, {
+    "source" : "duplicate222",
+    "target" : "[src/machines/contactsTransactionsMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/publicTransactionsMachine.ts]",
+    "target" : "duplicate222",
+    "count" : 1
+  }, {
+    "source" : "duplicate222",
+    "target" : "[src/machines/publicTransactionsMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate223",
+    "count" : 1
+  }, {
+    "source" : "duplicate223",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate223",
+    "count" : 1
+  }, {
+    "source" : "duplicate223",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[backend/like-routes.ts]",
+    "target" : "duplicate224",
+    "count" : 1
+  }, {
+    "source" : "duplicate224",
+    "target" : "[backend/like-routes.ts]",
+    "count" : 1
+  }, {
+    "source" : "[backend/transaction-routes.ts]",
+    "target" : "duplicate224",
+    "count" : 1
+  }, {
+    "source" : "duplicate224",
+    "target" : "[backend/transaction-routes.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate225",
+    "count" : 1
+  }, {
+    "source" : "duplicate225",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate225",
+    "count" : 1
+  }, {
+    "source" : "duplicate225",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate226",
+    "count" : 1
+  }, {
+    "source" : "duplicate226",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate226",
+    "count" : 1
+  }, {
+    "source" : "duplicate226",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate227",
+    "count" : 1
+  }, {
+    "source" : "duplicate227",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate227",
+    "count" : 1
+  }, {
+    "source" : "duplicate227",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate228",
+    "count" : 1
+  }, {
+    "source" : "duplicate228",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate228",
+    "count" : 1
+  }, {
+    "source" : "duplicate228",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "duplicate229",
+    "count" : 1
+  }, {
+    "source" : "duplicate229",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "duplicate229",
+    "count" : 1
+  }, {
+    "source" : "duplicate229",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate230",
+    "count" : 1
+  }, {
+    "source" : "duplicate230",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserListSearchForm.tsx]",
+    "target" : "duplicate230",
+    "count" : 1
+  }, {
+    "source" : "duplicate230",
+    "target" : "[src/components/UserListSearchForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/contactsTransactionsMachine.ts]",
+    "target" : "duplicate231",
+    "count" : 1
+  }, {
+    "source" : "duplicate231",
+    "target" : "[src/machines/contactsTransactionsMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/usersMachine.ts]",
+    "target" : "duplicate231",
+    "count" : 1
+  }, {
+    "source" : "duplicate231",
+    "target" : "[src/machines/usersMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate232",
+    "count" : 1
+  }, {
+    "source" : "duplicate232",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate232",
+    "count" : 1
+  }, {
+    "source" : "duplicate232",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionItem.tsx]",
+    "target" : "duplicate233",
+    "count" : 1
+  }, {
+    "source" : "duplicate233",
+    "target" : "[src/components/TransactionItem.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionListFilters.tsx]",
+    "target" : "duplicate233",
+    "count" : 1
+  }, {
+    "source" : "duplicate233",
+    "target" : "[src/components/TransactionListFilters.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "duplicate234",
+    "count" : 1
+  }, {
+    "source" : "duplicate234",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "duplicate234",
+    "count" : 1
+  }, {
+    "source" : "duplicate234",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate235",
+    "count" : 1
+  }, {
+    "source" : "duplicate235",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate235",
+    "count" : 1
+  }, {
+    "source" : "duplicate235",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/personalTransactionsMachine.ts]",
+    "target" : "duplicate236",
+    "count" : 1
+  }, {
+    "source" : "duplicate236",
+    "target" : "[src/machines/personalTransactionsMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/usersMachine.ts]",
+    "target" : "duplicate236",
+    "count" : 1
+  }, {
+    "source" : "duplicate236",
+    "target" : "[src/machines/usersMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate237",
+    "count" : 1
+  }, {
+    "source" : "duplicate237",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate237",
+    "count" : 1
+  }, {
+    "source" : "duplicate237",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate238",
+    "count" : 1
+  }, {
+    "source" : "duplicate238",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate238",
+    "count" : 1
+  }, {
+    "source" : "duplicate238",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate239",
+    "count" : 1
+  }, {
+    "source" : "duplicate239",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate239",
+    "count" : 1
+  }, {
+    "source" : "duplicate239",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/CommentForm.tsx]",
+    "target" : "duplicate240",
+    "count" : 1
+  }, {
+    "source" : "duplicate240",
+    "target" : "[src/components/CommentForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate240",
+    "count" : 1
+  }, {
+    "source" : "duplicate240",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate241",
+    "count" : 1
+  }, {
+    "source" : "duplicate241",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate241",
+    "count" : 1
+  }, {
+    "source" : "duplicate241",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "duplicate242",
+    "count" : 1
+  }, {
+    "source" : "duplicate242",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "duplicate242",
+    "count" : 1
+  }, {
+    "source" : "duplicate242",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate243",
+    "count" : 1
+  }, {
+    "source" : "duplicate243",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate243",
+    "count" : 1
+  }, {
+    "source" : "duplicate243",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/notificationsMachine.ts]",
+    "target" : "duplicate244",
+    "count" : 1
+  }, {
+    "source" : "duplicate244",
+    "target" : "[src/machines/notificationsMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/transactionDetailMachine.ts]",
+    "target" : "duplicate244",
+    "count" : 1
+  }, {
+    "source" : "duplicate244",
+    "target" : "[src/machines/transactionDetailMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "duplicate245",
+    "count" : 1
+  }, {
+    "source" : "duplicate245",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "duplicate245",
+    "count" : 1
+  }, {
+    "source" : "duplicate245",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate246",
+    "count" : 1
+  }, {
+    "source" : "duplicate246",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate246",
+    "count" : 1
+  }, {
+    "source" : "duplicate246",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "duplicate247",
+    "count" : 1
+  }, {
+    "source" : "duplicate247",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate247",
+    "count" : 1
+  }, {
+    "source" : "duplicate247",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate248",
+    "count" : 1
+  }, {
+    "source" : "duplicate248",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate248",
+    "count" : 1
+  }, {
+    "source" : "duplicate248",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate249",
+    "count" : 1
+  }, {
+    "source" : "duplicate249",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate249",
+    "count" : 1
+  }, {
+    "source" : "duplicate249",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "duplicate250",
+    "count" : 1
+  }, {
+    "source" : "duplicate250",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "duplicate250",
+    "count" : 1
+  }, {
+    "source" : "duplicate250",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate251",
+    "count" : 1
+  }, {
+    "source" : "duplicate251",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate251",
+    "count" : 1
+  }, {
+    "source" : "duplicate251",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "duplicate252",
+    "count" : 1
+  }, {
+    "source" : "duplicate252",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/TransactionCreateContainer.tsx]",
+    "target" : "duplicate252",
+    "count" : 1
+  }, {
+    "source" : "duplicate252",
+    "target" : "[src/containers/TransactionCreateContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "duplicate253",
+    "count" : 1
+  }, {
+    "source" : "duplicate253",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "duplicate253",
+    "count" : 1
+  }, {
+    "source" : "duplicate253",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/AlertBar.tsx]",
+    "target" : "duplicate254",
+    "count" : 1
+  }, {
+    "source" : "duplicate254",
+    "target" : "[src/components/AlertBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate254",
+    "count" : 1
+  }, {
+    "source" : "duplicate254",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate255",
+    "count" : 1
+  }, {
+    "source" : "duplicate255",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate255",
+    "count" : 1
+  }, {
+    "source" : "duplicate255",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/personalTransactionsMachine.ts]",
+    "target" : "duplicate256",
+    "count" : 1
+  }, {
+    "source" : "duplicate256",
+    "target" : "[src/machines/personalTransactionsMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/publicTransactionsMachine.ts]",
+    "target" : "duplicate256",
+    "count" : 1
+  }, {
+    "source" : "duplicate256",
+    "target" : "[src/machines/publicTransactionsMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate257",
+    "count" : 1
+  }, {
+    "source" : "duplicate257",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate257",
+    "count" : 1
+  }, {
+    "source" : "duplicate257",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate258",
+    "count" : 1
+  }, {
+    "source" : "duplicate258",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate258",
+    "count" : 1
+  }, {
+    "source" : "duplicate258",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate259",
+    "count" : 1
+  }, {
+    "source" : "duplicate259",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate259",
+    "count" : 1
+  }, {
+    "source" : "duplicate259",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate260",
+    "count" : 1
+  }, {
+    "source" : "duplicate260",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate260",
+    "count" : 1
+  }, {
+    "source" : "duplicate260",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate261",
+    "count" : 1
+  }, {
+    "source" : "duplicate261",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate261",
+    "count" : 1
+  }, {
+    "source" : "duplicate261",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate262",
+    "count" : 1
+  }, {
+    "source" : "duplicate262",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate262",
+    "count" : 1
+  }, {
+    "source" : "duplicate262",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate263",
+    "count" : 1
+  }, {
+    "source" : "duplicate263",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate263",
+    "count" : 1
+  }, {
+    "source" : "duplicate263",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate264",
+    "count" : 1
+  }, {
+    "source" : "duplicate264",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate264",
+    "count" : 1
+  }, {
+    "source" : "duplicate264",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate265",
+    "count" : 1
+  }, {
+    "source" : "duplicate265",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate265",
+    "count" : 1
+  }, {
+    "source" : "duplicate265",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate266",
+    "count" : 1
+  }, {
+    "source" : "duplicate266",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate266",
+    "count" : 1
+  }, {
+    "source" : "duplicate266",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate267",
+    "count" : 1
+  }, {
+    "source" : "duplicate267",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate267",
+    "count" : 1
+  }, {
+    "source" : "duplicate267",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/AlertBar.tsx]",
+    "target" : "duplicate268",
+    "count" : 1
+  }, {
+    "source" : "duplicate268",
+    "target" : "[src/components/AlertBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "duplicate268",
+    "count" : 1
+  }, {
+    "source" : "duplicate268",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate269",
+    "count" : 1
+  }, {
+    "source" : "duplicate269",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate269",
+    "count" : 1
+  }, {
+    "source" : "duplicate269",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate270",
+    "count" : 1
+  }, {
+    "source" : "duplicate270",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate270",
+    "count" : 1
+  }, {
+    "source" : "duplicate270",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate271",
+    "count" : 1
+  }, {
+    "source" : "duplicate271",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate271",
+    "count" : 1
+  }, {
+    "source" : "duplicate271",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "duplicate272",
+    "count" : 1
+  }, {
+    "source" : "duplicate272",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "duplicate272",
+    "count" : 1
+  }, {
+    "source" : "duplicate272",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/AlertBar.tsx]",
+    "target" : "duplicate273",
+    "count" : 1
+  }, {
+    "source" : "duplicate273",
+    "target" : "[src/components/AlertBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "duplicate273",
+    "count" : 1
+  }, {
+    "source" : "duplicate273",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "duplicate274",
+    "count" : 1
+  }, {
+    "source" : "duplicate274",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate274",
+    "count" : 1
+  }, {
+    "source" : "duplicate274",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate275",
+    "count" : 1
+  }, {
+    "source" : "duplicate275",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate275",
+    "count" : 1
+  }, {
+    "source" : "duplicate275",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/AlertBar.tsx]",
+    "target" : "duplicate276",
+    "count" : 1
+  }, {
+    "source" : "duplicate276",
+    "target" : "[src/components/AlertBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "duplicate276",
+    "count" : 1
+  }, {
+    "source" : "duplicate276",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate277",
+    "count" : 1
+  }, {
+    "source" : "duplicate277",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate277",
+    "count" : 1
+  }, {
+    "source" : "duplicate277",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate278",
+    "count" : 1
+  }, {
+    "source" : "duplicate278",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate278",
+    "count" : 1
+  }, {
+    "source" : "duplicate278",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionListFilters.tsx]",
+    "target" : "duplicate279",
+    "count" : 1
+  }, {
+    "source" : "duplicate279",
+    "target" : "[src/components/TransactionListFilters.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "duplicate279",
+    "count" : 1
+  }, {
+    "source" : "duplicate279",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate280",
+    "count" : 1
+  }, {
+    "source" : "duplicate280",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate280",
+    "count" : 1
+  }, {
+    "source" : "duplicate280",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate281",
+    "count" : 1
+  }, {
+    "source" : "duplicate281",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate281",
+    "count" : 1
+  }, {
+    "source" : "duplicate281",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate282",
+    "count" : 1
+  }, {
+    "source" : "duplicate282",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate282",
+    "count" : 1
+  }, {
+    "source" : "duplicate282",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/CommentForm.tsx]",
+    "target" : "duplicate283",
+    "count" : 1
+  }, {
+    "source" : "duplicate283",
+    "target" : "[src/components/CommentForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate283",
+    "count" : 1
+  }, {
+    "source" : "duplicate283",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate284",
+    "count" : 1
+  }, {
+    "source" : "duplicate284",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate284",
+    "count" : 1
+  }, {
+    "source" : "duplicate284",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate285",
+    "count" : 1
+  }, {
+    "source" : "duplicate285",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate285",
+    "count" : 1
+  }, {
+    "source" : "duplicate285",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate286",
+    "count" : 1
+  }, {
+    "source" : "duplicate286",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate286",
+    "count" : 1
+  }, {
+    "source" : "duplicate286",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "duplicate287",
+    "count" : 1
+  }, {
+    "source" : "duplicate287",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "duplicate287",
+    "count" : 1
+  }, {
+    "source" : "duplicate287",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate288",
+    "count" : 1
+  }, {
+    "source" : "duplicate288",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "duplicate288",
+    "count" : 1
+  }, {
+    "source" : "duplicate288",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate289",
+    "count" : 1
+  }, {
+    "source" : "duplicate289",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate289",
+    "count" : 1
+  }, {
+    "source" : "duplicate289",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate290",
+    "count" : 1
+  }, {
+    "source" : "duplicate290",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate290",
+    "count" : 1
+  }, {
+    "source" : "duplicate290",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate291",
+    "count" : 1
+  }, {
+    "source" : "duplicate291",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate291",
+    "count" : 1
+  }, {
+    "source" : "duplicate291",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate292",
+    "count" : 1
+  }, {
+    "source" : "duplicate292",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate292",
+    "count" : 1
+  }, {
+    "source" : "duplicate292",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate293",
+    "count" : 1
+  }, {
+    "source" : "duplicate293",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate293",
+    "count" : 1
+  }, {
+    "source" : "duplicate293",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate294",
+    "count" : 1
+  }, {
+    "source" : "duplicate294",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate294",
+    "count" : 1
+  }, {
+    "source" : "duplicate294",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepOne.tsx]",
+    "target" : "duplicate295",
+    "count" : 1
+  }, {
+    "source" : "duplicate295",
+    "target" : "[src/components/TransactionCreateStepOne.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "duplicate295",
+    "count" : 1
+  }, {
+    "source" : "duplicate295",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate296",
+    "count" : 1
+  }, {
+    "source" : "duplicate296",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate296",
+    "count" : 1
+  }, {
+    "source" : "duplicate296",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate297",
+    "count" : 1
+  }, {
+    "source" : "duplicate297",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate297",
+    "count" : 1
+  }, {
+    "source" : "duplicate297",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/AlertBar.tsx]",
+    "target" : "duplicate298",
+    "count" : 1
+  }, {
+    "source" : "duplicate298",
+    "target" : "[src/components/AlertBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "duplicate298",
+    "count" : 1
+  }, {
+    "source" : "duplicate298",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "duplicate299",
+    "count" : 1
+  }, {
+    "source" : "duplicate299",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "duplicate299",
+    "count" : 1
+  }, {
+    "source" : "duplicate299",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate300",
+    "count" : 1
+  }, {
+    "source" : "duplicate300",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate300",
+    "count" : 1
+  }, {
+    "source" : "duplicate300",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate301",
+    "count" : 1
+  }, {
+    "source" : "duplicate301",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate301",
+    "count" : 1
+  }, {
+    "source" : "duplicate301",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "duplicate302",
+    "count" : 1
+  }, {
+    "source" : "duplicate302",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "duplicate302",
+    "count" : 1
+  }, {
+    "source" : "duplicate302",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate303",
+    "count" : 1
+  }, {
+    "source" : "duplicate303",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate303",
+    "count" : 1
+  }, {
+    "source" : "duplicate303",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[cypress/support/commands.ts]",
+    "target" : "duplicate304",
+    "count" : 1
+  }, {
+    "source" : "duplicate304",
+    "target" : "[cypress/support/commands.ts]",
+    "count" : 1
+  }, {
+    "source" : "[cypress/support/commands.ts]",
+    "target" : "duplicate304",
+    "count" : 1
+  }, {
+    "source" : "duplicate304",
+    "target" : "[cypress/support/commands.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate305",
+    "count" : 1
+  }, {
+    "source" : "duplicate305",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate305",
+    "count" : 1
+  }, {
+    "source" : "duplicate305",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate306",
+    "count" : 1
+  }, {
+    "source" : "duplicate306",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppGoogle.tsx]",
+    "target" : "duplicate306",
+    "count" : 1
+  }, {
+    "source" : "duplicate306",
+    "target" : "[src/containers/AppGoogle.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate307",
+    "count" : 1
+  }, {
+    "source" : "duplicate307",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate307",
+    "count" : 1
+  }, {
+    "source" : "duplicate307",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate308",
+    "count" : 1
+  }, {
+    "source" : "duplicate308",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate308",
+    "count" : 1
+  }, {
+    "source" : "duplicate308",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "duplicate309",
+    "count" : 1
+  }, {
+    "source" : "duplicate309",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/TransactionCreateContainer.tsx]",
+    "target" : "duplicate309",
+    "count" : 1
+  }, {
+    "source" : "duplicate309",
+    "target" : "[src/containers/TransactionCreateContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[backend/comment-routes.ts]",
+    "target" : "duplicate310",
+    "count" : 1
+  }, {
+    "source" : "duplicate310",
+    "target" : "[backend/comment-routes.ts]",
+    "count" : 1
+  }, {
+    "source" : "[backend/transaction-routes.ts]",
+    "target" : "duplicate310",
+    "count" : 1
+  }, {
+    "source" : "duplicate310",
+    "target" : "[backend/transaction-routes.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate311",
+    "count" : 1
+  }, {
+    "source" : "duplicate311",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate311",
+    "count" : 1
+  }, {
+    "source" : "duplicate311",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate312",
+    "count" : 1
+  }, {
+    "source" : "duplicate312",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate312",
+    "count" : 1
+  }, {
+    "source" : "duplicate312",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate313",
+    "count" : 1
+  }, {
+    "source" : "duplicate313",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate313",
+    "count" : 1
+  }, {
+    "source" : "duplicate313",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate314",
+    "count" : 1
+  }, {
+    "source" : "duplicate314",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate314",
+    "count" : 1
+  }, {
+    "source" : "duplicate314",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserListSearchForm.tsx]",
+    "target" : "duplicate315",
+    "count" : 1
+  }, {
+    "source" : "duplicate315",
+    "target" : "[src/components/UserListSearchForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate315",
+    "count" : 1
+  }, {
+    "source" : "duplicate315",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate316",
+    "count" : 1
+  }, {
+    "source" : "duplicate316",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate316",
+    "count" : 1
+  }, {
+    "source" : "duplicate316",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate317",
+    "count" : 1
+  }, {
+    "source" : "duplicate317",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate317",
+    "count" : 1
+  }, {
+    "source" : "duplicate317",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "duplicate318",
+    "count" : 1
+  }, {
+    "source" : "duplicate318",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "duplicate318",
+    "count" : 1
+  }, {
+    "source" : "duplicate318",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate319",
+    "count" : 1
+  }, {
+    "source" : "duplicate319",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate319",
+    "count" : 1
+  }, {
+    "source" : "duplicate319",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate320",
+    "count" : 1
+  }, {
+    "source" : "duplicate320",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate320",
+    "count" : 1
+  }, {
+    "source" : "duplicate320",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionListFilters.tsx]",
+    "target" : "duplicate321",
+    "count" : 1
+  }, {
+    "source" : "duplicate321",
+    "target" : "[src/components/TransactionListFilters.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserListItem.tsx]",
+    "target" : "duplicate321",
+    "count" : 1
+  }, {
+    "source" : "duplicate321",
+    "target" : "[src/components/UserListItem.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate322",
+    "count" : 1
+  }, {
+    "source" : "duplicate322",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate322",
+    "count" : 1
+  }, {
+    "source" : "duplicate322",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate323",
+    "count" : 1
+  }, {
+    "source" : "duplicate323",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate323",
+    "count" : 1
+  }, {
+    "source" : "duplicate323",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate324",
+    "count" : 1
+  }, {
+    "source" : "duplicate324",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate324",
+    "count" : 1
+  }, {
+    "source" : "duplicate324",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate325",
+    "count" : 1
+  }, {
+    "source" : "duplicate325",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate325",
+    "count" : 1
+  }, {
+    "source" : "duplicate325",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate326",
+    "count" : 1
+  }, {
+    "source" : "duplicate326",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate326",
+    "count" : 1
+  }, {
+    "source" : "duplicate326",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate327",
+    "count" : 1
+  }, {
+    "source" : "duplicate327",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate327",
+    "count" : 1
+  }, {
+    "source" : "duplicate327",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "duplicate328",
+    "count" : 1
+  }, {
+    "source" : "duplicate328",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "duplicate328",
+    "count" : 1
+  }, {
+    "source" : "duplicate328",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate329",
+    "count" : 1
+  }, {
+    "source" : "duplicate329",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate329",
+    "count" : 1
+  }, {
+    "source" : "duplicate329",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/CommentForm.tsx]",
+    "target" : "duplicate330",
+    "count" : 1
+  }, {
+    "source" : "duplicate330",
+    "target" : "[src/components/CommentForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate330",
+    "count" : 1
+  }, {
+    "source" : "duplicate330",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/AlertBar.tsx]",
+    "target" : "duplicate331",
+    "count" : 1
+  }, {
+    "source" : "duplicate331",
+    "target" : "[src/components/AlertBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/TransactionCreateContainer.tsx]",
+    "target" : "duplicate331",
+    "count" : 1
+  }, {
+    "source" : "duplicate331",
+    "target" : "[src/containers/TransactionCreateContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate332",
+    "count" : 1
+  }, {
+    "source" : "duplicate332",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate332",
+    "count" : 1
+  }, {
+    "source" : "duplicate332",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate333",
+    "count" : 1
+  }, {
+    "source" : "duplicate333",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate333",
+    "count" : 1
+  }, {
+    "source" : "duplicate333",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate334",
+    "count" : 1
+  }, {
+    "source" : "duplicate334",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate334",
+    "count" : 1
+  }, {
+    "source" : "duplicate334",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate335",
+    "count" : 1
+  }, {
+    "source" : "duplicate335",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate335",
+    "count" : 1
+  }, {
+    "source" : "duplicate335",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate336",
+    "count" : 1
+  }, {
+    "source" : "duplicate336",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate336",
+    "count" : 1
+  }, {
+    "source" : "duplicate336",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate337",
+    "count" : 1
+  }, {
+    "source" : "duplicate337",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate337",
+    "count" : 1
+  }, {
+    "source" : "duplicate337",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate338",
+    "count" : 1
+  }, {
+    "source" : "duplicate338",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate338",
+    "count" : 1
+  }, {
+    "source" : "duplicate338",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate339",
+    "count" : 1
+  }, {
+    "source" : "duplicate339",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate339",
+    "count" : 1
+  }, {
+    "source" : "duplicate339",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate340",
+    "count" : 1
+  }, {
+    "source" : "duplicate340",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate340",
+    "count" : 1
+  }, {
+    "source" : "duplicate340",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "duplicate341",
+    "count" : 1
+  }, {
+    "source" : "duplicate341",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "duplicate341",
+    "count" : 1
+  }, {
+    "source" : "duplicate341",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate342",
+    "count" : 1
+  }, {
+    "source" : "duplicate342",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate342",
+    "count" : 1
+  }, {
+    "source" : "duplicate342",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate343",
+    "count" : 1
+  }, {
+    "source" : "duplicate343",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate343",
+    "count" : 1
+  }, {
+    "source" : "duplicate343",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate344",
+    "count" : 1
+  }, {
+    "source" : "duplicate344",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate344",
+    "count" : 1
+  }, {
+    "source" : "duplicate344",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "duplicate345",
+    "count" : 1
+  }, {
+    "source" : "duplicate345",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "duplicate345",
+    "count" : 1
+  }, {
+    "source" : "duplicate345",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/publicTransactionsMachine.ts]",
+    "target" : "duplicate346",
+    "count" : 1
+  }, {
+    "source" : "duplicate346",
+    "target" : "[src/machines/publicTransactionsMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/machines/usersMachine.ts]",
+    "target" : "duplicate346",
+    "count" : 1
+  }, {
+    "source" : "duplicate346",
+    "target" : "[src/machines/usersMachine.ts]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate347",
+    "count" : 1
+  }, {
+    "source" : "duplicate347",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/AppGoogle.tsx]",
+    "target" : "duplicate347",
+    "count" : 1
+  }, {
+    "source" : "duplicate347",
+    "target" : "[src/containers/AppGoogle.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate348",
+    "count" : 1
+  }, {
+    "source" : "duplicate348",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate348",
+    "count" : 1
+  }, {
+    "source" : "duplicate348",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate349",
+    "count" : 1
+  }, {
+    "source" : "duplicate349",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate349",
+    "count" : 1
+  }, {
+    "source" : "duplicate349",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/AlertBar.tsx]",
+    "target" : "duplicate350",
+    "count" : 1
+  }, {
+    "source" : "duplicate350",
+    "target" : "[src/components/AlertBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "duplicate350",
+    "count" : 1
+  }, {
+    "source" : "duplicate350",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate351",
+    "count" : 1
+  }, {
+    "source" : "duplicate351",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate351",
+    "count" : 1
+  }, {
+    "source" : "duplicate351",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "duplicate352",
+    "count" : 1
+  }, {
+    "source" : "duplicate352",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate352",
+    "count" : 1
+  }, {
+    "source" : "duplicate352",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate353",
+    "count" : 1
+  }, {
+    "source" : "duplicate353",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "duplicate353",
+    "count" : 1
+  }, {
+    "source" : "duplicate353",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "duplicate354",
+    "count" : 1
+  }, {
+    "source" : "duplicate354",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate354",
+    "count" : 1
+  }, {
+    "source" : "duplicate354",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "duplicate355",
+    "count" : 1
+  }, {
+    "source" : "duplicate355",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "duplicate355",
+    "count" : 1
+  }, {
+    "source" : "duplicate355",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate356",
+    "count" : 1
+  }, {
+    "source" : "duplicate356",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate356",
+    "count" : 1
+  }, {
+    "source" : "duplicate356",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate357",
+    "count" : 1
+  }, {
+    "source" : "duplicate357",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "duplicate357",
+    "count" : 1
+  }, {
+    "source" : "duplicate357",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "duplicate358",
+    "count" : 1
+  }, {
+    "source" : "duplicate358",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "duplicate358",
+    "count" : 1
+  }, {
+    "source" : "duplicate358",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "duplicate359",
+    "count" : 1
+  }, {
+    "source" : "duplicate359",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 1
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "duplicate359",
+    "count" : 1
+  }, {
+    "source" : "duplicate359",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 1
+  } ]
+}
+
+    const maxNodeSize = gData.nodes.map(n => n.size).reduce((a, b) => Math.max(a, b));
+    const maxCount = gData.links.map(l => l.count).reduce((a, b) => Math.max(a, b));
+
+    gData.links = gData.links.map(l => {
+        return {source: l.target, target: l.source, count: l.count}
+    });
+    const colorOf = (node) => {
+        if (!node.id.startsWith("[")) return "rgba(135, 206, 235, 0.6)";
+        return "rgba(100,100,100,0.6)";
+    }
+
+    const elem = document.getElementById('graph');
+    const Graph = ForceGraph()(elem)
+        .graphData(gData)
+        .nodeRelSize(4)
+        .nodeVal(n => Math.max(20 * n.size / maxNodeSize, 0.001))
+        .nodeLabel(n => n.id + " (" + n.size + ")")
+        .nodeColor(n => colorOf(n))
+        .linkDirectionalParticles(1)
+        .linkDirectionalParticleSpeed(d => d.count / maxCount * 0.01)
+        .linkOpacity(0.1)
+        .linkWidth(d => 3 * d.count / maxCount + 0.1);
+
+</script>
+</body>

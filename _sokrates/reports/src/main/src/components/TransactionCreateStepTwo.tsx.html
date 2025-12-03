@@ -1,0 +1,240 @@
+<html>
+<head>
+    <title>src/components/TransactionCreateStepTwo.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/TransactionCreateStepTwo.tsx (<b>198</b> lines of code) (<a href="TransactionCreateStepTwo.tsx">raw</a>):</h3>
+<div id="editor">import React, { useState } from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import NumberFormat from &quot;react-number-format&quot;;
+import { Formik, Form, Field, FieldProps } from &quot;formik&quot;;
+import { string, object, number } from &quot;yup&quot;;
+import { Paper, Typography, Button, Grid, Container, Avatar, Box, TextField } from &quot;@mui/material&quot;;
+import { User } from &quot;../models&quot;;
+
+const PREFIX = &quot;TransactionCreateStepTwo&quot;;
+
+const classes = {
+  paper: `${PREFIX}-paper`,
+  form: `${PREFIX}-form`,
+  submit: `${PREFIX}-submit`,
+};
+
+const StyledPaper = styled(Paper)(({ theme }) =&gt; ({
+  [`&amp;.${classes.paper}`]: {
+    display: &quot;flex&quot;,
+    flexDirection: &quot;column&quot;,
+    alignItems: &quot;center&quot;,
+  },
+
+  [`&amp; .${classes.form}`]: {
+    width: &quot;100%&quot;,
+    marginTop: theme.spacing(1),
+  },
+
+  [`&amp; .${classes.submit}`]: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
+
+const validationSchema = object({
+  amount: number().required(&quot;Please enter a valid amount&quot;),
+  description: string().required(&quot;Please enter a note&quot;),
+  senderId: string(),
+  receiverId: string(),
+});
+
+interface NumberFormatCustomProps {
+  inputRef: (el: HTMLInputElement) =&gt; void;
+  onChange: (event: { target: { value: string } }) =&gt; void;
+}
+
+function NumberFormatCustom(props: NumberFormatCustomProps) {
+  const { inputRef, onChange, ...other } = props;
+
+  return (
+    &lt;NumberFormat
+      {...other}
+      getInputRef={inputRef}
+      onValueChange={(values) =&gt; {
+        onChange({
+          target: {
+            ...other,
+            value: values.value,
+          },
+        });
+      }}
+      thousandSeparator
+      isNumericString
+      prefix=&quot;$&quot;
+    /&gt;
+  );
+}
+
+export interface TransactionCreateStepTwoProps {
+  receiver: User;
+  sender: User;
+  createTransaction: Function;
+  showSnackbar: Function;
+}
+
+interface FormValues {
+  amount: number | &quot;&quot;;
+  description: string;
+  senderId: string;
+  receiverId: string;
+}
+
+const TransactionCreateStepTwo: React.FC&lt;TransactionCreateStepTwoProps&gt; = ({
+  receiver,
+  sender,
+  createTransaction,
+  showSnackbar,
+}) =&gt; {
+  const [transactionType, setTransactionType] = useState&lt;string&gt;();
+  const initialValues: FormValues = {
+    amount: &quot;&quot;,
+    description: &quot;&quot;,
+    senderId: sender.id,
+    receiverId: receiver.id,
+  };
+
+  return (
+    &lt;StyledPaper className={classes.paper} elevation={0}&gt;
+      &lt;Box display=&quot;flex&quot; height={200} alignItems=&quot;center&quot; justifyContent=&quot;center&quot;&gt;
+        &lt;Grid container direction=&quot;column&quot; justifyContent=&quot;flex-start&quot; alignItems=&quot;center&quot;&gt;
+          &lt;Grid item&gt;
+            &lt;Avatar src={receiver.avatar} /&gt;
+          &lt;/Grid&gt;
+          &lt;Grid item&gt;
+            &lt;Typography component=&quot;h2&quot; variant=&quot;h6&quot; color=&quot;primary&quot; gutterBottom&gt;
+              {receiver.firstName} {receiver.lastName}
+              {transactionType}
+            &lt;/Typography&gt;
+          &lt;/Grid&gt;
+        &lt;/Grid&gt;
+      &lt;/Box&gt;
+      &lt;Container maxWidth=&quot;xs&quot;&gt;
+        &lt;Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          validateOnMount={true}
+          onSubmit={(values, { setSubmitting }) =&gt; {
+            setSubmitting(true);
+
+            // reset transactionType
+            setTransactionType(undefined);
+
+            createTransaction({ transactionType, ...values });
+            showSnackbar({
+              severity: &quot;success&quot;,
+              message: &quot;Transaction Submitted!&quot;,
+            });
+          }}
+        &gt;
+          {({ isValid, isSubmitting }) =&gt; (
+            &lt;Form className={classes.form} data-test=&quot;transaction-create-form&quot;&gt;
+              &lt;Field name=&quot;amount&quot;&gt;
+                {({ field, meta: { error, value, initialValue, touched } }: FieldProps) =&gt; (
+                  &lt;TextField
+                    variant=&quot;outlined&quot;
+                    margin=&quot;dense&quot;
+                    fullWidth
+                    required
+                    autoFocus
+                    id={&quot;transaction-create-amount-input&quot;}
+                    type=&quot;text&quot;
+                    placeholder=&quot;Amount&quot;
+                    data-test={&quot;transaction-create-amount-input&quot;}
+                    error={(touched || value !== initialValue) &amp;&amp; Boolean(error)}
+                    helperText={touched || value !== initialValue ? error : &quot;&quot;}
+                    InputProps={{
+                      inputComponent: NumberFormatCustom as any,
+                      inputProps: { id: &quot;amount&quot; },
+                    }}
+                    {...field}
+                  /&gt;
+                )}
+              &lt;/Field&gt;
+              &lt;Field name=&quot;description&quot;&gt;
+                {({ field, meta: { error, value, initialValue, touched } }: FieldProps) =&gt; (
+                  &lt;TextField
+                    variant=&quot;outlined&quot;
+                    margin=&quot;dense&quot;
+                    fullWidth
+                    required
+                    id={&quot;transaction-create-description-input&quot;}
+                    type=&quot;text&quot;
+                    placeholder=&quot;Add a note&quot;
+                    data-test={&quot;transaction-create-description-input&quot;}
+                    error={(touched || value !== initialValue) &amp;&amp; Boolean(error)}
+                    helperText={touched || value !== initialValue ? error : &quot;&quot;}
+                    {...field}
+                  /&gt;
+                )}
+              &lt;/Field&gt;
+              &lt;Grid
+                container
+                spacing={2}
+                direction=&quot;row&quot;
+                justifyContent=&quot;center&quot;
+                alignItems=&quot;center&quot;
+              &gt;
+                &lt;Grid item&gt;
+                  &lt;Button
+                    type=&quot;submit&quot;
+                    fullWidth
+                    variant=&quot;contained&quot;
+                    color=&quot;primary&quot;
+                    className={classes.submit}
+                    data-test=&quot;transaction-create-submit-request&quot;
+                    disabled={!isValid || isSubmitting}
+                    onClick={() =&gt; setTransactionType(&quot;request&quot;)}
+                  &gt;
+                    Request
+                  &lt;/Button&gt;
+                &lt;/Grid&gt;
+                &lt;Grid item&gt;
+                  &lt;Button
+                    type=&quot;submit&quot;
+                    fullWidth
+                    variant=&quot;contained&quot;
+                    color=&quot;primary&quot;
+                    className={classes.submit}
+                    data-test=&quot;transaction-create-submit-payment&quot;
+                    disabled={!isValid || isSubmitting}
+                    onClick={() =&gt; setTransactionType(&quot;payment&quot;)}
+                  &gt;
+                    Pay
+                  &lt;/Button&gt;
+                &lt;/Grid&gt;
+              &lt;/Grid&gt;
+            &lt;/Form&gt;
+          )}
+        &lt;/Formik&gt;
+      &lt;/Container&gt;
+    &lt;/StyledPaper&gt;
+  );
+};
+
+export default TransactionCreateStepTwo;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

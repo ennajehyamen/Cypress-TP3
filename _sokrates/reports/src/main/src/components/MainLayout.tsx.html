@@ -1,0 +1,153 @@
+<html>
+<head>
+    <title>src/components/MainLayout.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/MainLayout.tsx (<b>111</b> lines of code) (<a href="MainLayout.tsx">raw</a>):</h3>
+<div id="editor">import React, { useEffect } from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { useMachine } from &quot;@xstate/react&quot;;
+import {
+  BaseActionObject,
+  Interpreter,
+  ResolveTypegenMeta,
+  ServiceMap,
+  TypegenDisabled,
+} from &quot;xstate&quot;;
+import { Container, Grid, useMediaQuery, useTheme } from &quot;@mui/material&quot;;
+
+import Footer from &quot;./Footer&quot;;
+import NavBar from &quot;./NavBar&quot;;
+import NavDrawer from &quot;./NavDrawer&quot;;
+import { DataContext, DataEvents, DataSchema } from &quot;../machines/dataMachine&quot;;
+import { AuthMachineContext, AuthMachineEvents, AuthMachineSchema } from &quot;../machines/authMachine&quot;;
+import { drawerMachine } from &quot;../machines/drawerMachine&quot;;
+
+const PREFIX = &quot;MainLayout&quot;;
+
+const classes = {
+  toolbar: `${PREFIX}-toolbar`,
+  appBarSpacer: `${PREFIX}-appBarSpacer`,
+  content: `${PREFIX}-content`,
+  container: `${PREFIX}-container`,
+};
+// TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+const Root = styled(&quot;div&quot;)(({ theme }) =&gt; ({
+  [`&amp;`]: { display: &quot;flex&quot;, flexGrow: 1 },
+
+  [`&amp; .${classes.toolbar}`]: {
+    paddingRight: 24, // keep right padding when drawer closed
+  },
+
+  [`&amp; .${classes.appBarSpacer}`]: {
+    minHeight: theme.spacing(13),
+    [theme.breakpoints.up(&quot;sm&quot;)]: {
+      minHeight: theme.spacing(14),
+    },
+  },
+
+  [`&amp; .${classes.content}`]: {
+    flexGrow: 1,
+    height: &quot;100vh&quot;,
+    overflow: &quot;auto&quot;,
+  },
+
+  [`&amp; .${classes.container}`]: {
+    minHeight: &quot;77vh&quot;,
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
+    [theme.breakpoints.up(&quot;sm&quot;)]: {
+      paddingTop: theme.spacing(4),
+      padding: theme.spacing(4),
+    },
+  },
+}));
+
+interface Props {
+  children: React.ReactNode;
+  authService: Interpreter&lt;AuthMachineContext, AuthMachineSchema, AuthMachineEvents, any, any&gt;;
+  notificationsService: Interpreter&lt;
+    DataContext,
+    DataSchema,
+    DataEvents,
+    any,
+    ResolveTypegenMeta&lt;TypegenDisabled, DataEvents, BaseActionObject, ServiceMap&gt;
+  &gt;;
+}
+
+const MainLayout: React.FC&lt;Props&gt; = ({ children, notificationsService, authService }) =&gt; {
+  const theme = useTheme();
+  const [drawerState, sendDrawer] = useMachine(drawerMachine);
+
+  const aboveSmallBreakpoint = useMediaQuery(theme.breakpoints.up(&quot;sm&quot;));
+  const xsBreakpoint = useMediaQuery(theme.breakpoints.only(&quot;xs&quot;));
+
+  const desktopDrawerOpen = drawerState?.matches({ desktop: &quot;open&quot; });
+  const mobileDrawerOpen = drawerState?.matches({ mobile: &quot;open&quot; });
+  const toggleDesktopDrawer = () =&gt; {
+    sendDrawer(&quot;TOGGLE_DESKTOP&quot;);
+  };
+  const toggleMobileDrawer = () =&gt; {
+    sendDrawer(&quot;TOGGLE_MOBILE&quot;);
+  };
+
+  const openDesktopDrawer = (payload: any) =&gt; sendDrawer(&quot;OPEN_DESKTOP&quot;, payload);
+  const closeMobileDrawer = () =&gt; sendDrawer(&quot;CLOSE_MOBILE&quot;);
+
+  useEffect(() =&gt; {
+    if (!desktopDrawerOpen &amp;&amp; aboveSmallBreakpoint) {
+      openDesktopDrawer({ aboveSmallBreakpoint });
+    }
+  }, [aboveSmallBreakpoint, desktopDrawerOpen]);
+
+  return (
+    &lt;Root&gt;
+      &lt;NavBar
+        toggleDrawer={xsBreakpoint ? toggleMobileDrawer : toggleDesktopDrawer}
+        drawerOpen={xsBreakpoint ? mobileDrawerOpen : desktopDrawerOpen}
+        notificationsService={notificationsService}
+      /&gt;
+      &lt;NavDrawer
+        toggleDrawer={xsBreakpoint ? toggleMobileDrawer : toggleDesktopDrawer}
+        drawerOpen={xsBreakpoint ? mobileDrawerOpen : desktopDrawerOpen}
+        closeMobileDrawer={closeMobileDrawer}
+        authService={authService}
+      /&gt;
+      &lt;main className={classes.content} data-test=&quot;main&quot;&gt;
+        &lt;div className={classes.appBarSpacer} /&gt;
+        &lt;Container maxWidth=&quot;md&quot; className={classes.container}&gt;
+          &lt;Grid container spacing={3}&gt;
+            &lt;Grid item xs={12}&gt;
+              {children}
+            &lt;/Grid&gt;
+          &lt;/Grid&gt;
+        &lt;/Container&gt;
+        &lt;footer&gt;
+          &lt;Footer /&gt;
+        &lt;/footer&gt;
+      &lt;/main&gt;
+    &lt;/Root&gt;
+  );
+};
+
+export default MainLayout;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

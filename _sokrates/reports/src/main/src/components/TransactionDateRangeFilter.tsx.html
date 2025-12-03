@@ -1,0 +1,226 @@
+<html>
+<head>
+    <title>src/components/TransactionDateRangeFilter.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/TransactionDateRangeFilter.tsx (<b>180</b> lines of code) (<a href="TransactionDateRangeFilter.tsx">raw</a>):</h3>
+<div id="editor">import React, { useState } from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { format as formatDate } from &quot;date-fns&quot;;
+import { Popover, Chip, useTheme, Drawer, Button, useMediaQuery, colors } from &quot;@mui/material&quot;;
+import { ArrowDropDown as ArrowDropDownIcon, Cancel as CancelIcon } from &quot;@mui/icons-material&quot;;
+import Calendar from &quot;react-calendar&quot;;
+
+import &quot;react-calendar/dist/Calendar.css&quot;;
+import { TransactionDateRangePayload, Value, ValuePiece } from &quot;../models&quot;;
+import { hasDateQueryFields, localDateToUTCISOString } from &quot;../utils/transactionUtils&quot;;
+
+const PREFIX = &quot;TransactionListDateRangeFilter&quot;;
+
+const classes = {
+  popover: `${PREFIX}-popover`,
+};
+
+const Root = styled(&quot;div&quot;)(({ theme }) =&gt; ({
+  [`&amp; .${classes.popover}`]: {
+    [theme.breakpoints.down(&quot;md&quot;)]: {
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+    },
+  },
+}));
+
+const { indigo } = colors;
+
+export type TransactionListDateRangeFilterProps = {
+  filterDateRange: Function;
+  dateRangeFilters: TransactionDateRangePayload;
+  resetDateRange: Function;
+};
+
+const TransactionListDateRangeFilter: React.FC&lt;TransactionListDateRangeFilterProps&gt; = ({
+  filterDateRange,
+  dateRangeFilters,
+  resetDateRange,
+}) =&gt; {
+  const theme = useTheme();
+  const xsBreakpoint = useMediaQuery(theme.breakpoints.only(&quot;xs&quot;));
+  const queryHasDateFields = dateRangeFilters &amp;&amp; hasDateQueryFields(dateRangeFilters);
+  const [calendarValue, setCalendarValue] = useState&lt;Value&gt;(null);
+
+  const [dateRangeAnchorEl, setDateRangeAnchorEl] = React.useState&lt;HTMLDivElement | null&gt;(null);
+
+  const onCalendarSelect = (val: Value) =&gt; {
+    if (val &amp;&amp; !(val instanceof Date)) {
+      const [rangeStart, rangeEnd] = val;
+      const calValue = {
+        dateRangeStart: localDateToUTCISOString(rangeStart),
+        dateRangeEnd: localDateToUTCISOString(rangeEnd),
+      };
+      setCalendarValue(val);
+      filterDateRange(calValue);
+      setDateRangeAnchorEl(null);
+    }
+  };
+
+  const handleDateRangeClick = (event: React.MouseEvent&lt;HTMLDivElement&gt;) =&gt; {
+    setDateRangeAnchorEl(event.currentTarget);
+  };
+
+  const handleDateRangeClose = () =&gt; {
+    setDateRangeAnchorEl(null);
+  };
+
+  const dateRangeOpen = Boolean(dateRangeAnchorEl);
+  const dateRangeId = dateRangeOpen ? &quot;date-range-popover&quot; : undefined;
+
+  const formatButtonDate = (date: Date) =&gt; {
+    return formatDate(date, &quot;MMM, d yyyy&quot;);
+  };
+
+  const dateRangeLabel = (dateRangeFields: Value) =&gt; {
+    if (dateRangeFields &amp;&amp; !(dateRangeFields instanceof Date)) {
+      const [dateRangeStart, dateRangeEnd] = dateRangeFields;
+      const label = `${formatButtonDate(dateRangeStart!)} - ${formatButtonDate(dateRangeEnd!)}`;
+      return label;
+    }
+  };
+
+  return (
+    &lt;Root&gt;
+      {!queryHasDateFields &amp;&amp; (
+        &lt;Chip
+          color=&quot;primary&quot;
+          variant=&quot;outlined&quot;
+          onClick={handleDateRangeClick}
+          data-test=&quot;transaction-list-filter-date-range-button&quot;
+          label={&quot;Date: ALL&quot;}
+          deleteIcon={&lt;ArrowDropDownIcon /&gt;}
+          onDelete={handleDateRangeClick}
+        /&gt;
+      )}
+      {queryHasDateFields &amp;&amp; (
+        &lt;Chip
+          color=&quot;primary&quot;
+          variant=&quot;outlined&quot;
+          onClick={handleDateRangeClick}
+          data-test=&quot;transaction-list-filter-date-range-button&quot;
+          label={`Date: ${dateRangeLabel(calendarValue)}`}
+          deleteIcon={&lt;CancelIcon data-test=&quot;transaction-list-filter-date-clear-button&quot; /&gt;}
+          onDelete={() =&gt; {
+            setCalendarValue(null);
+            resetDateRange();
+          }}
+        /&gt;
+      )}
+      {!xsBreakpoint &amp;&amp; (
+        &lt;Popover
+          id={dateRangeId}
+          open={dateRangeOpen}
+          anchorEl={dateRangeAnchorEl}
+          onClose={handleDateRangeClose}
+          anchorOrigin={{
+            vertical: &quot;bottom&quot;,
+            horizontal: &quot;left&quot;,
+          }}
+          transformOrigin={{
+            vertical: &quot;top&quot;,
+            horizontal: &quot;left&quot;,
+          }}
+          className={classes.popover}
+        &gt;
+          &lt;RangeCalendar
+            onCalendarSelect={onCalendarSelect}
+            xsBreakpoint={xsBreakpoint}
+            color={indigo}
+            dataTest=&quot;transaction-list-filter-date-range&quot;
+            defaultValue={calendarValue}
+          /&gt;
+        &lt;/Popover&gt;
+      )}
+      {xsBreakpoint &amp;&amp; (
+        &lt;Drawer
+          id={dateRangeId}
+          open={dateRangeOpen}
+          ModalProps={{ onClose: handleDateRangeClose }}
+          anchor=&quot;bottom&quot;
+          data-test=&quot;date-range-filter-drawer&quot;
+        &gt;
+          &lt;Button data-test=&quot;date-range-filter-drawer-close&quot; onClick={() =&gt; handleDateRangeClose()}&gt;
+            Close
+          &lt;/Button&gt;
+          &lt;RangeCalendar
+            onCalendarSelect={onCalendarSelect}
+            xsBreakpoint={xsBreakpoint}
+            color={indigo}
+            dataTest=&quot;transaction-list-filter-date-range&quot;
+            defaultValue={calendarValue}
+          /&gt;
+        &lt;/Drawer&gt;
+      )}
+    &lt;/Root&gt;
+  );
+};
+
+export function RangeCalendar({
+  onCalendarSelect,
+  xsBreakpoint,
+  color,
+  dataTest,
+  defaultValue,
+}: {
+  onCalendarSelect: (value: Value) =&gt; void;
+  xsBreakpoint: boolean;
+  color: Record&lt;string, string&gt;;
+  dataTest: string;
+  defaultValue: Value;
+}) {
+  const [value, setValue] = useState&lt;Value&gt;(defaultValue);
+
+  const width = xsBreakpoint ? window.innerWidth : 350;
+  const height = xsBreakpoint ? window.innerHeight : 300;
+
+  const handleChange = (val: Value, _: any) =&gt; {
+    setValue(val);
+    onCalendarSelect(val);
+  };
+
+  return (
+    &lt;div
+      data-test={dataTest}
+      style={{
+        width,
+        maxWidth: &quot;100%&quot;,
+        background: color[&quot;400&quot;],
+        padding: 8,
+        borderRadius: 8,
+      }}
+    &gt;
+      &lt;Calendar onChange={handleChange} value={value} selectRange={true} /&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default TransactionListDateRangeFilter;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

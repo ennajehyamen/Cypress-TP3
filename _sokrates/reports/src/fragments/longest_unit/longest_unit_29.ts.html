@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>id: shortid()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">id: shortid()</h3>
+<p style="margin-top: 4px">in <i>scripts/seedDataUtils.ts [142:162]</i></p>
+<ul>
+    <li><b>18</b> lines of code</li>
+    <li><b>1</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="ts">
+  id: shortid(),
+  uuid: faker.random.uuid(),
+  userId,
+  contactUserId,
+  createdAt: faker.date.past(),
+  modifiedAt: faker.date.recent(),
+});
+
+// returns a random user other than the one passed in
+export const getOtherRandomUser = curry(
+  (seedUsers: User[], userId: User[&quot;id&quot;]): User =&gt; flow(reject([&quot;id&quot;, userId]), sample)(seedUsers)
+);
+
+export const randomContactsForUser = curry((seedUsers: User[], user: User) =&gt;
+  uniqBy(
+    &quot;id&quot;,
+    times(() =&gt; getOtherRandomUser(seedUsers, user.id), contactsPerUser * 3)
+  ).slice(0, contactsPerUser)
+);
+export const generateRandomContactsForUser = (seedUsers: User[]) =&gt;
+  map((user: User) =&gt; ({
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

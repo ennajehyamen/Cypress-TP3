@@ -1,0 +1,103 @@
+<html>
+<head>
+    <title>src/machines/bankAccountsMachine.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/machines/bankAccountsMachine.ts (<b>72</b> lines of code) (<a href="bankAccountsMachine.ts">raw</a>):</h3>
+<div id="editor">import { omit } from &quot;lodash/fp&quot;;
+import gql from &quot;graphql-tag&quot;;
+import { dataMachine } from &quot;./dataMachine&quot;;
+import { httpClient } from &quot;../utils/asyncUtils&quot;;
+import { backendPort } from &quot;../utils/portUtils&quot;;
+
+const listBankAccountQuery = gql`
+  query ListBankAccount {
+    listBankAccount {
+      id
+      uuid
+      userId
+      bankName
+      accountNumber
+      routingNumber
+      isDeleted
+      createdAt
+      modifiedAt
+    }
+  }
+`;
+
+const deleteBankAccountMutation = gql`
+  mutation DeleteBankAccount($id: ID!) {
+    deleteBankAccount(id: $id)
+  }
+`;
+
+const createBankAccountMutation = gql`
+  mutation CreateBankAccount($bankName: String!, $accountNumber: String!, $routingNumber: String!) {
+    createBankAccount(
+      bankName: $bankName
+      accountNumber: $accountNumber
+      routingNumber: $routingNumber
+    ) {
+      id
+      uuid
+      userId
+      bankName
+      accountNumber
+      routingNumber
+      isDeleted
+      createdAt
+    }
+  }
+`;
+
+export const bankAccountsMachine = dataMachine(&quot;bankAccounts&quot;).withConfig({
+  services: {
+    fetchData: async (ctx, event: any) =&gt; {
+      const resp = await httpClient.post(`http://localhost:${backendPort}/graphql`, {
+        operationName: &quot;ListBankAccount&quot;,
+        query: listBankAccountQuery.loc?.source.body,
+      });
+      // @ts-ignore
+      return { results: resp.data.data.listBankAccount, pageData: {} };
+    },
+    deleteData: async (ctx, event: any) =&gt; {
+      const payload = omit(&quot;type&quot;, event);
+      const resp = await httpClient.post(`http://localhost:${backendPort}/graphql`, {
+        operationName: &quot;DeleteBankAccount&quot;,
+        query: deleteBankAccountMutation.loc?.source.body,
+        variables: payload,
+      });
+      return resp.data;
+    },
+    createData: async (ctx, event: any) =&gt; {
+      const payload = omit(&quot;type&quot;, event);
+      const resp = await httpClient.post(`http://localhost:${backendPort}/graphql`, {
+        operationName: &quot;CreateBankAccount&quot;,
+        query: createBankAccountMutation.loc?.source.body,
+        variables: payload,
+      });
+      return resp.data;
+    },
+  },
+});
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

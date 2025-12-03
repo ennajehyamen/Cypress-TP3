@@ -1,0 +1,75 @@
+<html>
+<head>
+    <title>dateRangeEnd: localDateToUTCISOString()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">dateRangeEnd: localDateToUTCISOString()</h3>
+<p style="margin-top: 4px">in <i>src/components/TransactionDateRangeFilter.tsx [54:106]</i></p>
+<ul>
+    <li><b>47</b> lines of code</li>
+    <li><b>6</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="tsx">
+        dateRangeEnd: localDateToUTCISOString(rangeEnd),
+      };
+      setCalendarValue(val);
+      filterDateRange(calValue);
+      setDateRangeAnchorEl(null);
+    }
+  };
+
+  const handleDateRangeClick = (event: React.MouseEvent&lt;HTMLDivElement&gt;) =&gt; {
+    setDateRangeAnchorEl(event.currentTarget);
+  };
+
+  const handleDateRangeClose = () =&gt; {
+    setDateRangeAnchorEl(null);
+  };
+
+  const dateRangeOpen = Boolean(dateRangeAnchorEl);
+  const dateRangeId = dateRangeOpen ? &quot;date-range-popover&quot; : undefined;
+
+  const formatButtonDate = (date: Date) =&gt; {
+    return formatDate(date, &quot;MMM, d yyyy&quot;);
+  };
+
+  const dateRangeLabel = (dateRangeFields: Value) =&gt; {
+    if (dateRangeFields &amp;&amp; !(dateRangeFields instanceof Date)) {
+      const [dateRangeStart, dateRangeEnd] = dateRangeFields;
+      const label = `${formatButtonDate(dateRangeStart!)} - ${formatButtonDate(dateRangeEnd!)}`;
+      return label;
+    }
+  };
+
+  return (
+    &lt;Root&gt;
+      {!queryHasDateFields &amp;&amp; (
+        &lt;Chip
+          color=&quot;primary&quot;
+          variant=&quot;outlined&quot;
+          onClick={handleDateRangeClick}
+          data-test=&quot;transaction-list-filter-date-range-button&quot;
+          label={&quot;Date: ALL&quot;}
+          deleteIcon={&lt;ArrowDropDownIcon /&gt;}
+          onDelete={handleDateRangeClick}
+        /&gt;
+      )}
+      {queryHasDateFields &amp;&amp; (
+        &lt;Chip
+          color=&quot;primary&quot;
+          variant=&quot;outlined&quot;
+          onClick={handleDateRangeClick}
+          data-test=&quot;transaction-list-filter-date-range-button&quot;
+          label={`Date: ${dateRangeLabel(calendarValue)}`}
+          deleteIcon={&lt;CancelIcon data-test=&quot;transaction-list-filter-date-clear-button&quot; /&gt;}
+          onDelete={() =&gt; {
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

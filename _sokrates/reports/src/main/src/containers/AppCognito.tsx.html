@@ -1,0 +1,130 @@
+<html>
+<head>
+    <title>src/containers/AppCognito.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/containers/AppCognito.tsx (<b>82</b> lines of code) (<a href="AppCognito.tsx">raw</a>):</h3>
+<div id="editor">import React, { useEffect } from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { useActor, useMachine } from &quot;@xstate/react&quot;;
+import { CssBaseline } from &quot;@mui/material&quot;;
+
+import { snackbarMachine } from &quot;../machines/snackbarMachine&quot;;
+import { notificationsMachine } from &quot;../machines/notificationsMachine&quot;;
+import { authService } from &quot;../machines/authMachine&quot;;
+import AlertBar from &quot;../components/AlertBar&quot;;
+import { bankAccountsMachine } from &quot;../machines/bankAccountsMachine&quot;;
+import PrivateRoutesContainer from &quot;./PrivateRoutesContainer&quot;;
+import { Amplify, ResourcesConfig } from &quot;aws-amplify&quot;;
+import { fetchAuthSession, signInWithRedirect, signOut } from &quot;aws-amplify/auth&quot;;
+
+// @ts-ignore
+import awsConfig from &quot;../aws-exports&quot;;
+const PREFIX = &quot;AppCognito&quot;;
+
+const classes = {
+  root: `${PREFIX}-root`,
+};
+
+const Root = styled(&quot;div&quot;)(({ theme }) =&gt; ({
+  [`&amp;.${classes.root}`]: {
+    display: &quot;flex&quot;,
+  },
+}));
+
+Amplify.configure(awsConfig as ResourcesConfig);
+
+// @ts-ignore
+if (window.Cypress) {
+  // Expose authService on window for Cypress
+  // @ts-ignore
+  window.authService = authService;
+}
+
+const AppCognito: React.FC = /* istanbul ignore next */ () =&gt; {
+  const [authState] = useActor(authService);
+  const [, , notificationsService] = useMachine(notificationsMachine);
+
+  const [, , snackbarService] = useMachine(snackbarMachine);
+
+  const [, , bankAccountsService] = useMachine(bankAccountsMachine);
+
+  const isLoggedIn =
+    authState.matches(&quot;authorized&quot;) ||
+    authState.matches(&quot;refreshing&quot;) ||
+    authState.matches(&quot;updating&quot;);
+
+  useEffect(() =&gt; {
+    if (!isLoggedIn) {
+      fetchAuthSession().then((authSession) =&gt; {
+        if (authSession &amp;&amp; authSession.tokens &amp;&amp; authSession.tokens.accessToken) {
+          const { tokens, userSub } = authSession;
+          authService.send(&quot;COGNITO&quot;, {
+            accessTokenJwtString: tokens!.accessToken.toString(),
+            userSub: userSub!,
+            email: tokens!.idToken!.payload.email,
+          });
+        } else {
+          void signInWithRedirect();
+        }
+      });
+    }
+  }, [isLoggedIn]);
+
+  useEffect(() =&gt; {
+    authService.onEvent(async (event) =&gt; {
+      if (
+        event.type === &quot;done.invoke.performLogout&quot; ||
+        // we want the client-side app to discard its JWTs even if server-side errors out:
+        event.type.startsWith(&quot;error.platform.authentication.logout&quot;)
+      ) {
+        console.log(
+          &quot;AppCognito authService.onEvent done.invoke.performLogout|error.platform.authentication.logout&quot;
+        );
+        await signOut();
+      }
+    });
+  }, []);
+
+  if (!isLoggedIn) {
+    return null;
+  }
+
+  return (
+    &lt;Root className={classes.root}&gt;
+      &lt;CssBaseline /&gt;
+
+      &lt;PrivateRoutesContainer
+        isLoggedIn={true}
+        notificationsService={notificationsService}
+        authService={authService}
+        snackbarService={snackbarService}
+        bankAccountsService={bankAccountsService}
+      /&gt;
+
+      &lt;AlertBar snackbarService={snackbarService} /&gt;
+    &lt;/Root&gt;
+  );
+};
+
+export default AppCognito;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

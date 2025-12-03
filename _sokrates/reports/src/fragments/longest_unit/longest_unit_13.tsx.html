@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>export function RangeCalendar()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">export function RangeCalendar()</h3>
+<p style="margin-top: 4px">in <i>src/components/TransactionDateRangeFilter.tsx [161:198]</i></p>
+<ul>
+    <li><b>35</b> lines of code</li>
+    <li><b>3</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="tsx">
+export function RangeCalendar({
+  onCalendarSelect,
+  xsBreakpoint,
+  color,
+  dataTest,
+  defaultValue,
+}: {
+  onCalendarSelect: (value: Value) =&gt; void;
+  xsBreakpoint: boolean;
+  color: Record&lt;string, string&gt;;
+  dataTest: string;
+  defaultValue: Value;
+}) {
+  const [value, setValue] = useState&lt;Value&gt;(defaultValue);
+
+  const width = xsBreakpoint ? window.innerWidth : 350;
+  const height = xsBreakpoint ? window.innerHeight : 300;
+
+  const handleChange = (val: Value, _: any) =&gt; {
+    setValue(val);
+    onCalendarSelect(val);
+  };
+
+  return (
+    &lt;div
+      data-test={dataTest}
+      style={{
+        width,
+        maxWidth: &quot;100%&quot;,
+        background: color[&quot;400&quot;],
+        padding: 8,
+        borderRadius: 8,
+      }}
+    &gt;
+      &lt;Calendar onChange={handleChange} value={value} selectRange={true} /&gt;
+    &lt;/div&gt;
+  );
+}
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

@@ -1,0 +1,136 @@
+<html>
+<head>
+    <title>src/models/transaction.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/models/transaction.ts (<b>93</b> lines of code) (<a href="transaction.ts">raw</a>):</h3>
+<div id="editor">import { DefaultPrivacyLevel } from &quot;./user&quot;;
+import { Like, Comment } from &quot;.&quot;;
+
+export enum TransactionStatus {
+  pending = &quot;pending&quot;,
+  incomplete = &quot;incomplete&quot;,
+  complete = &quot;complete&quot;,
+}
+
+export enum TransactionRequestStatus {
+  pending = &quot;pending&quot;,
+  accepted = &quot;accepted&quot;,
+  rejected = &quot;rejected&quot;,
+}
+
+export interface Transaction {
+  id: string;
+  uuid: string;
+  source: string; // Empty if Payment or Request; Populated with BankAccount ID
+  amount: number;
+  description: string;
+  privacyLevel: DefaultPrivacyLevel;
+  receiverId: string;
+  senderId: string;
+  balanceAtCompletion?: number;
+  status: TransactionStatus;
+  requestStatus?: TransactionRequestStatus | string;
+  requestResolvedAt?: Date | string;
+  createdAt: Date;
+  modifiedAt: Date;
+}
+
+export interface FakeTransaction {
+  id?: string;
+  uuid?: string;
+  source?: string; // Empty if Payment or Request; Populated with BankAccount ID
+  amount?: number;
+  description?: string;
+  privacyLevel?: DefaultPrivacyLevel;
+  receiverId: string;
+  senderId: string;
+  balanceAtCompletion?: number;
+  status?: TransactionStatus;
+  requestStatus?: TransactionRequestStatus | string;
+  requestResolvedAt?: Date | string;
+  createdAt?: Date;
+  modifiedAt?: Date;
+}
+
+export interface TransactionResponseItem extends Transaction {
+  likes: Like[];
+  comments: Comment[];
+  receiverName: string;
+  receiverAvatar: string;
+  senderName: string;
+  senderAvatar: string;
+}
+
+export type TransactionScenario = {
+  status: TransactionStatus;
+  requestStatus: TransactionRequestStatus | string;
+};
+
+export type TransactionPayload = Omit&lt;Transaction, &quot;id&quot; | &quot;uuid&quot; | &quot;createdAt&quot; | &quot;modifiedAt&quot;&gt;;
+
+export type TransactionCreatePayload = Partial&lt;
+  Pick&lt;Transaction, &quot;senderId&quot; | &quot;receiverId&quot; | &quot;description&quot;&gt; &amp; {
+    amount: string;
+    transactionType: string;
+  }
+&gt;;
+
+export type TransactionUpdateActionPayload = Pick&lt;Transaction, &quot;id&quot; | &quot;requestStatus&quot;&gt;;
+
+type TransactionQueryBase = {
+  dateRangeStart?: string;
+  dateRangeEnd?: string;
+  amountMin?: number;
+  amountMax?: number;
+  status?: TransactionStatus;
+  limit?: number;
+  page?: number;
+};
+
+export type TransactionQueryPayload = Partial&lt;TransactionQueryBase&gt;;
+
+export type TransactionDateRangePayload = Partial&lt;
+  Pick&lt;TransactionQueryPayload, &quot;dateRangeStart&quot; | &quot;dateRangeEnd&quot;&gt;
+&gt;;
+
+export type TransactionAmountRangePayload = Partial&lt;
+  Pick&lt;TransactionQueryPayload, &quot;amountMin&quot; | &quot;amountMax&quot;&gt;
+&gt;;
+
+export type TransactionPaginationPayload = Partial&lt;Pick&lt;TransactionQueryPayload, &quot;page&quot; | &quot;limit&quot;&gt;&gt;;
+
+export type TransactionClearFiltersPayload = {
+  filterType: &quot;date&quot; | &quot;amount&quot;;
+};
+
+export type TransactionPagination = {
+  page: number;
+  limit: number;
+  hasNextPages: boolean;
+  totalPages: number;
+};
+
+export type Range&lt;T&gt; = [T, T];
+export type ValuePiece = Date | null;
+export type Value = ValuePiece | Range&lt;ValuePiece&gt;;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

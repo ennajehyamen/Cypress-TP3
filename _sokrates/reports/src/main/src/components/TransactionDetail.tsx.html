@@ -1,0 +1,270 @@
+<html>
+<head>
+    <title>src/components/TransactionDetail.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/TransactionDetail.tsx (<b>231</b> lines of code) (<a href="TransactionDetail.tsx">raw</a>):</h3>
+<div id="editor">import React from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { Button, Typography, Grid, Avatar, Paper, IconButton } from &quot;@mui/material&quot;;
+import { AvatarGroup } from &quot;@mui/material&quot;;
+import { ThumbUpAltOutlined as LikeIcon, CommentRounded as CommentIcon } from &quot;@mui/icons-material&quot;;
+import { TransactionResponseItem, TransactionRequestStatus, User } from &quot;../models&quot;;
+import CommentForm from &quot;./CommentForm&quot;;
+import {
+  isPendingRequestTransaction,
+  receiverIsCurrentUser,
+  currentUserLikesTransaction,
+} from &quot;../utils/transactionUtils&quot;;
+import CommentsList from &quot;./CommentList&quot;;
+import TransactionTitle from &quot;./TransactionTitle&quot;;
+import TransactionAmount from &quot;./TransactionAmount&quot;;
+
+const PREFIX = &quot;TransactionDetail&quot;;
+
+const classes = {
+  paper: `${PREFIX}-paper`,
+  paperComments: `${PREFIX}-paperComments`,
+  avatar: `${PREFIX}-avatar`,
+  headline: `${PREFIX}-headline`,
+  avatarLarge: `${PREFIX}-avatarLarge`,
+  avatarGroup: `${PREFIX}-avatarGroup`,
+  redButton: `${PREFIX}-redButton`,
+  greenButton: `${PREFIX}-greenButton`,
+};
+
+const StyledPaper = styled(Paper)(({ theme }) =&gt; ({
+  [`&amp;.${classes.paper}`]: {
+    padding: theme.spacing(2),
+    display: &quot;flex&quot;,
+    overflow: &quot;auto&quot;,
+    flexDirection: &quot;column&quot;,
+  },
+
+  [`&amp; .${classes.paperComments}`]: {
+    marginTop: theme.spacing(6),
+    padding: theme.spacing(2),
+    display: &quot;flex&quot;,
+    overflow: &quot;auto&quot;,
+    flexDirection: &quot;column&quot;,
+  },
+
+  [`&amp; .${classes.avatar}`]: {
+    width: theme.spacing(2),
+  },
+
+  [`&amp; .${classes.headline}`]: {
+    marginTop: theme.spacing(4),
+  },
+
+  [`&amp; .${classes.avatarLarge}`]: {
+    width: theme.spacing(7),
+    height: theme.spacing(7),
+  },
+
+  [`&amp; .${classes.avatarGroup}`]: {
+    margin: 10,
+  },
+
+  [`&amp; .${classes.redButton}`]: {
+    backgrounColor: &quot;red&quot;,
+    color: &quot;#ffffff&quot;,
+    backgroundColor: &quot;red&quot;,
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingRight: 20,
+    fontWeight: &quot;bold&quot;,
+    &quot;&amp;:hover&quot;: {
+      backgroundColor: &quot;red&quot;,
+      borderColor: &quot;red&quot;,
+      boxShadow: &quot;none&quot;,
+    },
+  },
+
+  [`&amp; .${classes.greenButton}`]: {
+    marginRight: theme.spacing(2),
+    color: &quot;#ffffff&quot;,
+    backgroundColor: &quot;#00C853&quot;,
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingRight: 20,
+    fontWeight: &quot;bold&quot;,
+    &quot;&amp;:hover&quot;: {
+      backgroundColor: &quot;#4CAF50&quot;,
+      borderColor: &quot;#00C853&quot;,
+      boxShadow: &quot;none&quot;,
+    },
+  },
+}));
+
+type TransactionProps = {
+  transaction: TransactionResponseItem;
+  transactionLike: Function;
+  transactionComment: Function;
+  transactionUpdate: Function;
+  currentUser: User;
+};
+
+const TransactionDetail: React.FC&lt;TransactionProps&gt; = ({
+  transaction,
+  transactionLike,
+  transactionComment,
+  transactionUpdate,
+  currentUser,
+}) =&gt; {
+  return (
+    &lt;StyledPaper className={classes.paper}&gt;
+      &lt;Typography
+        component=&quot;h2&quot;
+        variant=&quot;h6&quot;
+        color=&quot;primary&quot;
+        gutterBottom
+        data-test=&quot;transaction-detail-header&quot;
+      &gt;
+        Transaction Detail
+      &lt;/Typography&gt;
+      &lt;Grid
+        container
+        direction=&quot;row&quot;
+        justifyContent=&quot;space-between&quot;
+        alignItems=&quot;center&quot;
+        data-test={`transaction-item-${transaction.id}`}
+      &gt;
+        &lt;Grid item className={classes.headline}&gt;
+          &lt;Grid container direction=&quot;row&quot;&gt;
+            &lt;AvatarGroup className={classes.avatarGroup} max={2}&gt;
+              &lt;Avatar
+                data-test=&quot;transaction-sender-avatar&quot;
+                className={classes.avatarLarge}
+                src={transaction.senderAvatar}
+              /&gt;
+              &lt;Avatar
+                data-test=&quot;transaction-receiver-avatar&quot;
+                className={classes.avatarLarge}
+                src={transaction.receiverAvatar}
+              /&gt;
+            &lt;/AvatarGroup&gt;
+            {/* eat up space to right of AvatarGroup: */}
+            &lt;Grid item sx={{ width: &quot;100%&quot; }} /&gt;
+          &lt;/Grid&gt;
+          &lt;Grid container direction=&quot;column&quot; justifyContent=&quot;flex-start&quot; alignItems=&quot;flex-start&quot;&gt;
+            &lt;Grid item&gt;&lt;/Grid&gt;
+            &lt;Grid item&gt;
+              &lt;TransactionTitle transaction={transaction} /&gt;
+            &lt;/Grid&gt;
+            &lt;Grid item&gt;
+              &lt;Typography
+                variant=&quot;body2&quot;
+                color=&quot;textSecondary&quot;
+                gutterBottom
+                data-test=&quot;transaction-description&quot;
+              &gt;
+                {transaction.description}
+              &lt;/Typography&gt;
+            &lt;/Grid&gt;
+          &lt;/Grid&gt;
+        &lt;/Grid&gt;
+        &lt;Grid item&gt;
+          &lt;TransactionAmount transaction={transaction} /&gt;
+        &lt;/Grid&gt;
+      &lt;/Grid&gt;
+      &lt;Grid container direction=&quot;row&quot; justifyContent=&quot;flex-start&quot; alignItems=&quot;center&quot; spacing={2}&gt;
+        &lt;Grid item&gt;
+          &lt;Grid
+            container
+            direction=&quot;row&quot;
+            justifyContent=&quot;flex-start&quot;
+            alignItems=&quot;center&quot;
+            spacing={2}
+          &gt;
+            &lt;Grid item data-test={`transaction-like-count-${transaction.id}`}&gt;
+              {transaction.likes ? transaction.likes.length : 0}{&quot; &quot;}
+            &lt;/Grid&gt;
+            &lt;Grid item&gt;
+              &lt;IconButton
+                color=&quot;primary&quot;
+                disabled={currentUserLikesTransaction(currentUser, transaction)}
+                onClick={() =&gt; transactionLike(transaction.id)}
+                data-test={`transaction-like-button-${transaction.id}`}
+                size=&quot;large&quot;
+              &gt;
+                &lt;LikeIcon /&gt;
+              &lt;/IconButton&gt;
+            &lt;/Grid&gt;
+            &lt;Grid item&gt;
+              {receiverIsCurrentUser(currentUser, transaction) &amp;&amp;
+                isPendingRequestTransaction(transaction) &amp;&amp; (
+                  &lt;Grid item&gt;
+                    &lt;Button
+                      className={classes.greenButton}
+                      variant=&quot;contained&quot;
+                      size=&quot;small&quot;
+                      onClick={() =&gt;
+                        transactionUpdate({
+                          id: transaction.id,
+                          requestStatus: TransactionRequestStatus.accepted,
+                        })
+                      }
+                      data-test={`transaction-accept-request-${transaction.id}`}
+                    &gt;
+                      Accept Request
+                    &lt;/Button&gt;
+                    &lt;Button
+                      variant=&quot;contained&quot;
+                      className={classes.redButton}
+                      size=&quot;small&quot;
+                      onClick={() =&gt;
+                        transactionUpdate({
+                          id: transaction.id,
+                          requestStatus: TransactionRequestStatus.rejected,
+                        })
+                      }
+                      data-test={`transaction-reject-request-${transaction.id}`}
+                    &gt;
+                      Reject Request
+                    &lt;/Button&gt;
+                  &lt;/Grid&gt;
+                )}
+            &lt;/Grid&gt;
+          &lt;/Grid&gt;
+          &lt;Grid item&gt;
+            &lt;CommentForm
+              transactionId={transaction.id}
+              transactionComment={(payload) =&gt; transactionComment(payload)}
+            /&gt;
+          &lt;/Grid&gt;
+        &lt;/Grid&gt;
+      &lt;/Grid&gt;
+      {transaction.comments.length &gt; 0 &amp;&amp; (
+        &lt;Paper className={classes.paperComments}&gt;
+          &lt;Typography component=&quot;h2&quot; variant=&quot;h6&quot; color=&quot;primary&quot; gutterBottom&gt;
+            &lt;CommentIcon /&gt; Comments
+          &lt;/Typography&gt;
+          &lt;CommentsList comments={transaction.comments} /&gt;
+        &lt;/Paper&gt;
+      )}
+    &lt;/StyledPaper&gt;
+  );
+};
+
+export default TransactionDetail;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

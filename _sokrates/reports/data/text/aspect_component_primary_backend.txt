@@ -1,0 +1,21 @@
+Path	Lines of Code
+backend/app.ts	98
+backend/auth.ts	50
+backend/bankaccount-routes.ts	43
+backend/banktransfer-routes.ts	10
+backend/comment-routes.ts	28
+backend/contact-routes.ts	34
+backend/database.ts	665
+backend/gql-playground-routes.ts	5
+backend/graphql/resolvers/Mutation.ts	11
+backend/graphql/resolvers/Query.ts	11
+backend/graphql/resolvers/index.ts	7
+backend/graphql/schema.graphql	18
+backend/helpers.ts	94
+backend/like-routes.ts	27
+backend/notification-routes.ts	40
+backend/testdata-routes.ts	17
+backend/transaction-routes.ts	145
+backend/types.ts	6
+backend/user-routes.ts	70
+backend/validators.ts	96

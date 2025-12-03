@@ -1,0 +1,173 @@
+<html>
+<head>
+    <title>src/components/TransactionCreateStepThree.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/TransactionCreateStepThree.tsx (<b>134</b> lines of code) (<a href="TransactionCreateStepThree.tsx">raw</a>):</h3>
+<div id="editor">import React from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { Link as RouterLink, useHistory } from &quot;react-router-dom&quot;;
+import { Paper, Typography, Grid, Avatar, Box, Button } from &quot;@mui/material&quot;;
+import {
+  BaseActionObject,
+  Interpreter,
+  ResolveTypegenMeta,
+  ServiceMap,
+  TypegenDisabled,
+} from &quot;xstate&quot;;
+import {
+  CreateTransactionMachineContext,
+  CreateTransactionMachineEvents,
+  CreateTransactionMachineSchema,
+} from &quot;../machines/createTransactionMachine&quot;;
+import { useActor } from &quot;@xstate/react&quot;;
+import { formatAmount } from &quot;../utils/transactionUtils&quot;;
+
+const PREFIX = &quot;TransactionCreateStepThree&quot;;
+
+const classes = {
+  paper: `${PREFIX}-paper`,
+};
+
+const StyledPaper = styled(Paper)(({ theme }) =&gt; ({
+  [`&amp;.${classes.paper}`]: {
+    display: &quot;flex&quot;,
+    flexDirection: &quot;column&quot;,
+    alignItems: &quot;center&quot;,
+  },
+}));
+
+export interface TransactionCreateStepThreeProps {
+  createTransactionService: Interpreter&lt;
+    CreateTransactionMachineContext,
+    CreateTransactionMachineSchema,
+    CreateTransactionMachineEvents,
+    any,
+    ResolveTypegenMeta&lt;
+      TypegenDisabled,
+      CreateTransactionMachineEvents,
+      BaseActionObject,
+      ServiceMap
+    &gt;
+  &gt;;
+}
+
+const TransactionCreateStepThree: React.FC&lt;TransactionCreateStepThreeProps&gt; = ({
+  createTransactionService,
+}) =&gt; {
+  const history = useHistory();
+
+  const [createTransactionState, sendCreateTransaction] = useActor(createTransactionService);
+
+  const receiver = createTransactionState?.context?.receiver;
+  const transactionDetails = createTransactionState?.context?.transactionDetails;
+
+  return (
+    &lt;StyledPaper className={classes.paper} elevation={0}&gt;
+      &lt;Box
+        display=&quot;flex&quot;
+        justifyContent=&quot;center&quot;
+        width=&quot;95%&quot;
+        min-height={200}
+        height={200}
+        style={{ paddingTop: &quot;5%&quot; }}
+      &gt;
+        &lt;Grid
+          container
+          direction=&quot;row&quot;
+          justifyContent=&quot;space-around&quot;
+          alignItems=&quot;center&quot;
+          spacing={4}
+        &gt;
+          &lt;Grid item&gt;
+            &lt;Grid container direction=&quot;column&quot; justifyContent=&quot;flex-start&quot; alignItems=&quot;center&quot;&gt;
+              &lt;Grid item&gt;
+                &lt;Avatar src={receiver.avatar} /&gt;
+              &lt;/Grid&gt;
+              &lt;Grid item&gt;
+                &lt;Typography component=&quot;h2&quot; variant=&quot;h6&quot; color=&quot;primary&quot; gutterBottom&gt;
+                  {receiver.firstName} {receiver.lastName}
+                &lt;/Typography&gt;
+              &lt;/Grid&gt;
+            &lt;/Grid&gt;
+          &lt;/Grid&gt;
+        &lt;/Grid&gt;
+      &lt;/Box&gt;
+      &lt;Box
+        display=&quot;flex&quot;
+        justifyContent=&quot;center&quot;
+        width=&quot;100%&quot;
+        height=&quot;100&quot;
+        style={{ paddingBottom: &quot;5%&quot; }}
+      &gt;
+        &lt;Grid container direction=&quot;row&quot; justifyContent=&quot;center&quot; alignItems=&quot;center&quot;&gt;
+          &lt;Grid item&gt;
+            &lt;Typography component=&quot;h2&quot; variant=&quot;h6&quot; color=&quot;primary&quot; gutterBottom&gt;
+              {transactionDetails?.transactionType === &quot;payment&quot; ? &quot;Paid &quot; : &quot;Requested &quot;}
+              {transactionDetails?.amount &amp;&amp;
+                formatAmount(parseInt(transactionDetails.amount, 10) * 100)}{&quot; &quot;}
+              for {transactionDetails?.description}
+            &lt;/Typography&gt;
+          &lt;/Grid&gt;
+        &lt;/Grid&gt;
+      &lt;/Box&gt;
+      &lt;Box
+        display=&quot;flex&quot;
+        justifyContent=&quot;center&quot;
+        width=&quot;100%&quot;
+        height=&quot;100&quot;
+        style={{ paddingBottom: &quot;5%&quot; }}
+      &gt;
+        &lt;Grid container direction=&quot;row&quot; justifyContent=&quot;space-around&quot; alignItems=&quot;center&quot;&gt;
+          &lt;Grid item&gt;
+            &lt;Button
+              variant=&quot;contained&quot;
+              size=&quot;small&quot;
+              component={RouterLink}
+              to=&quot;/&quot;
+              data-test=&quot;new-transaction-return-to-transactions&quot;
+            &gt;
+              Return To Transactions
+            &lt;/Button&gt;
+          &lt;/Grid&gt;
+          &lt;Grid item&gt;
+            &lt;Button
+              variant=&quot;contained&quot;
+              size=&quot;small&quot;
+              /* istanbul ignore next */
+              onClick={() =&gt; {
+                sendCreateTransaction(&quot;RESET&quot;);
+                history.push(&quot;/transaction/new&quot;);
+              }}
+              data-test=&quot;new-transaction-create-another-transaction&quot;
+            &gt;
+              Create Another Transaction
+            &lt;/Button&gt;
+          &lt;/Grid&gt;
+        &lt;/Grid&gt;
+      &lt;/Box&gt;
+    &lt;/StyledPaper&gt;
+  );
+};
+
+export default TransactionCreateStepThree;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

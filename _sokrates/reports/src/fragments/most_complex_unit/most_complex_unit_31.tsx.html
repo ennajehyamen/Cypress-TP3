@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>function rowRenderer()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">function rowRenderer()</h3>
+<p style="margin-top: 4px">in <i>src/components/TransactionInfiniteList.tsx [54:65]</i></p>
+<ul>
+    <li><b>11</b> lines of code</li>
+    <li><b>2</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="tsx">
+  function rowRenderer({ key, index, style }) {
+    const transaction = get(index, transactions);
+
+    if (index &lt; transactions.length) {
+      return (
+        &lt;div key={key} style={style}&gt;
+          &lt;TransactionItem transaction={transaction} /&gt;
+          &lt;Divider variant={isMobile ? &quot;fullWidth&quot; : &quot;inset&quot;} /&gt;
+        &lt;/div&gt;
+      );
+    }
+  }
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

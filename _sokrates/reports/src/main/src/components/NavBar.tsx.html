@@ -1,0 +1,222 @@
+<html>
+<head>
+    <title>src/components/NavBar.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/NavBar.tsx (<b>178</b> lines of code) (<a href="NavBar.tsx">raw</a>):</h3>
+<div id="editor">import React from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import clsx from &quot;clsx&quot;;
+import {
+  BaseActionObject,
+  Interpreter,
+  ResolveTypegenMeta,
+  ServiceMap,
+  TypegenDisabled,
+} from &quot;xstate&quot;;
+import { useActor } from &quot;@xstate/react&quot;;
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Badge,
+  Button,
+  useTheme,
+  useMediaQuery,
+  Link,
+} from &quot;@mui/material&quot;;
+import {
+  Menu as MenuIcon,
+  Notifications as NotificationsIcon,
+  AttachMoney as AttachMoneyIcon,
+} from &quot;@mui/icons-material&quot;;
+import { Link as RouterLink, useLocation } from &quot;react-router-dom&quot;;
+
+import { DataContext, DataEvents, DataSchema } from &quot;../machines/dataMachine&quot;;
+import TransactionNavTabs from &quot;./TransactionNavTabs&quot;;
+import RWALogo from &quot;./SvgRwaLogo&quot;;
+import RWALogoIcon from &quot;./SvgRwaIconLogo&quot;;
+
+const drawerWidth = 240;
+
+const PREFIX = &quot;NavBar&quot;;
+
+const classes = {
+  toolbar: `${PREFIX}-toolbar`,
+  appBar: `${PREFIX}-appBar`,
+  appBarShift: `${PREFIX}-appBarShift`,
+  menuButtonHidden: `${PREFIX}-menuButtonHidden`,
+  title: `${PREFIX}-title`,
+  logo: `${PREFIX}-logo`,
+  newTransactionButton: `${PREFIX}-newTransactionButton`,
+  customBadge: `${PREFIX}-customBadge`,
+};
+
+const StyledAppBar = styled(AppBar)(({ theme }) =&gt; ({
+  [`&amp; .${classes.toolbar}`]: {
+    paddingRight: 24, // keep right padding when drawer closed
+  },
+
+  [`&amp;.${classes.appBar}`]: {
+    transition: theme.transitions.create([&quot;width&quot;, &quot;margin&quot;], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+  },
+
+  [`&amp;.${classes.appBarShift}`]: {
+    marginLeft: drawerWidth,
+    width: `calc(100% - ${drawerWidth}px)`,
+    transition: theme.transitions.create([&quot;width&quot;, &quot;margin&quot;], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+
+  [`&amp; .${classes.menuButtonHidden}`]: {
+    display: &quot;none&quot;,
+  },
+
+  [`&amp; .${classes.title}`]: {
+    flexGrow: 1,
+    textAlign: &quot;center&quot;,
+  },
+
+  [`&amp; .${classes.logo}`]: {
+    color: &quot;white&quot;,
+    verticalAlign: &quot;bottom&quot;,
+  },
+
+  [`&amp; .${classes.newTransactionButton}`]: {
+    fontSize: 16,
+    backgroundColor: &quot;#00C853&quot;,
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingRight: 20,
+    fontWeight: &quot;bold&quot;,
+    &quot;&amp;:hover&quot;: {
+      backgroundColor: &quot;#4CAF50&quot;,
+      borderColor: &quot;#00C853&quot;,
+      boxShadow: &quot;none&quot;,
+    },
+  },
+
+  [`&amp; .${classes.customBadge}`]: {
+    backgroundColor: &quot;red&quot;,
+    color: &quot;white&quot;,
+  },
+}));
+
+interface NavBarProps {
+  drawerOpen: boolean;
+  toggleDrawer: Function;
+  notificationsService: Interpreter&lt;
+    DataContext,
+    DataSchema,
+    DataEvents,
+    any,
+    ResolveTypegenMeta&lt;TypegenDisabled, DataEvents, BaseActionObject, ServiceMap&gt;
+  &gt;;
+}
+
+const NavBar: React.FC&lt;NavBarProps&gt; = ({ drawerOpen, toggleDrawer, notificationsService }) =&gt; {
+  const match = useLocation();
+
+  const theme = useTheme();
+  const [notificationsState] = useActor(notificationsService);
+
+  const allNotifications = notificationsState?.context?.results;
+  const xsBreakpoint = useMediaQuery(theme.breakpoints.only(&quot;xs&quot;));
+
+  return (
+    &lt;StyledAppBar
+      position=&quot;absolute&quot;
+      className={clsx(classes.appBar, drawerOpen &amp;&amp; classes.appBarShift)}
+    &gt;
+      &lt;Toolbar className={classes.toolbar}&gt;
+        &lt;IconButton
+          data-test=&quot;sidenav-toggle&quot;
+          edge=&quot;start&quot;
+          color=&quot;inherit&quot;
+          aria-label=&quot;open drawer&quot;
+          onClick={() =&gt; toggleDrawer()}
+          size=&quot;large&quot;
+        &gt;
+          &lt;MenuIcon data-test=&quot;drawer-icon&quot; /&gt;
+        &lt;/IconButton&gt;
+        &lt;Typography
+          component=&quot;h1&quot;
+          variant=&quot;h6&quot;
+          color=&quot;inherit&quot;
+          noWrap
+          className={classes.title}
+          data-test=&quot;app-name-logo&quot;
+        &gt;
+          &lt;Link
+            to=&quot;/&quot;
+            style={{ color: &quot;#fff&quot;, textDecoration: &quot;none&quot; }}
+            component={RouterLink}
+            underline=&quot;hover&quot;
+          &gt;
+            {xsBreakpoint ? (
+              &lt;RWALogoIcon className={classes.logo} /&gt;
+            ) : (
+              &lt;RWALogo className={classes.logo} /&gt;
+            )}
+          &lt;/Link&gt;
+        &lt;/Typography&gt;
+        &lt;Button
+          className={classes.newTransactionButton}
+          variant=&quot;contained&quot;
+          color=&quot;inherit&quot;
+          component={RouterLink}
+          to=&quot;/transaction/new&quot;
+          data-test=&quot;nav-top-new-transaction&quot;
+        &gt;
+          &lt;AttachMoneyIcon /&gt; New
+        &lt;/Button&gt;
+        &lt;IconButton
+          color=&quot;inherit&quot;
+          component={RouterLink}
+          to=&quot;/notifications&quot;
+          data-test=&quot;nav-top-notifications-link&quot;
+          size=&quot;large&quot;
+        &gt;
+          &lt;Badge
+            badgeContent={allNotifications ? allNotifications.length : undefined}
+            data-test=&quot;nav-top-notifications-count&quot;
+            classes={{ badge: classes.customBadge }}
+          &gt;
+            &lt;NotificationsIcon /&gt;
+          &lt;/Badge&gt;
+        &lt;/IconButton&gt;
+      &lt;/Toolbar&gt;
+      {(match.pathname === &quot;/&quot; || RegExp(&quot;/(?:public|contacts|personal)&quot;).test(match.pathname)) &amp;&amp; (
+        &lt;TransactionNavTabs /&gt;
+      )}
+    &lt;/StyledAppBar&gt;
+  );
+};
+
+export default NavBar;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

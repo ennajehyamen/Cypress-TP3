@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>uuid: v4()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">uuid: v4()</h3>
+<p style="margin-top: 4px">in <i>backend/database.ts [269:307]</i></p>
+<ul>
+    <li><b>25</b> lines of code</li>
+    <li><b>1</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="ts">
+    uuid: v4(),
+    userId,
+    bankName: accountDetails.bankName!,
+    accountNumber: accountDetails.accountNumber!,
+    routingNumber: accountDetails.routingNumber!,
+    isDeleted: false,
+    createdAt: new Date(),
+    modifiedAt: new Date(),
+  };
+
+  // Write bank account record to the database
+  const result = createBankAccount(bankaccount);
+
+  return result;
+};
+
+export const removeBankAccountById = (bankAccountId: string) =&gt; {
+  db.get(BANK_ACCOUNT_TABLE)
+    .find({ id: bankAccountId })
+    .assign({ isDeleted: true }) // soft delete
+    .write();
+};
+
+// Bank Transfer
+// Note: Balance transfers from/to bank accounts is a future feature,
+// but some of the backend database functionality is already implemented here.
+
+/* istanbul ignore next */
+export const getBankTransferBy = (key: string, value: any) =&gt;
+  getBy(BANK_TRANSFER_TABLE, key, value);
+
+export const getBankTransfersBy = (key: string, value: any) =&gt;
+  getAllBy(BANK_TRANSFER_TABLE, key, value);
+
+export const getBankTransfersByUserId = (userId: string) =&gt; getBankTransfersBy(&quot;userId&quot;, userId);
+
+/* istanbul ignore next */
+export const createBankTransfer = (bankTransferDetails: BankTransferPayload) =&gt; {
+  const bankTransfer: BankTransfer = {
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

@@ -1,0 +1,181 @@
+<html>
+<head>
+    <title>src/components/TransactionItem.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/TransactionItem.tsx (<b>141</b> lines of code) (<a href="TransactionItem.tsx">raw</a>):</h3>
+<div id="editor">import React from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { useHistory } from &quot;react-router&quot;;
+import {
+  ListItem,
+  Typography,
+  Grid,
+  Avatar,
+  ListItemAvatar,
+  Paper,
+  Badge,
+  Theme,
+} from &quot;@mui/material&quot;;
+import { ThumbUpAltOutlined as LikeIcon, CommentRounded as CommentIcon } from &quot;@mui/icons-material&quot;;
+import { TransactionResponseItem } from &quot;../models&quot;;
+import TransactionTitle from &quot;./TransactionTitle&quot;;
+import TransactionAmount from &quot;./TransactionAmount&quot;;
+
+const PREFIX = &quot;TransactionItem&quot;;
+
+const classes = {
+  root: `${PREFIX}-root`,
+  paper: `${PREFIX}-paper`,
+  avatar: `${PREFIX}-avatar`,
+  socialStats: `${PREFIX}-socialStats`,
+  countIcons: `${PREFIX}-countIcons`,
+  countText: `${PREFIX}-countText`,
+};
+
+const StyledListItem = styled(ListItem)(({ theme }) =&gt; ({
+  [`&amp; .${classes.root}`]: {
+    flexGrow: 1,
+  },
+
+  [`&amp; .${classes.paper}`]: {
+    padding: theme.spacing(0),
+    margin: &quot;auto&quot;,
+    width: &quot;100%&quot;,
+  },
+
+  [`&amp; .${classes.avatar}`]: {
+    width: theme.spacing(2),
+  },
+
+  [`&amp; .${classes.socialStats}`]: {
+    [theme.breakpoints.down(&quot;md&quot;)]: {
+      marginTop: theme.spacing(2),
+    },
+  },
+
+  [`&amp; .${classes.countIcons}`]: {
+    color: theme.palette.grey[400],
+  },
+
+  [`&amp; .${classes.countText}`]: {
+    color: theme.palette.grey[400],
+    marginTop: 2,
+    height: theme.spacing(2),
+    width: theme.spacing(2),
+  },
+}));
+
+type TransactionProps = {
+  transaction: TransactionResponseItem;
+};
+
+const SmallAvatar = styled(Avatar)(({ theme }: { theme: Theme }) =&gt; {
+  return {
+    width: 22,
+    height: 22,
+    border: `2px solid ${theme.palette.background.paper}`,
+  };
+});
+
+const TransactionItem: React.FC&lt;TransactionProps&gt; = ({ transaction }) =&gt; {
+  const history = useHistory();
+
+  const showTransactionDetail = (transactionId: string) =&gt; {
+    history.push(`/transaction/${transactionId}`);
+  };
+
+  return (
+    &lt;StyledListItem
+      data-test={`transaction-item-${transaction.id}`}
+      alignItems=&quot;flex-start&quot;
+      onClick={() =&gt; showTransactionDetail(transaction.id)}
+    &gt;
+      &lt;Paper className={classes.paper} elevation={0}&gt;
+        &lt;Grid container spacing={2}&gt;
+          &lt;Grid item&gt;
+            &lt;ListItemAvatar&gt;
+              &lt;Badge
+                overlap=&quot;circular&quot;
+                anchorOrigin={{
+                  vertical: &quot;bottom&quot;,
+                  horizontal: &quot;right&quot;,
+                }}
+                badgeContent={
+                  &lt;SmallAvatar
+                    src={transaction.receiverAvatar}
+                    classes={{
+                      root: classes.root,
+                    }}
+                  /&gt;
+                }
+              &gt;
+                &lt;Avatar src={transaction.senderAvatar} /&gt;
+              &lt;/Badge&gt;
+            &lt;/ListItemAvatar&gt;
+          &lt;/Grid&gt;
+          &lt;Grid item xs={12} sm container&gt;
+            &lt;Grid item xs container direction=&quot;column&quot; spacing={2}&gt;
+              &lt;Grid item xs&gt;
+                &lt;TransactionTitle transaction={transaction} /&gt;
+                &lt;Typography variant=&quot;body2&quot; color=&quot;textSecondary&quot; gutterBottom&gt;
+                  {transaction.description}
+                &lt;/Typography&gt;
+                &lt;Grid
+                  container
+                  direction=&quot;row&quot;
+                  justifyContent=&quot;flex-start&quot;
+                  alignItems=&quot;flex-start&quot;
+                  spacing={1}
+                  className={classes.socialStats}
+                &gt;
+                  &lt;Grid item&gt;
+                    &lt;LikeIcon className={classes.countIcons} /&gt;
+                  &lt;/Grid&gt;
+                  &lt;Grid item&gt;
+                    &lt;Typography data-test=&quot;transaction-like-count&quot; className={classes.countText}&gt;
+                      {transaction.likes.length}
+                    &lt;/Typography&gt;
+                  &lt;/Grid&gt;
+                  &lt;Grid item&gt;
+                    &lt;CommentIcon className={classes.countIcons} /&gt;
+                  &lt;/Grid&gt;
+                  &lt;Grid item&gt;
+                    &lt;Typography data-test=&quot;transaction-comment-count&quot; className={classes.countText}&gt;
+                      {transaction.comments.length}
+                    &lt;/Typography&gt;
+                  &lt;/Grid&gt;
+                &lt;/Grid&gt;
+              &lt;/Grid&gt;
+            &lt;/Grid&gt;
+            &lt;Grid item&gt;
+              &lt;TransactionAmount transaction={transaction} /&gt;
+            &lt;/Grid&gt;
+          &lt;/Grid&gt;
+        &lt;/Grid&gt;
+      &lt;/Paper&gt;
+    &lt;/StyledListItem&gt;
+  );
+};
+
+export default TransactionItem;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

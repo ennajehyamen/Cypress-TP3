@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>export default defineConfig()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">export default defineConfig()</h3>
+<p style="margin-top: 4px">in <i>vite.config.ts [6:46]</i></p>
+<ul>
+    <li><b>39</b> lines of code</li>
+    <li><b>1</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="ts">
+export default defineConfig(({ mode }) =&gt; {
+  const env = loadEnv(mode, process.cwd(), &quot;VITE&quot;);
+  return {
+    // expose all vite &quot;VITE_*&quot; variables as process.env.VITE_* in the browser
+    define: {
+      &quot;process.env&quot;: env,
+    },
+    server: {
+      port: 3000,
+    },
+    build: {
+      outDir: &quot;build&quot;,
+      sourcemap: true,
+    },
+    plugins: [
+      react(),
+      eslint(),
+      istanbul({
+        cypress: true,
+        requireEnv: true,
+        exclude: [&quot;node_modules&quot;, &quot;cypress&quot;, &quot;dist&quot;],
+        forceBuildInstrument: true,
+      }),
+    ],
+    // to get aws amplify to work with vite
+    resolve: {
+      alias: [
+        {
+          find: &quot;./runtimeConfig&quot;,
+          replacement: &quot;./runtimeConfig.browser&quot;, // ensures browser compatible version of AWS JS SDK is used
+        },
+      ],
+    },
+    test: {
+      environment: &quot;jsdom&quot;,
+      setupFiles: &quot;./src/setup-tests.js&quot;,
+      exclude: [&quot;node_modules&quot;, &quot;cypress&quot;, &quot;dist&quot;],
+      fileParallelism: false, // #1666: Run tests sequentially to avoid race conditions with shared database.json file.
+    },
+  };
+});
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

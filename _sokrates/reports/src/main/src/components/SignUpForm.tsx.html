@@ -1,0 +1,234 @@
+<html>
+<head>
+    <title>src/components/SignUpForm.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/SignUpForm.tsx (<b>181</b> lines of code) (<a href="SignUpForm.tsx">raw</a>):</h3>
+<div id="editor">import React from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { useActor } from &quot;@xstate/react&quot;;
+import { Interpreter } from &quot;xstate&quot;;
+import { Link } from &quot;react-router-dom&quot;;
+import { Button, Container, CssBaseline, TextField, Grid, Box, Typography } from &quot;@mui/material&quot;;
+import { Formik, Form, Field, FieldProps } from &quot;formik&quot;;
+import { string, object, ref } from &quot;yup&quot;;
+
+import RWALogo from &quot;./SvgRwaLogo&quot;;
+import Footer from &quot;./Footer&quot;;
+import { SignUpPayload } from &quot;../models&quot;;
+import { AuthMachineContext, AuthMachineEvents, AuthMachineSchema } from &quot;../machines/authMachine&quot;;
+
+const PREFIX = &quot;SignUpForm&quot;;
+
+const classes = {
+  paper: `${PREFIX}-paper`,
+  logo: `${PREFIX}-logo`,
+  form: `${PREFIX}-form`,
+  submit: `${PREFIX}-submit`,
+};
+
+const StyledContainer = styled(Container)(({ theme }) =&gt; ({
+  [`&amp; .${classes.paper}`]: {
+    marginTop: theme.spacing(8),
+    display: &quot;flex&quot;,
+    flexDirection: &quot;column&quot;,
+    alignItems: &quot;center&quot;,
+  },
+
+  [`&amp; .${classes.logo}`]: {
+    color: theme.palette.primary.main,
+  },
+
+  [`&amp; .${classes.form}`]: {
+    width: &quot;100%&quot;, // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+
+  [`&amp; .${classes.submit}`]: {
+    margin: theme.spacing(3, 0, 2),
+  },
+})) as typeof Container;
+
+const validationSchema = object({
+  firstName: string().required(&quot;First Name is required&quot;),
+  lastName: string().required(&quot;Last Name is required&quot;),
+  username: string().required(&quot;Username is required&quot;),
+  password: string()
+    .min(4, &quot;Password must contain at least 4 characters&quot;)
+    .required(&quot;Enter your password&quot;),
+  confirmPassword: string()
+    .required(&quot;Confirm your password&quot;)
+    .oneOf([ref(&quot;password&quot;)], &quot;Password does not match&quot;),
+});
+
+export interface Props {
+  authService: Interpreter&lt;AuthMachineContext, AuthMachineSchema, AuthMachineEvents, any, any&gt;;
+}
+
+const SignUpForm: React.FC&lt;Props&gt; = ({ authService }) =&gt; {
+  const [, sendAuth] = useActor(authService);
+  const initialValues: SignUpPayload &amp; { confirmPassword: string } = {
+    firstName: &quot;&quot;,
+    lastName: &quot;&quot;,
+    username: &quot;&quot;,
+    password: &quot;&quot;,
+    confirmPassword: &quot;&quot;,
+  };
+
+  const signUpPending = (payload: SignUpPayload) =&gt; sendAuth({ type: &quot;SIGNUP&quot;, ...payload });
+
+  return (
+    &lt;StyledContainer component=&quot;main&quot; maxWidth=&quot;xs&quot;&gt;
+      &lt;CssBaseline /&gt;
+      &lt;div className={classes.paper}&gt;
+        &lt;div&gt;
+          &lt;RWALogo className={classes.logo} /&gt;
+        &lt;/div&gt;
+        &lt;Typography component=&quot;h1&quot; variant=&quot;h5&quot; data-test=&quot;signup-title&quot;&gt;
+          Sign Up
+        &lt;/Typography&gt;
+        &lt;Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={async (values, { setSubmitting, setFieldValue }) =&gt; {
+            setSubmitting(true);
+
+            signUpPending(values);
+          }}
+        &gt;
+          {({ isValid, isSubmitting, dirty }) =&gt; (
+            &lt;Form className={classes.form}&gt;
+              &lt;Field name=&quot;firstName&quot;&gt;
+                {({ field, meta: { error, value, initialValue, touched } }: FieldProps) =&gt; (
+                  &lt;TextField
+                    variant=&quot;outlined&quot;
+                    margin=&quot;normal&quot;
+                    required
+                    fullWidth
+                    id=&quot;firstName&quot;
+                    label=&quot;First Name&quot;
+                    type=&quot;text&quot;
+                    autoFocus
+                    data-test=&quot;signup-first-name&quot;
+                    error={(touched || value !== initialValue) &amp;&amp; Boolean(error)}
+                    helperText={touched || value !== initialValue ? error : &quot;&quot;}
+                    {...field}
+                  /&gt;
+                )}
+              &lt;/Field&gt;
+              &lt;Field name=&quot;lastName&quot;&gt;
+                {({ field, meta: { error, value, initialValue, touched } }: FieldProps) =&gt; (
+                  &lt;TextField
+                    variant=&quot;outlined&quot;
+                    margin=&quot;normal&quot;
+                    required
+                    fullWidth
+                    id=&quot;lastName&quot;
+                    label=&quot;Last Name&quot;
+                    type=&quot;text&quot;
+                    data-test=&quot;signup-last-name&quot;
+                    error={(touched || value !== initialValue) &amp;&amp; Boolean(error)}
+                    helperText={touched || value !== initialValue ? error : &quot;&quot;}
+                    {...field}
+                  /&gt;
+                )}
+              &lt;/Field&gt;
+              &lt;Field name=&quot;username&quot;&gt;
+                {({ field, meta: { error, value, initialValue, touched } }: FieldProps) =&gt; (
+                  &lt;TextField
+                    variant=&quot;outlined&quot;
+                    margin=&quot;normal&quot;
+                    required
+                    fullWidth
+                    id=&quot;username&quot;
+                    label=&quot;Username&quot;
+                    type=&quot;text&quot;
+                    data-test=&quot;signup-username&quot;
+                    error={(touched || value !== initialValue) &amp;&amp; Boolean(error)}
+                    helperText={touched || value !== initialValue ? error : &quot;&quot;}
+                    {...field}
+                  /&gt;
+                )}
+              &lt;/Field&gt;
+              &lt;Field name=&quot;password&quot;&gt;
+                {({ field, meta: { error, value, initialValue, touched } }: FieldProps) =&gt; (
+                  &lt;TextField
+                    variant=&quot;outlined&quot;
+                    margin=&quot;normal&quot;
+                    required
+                    fullWidth
+                    label=&quot;Password&quot;
+                    type=&quot;password&quot;
+                    id=&quot;password&quot;
+                    data-test=&quot;signup-password&quot;
+                    error={(touched || value !== initialValue) &amp;&amp; Boolean(error)}
+                    helperText={touched || value !== initialValue ? error : &quot;&quot;}
+                    {...field}
+                  /&gt;
+                )}
+              &lt;/Field&gt;
+              &lt;Field name=&quot;confirmPassword&quot;&gt;
+                {({ field, meta: { error, value, initialValue, touched } }: FieldProps) =&gt; (
+                  &lt;TextField
+                    variant=&quot;outlined&quot;
+                    margin=&quot;normal&quot;
+                    required
+                    fullWidth
+                    label=&quot;Confirm Password&quot;
+                    id=&quot;confirmPassword&quot;
+                    data-test=&quot;signup-confirmPassword&quot;
+                    type=&quot;password&quot;
+                    error={(touched || value !== initialValue) &amp;&amp; Boolean(error)}
+                    helperText={touched || value !== initialValue ? error : &quot;&quot;}
+                    {...field}
+                  /&gt;
+                )}
+              &lt;/Field&gt;
+              &lt;Button
+                type=&quot;submit&quot;
+                fullWidth
+                variant=&quot;contained&quot;
+                color=&quot;primary&quot;
+                className={classes.submit}
+                data-test=&quot;signup-submit&quot;
+                disabled={!isValid || isSubmitting}
+              &gt;
+                Sign Up
+              &lt;/Button&gt;
+              &lt;Grid container&gt;
+                &lt;Grid item&gt;
+                  &lt;Link to=&quot;/signin&quot;&gt;{&quot;Have an account? Sign In&quot;}&lt;/Link&gt;
+                &lt;/Grid&gt;
+              &lt;/Grid&gt;
+            &lt;/Form&gt;
+          )}
+        &lt;/Formik&gt;
+      &lt;/div&gt;
+      &lt;Box mt={8}&gt;
+        &lt;Footer /&gt;
+      &lt;/Box&gt;
+    &lt;/StyledContainer&gt;
+  );
+};
+
+export default SignUpForm;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

@@ -1,0 +1,186 @@
+<html>
+<head>
+    <title>src/components/BankAccountForm.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/BankAccountForm.tsx (<b>144</b> lines of code) (<a href="BankAccountForm.tsx">raw</a>):</h3>
+<div id="editor">import React from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { TextField, Button, Grid } from &quot;@mui/material&quot;;
+import { Formik, Form, Field, FieldProps } from &quot;formik&quot;;
+import { string, object } from &quot;yup&quot;;
+import { BankAccountPayload, User } from &quot;../models&quot;;
+import { useHistory } from &quot;react-router&quot;;
+
+const validationSchema = object({
+  bankName: string().min(5, &quot;Must contain at least 5 characters&quot;).required(&quot;Enter a bank name&quot;),
+  routingNumber: string()
+    .length(9, &quot;Must contain a valid routing number&quot;)
+    .required(&quot;Enter a valid bank routing number&quot;),
+  accountNumber: string()
+    .min(9, &quot;Must contain at least 9 digits&quot;)
+    .max(12, &quot;Must contain no more than 12 digits&quot;)
+    .required(&quot;Enter a valid bank account number&quot;),
+});
+
+const PREFIX = &quot;BankAccountForm&quot;;
+
+const classes = {
+  paper: `${PREFIX}-paper`,
+  form: `${PREFIX}-form`,
+  submit: `${PREFIX}-submit`,
+};
+
+const StyledFormik = styled(Formik)(({ theme }) =&gt; ({
+  [`&amp; .${classes.paper}`]: {
+    marginTop: theme.spacing(8),
+    display: &quot;flex&quot;,
+    flexDirection: &quot;column&quot;,
+    alignItems: &quot;center&quot;,
+  },
+
+  [`&amp; .${classes.form}`]: {
+    width: &quot;100%&quot;, // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+
+  [`&amp; .${classes.submit}`]: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
+
+export interface BankAccountFormProps {
+  userId: User[&quot;id&quot;];
+  createBankAccount: Function;
+  onboarding?: boolean;
+}
+
+const BankAccountForm: React.FC&lt;BankAccountFormProps&gt; = ({
+  userId,
+  createBankAccount,
+  onboarding,
+}) =&gt; {
+  const history = useHistory();
+
+  const initialValues: BankAccountPayload = {
+    userId,
+    bankName: &quot;&quot;,
+    accountNumber: &quot;&quot;,
+    routingNumber: &quot;&quot;,
+  };
+
+  return (
+    &lt;StyledFormik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={(values, { setSubmitting }) =&gt; {
+        setSubmitting(true);
+
+        createBankAccount({ ...values, userId });
+
+        if (!onboarding) {
+          history.push(&quot;/bankaccounts&quot;);
+        }
+      }}
+    &gt;
+      {({ isValid, isSubmitting }) =&gt; (
+        &lt;Form className={classes.form} data-test=&quot;bankaccount-form&quot;&gt;
+          &lt;Field name=&quot;bankName&quot;&gt;
+            {({ field, meta: { error, value, initialValue, touched } }: FieldProps) =&gt; (
+              &lt;TextField
+                variant=&quot;outlined&quot;
+                margin=&quot;dense&quot;
+                fullWidth
+                required
+                id={&quot;bankaccount-bankName-input&quot;}
+                type=&quot;text&quot;
+                placeholder=&quot;Bank Name&quot;
+                data-test={&quot;bankaccount-bankName-input&quot;}
+                error={(touched || value !== initialValue) &amp;&amp; Boolean(error)}
+                helperText={touched || value !== initialValue ? error : &quot;&quot;}
+                {...field}
+              /&gt;
+            )}
+          &lt;/Field&gt;
+          &lt;Field name=&quot;routingNumber&quot;&gt;
+            {({ field, meta: { error, value, initialValue, touched } }: FieldProps) =&gt; (
+              &lt;TextField
+                variant=&quot;outlined&quot;
+                margin=&quot;dense&quot;
+                fullWidth
+                required
+                id={&quot;bankaccount-routingNumber-input&quot;}
+                type=&quot;text&quot;
+                placeholder=&quot;Routing Number&quot;
+                data-test={&quot;bankaccount-routingNumber-input&quot;}
+                error={(touched || value !== initialValue) &amp;&amp; Boolean(error)}
+                helperText={touched || value !== initialValue ? error : &quot;&quot;}
+                {...field}
+              /&gt;
+            )}
+          &lt;/Field&gt;
+          &lt;Field name=&quot;accountNumber&quot;&gt;
+            {({ field, meta: { error, value, initialValue, touched } }: FieldProps) =&gt; (
+              &lt;TextField
+                variant=&quot;outlined&quot;
+                margin=&quot;dense&quot;
+                fullWidth
+                required
+                id={&quot;bankaccount-accountNumber-input&quot;}
+                type=&quot;text&quot;
+                placeholder=&quot;Account Number&quot;
+                data-test={&quot;bankaccount-accountNumber-input&quot;}
+                error={(touched || value !== initialValue) &amp;&amp; Boolean(error)}
+                helperText={touched || value !== initialValue ? error : &quot;&quot;}
+                {...field}
+              /&gt;
+            )}
+          &lt;/Field&gt;
+          &lt;Grid
+            container
+            spacing={2}
+            direction=&quot;row&quot;
+            justifyContent=&quot;flex-start&quot;
+            alignItems=&quot;flex-start&quot;
+          &gt;
+            &lt;Grid item&gt;
+              &lt;Button
+                type=&quot;submit&quot;
+                fullWidth
+                variant=&quot;contained&quot;
+                color=&quot;primary&quot;
+                className={classes.submit}
+                data-test=&quot;bankaccount-submit&quot;
+                disabled={!isValid || isSubmitting}
+              &gt;
+                Save
+              &lt;/Button&gt;
+            &lt;/Grid&gt;
+          &lt;/Grid&gt;
+        &lt;/Form&gt;
+      )}
+    &lt;/StyledFormik&gt;
+  );
+};
+
+export default BankAccountForm;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

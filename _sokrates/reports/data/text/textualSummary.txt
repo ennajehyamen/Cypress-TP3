@@ -1,0 +1,87 @@
+Start of analysis
+Found 118944 files
+136 are in the main's scope  (9602 lines of code)
+  *.tsx: 66 files, (5385 lines of code)
+  *.ts: 60 files, (4036 lines of code)
+  *.js: 6 files, (90 lines of code)
+  *.mjs: 1 files, (37 lines of code)
+  *.html: 2 files, (36 lines of code)
+  *.graphql: 1 files, (18 lines of code)
+12 are in the test's scope  (1265 lines of code)
+  *.ts: 12 files, (1265 lines of code)
+0 are in the generated's scope  (0 lines of code)
+0 are in the build and deployment's scope  (0 lines of code)
+17 are in the other's scope  (654 lines of code)
+  *.json: 12 files, (637 lines of code)
+  *.patch: 1 files, (12 lines of code)
+  *.txt: 3 files, (4 lines of code)
+  *.md: 1 files, (1 lines of code)
+Excluded from analyses 118779 files
+Analysing dependencies...
+6 are in the DECOMPOSITION_primary\ROOT's scope  (232 lines of code)
+  *.ts: 3 files, (153 lines of code)
+  *.mjs: 1 files, (37 lines of code)
+  *.html: 1 files, (24 lines of code)
+  *.js: 1 files, (18 lines of code)
+20 are in the DECOMPOSITION_primary\backend's scope  (1475 lines of code)
+  *.ts: 19 files, (1457 lines of code)
+  *.graphql: 1 files, (18 lines of code)
+8 are in the DECOMPOSITION_primary\cypress's scope  (525 lines of code)
+  *.ts: 7 files, (513 lines of code)
+  *.html: 1 files, (12 lines of code)
+5 are in the DECOMPOSITION_primary\scripts's scope  (564 lines of code)
+  *.ts: 3 files, (528 lines of code)
+  *.js: 2 files, (36 lines of code)
+97 are in the DECOMPOSITION_primary\src's scope  (6806 lines of code)
+  *.tsx: 66 files, (5385 lines of code)
+  *.ts: 28 files, (1385 lines of code)
+  *.js: 3 files, (36 lines of code)
+  - "primary", found 0 dependencies (0 component dependencies)
+2 are in the CONCERN_general\TODOs's scope  (148 lines of code)
+  *.tsx: 1 files, (111 lines of code)
+  *.mjs: 1 files, (37 lines of code)
+134 are in the CONCERN_general\Unclassified's scope  (9454 lines of code)
+  *.tsx: 65 files, (5274 lines of code)
+  *.ts: 60 files, (4036 lines of code)
+  *.js: 6 files, (90 lines of code)
+  *.html: 2 files, (36 lines of code)
+  *.graphql: 1 files, (18 lines of code)
+Analysing units...
+Basic unit metrics...
+  - found 134 units (1940 lines of code in units)
+Unit size 468 / 424 / 546 / 268 / 234
+Unit size per component:
+Unit Size Component backend: 32 / 210 / 226 / 59 / 0
+Unit Size Component cypress: 46 / 0 / 0 / 0 / 0
+Unit Size Component ROOT: 5 / 0 / 63 / 51 / 0
+Unit Size Component scripts: 42 / 108 / 35 / 0 / 0
+Unit Size Component src: 343 / 106 / 222 / 158 / 234
+Unit size per extension:
+Unit Size Extension ts: 330 / 360 / 324 / 110 / 0
+Unit Size Extension tsx: 129 / 64 / 222 / 158 / 234
+Unit Size Extension js: 9 / 0 / 0 / 0 / 0
+Conditional complexity: 1845 / 95 / 0 / 0 / 0
+Conditional complexity per component:
+Conditional Complexity Component backend 527 / 0 / 0 / 0 / 0
+Conditional Complexity Component cypress 46 / 0 / 0 / 0 / 0
+Conditional Complexity Component ROOT 119 / 0 / 0 / 0 / 0
+Conditional Complexity Component scripts 185 / 0 / 0 / 0 / 0
+Conditional Complexity Component src 968 / 95 / 0 / 0 / 0
+Conditional complexity per extension:
+Conditional Complexity Component ts: 1124 / 0 / 0 / 0 / 0
+Conditional Complexity Component tsx: 712 / 95 / 0 / 0 / 0
+Conditional Complexity Component js: 9 / 0 / 0 / 0 / 0
+Analysing duplication...
+  - found 359 duplicates (1404 duplicated lines vs. 8697 cleaned lines) in 60 files
+  - per component:primary
+     - "src": 1217 duplicated lines vs. 6141 total lines
+     - "backend": 109 duplicated lines vs. 1314 total lines
+     - "ROOT": 18 duplicated lines vs. 213 total lines
+     - "scripts": 36 duplicated lines vs. 541 total lines
+     - "cypress": 24 duplicated lines vs. 488 total lines
+  - per extension:
+     - "tsx": 1092 duplicated lines vs. 4863 total lines
+     - "ts": 240 duplicated lines vs. 3663 total lines
+     - "js": 72 duplicated lines vs. 87 total lines
+Total analysis time: 26.88s
+

@@ -1,0 +1,6 @@
+src/components/MainLayout.tsx (1 line):
+	- line 28: // TODO jss-to-styled codemod: The Fragment root was replaced by div. Change the tag if needed.
+
+
+eslint.config.mjs (1 line):
+	- line 17: // TODO: review violations of disabled rules

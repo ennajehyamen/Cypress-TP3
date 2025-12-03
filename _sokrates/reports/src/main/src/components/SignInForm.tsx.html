@@ -1,0 +1,210 @@
+<html>
+<head>
+    <title>src/components/SignInForm.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/SignInForm.tsx (<b>155</b> lines of code) (<a href="SignInForm.tsx">raw</a>):</h3>
+<div id="editor">import React from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { Interpreter } from &quot;xstate&quot;;
+import { useActor } from &quot;@xstate/react&quot;;
+import { Link } from &quot;react-router-dom&quot;;
+import {
+  Button,
+  CssBaseline,
+  TextField,
+  FormControlLabel,
+  Checkbox,
+  Grid,
+  Box,
+  Typography,
+  Container,
+} from &quot;@mui/material&quot;;
+import { Formik, Form, Field, FieldProps } from &quot;formik&quot;;
+import { string, object } from &quot;yup&quot;;
+
+import RWALogo from &quot;./SvgRwaLogo&quot;;
+import Footer from &quot;./Footer&quot;;
+import { SignInPayload } from &quot;../models&quot;;
+import { AuthMachineContext, AuthMachineEvents, AuthMachineSchema } from &quot;../machines/authMachine&quot;;
+import { Alert } from &quot;@mui/material&quot;;
+
+const validationSchema = object({
+  username: string().required(&quot;Username is required&quot;),
+  password: string()
+    .min(4, &quot;Password must contain at least 4 characters&quot;)
+    .required(&quot;Enter your password&quot;),
+});
+
+const PREFIX = &quot;SignInForm&quot;;
+
+const classes = {
+  paper: `${PREFIX}-paper`,
+  logo: `${PREFIX}-logo`,
+  form: `${PREFIX}-form`,
+  submit: `${PREFIX}-submit`,
+  alertMessage: `${PREFIX}-alertMessage`,
+};
+
+const StyledContainer = styled(Container)(({ theme }) =&gt; ({
+  [`&amp; .${classes.paper}`]: {
+    marginTop: theme.spacing(8),
+    display: &quot;flex&quot;,
+    flexDirection: &quot;column&quot;,
+    alignItems: &quot;center&quot;,
+  },
+
+  [`&amp; .${classes.logo}`]: {
+    color: theme.palette.primary.main,
+  },
+
+  [`&amp; .${classes.form}`]: {
+    width: &quot;100%&quot;, // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+
+  [`&amp; .${classes.submit}`]: {
+    margin: theme.spacing(3, 0, 2),
+  },
+
+  [`&amp; .${classes.alertMessage}`]: {
+    marginBottom: theme.spacing(2),
+  },
+})) as typeof Container;
+
+export interface Props {
+  authService: Interpreter&lt;AuthMachineContext, AuthMachineSchema, AuthMachineEvents, any, any&gt;;
+}
+
+const SignInForm: React.FC&lt;Props&gt; = ({ authService }) =&gt; {
+  const [authState, sendAuth] = useActor(authService);
+  const initialValues: SignInPayload = {
+    username: &quot;&quot;,
+    password: &quot;&quot;,
+    remember: undefined,
+  };
+
+  const signInPending = (payload: SignInPayload) =&gt; sendAuth({ type: &quot;LOGIN&quot;, ...payload });
+
+  return (
+    &lt;StyledContainer component=&quot;main&quot; maxWidth=&quot;xs&quot;&gt;
+      &lt;CssBaseline /&gt;
+      &lt;div className={classes.paper}&gt;
+        {authState.context?.message &amp;&amp; (
+          &lt;Alert data-test=&quot;signin-error&quot; severity=&quot;error&quot; className={classes.alertMessage}&gt;
+            {authState.context.message}
+          &lt;/Alert&gt;
+        )}
+        &lt;div&gt;
+          &lt;RWALogo className={classes.logo} /&gt;
+        &lt;/div&gt;
+        &lt;Typography component=&quot;h1&quot; variant=&quot;h5&quot;&gt;
+          Sign in
+        &lt;/Typography&gt;
+        &lt;Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={async (values, { setSubmitting }) =&gt; {
+            setSubmitting(true);
+
+            signInPending(values);
+          }}
+        &gt;
+          {({ isValid, isSubmitting }) =&gt; (
+            &lt;Form className={classes.form}&gt;
+              &lt;Field name=&quot;username&quot;&gt;
+                {({ field, meta: { error, value, initialValue, touched } }: FieldProps) =&gt; (
+                  &lt;TextField
+                    variant=&quot;outlined&quot;
+                    margin=&quot;normal&quot;
+                    fullWidth
+                    id=&quot;username&quot;
+                    label=&quot;Username&quot;
+                    type=&quot;text&quot;
+                    autoFocus
+                    data-test=&quot;signin-username&quot;
+                    error={(touched || value !== initialValue) &amp;&amp; Boolean(error)}
+                    helperText={touched || value !== initialValue ? error : &quot;&quot;}
+                    {...field}
+                  /&gt;
+                )}
+              &lt;/Field&gt;
+              &lt;Field name=&quot;password&quot;&gt;
+                {({ field, meta: { error, value, initialValue, touched } }: FieldProps) =&gt; (
+                  &lt;TextField
+                    variant=&quot;outlined&quot;
+                    margin=&quot;normal&quot;
+                    fullWidth
+                    label=&quot;Password&quot;
+                    type=&quot;password&quot;
+                    id=&quot;password&quot;
+                    data-test=&quot;signin-password&quot;
+                    error={touched &amp;&amp; value !== initialValue &amp;&amp; Boolean(error)}
+                    helperText={touched &amp;&amp; value !== initialValue &amp;&amp; touched ? error : &quot;&quot;}
+                    {...field}
+                  /&gt;
+                )}
+              &lt;/Field&gt;
+              &lt;FormControlLabel
+                control={
+                  &lt;Field name={&quot;remember&quot;}&gt;
+                    {({ field }: FieldProps) =&gt; {
+                      return &lt;Checkbox color=&quot;primary&quot; data-test=&quot;signin-remember-me&quot; {...field} /&gt;;
+                    }}
+                  &lt;/Field&gt;
+                }
+                label=&quot;Remember me&quot;
+              /&gt;
+              &lt;Button
+                type=&quot;submit&quot;
+                fullWidth
+                variant=&quot;contained&quot;
+                color=&quot;primary&quot;
+                className={classes.submit}
+                data-test=&quot;signin-submit&quot;
+                disabled={!isValid || isSubmitting}
+              &gt;
+                Sign In
+              &lt;/Button&gt;
+              &lt;Grid container&gt;
+                &lt;Grid item xs&gt;
+                  {/*&lt;Link to=&quot;/forgotpassword&quot;&gt;Forgot password?&lt;/Link&gt;*/}
+                &lt;/Grid&gt;
+                &lt;Grid item&gt;
+                  &lt;Link data-test=&quot;signup&quot; to=&quot;/signup&quot;&gt;
+                    {&quot;Don't have an account? Sign Up&quot;}
+                  &lt;/Link&gt;
+                &lt;/Grid&gt;
+              &lt;/Grid&gt;
+            &lt;/Form&gt;
+          )}
+        &lt;/Formik&gt;
+      &lt;/div&gt;
+      &lt;Box mt={8}&gt;
+        &lt;Footer /&gt;
+      &lt;/Box&gt;
+    &lt;/StyledContainer&gt;
+  );
+};
+
+export default SignInForm;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

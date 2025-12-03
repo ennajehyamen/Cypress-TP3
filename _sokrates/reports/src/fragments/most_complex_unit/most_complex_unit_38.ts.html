@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>createData: async()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">createData: async()</h3>
+<p style="margin-top: 4px">in <i>src/machines/transactionDetailMachine.ts [18:26]</i></p>
+<ul>
+    <li><b>9</b> lines of code</li>
+    <li><b>2</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="ts">
+    createData: async (ctx, event: any) =&gt; {
+      let route = event.entity === &quot;LIKE&quot; ? &quot;likes&quot; : &quot;comments&quot;;
+      const payload = flow(omit(&quot;type&quot;), omit(&quot;entity&quot;))(event);
+      const resp = await httpClient.post(
+        `http://localhost:${backendPort}/${route}/${payload.transactionId}`,
+        payload
+      );
+      return resp.data;
+    },
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

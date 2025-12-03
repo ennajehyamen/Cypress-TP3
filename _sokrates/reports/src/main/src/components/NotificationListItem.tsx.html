@@ -1,0 +1,147 @@
+<html>
+<head>
+    <title>src/components/NotificationListItem.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/NotificationListItem.tsx (<b>109</b> lines of code) (<a href="NotificationListItem.tsx">raw</a>):</h3>
+<div id="editor">import React from &quot;react&quot;;
+
+import { styled } from &quot;@mui/material/styles&quot;;
+
+import {
+  Check as CheckIcon,
+  ThumbUpAltOutlined as LikeIcon,
+  Payment as PaymentIcon,
+  CommentRounded as CommentIcon,
+  MonetizationOn as MonetizationOnIcon,
+} from &quot;@mui/icons-material&quot;;
+import {
+  Button,
+  ListItemIcon,
+  ListItemText,
+  useTheme,
+  useMediaQuery,
+  ListItem,
+  IconButton,
+} from &quot;@mui/material&quot;;
+import {
+  isCommentNotification,
+  isLikeNotification,
+  isPaymentNotification,
+  isPaymentRequestedNotification,
+  isPaymentReceivedNotification,
+} from &quot;../utils/transactionUtils&quot;;
+import { NotificationResponseItem } from &quot;../models&quot;;
+
+export interface NotificationListItemProps {
+  notification: NotificationResponseItem;
+  updateNotification: Function;
+}
+
+const PREFIX = &quot;NotificationListItem&quot;;
+
+const classes = {
+  card: `${PREFIX}-card`,
+  title: `${PREFIX}-title`,
+  green: `${PREFIX}-green`,
+  red: `${PREFIX}-red`,
+  blue: `${PREFIX}-blue`,
+};
+
+const StyledListItem = styled(ListItem)({
+  [`&amp; .${classes.card}`]: {
+    minWidth: &quot;100%&quot;,
+  },
+  [`&amp; .${classes.title}`]: {
+    fontSize: 18,
+  },
+  [`&amp; .${classes.green}`]: {
+    color: &quot;#4CAF50&quot;,
+  },
+  [`&amp; .${classes.red}`]: {
+    color: &quot;red&quot;,
+  },
+  [`&amp; .${classes.blue}`]: {
+    color: &quot;blue&quot;,
+  },
+});
+
+const NotificationListItem: React.FC&lt;NotificationListItemProps&gt; = ({
+  notification,
+  updateNotification,
+}) =&gt; {
+  const theme = useTheme();
+  let listItemText = undefined;
+  let listItemIcon = undefined;
+  const xsBreakpoint = useMediaQuery(theme.breakpoints.only(&quot;xs&quot;));
+
+  if (isCommentNotification(notification)) {
+    listItemIcon = &lt;CommentIcon /&gt;;
+    listItemText = `${notification.userFullName} commented on a transaction.`;
+  }
+
+  if (isLikeNotification(notification)) {
+    listItemIcon = &lt;LikeIcon /&gt;;
+    listItemText = `${notification.userFullName} liked a transaction.`;
+  }
+
+  if (isPaymentNotification(notification)) {
+    if (isPaymentRequestedNotification(notification)) {
+      listItemIcon = &lt;PaymentIcon className={classes.red} /&gt;;
+      listItemText = `${notification.userFullName} requested payment.`;
+    } else if (isPaymentReceivedNotification(notification)) {
+      listItemIcon = &lt;MonetizationOnIcon className={classes.green} /&gt;;
+      listItemText = `${notification.userFullName} received payment.`;
+    }
+  }
+
+  return (
+    &lt;StyledListItem data-test={`notification-list-item-${notification.id}`}&gt;
+      &lt;ListItemIcon&gt;{listItemIcon!}&lt;/ListItemIcon&gt;
+      &lt;ListItemText primary={listItemText} /&gt;
+      {xsBreakpoint &amp;&amp; (
+        &lt;IconButton
+          aria-label=&quot;mark as read&quot;
+          color=&quot;primary&quot;
+          onClick={() =&gt; updateNotification({ id: notification.id, isRead: true })}
+          data-test={`notification-mark-read-${notification.id}`}
+          size=&quot;large&quot;
+        &gt;
+          &lt;CheckIcon /&gt;
+        &lt;/IconButton&gt;
+      )}
+      {!xsBreakpoint &amp;&amp; (
+        &lt;Button
+          color=&quot;primary&quot;
+          size=&quot;small&quot;
+          onClick={() =&gt; updateNotification({ id: notification.id, isRead: true })}
+          data-test={`notification-mark-read-${notification.id}`}
+        &gt;
+          Dismiss
+        &lt;/Button&gt;
+      )}
+    &lt;/StyledListItem&gt;
+  );
+};
+
+export default NotificationListItem;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

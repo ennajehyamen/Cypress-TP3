@@ -1,0 +1,307 @@
+<html>
+<head>
+    <title>src/machines/authMachine.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/machines/authMachine.ts (<b>254</b> lines of code) (<a href="authMachine.ts">raw</a>):</h3>
+<div id="editor">import { Machine, assign, interpret, State } from &quot;xstate&quot;;
+import { omit } from &quot;lodash/fp&quot;;
+import { httpClient } from &quot;../utils/asyncUtils&quot;;
+import { history } from &quot;../utils/historyUtils&quot;;
+import { User } from &quot;../models&quot;;
+import { backendPort } from &quot;../utils/portUtils&quot;;
+
+export interface AuthMachineSchema {
+  states: {
+    unauthorized: {};
+    signup: {};
+    loading: {};
+    updating: {};
+    logout: {};
+    refreshing: {};
+    google: {};
+    authorized: {};
+    auth0: {};
+    cognito: {};
+    okta: {};
+  };
+}
+
+export type AuthMachineEvents =
+  | { type: &quot;LOGIN&quot; }
+  | { type: &quot;LOGOUT&quot; }
+  | { type: &quot;UPDATE&quot; }
+  | { type: &quot;REFRESH&quot; }
+  | { type: &quot;AUTH0&quot; }
+  | { type: &quot;COGNITO&quot; }
+  | { type: &quot;OKTA&quot; }
+  | { type: &quot;GOOGLE&quot; }
+  | { type: &quot;SIGNUP&quot; };
+
+export interface AuthMachineContext {
+  user?: User;
+  message?: string;
+}
+
+export const authMachine = Machine&lt;AuthMachineContext, AuthMachineSchema, AuthMachineEvents&gt;(
+  {
+    id: &quot;authentication&quot;,
+    initial: &quot;unauthorized&quot;,
+    context: {
+      user: undefined,
+      message: undefined,
+    },
+    states: {
+      unauthorized: {
+        entry: &quot;resetUser&quot;,
+        on: {
+          LOGIN: &quot;loading&quot;,
+          SIGNUP: &quot;signup&quot;,
+          GOOGLE: &quot;google&quot;,
+          AUTH0: &quot;auth0&quot;,
+          OKTA: &quot;okta&quot;,
+          COGNITO: &quot;cognito&quot;,
+        },
+      },
+      signup: {
+        invoke: {
+          src: &quot;performSignup&quot;,
+          onDone: { target: &quot;unauthorized&quot;, actions: &quot;onSuccess&quot; },
+          onError: { target: &quot;unauthorized&quot;, actions: &quot;onError&quot; },
+        },
+      },
+      loading: {
+        invoke: {
+          src: &quot;performLogin&quot;,
+          onDone: { target: &quot;authorized&quot;, actions: &quot;onSuccess&quot; },
+          onError: { target: &quot;unauthorized&quot;, actions: &quot;onError&quot; },
+        },
+      },
+      updating: {
+        invoke: {
+          src: &quot;updateProfile&quot;,
+          onDone: { target: &quot;refreshing&quot; },
+          onError: { target: &quot;unauthorized&quot;, actions: &quot;onError&quot; },
+        },
+      },
+      refreshing: {
+        invoke: {
+          src: &quot;getUserProfile&quot;,
+          onDone: { target: &quot;authorized&quot;, actions: &quot;setUserProfile&quot; },
+          onError: { target: &quot;unauthorized&quot;, actions: &quot;onError&quot; },
+        },
+        on: {
+          LOGOUT: &quot;logout&quot;,
+        },
+      },
+      google: {
+        invoke: {
+          src: &quot;getGoogleUserProfile&quot;,
+          onDone: { target: &quot;authorized&quot;, actions: &quot;setUserProfile&quot; },
+          onError: { target: &quot;unauthorized&quot;, actions: &quot;onError&quot; },
+        },
+        on: {
+          LOGOUT: &quot;logout&quot;,
+        },
+      },
+      logout: {
+        invoke: {
+          src: &quot;performLogout&quot;,
+          onDone: { target: &quot;unauthorized&quot; },
+          onError: { target: &quot;unauthorized&quot;, actions: &quot;onError&quot; },
+        },
+      },
+      authorized: {
+        entry: &quot;redirectHomeAfterLogin&quot;,
+        on: {
+          UPDATE: &quot;updating&quot;,
+          REFRESH: &quot;refreshing&quot;,
+          LOGOUT: &quot;logout&quot;,
+        },
+      },
+      auth0: {
+        invoke: {
+          src: &quot;getAuth0UserProfile&quot;,
+          onDone: { target: &quot;authorized&quot;, actions: &quot;setUserProfile&quot; },
+          onError: { target: &quot;unauthorized&quot;, actions: &quot;onError&quot; },
+        },
+        on: {
+          LOGOUT: &quot;logout&quot;,
+        },
+      },
+      okta: {
+        invoke: {
+          src: &quot;getOktaUserProfile&quot;,
+          onDone: { target: &quot;authorized&quot;, actions: &quot;setUserProfile&quot; },
+          onError: { target: &quot;unauthorized&quot;, actions: &quot;onError&quot; },
+        },
+        on: {
+          LOGOUT: &quot;logout&quot;,
+        },
+      },
+      cognito: {
+        invoke: {
+          src: &quot;getCognitoUserProfile&quot;,
+          onDone: { target: &quot;authorized&quot;, actions: &quot;setUserProfile&quot; },
+          onError: { target: &quot;unauthorized&quot;, actions: &quot;onError&quot; },
+        },
+        on: {
+          LOGOUT: &quot;logout&quot;,
+        },
+      },
+    },
+  },
+  {
+    services: {
+      performSignup: async (ctx, event) =&gt; {
+        const payload = omit(&quot;type&quot;, event);
+        const resp = await httpClient.post(`http://localhost:${backendPort}/users`, payload);
+        history.push(&quot;/signin&quot;);
+        return resp.data;
+      },
+      performLogin: async (ctx, event) =&gt; {
+        return await httpClient
+          .post(`http://localhost:${backendPort}/login`, event)
+          .then(({ data }) =&gt; {
+            history.push(&quot;/&quot;);
+            return data;
+          })
+          .catch((error) =&gt; {
+            throw new Error(&quot;Username or password is invalid&quot;);
+          });
+      },
+      getOktaUserProfile: /* istanbul ignore next */ (ctx, event: any) =&gt; {
+        // Map Okta User fields to our User Model
+        const user = {
+          id: event.user.sub,
+          email: event.user.email,
+          firstName: event.user.given_name,
+          lastName: event.user.family_name,
+          username: event.user.preferred_username,
+        };
+
+        // Set Access Token in Local Storage for API calls
+        localStorage.setItem(process.env.VITE_AUTH_TOKEN_NAME!, event.token);
+
+        return Promise.resolve({ user });
+      },
+      getUserProfile: async (ctx, event) =&gt; {
+        const resp = await httpClient.get(`http://localhost:${backendPort}/checkAuth`);
+        return resp.data;
+      },
+      getGoogleUserProfile: /* istanbul ignore next */ (ctx, event: any) =&gt; {
+        // Map Google User fields to our User Model
+        const user = {
+          id: event.user.googleId,
+          email: event.user.email,
+          firstName: event.user.givenName,
+          lastName: event.user.familyName,
+          avatar: event.user.imageUrl,
+        };
+
+        // Set Google Access Token in Local Storage for API calls
+        localStorage.setItem(process.env.VITE_AUTH_TOKEN_NAME!, event.token);
+
+        return Promise.resolve({ user });
+      },
+      getAuth0UserProfile: /* istanbul ignore next */ (ctx, event: any) =&gt; {
+        // Map Auth0 User fields to our User Model
+        const user = {
+          id: event.user.sub,
+          email: event.user.email,
+          firstName: event.user.nickname,
+          avatar: event.user.picture,
+        };
+
+        // Set Auth0 Access Token in Local Storage for API calls
+        localStorage.setItem(process.env.VITE_AUTH_TOKEN_NAME!, event.token);
+
+        return Promise.resolve({ user });
+      },
+      updateProfile: async (ctx, event: any) =&gt; {
+        const payload = omit(&quot;type&quot;, event);
+        const resp = await httpClient.patch(
+          `http://localhost:${backendPort}/users/${payload.id}`,
+          payload
+        );
+        return resp.data;
+      },
+      performLogout: async (ctx, event) =&gt; {
+        localStorage.removeItem(&quot;authState&quot;);
+        return await httpClient.post(`http://localhost:${backendPort}/logout`);
+      },
+      getCognitoUserProfile: /* istanbul ignore next */ (ctx, event: any) =&gt; {
+        // Map Cognito User fields to our User Model
+        const ourUser = {
+          id: event.userSub,
+          email: event.email,
+        };
+
+        // Set Access Token in Local Storage for API calls
+        localStorage.setItem(process.env.VITE_AUTH_TOKEN_NAME!, event.accessTokenJwtString);
+
+        return Promise.resolve(ourUser);
+      },
+    },
+    actions: {
+      redirectHomeAfterLogin: async (ctx, event) =&gt; {
+        if (history.location.pathname === &quot;/signin&quot;) {
+          /* istanbul ignore next */
+          window.location.pathname = &quot;/&quot;;
+        }
+      },
+      resetUser: assign((ctx: any, event: any) =&gt; ({
+        user: undefined,
+      })),
+      setUserProfile: assign((ctx: any, event: any) =&gt; ({
+        user: event.data.user,
+      })),
+      onSuccess: assign((ctx: any, event: any) =&gt; ({
+        user: event.data.user,
+        message: undefined,
+      })),
+      onError: assign((ctx: any, event: any) =&gt; ({
+        message: event.data.message,
+      })),
+    },
+  }
+);
+
+// @ts-ignore
+const stateDefinition = JSON.parse(localStorage.getItem(&quot;authState&quot;));
+
+let resolvedState;
+if (stateDefinition) {
+  const previousState = State.create(stateDefinition);
+
+  // @ts-ignore
+  resolvedState = authMachine.resolveState(previousState);
+}
+
+export const authService = interpret(authMachine)
+  .onTransition((state) =&gt; {
+    if (state.changed) {
+      localStorage.setItem(&quot;authState&quot;, JSON.stringify(state));
+    }
+  })
+  .start(resolvedState);
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

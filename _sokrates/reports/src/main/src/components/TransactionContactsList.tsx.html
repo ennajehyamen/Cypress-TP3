@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>src/components/TransactionContactsList.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/TransactionContactsList.tsx (<b>45</b> lines of code) (<a href="TransactionContactsList.tsx">raw</a>):</h3>
+<div id="editor">import React, { useEffect, ReactNode } from &quot;react&quot;;
+import { useMachine } from &quot;@xstate/react&quot;;
+import {
+  TransactionPagination,
+  TransactionResponseItem,
+  TransactionDateRangePayload,
+  TransactionAmountRangePayload,
+} from &quot;../models&quot;;
+import TransactionList from &quot;./TransactionList&quot;;
+import { contactsTransactionsMachine } from &quot;../machines/contactsTransactionsMachine&quot;;
+
+export interface TransactionContactListProps {
+  filterComponent: ReactNode;
+  dateRangeFilters: TransactionDateRangePayload;
+  amountRangeFilters: TransactionAmountRangePayload;
+}
+
+const TransactionContactsList: React.FC&lt;TransactionContactListProps&gt; = ({
+  filterComponent,
+  dateRangeFilters,
+  amountRangeFilters,
+}) =&gt; {
+  const [current, send, contactTransactionService] = useMachine(contactsTransactionsMachine);
+  const { pageData, results } = current.context;
+
+  // @ts-ignore
+  if (window.Cypress) {
+    // @ts-ignore
+    window.contactTransactionService = contactTransactionService;
+  }
+
+  useEffect(() =&gt; {
+    send(&quot;FETCH&quot;, { ...dateRangeFilters, ...amountRangeFilters });
+  }, [send, dateRangeFilters, amountRangeFilters]);
+
+  const loadNextPage = (page: number) =&gt;
+    send(&quot;FETCH&quot;, { page, ...dateRangeFilters, ...amountRangeFilters });
+
+  return (
+    &lt;&gt;
+      &lt;TransactionList
+        filterComponent={filterComponent}
+        header=&quot;Contacts&quot;
+        transactions={results as TransactionResponseItem[]}
+        isLoading={current.matches(&quot;loading&quot;)}
+        loadNextPage={loadNextPage}
+        pagination={pageData as TransactionPagination}
+        showCreateButton
+      /&gt;
+    &lt;/&gt;
+  );
+};
+
+export default TransactionContactsList;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

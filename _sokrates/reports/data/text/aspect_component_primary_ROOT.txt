@@ -1,0 +1,7 @@
+Path	Lines of Code
+aws-exports-es5.js	18
+cypress.config.ts	95
+eslint.config.mjs	37
+index.html	24
+vite.config.ts	43
+vite.cypress.config.ts	15

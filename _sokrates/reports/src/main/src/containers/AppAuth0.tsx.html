@@ -1,0 +1,103 @@
+<html>
+<head>
+    <title>src/containers/AppAuth0.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/containers/AppAuth0.tsx (<b>57</b> lines of code) (<a href="AppAuth0.tsx">raw</a>):</h3>
+<div id="editor">/* istanbul ignore next */
+import React, { useEffect } from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { useActor, useMachine } from &quot;@xstate/react&quot;;
+import { CssBaseline } from &quot;@mui/material&quot;;
+
+import { snackbarMachine } from &quot;../machines/snackbarMachine&quot;;
+import { notificationsMachine } from &quot;../machines/notificationsMachine&quot;;
+import { authService } from &quot;../machines/authMachine&quot;;
+import AlertBar from &quot;../components/AlertBar&quot;;
+import { bankAccountsMachine } from &quot;../machines/bankAccountsMachine&quot;;
+import PrivateRoutesContainer from &quot;./PrivateRoutesContainer&quot;;
+import { useAuth0, withAuthenticationRequired } from &quot;@auth0/auth0-react&quot;;
+
+const PREFIX = &quot;appAuth0&quot;;
+
+const classes = {
+  root: `${PREFIX}-root`,
+};
+
+const Root = styled(&quot;div&quot;)(({ theme }) =&gt; ({
+  [`&amp;.${classes.root}`]: {
+    display: &quot;flex&quot;,
+  },
+}));
+
+// @ts-ignore
+if (window.Cypress) {
+  // Expose authService on window for Cypress
+  // @ts-ignore
+  window.authService = authService;
+}
+
+/* istanbul ignore next */
+const AppAuth0: React.FC = () =&gt; {
+  const { isAuthenticated, user, getAccessTokenSilently } = useAuth0();
+
+  const [authState] = useActor(authService);
+  const [, , notificationsService] = useMachine(notificationsMachine);
+
+  const [, , snackbarService] = useMachine(snackbarMachine);
+
+  const [, , bankAccountsService] = useMachine(bankAccountsMachine);
+
+  useEffect(() =&gt; {
+    (async function waitForToken() {
+      const token = await getAccessTokenSilently();
+      authService.send(&quot;AUTH0&quot;, { user, token });
+    })();
+  }, [isAuthenticated, user, getAccessTokenSilently]);
+
+  const isLoggedIn =
+    authState.matches(&quot;authorized&quot;) ||
+    authState.matches(&quot;refreshing&quot;) ||
+    authState.matches(&quot;updating&quot;);
+
+  return (
+    &lt;Root className={classes.root}&gt;
+      &lt;CssBaseline /&gt;
+
+      {isLoggedIn &amp;&amp; (
+        &lt;PrivateRoutesContainer
+          isLoggedIn={isLoggedIn}
+          notificationsService={notificationsService}
+          authService={authService}
+          snackbarService={snackbarService}
+          bankAccountsService={bankAccountsService}
+        /&gt;
+      )}
+
+      &lt;AlertBar snackbarService={snackbarService} /&gt;
+    &lt;/Root&gt;
+  );
+};
+
+const appAuth0 = withAuthenticationRequired(AppAuth0);
+export default appAuth0;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

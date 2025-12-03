@@ -191,7 +191,11 @@
     "build": "vite build",
     "codesandbox:start:api": "yarn tsnode:not-instrumented --files backend/app.ts",
     "codesandbox:start": "NODE_ENV=development TSC_COMPILE_ON_ERROR=true concurrently \"vite\" yarn:start:api:codesandbox",
-    "postinstall": "husky install && patch-package"
+    "postinstall": "husky install && patch-package",
+    "e2e:run": "cypress run --e2e",
+    "sokrates:report": "java -jar sokrates-LATEST.jar generateReports",
+    "lighthouse:audit": "lighthouse http://localhost:3000 --output=json --output=html --output-path=./lh-report.html"
+  
   },
   "engines": {
     "node": "^20.0.0 || ^22.0.0"

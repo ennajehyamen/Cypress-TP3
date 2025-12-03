@@ -1,0 +1,78 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      # -------------------------
+      # 🧪 Vitest (Tests Unitaires)
+      # -------------------------
+      - name: Run Unit Tests (Vitest)
+        run: npm run test -- --run
+
+      # -------------------------
+      # 🔧 Cypress Component Testing
+      # -------------------------
+      - name: Run Cypress Component Tests
+        run: npm run ct:run
+
+      # -------------------------
+      # 🌐 Cypress E2E Tests
+      # -------------------------
+      - name: Run Cypress E2E Tests
+        run: npm run e2e:run
+
+      # -------------------------
+      # 📊 Sokrates Report (Optionnel)
+      # -------------------------
+      - name: Generate Sokrates report
+        if: ${{ always() }}
+        run: |
+          if [ -f "sokrates-LATEST.jar" ]; then
+            npm run sokrates:report || true
+          fi
+
+      # -------------------------
+      # ⚡ Lighthouse Audit (Optionnel)
+      # -------------------------
+      - name: Run Lighthouse Audit
+        if: ${{ always() }}
+        run: |
+          if [ -f "lighthouse.config.js" ]; then
+            npm run lighthouse:audit || true
+          fi
+
+      # -------------------------
+      # 📦 Artifacts Cypress
+      # -------------------------
+      - name: Upload Cypress Videos
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos
+          path: cypress/videos
+
+      - name: Upload Cypress Screenshots
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots

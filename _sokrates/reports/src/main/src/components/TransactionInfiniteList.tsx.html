@@ -1,0 +1,119 @@
+<html>
+<head>
+    <title>src/components/TransactionInfiniteList.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/TransactionInfiniteList.tsx (<b>78</b> lines of code) (<a href="TransactionInfiniteList.tsx">raw</a>):</h3>
+<div id="editor">import React from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { get } from &quot;lodash/fp&quot;;
+import { useTheme, useMediaQuery, Divider } from &quot;@mui/material&quot;;
+import { InfiniteLoader, List, Index } from &quot;react-virtualized&quot;;
+import &quot;react-virtualized/styles.css&quot;; // only needs to be imported once
+
+import TransactionItem from &quot;./TransactionItem&quot;;
+import { TransactionResponseItem, TransactionPagination } from &quot;../models&quot;;
+
+const PREFIX = &quot;TransactionInfiniteList&quot;;
+
+const classes = {
+  transactionList: `${PREFIX}-transactionList`,
+};
+
+const StyledInfiniteLoader = styled(InfiniteLoader)(({ theme }) =&gt; ({
+  [`&amp; .${classes.transactionList}`]: {
+    width: &quot;100%&quot;,
+    minHeight: &quot;80vh&quot;,
+    display: &quot;flex&quot;,
+    overflow: &quot;auto&quot;,
+    flexDirection: &quot;column&quot;,
+  },
+}));
+
+export interface TransactionListProps {
+  transactions: TransactionResponseItem[];
+  loadNextPage: Function;
+  pagination: TransactionPagination;
+}
+
+const TransactionInfiniteList: React.FC&lt;TransactionListProps&gt; = ({
+  transactions,
+  loadNextPage,
+  pagination,
+}) =&gt; {
+  const theme = useTheme();
+  const isXsBreakpoint = useMediaQuery(theme.breakpoints.down(&quot;sm&quot;));
+  const isMobile = useMediaQuery(theme.breakpoints.down(&quot;md&quot;));
+
+  const itemCount = pagination.hasNextPages ? transactions.length + 1 : transactions.length;
+
+  const loadMoreItems = () =&gt; {
+    return new Promise((resolve) =&gt; {
+      return resolve(pagination.hasNextPages &amp;&amp; loadNextPage(pagination.page + 1));
+    });
+  };
+
+  const isRowLoaded = (params: Index) =&gt;
+    !pagination.hasNextPages || params.index &lt; transactions.length;
+
+  // @ts-ignore
+  function rowRenderer({ key, index, style }) {
+    const transaction = get(index, transactions);
+
+    if (index &lt; transactions.length) {
+      return (
+        &lt;div key={key} style={style}&gt;
+          &lt;TransactionItem transaction={transaction} /&gt;
+          &lt;Divider variant={isMobile ? &quot;fullWidth&quot; : &quot;inset&quot;} /&gt;
+        &lt;/div&gt;
+      );
+    }
+  }
+
+  const removePx = (str: string) =&gt; +str.slice(0, str.length - 2);
+
+  return (
+    &lt;StyledInfiniteLoader
+      isRowLoaded={isRowLoaded}
+      loadMoreRows={loadMoreItems}
+      rowCount={itemCount}
+      threshold={2}
+    &gt;
+      {({ onRowsRendered, registerChild }) =&gt; (
+        &lt;div data-test=&quot;transaction-list&quot; className={classes.transactionList}&gt;
+          &lt;List
+            rowCount={itemCount}
+            ref={registerChild}
+            onRowsRendered={onRowsRendered}
+            height={isXsBreakpoint ? removePx(theme.spacing(74)) : removePx(theme.spacing(88))}
+            width={isXsBreakpoint ? removePx(theme.spacing(38)) : removePx(theme.spacing(90))}
+            rowHeight={isXsBreakpoint ? removePx(theme.spacing(28)) : removePx(theme.spacing(16))}
+            rowRenderer={rowRenderer}
+          /&gt;
+        &lt;/div&gt;
+      )}
+    &lt;/StyledInfiniteLoader&gt;
+  );
+};
+
+export default TransactionInfiniteList;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

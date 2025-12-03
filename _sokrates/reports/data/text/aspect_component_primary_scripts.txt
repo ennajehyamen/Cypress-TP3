@@ -1,0 +1,6 @@
+Path	Lines of Code
+scripts/generateSeedData.ts	13
+scripts/mock-aws-exports-es5.js	18
+scripts/mock-aws-exports.js	18
+scripts/seedDataUtils.ts	505
+scripts/testServer.ts	10

@@ -1,0 +1,92 @@
+<html>
+<head>
+    <title>contactsTransactions: getTransactionsForUserContacts()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">contactsTransactions: getTransactionsForUserContacts()</h3>
+<p style="margin-top: 4px">in <i>backend/database.ts [483:552]</i></p>
+<ul>
+    <li><b>59</b> lines of code</li>
+    <li><b>5</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="ts">
+      contactsTransactions: getTransactionsForUserContacts(userId),
+      publicTransactions: getNonContactPublicTransactionsForApi(userId),
+    };
+  }
+};
+
+export const resetPayAppBalance = constant(0);
+
+export const debitPayAppBalance = (user: User, transaction: Transaction) =&gt; {
+  if (hasSufficientFunds(user, transaction)) {
+    flow(getChargeAmount, savePayAppBalance(user))(user, transaction);
+  } else {
+    /* istanbul ignore next */
+    flow(
+      getTransferAmount(user),
+      createBankTransferWithdrawal(user, transaction),
+      resetPayAppBalance,
+      savePayAppBalance(user)
+    )(transaction);
+  }
+};
+
+export const creditPayAppBalance = (user: User, transaction: Transaction) =&gt;
+  flow(getPayAppCreditedAmount, savePayAppBalance(user))(user, transaction);
+
+/* istanbul ignore next */
+export const createBankTransferWithdrawal = curry(
+  (sender: User, transaction: Transaction, transferAmount: number) =&gt;
+    createBankTransfer({
+      userId: sender.id,
+      source: transaction.source,
+      amount: transferAmount,
+      transactionId: transaction.id,
+      type: BankTransferType.withdrawal,
+    })
+);
+
+export const savePayAppBalance = curry((sender: User, balance: number) =&gt;
+  updateUserById(get(&quot;id&quot;, sender), { balance })
+);
+
+export const createTransaction = (
+  userId: User[&quot;id&quot;],
+  transactionType: &quot;payment&quot; | &quot;request&quot;,
+  transactionDetails: TransactionPayload
+): Transaction =&gt; {
+  const sender = getUserById(userId);
+  const receiver = getUserById(transactionDetails.receiverId);
+  const transaction: Transaction = {
+    id: shortid(),
+    uuid: v4(),
+    source: transactionDetails.source,
+    amount: transactionDetails.amount * 100,
+    description: transactionDetails.description,
+    receiverId: transactionDetails.receiverId,
+    senderId: userId,
+    privacyLevel: transactionDetails.privacyLevel || sender.defaultPrivacyLevel,
+    status: TransactionStatus.pending,
+    requestStatus: transactionType === &quot;request&quot; ? TransactionRequestStatus.pending : undefined,
+    createdAt: new Date(),
+    modifiedAt: new Date(),
+  };
+
+  const savedTransaction = saveTransaction(transaction);
+
+  // if payment, debit sender's balance for payment amount
+  if (isPayment(transaction)) {
+    debitPayAppBalance(sender, transaction);
+    creditPayAppBalance(receiver, transaction);
+    updateTransactionById(transaction.id, {
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

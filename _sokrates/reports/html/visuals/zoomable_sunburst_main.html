@@ -1,0 +1,920 @@
+<head>
+    <style>
+        body {
+            font-family: Sans-serif;
+            font-size: 11px;
+        }
+
+        .slice {
+            cursor: pointer;
+        }
+
+        .slice .main-arc {
+            stroke: #fff;
+            stroke-width: 1px;
+        }
+
+        .slice .hidden-arc {
+            fill: none;
+        }
+
+        .slice text {
+            pointer-events: none;
+            dominant-baseline: middle;
+            text-anchor: middle;
+        }
+    </style>
+
+    <script src='https://d3js.org/d3.v4.min.js'></script>
+</head>
+<body>
+<script>
+    const width = window.innerWidth,
+        height = window.innerHeight,
+        maxRadius = (Math.min(width, height) / 2) - 5;
+
+    const formatNumber = d3.format(',d');
+
+    const x = d3.scaleLinear()
+        .range([0, 2 * Math.PI])
+        .clamp(true);
+
+    const y = d3.scaleSqrt()
+        .range([maxRadius * .1, maxRadius]);
+
+    const color = d3.scaleOrdinal(d3.schemeCategory20);
+
+    const partition = d3.partition();
+
+    const arc = d3.arc()
+        .startAngle(d => x(d.x0))
+        .endAngle(d => x(d.x1))
+        .innerRadius(d => Math.max(0, y(d.y0)))
+        .outerRadius(d => Math.max(0, y(d.y1)));
+
+    const middleArcLine = d => {
+        const halfPi = Math.PI / 2;
+        const angles = [x(d.x0) - halfPi, x(d.x1) - halfPi];
+        const r = Math.max(0, (y(d.y0) + y(d.y1)) / 2);
+
+        const middleAngle = (angles[1] + angles[0]) / 2;
+        const invertDirection = middleAngle > 0 && middleAngle < Math.PI; // On lower quadrants write text ccw
+        if (invertDirection) {
+            angles.reverse();
+        }
+
+        const path = d3.path();
+        path.arc(0, 0, r, angles[0], angles[1], invertDirection);
+        return path.toString();
+    };
+
+    const textFits = d => {
+        const CHAR_SPACE = 6;
+
+        const deltaAngle = x(d.x1) - x(d.x0);
+        const r = Math.max(0, (y(d.y0) + y(d.y1)) / 2);
+        const perimeter = r * deltaAngle;
+
+        return d.data.name.length * CHAR_SPACE < perimeter;
+    };
+
+    const svg = d3.select('body').append('svg')
+        .style('width', '100vw')
+        .style('height', '100vh')
+        .attr('viewBox', `${-width / 2} ${-height / 2} ${width} ${height}`)
+        .on('click', () => focusOn()); // Reset zoom on canvas click
+
+    var rootData = {
+        "name": "",
+        "children": [ {
+  "name" : "aws-exports-es5.js",
+  "color" : "",
+  "size" : 18,
+  "children" : [ ]
+}, {
+  "name" : "backend",
+  "color" : "",
+  "size" : 0,
+  "children" : [ {
+    "name" : "app.ts",
+    "color" : "",
+    "size" : 98,
+    "children" : [ ]
+  }, {
+    "name" : "auth.ts",
+    "color" : "",
+    "size" : 50,
+    "children" : [ ]
+  }, {
+    "name" : "bankaccount-routes.ts",
+    "color" : "",
+    "size" : 43,
+    "children" : [ ]
+  }, {
+    "name" : "banktransfer-routes.ts",
+    "color" : "",
+    "size" : 10,
+    "children" : [ ]
+  }, {
+    "name" : "comment-routes.ts",
+    "color" : "",
+    "size" : 28,
+    "children" : [ ]
+  }, {
+    "name" : "contact-routes.ts",
+    "color" : "",
+    "size" : 34,
+    "children" : [ ]
+  }, {
+    "name" : "database.ts",
+    "color" : "",
+    "size" : 665,
+    "children" : [ ]
+  }, {
+    "name" : "gql-playground-routes.ts",
+    "color" : "",
+    "size" : 5,
+    "children" : [ ]
+  }, {
+    "name" : "graphql",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "resolvers",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "index.ts",
+        "color" : "",
+        "size" : 7,
+        "children" : [ ]
+      }, {
+        "name" : "Mutation.ts",
+        "color" : "",
+        "size" : 11,
+        "children" : [ ]
+      }, {
+        "name" : "Query.ts",
+        "color" : "",
+        "size" : 11,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "schema.graphql",
+      "color" : "",
+      "size" : 18,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "helpers.ts",
+    "color" : "",
+    "size" : 94,
+    "children" : [ ]
+  }, {
+    "name" : "like-routes.ts",
+    "color" : "",
+    "size" : 27,
+    "children" : [ ]
+  }, {
+    "name" : "notification-routes.ts",
+    "color" : "",
+    "size" : 40,
+    "children" : [ ]
+  }, {
+    "name" : "testdata-routes.ts",
+    "color" : "",
+    "size" : 17,
+    "children" : [ ]
+  }, {
+    "name" : "transaction-routes.ts",
+    "color" : "",
+    "size" : 145,
+    "children" : [ ]
+  }, {
+    "name" : "types.ts",
+    "color" : "",
+    "size" : 6,
+    "children" : [ ]
+  }, {
+    "name" : "user-routes.ts",
+    "color" : "",
+    "size" : 70,
+    "children" : [ ]
+  }, {
+    "name" : "validators.ts",
+    "color" : "",
+    "size" : 96,
+    "children" : [ ]
+  } ]
+}, {
+  "name" : "cypress",
+  "color" : "",
+  "size" : 0,
+  "children" : [ {
+    "name" : "support",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "auth-provider-commands",
+      "color" : "",
+      "size" : 0,
+      "children" : [ {
+        "name" : "auth0.ts",
+        "color" : "",
+        "size" : 28,
+        "children" : [ ]
+      }, {
+        "name" : "cognito.ts",
+        "color" : "",
+        "size" : 76,
+        "children" : [ ]
+      }, {
+        "name" : "okta.ts",
+        "color" : "",
+        "size" : 77,
+        "children" : [ ]
+      } ]
+    }, {
+      "name" : "commands.ts",
+      "color" : "",
+      "size" : 309,
+      "children" : [ ]
+    }, {
+      "name" : "component-index.html",
+      "color" : "",
+      "size" : 12,
+      "children" : [ ]
+    }, {
+      "name" : "component.ts",
+      "color" : "",
+      "size" : 4,
+      "children" : [ ]
+    }, {
+      "name" : "e2e.ts",
+      "color" : "",
+      "size" : 16,
+      "children" : [ ]
+    }, {
+      "name" : "utils.ts",
+      "color" : "",
+      "size" : 3,
+      "children" : [ ]
+    } ]
+  } ]
+}, {
+  "name" : "cypress.config.ts",
+  "color" : "",
+  "size" : 95,
+  "children" : [ ]
+}, {
+  "name" : "eslint.config.mjs",
+  "color" : "",
+  "size" : 37,
+  "children" : [ ]
+}, {
+  "name" : "index.html",
+  "color" : "",
+  "size" : 24,
+  "children" : [ ]
+}, {
+  "name" : "scripts",
+  "color" : "",
+  "size" : 0,
+  "children" : [ {
+    "name" : "generateSeedData.ts",
+    "color" : "",
+    "size" : 13,
+    "children" : [ ]
+  }, {
+    "name" : "mock-aws-exports-es5.js",
+    "color" : "",
+    "size" : 18,
+    "children" : [ ]
+  }, {
+    "name" : "mock-aws-exports.js",
+    "color" : "",
+    "size" : 18,
+    "children" : [ ]
+  }, {
+    "name" : "seedDataUtils.ts",
+    "color" : "",
+    "size" : 505,
+    "children" : [ ]
+  }, {
+    "name" : "testServer.ts",
+    "color" : "",
+    "size" : 10,
+    "children" : [ ]
+  } ]
+}, {
+  "name" : "src",
+  "color" : "",
+  "size" : 0,
+  "children" : [ {
+    "name" : "aws-exports.js",
+    "color" : "",
+    "size" : 18,
+    "children" : [ ]
+  }, {
+    "name" : "components",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "AlertBar.cy.tsx",
+      "color" : "",
+      "size" : 18,
+      "children" : [ ]
+    }, {
+      "name" : "AlertBar.tsx",
+      "color" : "",
+      "size" : 41,
+      "children" : [ ]
+    }, {
+      "name" : "BankAccountForm.tsx",
+      "color" : "",
+      "size" : 144,
+      "children" : [ ]
+    }, {
+      "name" : "BankAccountItem.tsx",
+      "color" : "",
+      "size" : 39,
+      "children" : [ ]
+    }, {
+      "name" : "BankAccountList.tsx",
+      "color" : "",
+      "size" : 29,
+      "children" : [ ]
+    }, {
+      "name" : "CommentForm.tsx",
+      "color" : "",
+      "size" : 63,
+      "children" : [ ]
+    }, {
+      "name" : "CommentList.tsx",
+      "color" : "",
+      "size" : 16,
+      "children" : [ ]
+    }, {
+      "name" : "CommentListItem.tsx",
+      "color" : "",
+      "size" : 14,
+      "children" : [ ]
+    }, {
+      "name" : "EmptyList.tsx",
+      "color" : "",
+      "size" : 46,
+      "children" : [ ]
+    }, {
+      "name" : "Footer.tsx",
+      "color" : "",
+      "size" : 28,
+      "children" : [ ]
+    }, {
+      "name" : "MainLayout.tsx",
+      "color" : "",
+      "size" : 111,
+      "children" : [ ]
+    }, {
+      "name" : "NavBar.tsx",
+      "color" : "",
+      "size" : 178,
+      "children" : [ ]
+    }, {
+      "name" : "NavDrawer.tsx",
+      "color" : "",
+      "size" : 273,
+      "children" : [ ]
+    }, {
+      "name" : "NotificationList.tsx",
+      "color" : "",
+      "size" : 32,
+      "children" : [ ]
+    }, {
+      "name" : "NotificationListItem.tsx",
+      "color" : "",
+      "size" : 109,
+      "children" : [ ]
+    }, {
+      "name" : "PrivateRoute.tsx",
+      "color" : "",
+      "size" : 25,
+      "children" : [ ]
+    }, {
+      "name" : "SignInForm.cy.tsx",
+      "color" : "",
+      "size" : 41,
+      "children" : [ ]
+    }, {
+      "name" : "SignInForm.tsx",
+      "color" : "",
+      "size" : 155,
+      "children" : [ ]
+    }, {
+      "name" : "SignUpForm.tsx",
+      "color" : "",
+      "size" : 181,
+      "children" : [ ]
+    }, {
+      "name" : "SkeletonList.tsx",
+      "color" : "",
+      "size" : 63,
+      "children" : [ ]
+    }, {
+      "name" : "SvgCypressLogo.tsx",
+      "color" : "",
+      "size" : 80,
+      "children" : [ ]
+    }, {
+      "name" : "SvgUndrawNavigatorA479.tsx",
+      "color" : "",
+      "size" : 112,
+      "children" : [ ]
+    }, {
+      "name" : "SvgUndrawPersonalFinanceTqcd.tsx",
+      "color" : "",
+      "size" : 82,
+      "children" : [ ]
+    }, {
+      "name" : "SvgUndrawReminders697P.tsx",
+      "color" : "",
+      "size" : 126,
+      "children" : [ ]
+    }, {
+      "name" : "SvgUndrawTransferMoneyRywa.tsx",
+      "color" : "",
+      "size" : 276,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionAmount.tsx",
+      "color" : "",
+      "size" : 42,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionContactsList.tsx",
+      "color" : "",
+      "size" : 45,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionCreateStepOne.tsx",
+      "color" : "",
+      "size" : 33,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionCreateStepThree.tsx",
+      "color" : "",
+      "size" : 134,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionCreateStepTwo.tsx",
+      "color" : "",
+      "size" : 198,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionDateRangeFilter.cy.tsx",
+      "color" : "",
+      "size" : 48,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionDateRangeFilter.tsx",
+      "color" : "",
+      "size" : 180,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionDetail.tsx",
+      "color" : "",
+      "size" : 231,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionInfiniteList.tsx",
+      "color" : "",
+      "size" : 78,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionItem.tsx",
+      "color" : "",
+      "size" : 141,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionList.tsx",
+      "color" : "",
+      "size" : 84,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionListAmountRangeFilter.tsx",
+      "color" : "",
+      "size" : 150,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionListFilters.tsx",
+      "color" : "",
+      "size" : 64,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionNavTabs.tsx",
+      "color" : "",
+      "size" : 28,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionPersonalList.tsx",
+      "color" : "",
+      "size" : 45,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionPublicList.tsx",
+      "color" : "",
+      "size" : 45,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionTitle.cy.tsx",
+      "color" : "",
+      "size" : 6,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionTitle.tsx",
+      "color" : "",
+      "size" : 69,
+      "children" : [ ]
+    }, {
+      "name" : "UserListItem.tsx",
+      "color" : "",
+      "size" : 52,
+      "children" : [ ]
+    }, {
+      "name" : "UserListSearchForm.tsx",
+      "color" : "",
+      "size" : 50,
+      "children" : [ ]
+    }, {
+      "name" : "UserSettingsForm.tsx",
+      "color" : "",
+      "size" : 156,
+      "children" : [ ]
+    }, {
+      "name" : "UsersList.tsx",
+      "color" : "",
+      "size" : 19,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "containers",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "App.tsx",
+      "color" : "",
+      "size" : 65,
+      "children" : [ ]
+    }, {
+      "name" : "AppAuth0.tsx",
+      "color" : "",
+      "size" : 57,
+      "children" : [ ]
+    }, {
+      "name" : "AppCognito.tsx",
+      "color" : "",
+      "size" : 82,
+      "children" : [ ]
+    }, {
+      "name" : "AppGoogle.tsx",
+      "color" : "",
+      "size" : 84,
+      "children" : [ ]
+    }, {
+      "name" : "AppOkta.tsx",
+      "color" : "",
+      "size" : 67,
+      "children" : [ ]
+    }, {
+      "name" : "BankAccountsContainer.tsx",
+      "color" : "",
+      "size" : 91,
+      "children" : [ ]
+    }, {
+      "name" : "NotificationsContainer.tsx",
+      "color" : "",
+      "size" : 56,
+      "children" : [ ]
+    }, {
+      "name" : "PrivateRoutesContainer.tsx",
+      "color" : "",
+      "size" : 87,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionCreateContainer.tsx",
+      "color" : "",
+      "size" : 88,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionDetailContainer.tsx",
+      "color" : "",
+      "size" : 50,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionsContainer.cy.tsx",
+      "color" : "",
+      "size" : 48,
+      "children" : [ ]
+    }, {
+      "name" : "TransactionsContainer.tsx",
+      "color" : "",
+      "size" : 42,
+      "children" : [ ]
+    }, {
+      "name" : "UserOnboardingContainer.tsx",
+      "color" : "",
+      "size" : 128,
+      "children" : [ ]
+    }, {
+      "name" : "UserSettingsContainer.tsx",
+      "color" : "",
+      "size" : 47,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "index.auth0.tsx",
+    "color" : "",
+    "size" : 45,
+    "children" : [ ]
+  }, {
+    "name" : "index.cognito.tsx",
+    "color" : "",
+    "size" : 35,
+    "children" : [ ]
+  }, {
+    "name" : "index.google.tsx",
+    "color" : "",
+    "size" : 35,
+    "children" : [ ]
+  }, {
+    "name" : "index.okta.tsx",
+    "color" : "",
+    "size" : 51,
+    "children" : [ ]
+  }, {
+    "name" : "index.tsx",
+    "color" : "",
+    "size" : 47,
+    "children" : [ ]
+  }, {
+    "name" : "machines",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "authMachine.ts",
+      "color" : "",
+      "size" : 254,
+      "children" : [ ]
+    }, {
+      "name" : "bankAccountsMachine.ts",
+      "color" : "",
+      "size" : 72,
+      "children" : [ ]
+    }, {
+      "name" : "contactsTransactionsMachine.ts",
+      "color" : "",
+      "size" : 15,
+      "children" : [ ]
+    }, {
+      "name" : "createTransactionMachine.ts",
+      "color" : "",
+      "size" : 80,
+      "children" : [ ]
+    }, {
+      "name" : "dataMachine.ts",
+      "color" : "",
+      "size" : 127,
+      "children" : [ ]
+    }, {
+      "name" : "drawerMachine.ts",
+      "color" : "",
+      "size" : 46,
+      "children" : [ ]
+    }, {
+      "name" : "notificationsMachine.ts",
+      "color" : "",
+      "size" : 23,
+      "children" : [ ]
+    }, {
+      "name" : "personalTransactionsMachine.ts",
+      "color" : "",
+      "size" : 15,
+      "children" : [ ]
+    }, {
+      "name" : "publicTransactionsMachine.ts",
+      "color" : "",
+      "size" : 15,
+      "children" : [ ]
+    }, {
+      "name" : "snackbarMachine.ts",
+      "color" : "",
+      "size" : 53,
+      "children" : [ ]
+    }, {
+      "name" : "transactionDetailMachine.ts",
+      "color" : "",
+      "size" : 36,
+      "children" : [ ]
+    }, {
+      "name" : "transactionFiltersMachine.ts",
+      "color" : "",
+      "size" : 100,
+      "children" : [ ]
+    }, {
+      "name" : "userOnboardingMachine.ts",
+      "color" : "",
+      "size" : 47,
+      "children" : [ ]
+    }, {
+      "name" : "usersMachine.ts",
+      "color" : "",
+      "size" : 16,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "models",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "bankaccount.ts",
+      "color" : "",
+      "size" : 15,
+      "children" : [ ]
+    }, {
+      "name" : "banktransfer.ts",
+      "color" : "",
+      "size" : 16,
+      "children" : [ ]
+    }, {
+      "name" : "comment.ts",
+      "color" : "",
+      "size" : 9,
+      "children" : [ ]
+    }, {
+      "name" : "contact.ts",
+      "color" : "",
+      "size" : 8,
+      "children" : [ ]
+    }, {
+      "name" : "db-schema.ts",
+      "color" : "",
+      "size" : 18,
+      "children" : [ ]
+    }, {
+      "name" : "index.ts",
+      "color" : "",
+      "size" : 8,
+      "children" : [ ]
+    }, {
+      "name" : "like.ts",
+      "color" : "",
+      "size" : 8,
+      "children" : [ ]
+    }, {
+      "name" : "notification.ts",
+      "color" : "",
+      "size" : 60,
+      "children" : [ ]
+    }, {
+      "name" : "transaction.ts",
+      "color" : "",
+      "size" : 93,
+      "children" : [ ]
+    }, {
+      "name" : "user.ts",
+      "color" : "",
+      "size" : 28,
+      "children" : [ ]
+    } ]
+  }, {
+    "name" : "setup-tests.js",
+    "color" : "",
+    "size" : 7,
+    "children" : [ ]
+  }, {
+    "name" : "setupProxy.js",
+    "color" : "",
+    "size" : 11,
+    "children" : [ ]
+  }, {
+    "name" : "utils",
+    "color" : "",
+    "size" : 0,
+    "children" : [ {
+      "name" : "asyncUtils.ts",
+      "color" : "",
+      "size" : 17,
+      "children" : [ ]
+    }, {
+      "name" : "historyUtils.ts",
+      "color" : "",
+      "size" : 2,
+      "children" : [ ]
+    }, {
+      "name" : "portUtils.ts",
+      "color" : "",
+      "size" : 22,
+      "children" : [ ]
+    }, {
+      "name" : "transactionUtils.ts",
+      "color" : "",
+      "size" : 182,
+      "children" : [ ]
+    } ]
+  } ]
+}, {
+  "name" : "vite.config.ts",
+  "color" : "",
+  "size" : 43,
+  "children" : [ ]
+}, {
+  "name" : "vite.cypress.config.ts",
+  "color" : "",
+  "size" : 15,
+  "children" : [ ]
+} ]
+    }
+
+
+    root = d3.hierarchy(rootData);
+    root.sum(d => d.size);
+
+    const slice = svg.selectAll('g.slice')
+        .data(partition(root).descendants());
+
+    slice.exit().remove();
+
+    const newSlice = slice.enter()
+        .append('g').attr('class', 'slice')
+        .on('click', d => {
+            d3.event.stopPropagation();
+            focusOn(d);
+        });
+
+    newSlice.append('title')
+        .text(d => d.data.name + '\n' + formatNumber(d.value));
+
+    newSlice.append('path')
+        .attr('class', 'main-arc')
+        .style('fill', d => color((d.children ? d : d.parent).data.name))
+        .attr('d', arc);
+
+    newSlice.append('path')
+        .attr('class', 'hidden-arc')
+        .attr('id', (_, i) => `hiddenArc${i}`)
+        .attr('d', middleArcLine);
+
+    const text = newSlice.append('text')
+        .attr('display', d => textFits(d) ? null : 'none');
+
+    // Add white contour
+    text.append('textPath')
+        .attr('startOffset', '50%')
+        .attr('xlink:href', (_, i) => `#hiddenArc${i}`)
+        .text(d => d.data.name)
+        .style('fill', 'none')
+        .style('stroke', '#fff')
+        .style('stroke-width', 5)
+        .style('stroke-linejoin', 'round');
+
+    text.append('textPath')
+        .attr('startOffset', '50%')
+        .attr('xlink:href', (_, i) => `#hiddenArc${i}`)
+        .text(d => d.data.name);
+
+    function focusOn(d = {x0: 0, x1: 1, y0: 0, y1: 1}) {
+        const transition = svg.transition()
+            .duration(750)
+            .tween('scale', () => {
+                const xd = d3.interpolate(x.domain(), [d.x0, d.x1]),
+                    yd = d3.interpolate(y.domain(), [d.y0, 1]);
+                return t => {
+                    x.domain(xd(t));
+                    y.domain(yd(t));
+                };
+            });
+
+        transition.selectAll('path.main-arc')
+            .attrTween('d', d => () => arc(d));
+
+        transition.selectAll('path.hidden-arc')
+            .attrTween('d', d => () => middleArcLine(d));
+
+        transition.selectAll('text')
+            .attrTween('display', d => () => textFits(d) ? null : 'none');
+
+        moveStackToFront(d);
+
+        //
+
+        function moveStackToFront(elD) {
+            svg.selectAll('.slice').filter(d => d === elD)
+                .each(function (d) {
+                    this.parentNode.appendChild(this);
+                    if (d.parent) {
+                        moveStackToFront(d.parent);
+                    }
+                })
+        }
+    }
+</script>
+</body>

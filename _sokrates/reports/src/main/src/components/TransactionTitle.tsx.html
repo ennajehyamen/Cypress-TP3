@@ -1,0 +1,102 @@
+<html>
+<head>
+    <title>src/components/TransactionTitle.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/TransactionTitle.tsx (<b>69</b> lines of code) (<a href="TransactionTitle.tsx">raw</a>):</h3>
+<div id="editor">import React from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { Typography } from &quot;@mui/material&quot;;
+import { TransactionResponseItem } from &quot;../models&quot;;
+import { isRequestTransaction, isAcceptedRequestTransaction } from &quot;../utils/transactionUtils&quot;;
+
+const PREFIX = &quot;TransactionTitle&quot;;
+
+const classes = {
+  title: `${PREFIX}-title`,
+  titleAction: `${PREFIX}-titleAction`,
+  titleName: `${PREFIX}-titleName`,
+};
+
+const StyledTypography = styled(Typography)(({ theme }) =&gt; ({
+  [`&amp;.${classes.title}`]: {
+    fontSize: 18,
+    [theme.breakpoints.down(&quot;md&quot;)]: {
+      fontSize: theme.typography.fontSize,
+    },
+  },
+
+  [`&amp; .${classes.titleAction}`]: {
+    fontSize: 18,
+    [theme.breakpoints.down(&quot;md&quot;)]: {
+      fontSize: theme.typography.fontSize,
+    },
+  },
+
+  [`&amp; .${classes.titleName}`]: {
+    fontSize: 18,
+    [theme.breakpoints.down(&quot;md&quot;)]: {
+      fontSize: theme.typography.fontSize,
+    },
+    color: &quot;#1A202C&quot;,
+  },
+}));
+
+const TransactionTitle: React.FC&lt;{
+  transaction: TransactionResponseItem;
+}&gt; = ({ transaction }) =&gt; {
+  return (
+    &lt;StyledTypography color=&quot;textSecondary&quot; className={classes.title} gutterBottom&gt;
+      &lt;Typography
+        data-test={`transaction-sender-${transaction.id}`}
+        className={classes.titleName}
+        display=&quot;inline&quot;
+        component=&quot;span&quot;
+      &gt;
+        {transaction.senderName}
+      &lt;/Typography&gt;
+      &lt;Typography
+        data-test={`transaction-action-${transaction.id}`}
+        display=&quot;inline&quot;
+        className={classes.titleAction}
+        component=&quot;span&quot;
+      &gt;
+        {isRequestTransaction(transaction)
+          ? isAcceptedRequestTransaction(transaction)
+            ? &quot; charged &quot;
+            : &quot; requested &quot;
+          : &quot; paid &quot;}
+      &lt;/Typography&gt;
+      &lt;Typography
+        data-test={`transaction-receiver-${transaction.id}`}
+        className={classes.titleName}
+        display=&quot;inline&quot;
+        component=&quot;span&quot;
+      &gt;
+        {transaction.receiverName}
+      &lt;/Typography&gt;
+    &lt;/StyledTypography&gt;
+  );
+};
+
+export default TransactionTitle;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

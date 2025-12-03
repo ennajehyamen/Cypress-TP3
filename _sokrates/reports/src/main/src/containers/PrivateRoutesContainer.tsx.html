@@ -1,0 +1,125 @@
+<html>
+<head>
+    <title>src/containers/PrivateRoutesContainer.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/containers/PrivateRoutesContainer.tsx (<b>87</b> lines of code) (<a href="PrivateRoutesContainer.tsx">raw</a>):</h3>
+<div id="editor">import React, { useEffect } from &quot;react&quot;;
+import { Switch } from &quot;react-router&quot;;
+import {
+  BaseActionObject,
+  Interpreter,
+  ResolveTypegenMeta,
+  ServiceMap,
+  TypegenDisabled,
+} from &quot;xstate&quot;;
+import MainLayout from &quot;../components/MainLayout&quot;;
+import PrivateRoute from &quot;../components/PrivateRoute&quot;;
+import TransactionsContainer from &quot;./TransactionsContainer&quot;;
+import UserSettingsContainer from &quot;./UserSettingsContainer&quot;;
+import NotificationsContainer from &quot;./NotificationsContainer&quot;;
+import BankAccountsContainer from &quot;./BankAccountsContainer&quot;;
+import TransactionCreateContainer from &quot;./TransactionCreateContainer&quot;;
+import TransactionDetailContainer from &quot;./TransactionDetailContainer&quot;;
+import { DataContext, DataSchema, DataEvents } from &quot;../machines/dataMachine&quot;;
+import { AuthMachineContext, AuthMachineEvents, AuthMachineSchema } from &quot;../machines/authMachine&quot;;
+import { SnackbarContext, SnackbarSchema, SnackbarEvents } from &quot;../machines/snackbarMachine&quot;;
+import { useActor } from &quot;@xstate/react&quot;;
+import UserOnboardingContainer from &quot;./UserOnboardingContainer&quot;;
+
+export interface Props {
+  isLoggedIn: boolean;
+  authService: Interpreter&lt;AuthMachineContext, AuthMachineSchema, AuthMachineEvents, any, any&gt;;
+  notificationsService: Interpreter&lt;
+    DataContext,
+    DataSchema,
+    DataEvents,
+    any,
+    ResolveTypegenMeta&lt;TypegenDisabled, DataEvents, BaseActionObject, ServiceMap&gt;
+  &gt;;
+  snackbarService: Interpreter&lt;
+    SnackbarContext,
+    SnackbarSchema,
+    SnackbarEvents,
+    any,
+    ResolveTypegenMeta&lt;TypegenDisabled, SnackbarEvents, BaseActionObject, ServiceMap&gt;
+  &gt;;
+  bankAccountsService: Interpreter&lt;
+    DataContext,
+    DataSchema,
+    DataEvents,
+    any,
+    ResolveTypegenMeta&lt;TypegenDisabled, DataEvents, BaseActionObject, ServiceMap&gt;
+  &gt;;
+}
+
+const PrivateRoutesContainer: React.FC&lt;Props&gt; = ({
+  isLoggedIn,
+  authService,
+  notificationsService,
+  snackbarService,
+  bankAccountsService,
+}) =&gt; {
+  const [, sendNotifications] = useActor(notificationsService);
+
+  useEffect(() =&gt; {
+    sendNotifications({ type: &quot;FETCH&quot; });
+  }, [sendNotifications]);
+
+  return (
+    &lt;MainLayout notificationsService={notificationsService} authService={authService}&gt;
+      &lt;UserOnboardingContainer
+        authService={authService}
+        bankAccountsService={bankAccountsService}
+      /&gt;
+      &lt;Switch&gt;
+        &lt;PrivateRoute isLoggedIn={isLoggedIn} exact path={&quot;/(public|contacts|personal)?&quot;}&gt;
+          &lt;TransactionsContainer /&gt;
+        &lt;/PrivateRoute&gt;
+        &lt;PrivateRoute isLoggedIn={isLoggedIn} exact path=&quot;/user/settings&quot;&gt;
+          &lt;UserSettingsContainer authService={authService} /&gt;
+        &lt;/PrivateRoute&gt;
+        &lt;PrivateRoute isLoggedIn={isLoggedIn} exact path=&quot;/notifications&quot;&gt;
+          &lt;NotificationsContainer
+            authService={authService}
+            notificationsService={notificationsService}
+          /&gt;
+        &lt;/PrivateRoute&gt;
+        &lt;PrivateRoute isLoggedIn={isLoggedIn} path=&quot;/bankaccounts*&quot;&gt;
+          &lt;BankAccountsContainer
+            authService={authService}
+            bankAccountsService={bankAccountsService}
+          /&gt;
+        &lt;/PrivateRoute&gt;
+        &lt;PrivateRoute isLoggedIn={isLoggedIn} exact path=&quot;/transaction/new&quot;&gt;
+          &lt;TransactionCreateContainer authService={authService} snackbarService={snackbarService} /&gt;
+        &lt;/PrivateRoute&gt;
+        &lt;PrivateRoute isLoggedIn={isLoggedIn} exact path=&quot;/transaction/:transactionId&quot;&gt;
+          &lt;TransactionDetailContainer authService={authService} /&gt;
+        &lt;/PrivateRoute&gt;
+      &lt;/Switch&gt;
+    &lt;/MainLayout&gt;
+  );
+};
+
+export default PrivateRoutesContainer;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

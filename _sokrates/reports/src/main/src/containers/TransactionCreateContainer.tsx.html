@@ -1,0 +1,131 @@
+<html>
+<head>
+    <title>src/containers/TransactionCreateContainer.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/containers/TransactionCreateContainer.tsx (<b>88</b> lines of code) (<a href="TransactionCreateContainer.tsx">raw</a>):</h3>
+<div id="editor">import React, { useEffect } from &quot;react&quot;;
+import { useMachine, useActor } from &quot;@xstate/react&quot;;
+import { User, TransactionPayload } from &quot;../models&quot;;
+import TransactionCreateStepOne from &quot;../components/TransactionCreateStepOne&quot;;
+import TransactionCreateStepTwo from &quot;../components/TransactionCreateStepTwo&quot;;
+import TransactionCreateStepThree from &quot;../components/TransactionCreateStepThree&quot;;
+import { createTransactionMachine } from &quot;../machines/createTransactionMachine&quot;;
+import { usersMachine } from &quot;../machines/usersMachine&quot;;
+import { debounce } from &quot;lodash/fp&quot;;
+import {
+  BaseActionObject,
+  Interpreter,
+  ResolveTypegenMeta,
+  ServiceMap,
+  TypegenDisabled,
+} from &quot;xstate&quot;;
+import { AuthMachineContext, AuthMachineEvents, AuthMachineSchema } from &quot;../machines/authMachine&quot;;
+import { SnackbarSchema, SnackbarContext, SnackbarEvents } from &quot;../machines/snackbarMachine&quot;;
+import { Stepper, Step, StepLabel } from &quot;@mui/material&quot;;
+
+export interface Props {
+  authService: Interpreter&lt;AuthMachineContext, AuthMachineSchema, AuthMachineEvents, any, any&gt;;
+  snackbarService: Interpreter&lt;
+    SnackbarContext,
+    SnackbarSchema,
+    SnackbarEvents,
+    any,
+    ResolveTypegenMeta&lt;TypegenDisabled, SnackbarEvents, BaseActionObject, ServiceMap&gt;
+  &gt;;
+}
+
+const TransactionCreateContainer: React.FC&lt;Props&gt; = ({ authService, snackbarService }) =&gt; {
+  const [authState] = useActor(authService);
+  const [, sendSnackbar] = useActor(snackbarService);
+
+  const [createTransactionState, sendCreateTransaction, createTransactionService] =
+    useMachine(createTransactionMachine);
+
+  // Expose createTransactionService on window for Cypress
+  // @ts-ignore
+  window.createTransactionService = createTransactionService;
+
+  const [usersState, sendUsers] = useMachine(usersMachine);
+
+  useEffect(() =&gt; {
+    sendUsers({ type: &quot;FETCH&quot; });
+  }, [sendUsers]);
+
+  const sender = authState?.context?.user;
+  const setReceiver = (receiver: User) =&gt; {
+    // @ts-ignore
+    sendCreateTransaction({ type: &quot;SET_USERS&quot;, sender, receiver });
+  };
+  const createTransaction = (payload: TransactionPayload) =&gt; {
+    sendCreateTransaction(&quot;CREATE&quot;, payload);
+  };
+  const userListSearch = debounce(200, (payload: any) =&gt; sendUsers({ type: &quot;FETCH&quot;, ...payload }));
+
+  const showSnackbar = (payload: SnackbarContext) =&gt; sendSnackbar({ type: &quot;SHOW&quot;, ...payload });
+
+  let activeStep;
+  if (createTransactionState.matches(&quot;stepTwo&quot;)) {
+    activeStep = 1;
+  } else if (createTransactionState.matches(&quot;stepThree&quot;)) {
+    activeStep = 3;
+  } else {
+    activeStep = 0;
+  }
+
+  return (
+    &lt;&gt;
+      &lt;Stepper activeStep={activeStep}&gt;
+        &lt;Step key={&quot;stepOne&quot;}&gt;
+          &lt;StepLabel&gt;Select Contact&lt;/StepLabel&gt;
+        &lt;/Step&gt;
+        &lt;Step key={&quot;stepTwo&quot;}&gt;
+          &lt;StepLabel&gt;Payment&lt;/StepLabel&gt;
+        &lt;/Step&gt;
+        &lt;Step key={&quot;stepThree&quot;}&gt;
+          &lt;StepLabel&gt;Complete&lt;/StepLabel&gt;
+        &lt;/Step&gt;
+      &lt;/Stepper&gt;
+      {createTransactionState.matches(&quot;stepOne&quot;) &amp;&amp; (
+        &lt;TransactionCreateStepOne
+          setReceiver={setReceiver}
+          users={usersState.context.results!}
+          userListSearch={userListSearch}
+        /&gt;
+      )}
+      {sender &amp;&amp; createTransactionState.matches(&quot;stepTwo&quot;) &amp;&amp; (
+        &lt;TransactionCreateStepTwo
+          receiver={createTransactionState.context.receiver}
+          sender={sender}
+          createTransaction={createTransaction}
+          showSnackbar={showSnackbar}
+        /&gt;
+      )}
+      {createTransactionState.matches(&quot;stepThree&quot;) &amp;&amp; (
+        &lt;TransactionCreateStepThree createTransactionService={createTransactionService} /&gt;
+      )}
+    &lt;/&gt;
+  );
+};
+
+export default TransactionCreateContainer;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

@@ -1,0 +1,83 @@
+<html>
+<head>
+    <title>src/machines/snackbarMachine.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/machines/snackbarMachine.ts (<b>53</b> lines of code) (<a href="snackbarMachine.ts">raw</a>):</h3>
+<div id="editor">import { Machine, assign } from &quot;xstate&quot;;
+
+export interface SnackbarSchema {
+  states: {
+    invisible: {};
+    visible: {};
+  };
+}
+
+export type SnackbarEvents = { type: &quot;SHOW&quot; } | { type: &quot;HIDE&quot; };
+export enum Severities {
+  success = &quot;success&quot;,
+  info = &quot;info&quot;,
+  warning = &quot;warning&quot;,
+  error = &quot;error&quot;,
+}
+export interface SnackbarContext {
+  severity?: Severities;
+  message?: string;
+}
+
+export const snackbarMachine = Machine&lt;SnackbarContext, SnackbarSchema, SnackbarEvents&gt;(
+  {
+    id: &quot;snackbar&quot;,
+    initial: &quot;invisible&quot;,
+    context: {
+      severity: undefined,
+      message: undefined,
+    },
+    states: {
+      invisible: {
+        entry: &quot;resetSnackbar&quot;,
+        on: { SHOW: &quot;visible&quot; },
+      },
+      visible: {
+        entry: &quot;setSnackbar&quot;,
+        on: { HIDE: &quot;invisible&quot; },
+        after: {
+          // after 3 seconds, transition to invisible
+          3000: &quot;invisible&quot;,
+        },
+      },
+    },
+  },
+  {
+    actions: {
+      setSnackbar: assign((ctx, event: any) =&gt; ({
+        severity: event.severity,
+        message: event.message,
+      })),
+      resetSnackbar: assign((ctx, event: any) =&gt; ({
+        severity: undefined,
+        message: undefined,
+      })),
+    },
+  }
+);
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

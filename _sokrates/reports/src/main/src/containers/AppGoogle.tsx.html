@@ -1,0 +1,132 @@
+<html>
+<head>
+    <title>src/containers/AppGoogle.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/containers/AppGoogle.tsx (<b>84</b> lines of code) (<a href="AppGoogle.tsx">raw</a>):</h3>
+<div id="editor">import React, { useEffect } from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { useActor, useMachine } from &quot;@xstate/react&quot;;
+import { Container, CssBaseline } from &quot;@mui/material&quot;;
+
+import { snackbarMachine } from &quot;../machines/snackbarMachine&quot;;
+import { notificationsMachine } from &quot;../machines/notificationsMachine&quot;;
+import { authService } from &quot;../machines/authMachine&quot;;
+import AlertBar from &quot;../components/AlertBar&quot;;
+import { bankAccountsMachine } from &quot;../machines/bankAccountsMachine&quot;;
+import PrivateRoutesContainer from &quot;./PrivateRoutesContainer&quot;;
+import { GoogleLogin, useGoogleLogin } from &quot;@matheusluizn/react-google-login&quot;;
+
+// @ts-ignore
+if (window.Cypress) {
+  // Expose authService on window for Cypress
+  // @ts-ignore
+  window.authService = authService;
+}
+
+const PREFIX = &quot;AppGoogle&quot;;
+
+const classes = {
+  root: `${PREFIX}-root`,
+  paper: `${PREFIX}-paper`,
+};
+
+const Root = styled(&quot;div&quot;)(({ theme }) =&gt; ({
+  [`&amp;.${classes.root}`]: {
+    display: &quot;flex&quot;,
+  },
+
+  [`&amp; .${classes.paper}`]: {
+    marginTop: theme.spacing(8),
+    display: &quot;flex&quot;,
+    flexDirection: &quot;column&quot;,
+    alignItems: &quot;center&quot;,
+  },
+}));
+
+/* istanbul ignore next */
+const AppGoogle: React.FC = () =&gt; {
+  const [authState] = useActor(authService);
+  const [, , notificationsService] = useMachine(notificationsMachine);
+
+  const [, , snackbarService] = useMachine(snackbarMachine);
+
+  const [, , bankAccountsService] = useMachine(bankAccountsMachine);
+
+  // @ts-ignore
+  if (window.Cypress) {
+    useEffect(() =&gt; {
+      const { user, token } = JSON.parse(localStorage.getItem(&quot;googleCypress&quot;)!);
+      authService.send(&quot;GOOGLE&quot;, {
+        user,
+        token,
+      });
+    }, []);
+  } else {
+    useGoogleLogin({
+      clientId: process.env.VITE_GOOGLE_CLIENTID!,
+      onSuccess: (res) =&gt; {
+        console.log(&quot;onSuccess&quot;, res);
+        // @ts-ignore
+        authService.send(&quot;GOOGLE&quot;, { user: res.profileObj, token: res.tokenId });
+      },
+      cookiePolicy: &quot;single_host_origin&quot;,
+      isSignedIn: true,
+    });
+  }
+
+  const isLoggedIn = authState.matches(&quot;authorized&quot;);
+
+  return (
+    &lt;Root className={classes.root}&gt;
+      &lt;CssBaseline /&gt;
+
+      {isLoggedIn &amp;&amp; (
+        &lt;PrivateRoutesContainer
+          isLoggedIn={isLoggedIn}
+          notificationsService={notificationsService}
+          authService={authService}
+          snackbarService={snackbarService}
+          bankAccountsService={bankAccountsService}
+        /&gt;
+      )}
+
+      {authState.matches(&quot;unauthorized&quot;) &amp;&amp; (
+        &lt;Container component=&quot;main&quot; maxWidth=&quot;xs&quot;&gt;
+          &lt;CssBaseline /&gt;
+          &lt;div className={classes.paper}&gt;
+            &lt;GoogleLogin
+              clientId={process.env.VITE_GOOGLE_CLIENTID!}
+              buttonText=&quot;Login&quot;
+              cookiePolicy={&quot;single_host_origin&quot;}
+            /&gt;
+          &lt;/div&gt;
+        &lt;/Container&gt;
+      )}
+
+      &lt;AlertBar snackbarService={snackbarService} /&gt;
+    &lt;/Root&gt;
+  );
+};
+
+export default AppGoogle;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

@@ -1,0 +1,1312 @@
+<head>
+    <style> body {
+        margin: 0;
+    } </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/3d-force-graph"></script>
+</head>
+
+<body>
+<div id="3d-graph"></div>
+
+<script>
+    const gData = {
+  "nodes" : [ {
+    "id" : "[src/components/SignUpForm.tsx]",
+    "size" : 9
+  }, {
+    "id" : "[src/machines/notificationsMachine.ts]",
+    "size" : 1
+  }, {
+    "id" : "[src/components/UserListItem.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[src/components/TransactionCreateStepOne.tsx]",
+    "size" : 5
+  }, {
+    "id" : "[src/index.google.tsx]",
+    "size" : 3
+  }, {
+    "id" : "[src/components/SignInForm.tsx]",
+    "size" : 7
+  }, {
+    "id" : "[src/machines/dataMachine.ts]",
+    "size" : 2
+  }, {
+    "id" : "[src/containers/AppAuth0.tsx]",
+    "size" : 4
+  }, {
+    "id" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "size" : 10
+  }, {
+    "id" : "[src/models/db-schema.ts]",
+    "size" : 1
+  }, {
+    "id" : "[src/index.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[src/machines/usersMachine.ts]",
+    "size" : 3
+  }, {
+    "id" : "[src/components/BankAccountForm.tsx]",
+    "size" : 10
+  }, {
+    "id" : "[src/components/UserSettingsForm.tsx]",
+    "size" : 10
+  }, {
+    "id" : "[src/containers/UserOnboardingContainer.tsx]",
+    "size" : 8
+  }, {
+    "id" : "[src/index.auth0.tsx]",
+    "size" : 3
+  }, {
+    "id" : "[src/components/NavBar.tsx]",
+    "size" : 9
+  }, {
+    "id" : "[src/machines/contactsTransactionsMachine.ts]",
+    "size" : 3
+  }, {
+    "id" : "[src/components/UserListSearchForm.tsx]",
+    "size" : 7
+  }, {
+    "id" : "[src/containers/AppGoogle.tsx]",
+    "size" : 9
+  }, {
+    "id" : "[backend/comment-routes.ts]",
+    "size" : 2
+  }, {
+    "id" : "[src/components/AlertBar.tsx]",
+    "size" : 8
+  }, {
+    "id" : "[scripts/mock-aws-exports.js]",
+    "size" : 3
+  }, {
+    "id" : "[backend/database.ts]",
+    "size" : 3
+  }, {
+    "id" : "[src/containers/TransactionCreateContainer.tsx]",
+    "size" : 8
+  }, {
+    "id" : "[src/components/TransactionItem.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[src/containers/AppCognito.tsx]",
+    "size" : 3
+  }, {
+    "id" : "[src/containers/NotificationsContainer.tsx]",
+    "size" : 11
+  }, {
+    "id" : "[src/components/TransactionListFilters.tsx]",
+    "size" : 7
+  }, {
+    "id" : "[src/components/TransactionDateRangeFilter.cy.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[src/containers/AppOkta.tsx]",
+    "size" : 4
+  }, {
+    "id" : "[src/aws-exports.js]",
+    "size" : 3
+  }, {
+    "id" : "[src/components/TransactionDateRangeFilter.tsx]",
+    "size" : 3
+  }, {
+    "id" : "[src/components/CommentForm.tsx]",
+    "size" : 7
+  }, {
+    "id" : "[src/machines/transactionDetailMachine.ts]",
+    "size" : 1
+  }, {
+    "id" : "[cypress/support/commands.ts]",
+    "size" : 2
+  }, {
+    "id" : "[src/containers/BankAccountsContainer.tsx]",
+    "size" : 12
+  }, {
+    "id" : "[src/containers/App.tsx]",
+    "size" : 4
+  }, {
+    "id" : "[aws-exports-es5.js]",
+    "size" : 3
+  }, {
+    "id" : "[src/components/TransactionDetail.tsx]",
+    "size" : 6
+  }, {
+    "id" : "[src/machines/authMachine.ts]",
+    "size" : 2
+  }, {
+    "id" : "[src/components/TransactionPersonalList.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[src/containers/UserSettingsContainer.tsx]",
+    "size" : 7
+  }, {
+    "id" : "[src/components/NavDrawer.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[src/components/MainLayout.tsx]",
+    "size" : 8
+  }, {
+    "id" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[backend/like-routes.ts]",
+    "size" : 2
+  }, {
+    "id" : "[scripts/mock-aws-exports-es5.js]",
+    "size" : 3
+  }, {
+    "id" : "[src/components/TransactionContactsList.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[src/machines/personalTransactionsMachine.ts]",
+    "size" : 3
+  }, {
+    "id" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "size" : 9
+  }, {
+    "id" : "[src/machines/bankAccountsMachine.ts]",
+    "size" : 2
+  }, {
+    "id" : "[src/components/SkeletonList.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[backend/transaction-routes.ts]",
+    "size" : 4
+  }, {
+    "id" : "[src/components/TransactionListAmountRangeFilter.tsx]",
+    "size" : 1
+  }, {
+    "id" : "[src/components/TransactionPublicList.tsx]",
+    "size" : 2
+  }, {
+    "id" : "[src/index.cognito.tsx]",
+    "size" : 3
+  }, {
+    "id" : "[src/machines/publicTransactionsMachine.ts]",
+    "size" : 3
+  }, {
+    "id" : "[src/components/TransactionCreateStepThree.tsx]",
+    "size" : 11
+  }, {
+    "id" : "[src/index.okta.tsx]",
+    "size" : 3
+  } ],
+  "links" : [ {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 358
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 358
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 118
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 118
+  }, {
+    "source" : "[scripts/mock-aws-exports.js]",
+    "target" : "[src/aws-exports.js]",
+    "count" : 36
+  }, {
+    "source" : "[src/aws-exports.js]",
+    "target" : "[scripts/mock-aws-exports.js]",
+    "count" : 36
+  }, {
+    "source" : "[aws-exports-es5.js]",
+    "target" : "[scripts/mock-aws-exports-es5.js]",
+    "count" : 36
+  }, {
+    "source" : "[scripts/mock-aws-exports-es5.js]",
+    "target" : "[aws-exports-es5.js]",
+    "count" : 36
+  }, {
+    "source" : "[backend/transaction-routes.ts]",
+    "target" : "[backend/transaction-routes.ts]",
+    "count" : 96
+  }, {
+    "source" : "[backend/transaction-routes.ts]",
+    "target" : "[backend/transaction-routes.ts]",
+    "count" : 96
+  }, {
+    "source" : "[aws-exports-es5.js]",
+    "target" : "[src/aws-exports.js]",
+    "count" : 34
+  }, {
+    "source" : "[src/aws-exports.js]",
+    "target" : "[aws-exports-es5.js]",
+    "count" : 34
+  }, {
+    "source" : "[scripts/mock-aws-exports-es5.js]",
+    "target" : "[scripts/mock-aws-exports.js]",
+    "count" : 34
+  }, {
+    "source" : "[scripts/mock-aws-exports.js]",
+    "target" : "[scripts/mock-aws-exports-es5.js]",
+    "count" : 34
+  }, {
+    "source" : "[src/containers/App.tsx]",
+    "target" : "[src/containers/AppOkta.tsx]",
+    "count" : 54
+  }, {
+    "source" : "[src/containers/AppOkta.tsx]",
+    "target" : "[src/containers/App.tsx]",
+    "count" : 54
+  }, {
+    "source" : "[aws-exports-es5.js]",
+    "target" : "[scripts/mock-aws-exports.js]",
+    "count" : 34
+  }, {
+    "source" : "[scripts/mock-aws-exports.js]",
+    "target" : "[aws-exports-es5.js]",
+    "count" : 34
+  }, {
+    "source" : "[scripts/mock-aws-exports-es5.js]",
+    "target" : "[src/aws-exports.js]",
+    "count" : 34
+  }, {
+    "source" : "[src/aws-exports.js]",
+    "target" : "[scripts/mock-aws-exports-es5.js]",
+    "count" : 34
+  }, {
+    "source" : "[src/index.google.tsx]",
+    "target" : "[src/index.okta.tsx]",
+    "count" : 32
+  }, {
+    "source" : "[src/index.okta.tsx]",
+    "target" : "[src/index.google.tsx]",
+    "count" : 32
+  }, {
+    "source" : "[src/containers/App.tsx]",
+    "target" : "[src/containers/AppAuth0.tsx]",
+    "count" : 52
+  }, {
+    "source" : "[src/containers/AppAuth0.tsx]",
+    "target" : "[src/containers/App.tsx]",
+    "count" : 52
+  }, {
+    "source" : "[src/index.cognito.tsx]",
+    "target" : "[src/index.google.tsx]",
+    "count" : 32
+  }, {
+    "source" : "[src/index.google.tsx]",
+    "target" : "[src/index.cognito.tsx]",
+    "count" : 32
+  }, {
+    "source" : "[src/index.cognito.tsx]",
+    "target" : "[src/index.okta.tsx]",
+    "count" : 32
+  }, {
+    "source" : "[src/index.okta.tsx]",
+    "target" : "[src/index.cognito.tsx]",
+    "count" : 32
+  }, {
+    "source" : "[src/components/CommentForm.tsx]",
+    "target" : "[src/components/UserListSearchForm.tsx]",
+    "count" : 32
+  }, {
+    "source" : "[src/components/UserListSearchForm.tsx]",
+    "target" : "[src/components/CommentForm.tsx]",
+    "count" : 32
+  }, {
+    "source" : "[src/containers/AppAuth0.tsx]",
+    "target" : "[src/containers/AppOkta.tsx]",
+    "count" : 52
+  }, {
+    "source" : "[src/containers/AppOkta.tsx]",
+    "target" : "[src/containers/AppAuth0.tsx]",
+    "count" : 52
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 30
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 30
+  }, {
+    "source" : "[src/index.auth0.tsx]",
+    "target" : "[src/index.google.tsx]",
+    "count" : 30
+  }, {
+    "source" : "[src/index.google.tsx]",
+    "target" : "[src/index.auth0.tsx]",
+    "count" : 30
+  }, {
+    "source" : "[src/index.auth0.tsx]",
+    "target" : "[src/index.cognito.tsx]",
+    "count" : 30
+  }, {
+    "source" : "[src/index.cognito.tsx]",
+    "target" : "[src/index.auth0.tsx]",
+    "count" : 30
+  }, {
+    "source" : "[src/index.auth0.tsx]",
+    "target" : "[src/index.okta.tsx]",
+    "count" : 30
+  }, {
+    "source" : "[src/index.okta.tsx]",
+    "target" : "[src/index.auth0.tsx]",
+    "count" : 30
+  }, {
+    "source" : "[src/containers/AppGoogle.tsx]",
+    "target" : "[src/containers/AppOkta.tsx]",
+    "count" : 26
+  }, {
+    "source" : "[src/containers/AppOkta.tsx]",
+    "target" : "[src/containers/AppGoogle.tsx]",
+    "count" : 26
+  }, {
+    "source" : "[src/containers/App.tsx]",
+    "target" : "[src/containers/AppGoogle.tsx]",
+    "count" : 26
+  }, {
+    "source" : "[src/containers/AppGoogle.tsx]",
+    "target" : "[src/containers/App.tsx]",
+    "count" : 26
+  }, {
+    "source" : "[src/containers/AppAuth0.tsx]",
+    "target" : "[src/containers/AppGoogle.tsx]",
+    "count" : 24
+  }, {
+    "source" : "[src/containers/AppGoogle.tsx]",
+    "target" : "[src/containers/AppAuth0.tsx]",
+    "count" : 24
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 170
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 170
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "[src/components/TransactionDetail.tsx]",
+    "count" : 22
+  }, {
+    "source" : "[src/components/TransactionDetail.tsx]",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 22
+  }, {
+    "source" : "[src/components/TransactionListFilters.tsx]",
+    "target" : "[src/containers/UserSettingsContainer.tsx]",
+    "count" : 22
+  }, {
+    "source" : "[src/containers/UserSettingsContainer.tsx]",
+    "target" : "[src/components/TransactionListFilters.tsx]",
+    "count" : 22
+  }, {
+    "source" : "[src/components/TransactionCreateStepOne.tsx]",
+    "target" : "[src/components/TransactionListFilters.tsx]",
+    "count" : 22
+  }, {
+    "source" : "[src/components/TransactionListFilters.tsx]",
+    "target" : "[src/components/TransactionCreateStepOne.tsx]",
+    "count" : 22
+  }, {
+    "source" : "[src/components/TransactionCreateStepOne.tsx]",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 22
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "[src/components/TransactionCreateStepOne.tsx]",
+    "count" : 22
+  }, {
+    "source" : "[src/components/TransactionCreateStepOne.tsx]",
+    "target" : "[src/containers/UserSettingsContainer.tsx]",
+    "count" : 22
+  }, {
+    "source" : "[src/containers/UserSettingsContainer.tsx]",
+    "target" : "[src/components/TransactionCreateStepOne.tsx]",
+    "count" : 22
+  }, {
+    "source" : "[src/components/TransactionListFilters.tsx]",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 22
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "[src/components/TransactionListFilters.tsx]",
+    "count" : 22
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "[src/containers/UserSettingsContainer.tsx]",
+    "count" : 22
+  }, {
+    "source" : "[src/containers/UserSettingsContainer.tsx]",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 22
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 260
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 260
+  }, {
+    "source" : "[src/components/SkeletonList.tsx]",
+    "target" : "[src/components/SkeletonList.tsx]",
+    "count" : 120
+  }, {
+    "source" : "[src/components/SkeletonList.tsx]",
+    "target" : "[src/components/SkeletonList.tsx]",
+    "count" : 120
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "[src/components/CommentForm.tsx]",
+    "count" : 20
+  }, {
+    "source" : "[src/components/CommentForm.tsx]",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 20
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 178
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 178
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "[src/components/UserListSearchForm.tsx]",
+    "count" : 20
+  }, {
+    "source" : "[src/components/UserListSearchForm.tsx]",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 20
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 20
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 20
+  }, {
+    "source" : "[src/components/TransactionContactsList.tsx]",
+    "target" : "[src/components/TransactionPersonalList.tsx]",
+    "count" : 18
+  }, {
+    "source" : "[src/components/TransactionPersonalList.tsx]",
+    "target" : "[src/components/TransactionContactsList.tsx]",
+    "count" : 18
+  }, {
+    "source" : "[src/components/TransactionPersonalList.tsx]",
+    "target" : "[src/components/TransactionPublicList.tsx]",
+    "count" : 18
+  }, {
+    "source" : "[src/components/TransactionPublicList.tsx]",
+    "target" : "[src/components/TransactionPersonalList.tsx]",
+    "count" : 18
+  }, {
+    "source" : "[src/components/TransactionContactsList.tsx]",
+    "target" : "[src/components/TransactionPublicList.tsx]",
+    "count" : 36
+  }, {
+    "source" : "[src/components/TransactionPublicList.tsx]",
+    "target" : "[src/components/TransactionContactsList.tsx]",
+    "count" : 36
+  }, {
+    "source" : "[src/components/NavDrawer.tsx]",
+    "target" : "[src/components/NavDrawer.tsx]",
+    "count" : 18
+  }, {
+    "source" : "[src/components/NavDrawer.tsx]",
+    "target" : "[src/components/NavDrawer.tsx]",
+    "count" : 18
+  }, {
+    "source" : "[src/containers/AppAuth0.tsx]",
+    "target" : "[src/containers/AppCognito.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/containers/AppCognito.tsx]",
+    "target" : "[src/containers/AppAuth0.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/machines/bankAccountsMachine.ts]",
+    "target" : "[src/machines/bankAccountsMachine.ts]",
+    "count" : 16
+  }, {
+    "source" : "[src/machines/bankAccountsMachine.ts]",
+    "target" : "[src/machines/bankAccountsMachine.ts]",
+    "count" : 16
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "[src/containers/TransactionCreateContainer.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/containers/TransactionCreateContainer.tsx]",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/components/CommentForm.tsx]",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "[src/components/CommentForm.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 28
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 28
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 100
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 100
+  }, {
+    "source" : "[src/containers/App.tsx]",
+    "target" : "[src/containers/AppCognito.tsx]",
+    "count" : 32
+  }, {
+    "source" : "[src/containers/AppCognito.tsx]",
+    "target" : "[src/containers/App.tsx]",
+    "count" : 32
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "[src/containers/UserSettingsContainer.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/containers/UserSettingsContainer.tsx]",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/containers/TransactionCreateContainer.tsx]",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "[src/containers/TransactionCreateContainer.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/components/TransactionDetail.tsx]",
+    "target" : "[src/components/TransactionListFilters.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/components/TransactionListFilters.tsx]",
+    "target" : "[src/components/TransactionDetail.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 40
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 40
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "[src/containers/UserSettingsContainer.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/containers/UserSettingsContainer.tsx]",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 76
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 76
+  }, {
+    "source" : "[src/components/TransactionCreateStepOne.tsx]",
+    "target" : "[src/components/TransactionDetail.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/components/TransactionDetail.tsx]",
+    "target" : "[src/components/TransactionCreateStepOne.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/components/TransactionDetail.tsx]",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "[src/components/TransactionDetail.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[backend/database.ts]",
+    "target" : "[src/models/db-schema.ts]",
+    "count" : 16
+  }, {
+    "source" : "[src/models/db-schema.ts]",
+    "target" : "[backend/database.ts]",
+    "count" : 16
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 52
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 52
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "[src/components/UserListSearchForm.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/components/UserListSearchForm.tsx]",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/components/TransactionDateRangeFilter.tsx]",
+    "target" : "[src/components/TransactionListAmountRangeFilter.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/components/TransactionListAmountRangeFilter.tsx]",
+    "target" : "[src/components/TransactionDateRangeFilter.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 220
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 220
+  }, {
+    "source" : "[src/containers/AppCognito.tsx]",
+    "target" : "[src/containers/AppOkta.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/containers/AppOkta.tsx]",
+    "target" : "[src/containers/AppCognito.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/components/TransactionDetail.tsx]",
+    "target" : "[src/containers/UserSettingsContainer.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/containers/UserSettingsContainer.tsx]",
+    "target" : "[src/components/TransactionDetail.tsx]",
+    "count" : 16
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 40
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 40
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 26
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 26
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 40
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 40
+  }, {
+    "source" : "[src/components/TransactionDateRangeFilter.tsx]",
+    "target" : "[src/components/TransactionDateRangeFilter.tsx]",
+    "count" : 14
+  }, {
+    "source" : "[src/components/TransactionDateRangeFilter.tsx]",
+    "target" : "[src/components/TransactionDateRangeFilter.tsx]",
+    "count" : 14
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "[src/containers/TransactionCreateContainer.tsx]",
+    "count" : 28
+  }, {
+    "source" : "[src/containers/TransactionCreateContainer.tsx]",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 28
+  }, {
+    "source" : "[backend/comment-routes.ts]",
+    "target" : "[backend/like-routes.ts]",
+    "count" : 14
+  }, {
+    "source" : "[backend/like-routes.ts]",
+    "target" : "[backend/comment-routes.ts]",
+    "count" : 14
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 26
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 26
+  }, {
+    "source" : "[src/components/TransactionDetail.tsx]",
+    "target" : "[src/components/TransactionItem.tsx]",
+    "count" : 14
+  }, {
+    "source" : "[src/components/TransactionItem.tsx]",
+    "target" : "[src/components/TransactionDetail.tsx]",
+    "count" : 14
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "[src/containers/UserSettingsContainer.tsx]",
+    "count" : 14
+  }, {
+    "source" : "[src/containers/UserSettingsContainer.tsx]",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 14
+  }, {
+    "source" : "[src/components/AlertBar.tsx]",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 26
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "[src/components/AlertBar.tsx]",
+    "count" : 26
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 316
+  }, {
+    "source" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "target" : "[src/components/SvgUndrawTransferMoneyRywa.tsx]",
+    "count" : 316
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 140
+  }, {
+    "source" : "[src/machines/authMachine.ts]",
+    "target" : "[src/machines/authMachine.ts]",
+    "count" : 140
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 28
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 28
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 40
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 40
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "[src/containers/AppGoogle.tsx]",
+    "count" : 14
+  }, {
+    "source" : "[src/containers/AppGoogle.tsx]",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 14
+  }, {
+    "source" : "[src/components/TransactionDateRangeFilter.cy.tsx]",
+    "target" : "[src/components/TransactionDateRangeFilter.cy.tsx]",
+    "count" : 14
+  }, {
+    "source" : "[src/components/TransactionDateRangeFilter.cy.tsx]",
+    "target" : "[src/components/TransactionDateRangeFilter.cy.tsx]",
+    "count" : 14
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 38
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 38
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 26
+  }, {
+    "source" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "target" : "[src/components/TransactionCreateStepTwo.tsx]",
+    "count" : 26
+  }, {
+    "source" : "[backend/database.ts]",
+    "target" : "[backend/database.ts]",
+    "count" : 42
+  }, {
+    "source" : "[backend/database.ts]",
+    "target" : "[backend/database.ts]",
+    "count" : 42
+  }, {
+    "source" : "[src/components/AlertBar.tsx]",
+    "target" : "[src/containers/TransactionCreateContainer.tsx]",
+    "count" : 26
+  }, {
+    "source" : "[src/containers/TransactionCreateContainer.tsx]",
+    "target" : "[src/components/AlertBar.tsx]",
+    "count" : 26
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 240
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 240
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 144
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 144
+  }, {
+    "source" : "[cypress/support/commands.ts]",
+    "target" : "[cypress/support/commands.ts]",
+    "count" : 24
+  }, {
+    "source" : "[cypress/support/commands.ts]",
+    "target" : "[cypress/support/commands.ts]",
+    "count" : 24
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 60
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 60
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 24
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 24
+  }, {
+    "source" : "[src/machines/contactsTransactionsMachine.ts]",
+    "target" : "[src/machines/personalTransactionsMachine.ts]",
+    "count" : 12
+  }, {
+    "source" : "[src/machines/personalTransactionsMachine.ts]",
+    "target" : "[src/machines/contactsTransactionsMachine.ts]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/AlertBar.tsx]",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "[src/components/AlertBar.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "[src/components/UserListSearchForm.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/UserListSearchForm.tsx]",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/machines/dataMachine.ts]",
+    "target" : "[src/machines/dataMachine.ts]",
+    "count" : 12
+  }, {
+    "source" : "[src/machines/dataMachine.ts]",
+    "target" : "[src/machines/dataMachine.ts]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/CommentForm.tsx]",
+    "target" : "[src/containers/AppGoogle.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/AppGoogle.tsx]",
+    "target" : "[src/components/CommentForm.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/index.tsx]",
+    "target" : "[src/index.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/index.tsx]",
+    "target" : "[src/index.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/UserListSearchForm.tsx]",
+    "target" : "[src/containers/AppGoogle.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/AppGoogle.tsx]",
+    "target" : "[src/components/UserListSearchForm.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "[src/containers/TransactionCreateContainer.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/TransactionCreateContainer.tsx]",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 24
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 24
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "[src/containers/AppGoogle.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/AppGoogle.tsx]",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "[src/containers/TransactionCreateContainer.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/TransactionCreateContainer.tsx]",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 72
+  }, {
+    "source" : "[src/components/BankAccountForm.tsx]",
+    "target" : "[src/components/BankAccountForm.tsx]",
+    "count" : 72
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/machines/contactsTransactionsMachine.ts]",
+    "target" : "[src/machines/publicTransactionsMachine.ts]",
+    "count" : 12
+  }, {
+    "source" : "[src/machines/publicTransactionsMachine.ts]",
+    "target" : "[src/machines/contactsTransactionsMachine.ts]",
+    "count" : 12
+  }, {
+    "source" : "[backend/like-routes.ts]",
+    "target" : "[backend/transaction-routes.ts]",
+    "count" : 12
+  }, {
+    "source" : "[backend/transaction-routes.ts]",
+    "target" : "[backend/like-routes.ts]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "[src/components/UserListSearchForm.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/UserListSearchForm.tsx]",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/machines/contactsTransactionsMachine.ts]",
+    "target" : "[src/machines/usersMachine.ts]",
+    "count" : 12
+  }, {
+    "source" : "[src/machines/usersMachine.ts]",
+    "target" : "[src/machines/contactsTransactionsMachine.ts]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/TransactionItem.tsx]",
+    "target" : "[src/components/TransactionListFilters.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/TransactionListFilters.tsx]",
+    "target" : "[src/components/TransactionItem.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 36
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 36
+  }, {
+    "source" : "[src/machines/personalTransactionsMachine.ts]",
+    "target" : "[src/machines/usersMachine.ts]",
+    "count" : 12
+  }, {
+    "source" : "[src/machines/usersMachine.ts]",
+    "target" : "[src/machines/personalTransactionsMachine.ts]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/CommentForm.tsx]",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "[src/components/CommentForm.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "target" : "[src/containers/PrivateRoutesContainer.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/machines/notificationsMachine.ts]",
+    "target" : "[src/machines/transactionDetailMachine.ts]",
+    "count" : 12
+  }, {
+    "source" : "[src/machines/transactionDetailMachine.ts]",
+    "target" : "[src/machines/notificationsMachine.ts]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 24
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 24
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "[src/containers/TransactionCreateContainer.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/TransactionCreateContainer.tsx]",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/machines/personalTransactionsMachine.ts]",
+    "target" : "[src/machines/publicTransactionsMachine.ts]",
+    "count" : 12
+  }, {
+    "source" : "[src/machines/publicTransactionsMachine.ts]",
+    "target" : "[src/machines/personalTransactionsMachine.ts]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/AlertBar.tsx]",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "[src/components/AlertBar.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/AlertBar.tsx]",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "[src/components/AlertBar.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/AlertBar.tsx]",
+    "target" : "[src/components/NavBar.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/NavBar.tsx]",
+    "target" : "[src/components/AlertBar.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/TransactionListFilters.tsx]",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "[src/components/TransactionListFilters.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/CommentForm.tsx]",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "[src/components/CommentForm.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/TransactionCreateStepOne.tsx]",
+    "target" : "[src/containers/NotificationsContainer.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/NotificationsContainer.tsx]",
+    "target" : "[src/components/TransactionCreateStepOne.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/AlertBar.tsx]",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "[src/components/AlertBar.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 24
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 24
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "[src/components/TransactionCreateStepThree.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/TransactionCreateStepThree.tsx]",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "[src/containers/AppGoogle.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/AppGoogle.tsx]",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "[src/containers/TransactionCreateContainer.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/TransactionCreateContainer.tsx]",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[backend/comment-routes.ts]",
+    "target" : "[backend/transaction-routes.ts]",
+    "count" : 12
+  }, {
+    "source" : "[backend/transaction-routes.ts]",
+    "target" : "[backend/comment-routes.ts]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/UserListSearchForm.tsx]",
+    "target" : "[src/components/UserSettingsForm.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/UserSettingsForm.tsx]",
+    "target" : "[src/components/UserListSearchForm.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/TransactionListFilters.tsx]",
+    "target" : "[src/components/UserListItem.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/UserListItem.tsx]",
+    "target" : "[src/components/TransactionListFilters.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/MainLayout.tsx]",
+    "target" : "[src/containers/BankAccountsContainer.tsx]",
+    "count" : 24
+  }, {
+    "source" : "[src/containers/BankAccountsContainer.tsx]",
+    "target" : "[src/components/MainLayout.tsx]",
+    "count" : 24
+  }, {
+    "source" : "[src/components/CommentForm.tsx]",
+    "target" : "[src/components/SignUpForm.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/SignUpForm.tsx]",
+    "target" : "[src/components/CommentForm.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/machines/publicTransactionsMachine.ts]",
+    "target" : "[src/machines/usersMachine.ts]",
+    "count" : 12
+  }, {
+    "source" : "[src/machines/usersMachine.ts]",
+    "target" : "[src/machines/publicTransactionsMachine.ts]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/SignInForm.tsx]",
+    "target" : "[src/containers/AppGoogle.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/AppGoogle.tsx]",
+    "target" : "[src/components/SignInForm.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/components/AlertBar.tsx]",
+    "target" : "[src/containers/UserOnboardingContainer.tsx]",
+    "count" : 12
+  }, {
+    "source" : "[src/containers/UserOnboardingContainer.tsx]",
+    "target" : "[src/components/AlertBar.tsx]",
+    "count" : 12
+  } ]
+}
+
+    const maxNodeSize = gData.nodes.map(n => n.size).reduce((a, b) => Math.max(a, b));
+    const maxCount = gData.links.map(l => l.count).reduce((a, b) => Math.max(a, b));
+
+    gData.links = gData.links.map(l => { return {source: l.target, target: l.source, count: l.count} });
+
+    const Graph = ForceGraph3D()
+    (document.getElementById('3d-graph'))
+        .graphData(gData)
+        .nodeRelSize(4)
+        .nodeVal(n => Math.max(20 * n.size / maxNodeSize, 0.001))
+        .nodeLabel(n => n.id + " (" + n.size + ")")
+        .nodeColor(n => n.id.startsWith("[") ? "skyblue" : "")
+        .linkDirectionalParticles(6)
+        .linkDirectionalParticleSpeed(d => d.count / maxCount * 0.01)
+        .linkOpacity(0.1)
+        .linkWidth(d => 3 * d.count / maxCount + 0.1);
+
+</script>
+</body>

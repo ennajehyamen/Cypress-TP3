@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>setupNodeEvents()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">setupNodeEvents()</h3>
+<p style="margin-top: 4px">in <i>cypress.config.ts [82:112]</i></p>
+<ul>
+    <li><b>24</b> lines of code</li>
+    <li><b>2</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="ts">
+    setupNodeEvents(on, config) {
+      const testDataApiEndpoint = `${config.env.apiUrl}/testData`;
+
+      const queryDatabase = ({ entity, query }, callback) =&gt; {
+        const fetchData = async (attrs) =&gt; {
+          const { data } = await axios.get(`${testDataApiEndpoint}/${entity}`);
+          return callback(data, attrs);
+        };
+
+        return Array.isArray(query) ? Promise.map(query, fetchData) : fetchData(query);
+      };
+
+      on(&quot;task&quot;, {
+        async &quot;db:seed&quot;() {
+          // seed database with test data
+          const { data } = await axios.post(`${testDataApiEndpoint}/seed`);
+          return data;
+        },
+
+        // fetch test data from a database (MySQL, PostgreSQL, etc...)
+        &quot;filter:database&quot;(queryPayload) {
+          return queryDatabase(queryPayload, (data, attrs) =&gt; _.filter(data.results, attrs));
+        },
+        &quot;find:database&quot;(queryPayload) {
+          return queryDatabase(queryPayload, (data, attrs) =&gt; _.find(data.results, attrs));
+        },
+      });
+
+      codeCoverageTask(on, config);
+      return config;
+    },
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

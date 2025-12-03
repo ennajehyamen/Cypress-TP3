@@ -1,0 +1,158 @@
+<html>
+<head>
+    <title>src/machines/dataMachine.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/machines/dataMachine.ts (<b>127</b> lines of code) (<a href="dataMachine.ts">raw</a>):</h3>
+<div id="editor">import { Machine, assign } from &quot;xstate&quot;;
+import { concat } from &quot;lodash/fp&quot;;
+
+export interface DataSchema {
+  states: {
+    idle: {};
+    loading: {};
+    updating: {};
+    creating: {};
+    deleting: {};
+    success: {
+      states: {
+        unknown: {};
+        withData: {};
+        withoutData: {};
+      };
+    };
+    failure: {};
+  };
+}
+
+type SuccessEvent = { type: &quot;SUCCESS&quot;; results: any[]; pageData: object };
+type FailureEvent = { type: &quot;FAILURE&quot;; message: string };
+export type DataEvents =
+  | { type: &quot;FETCH&quot; }
+  | { type: &quot;UPDATE&quot; }
+  | { type: &quot;CREATE&quot; }
+  | { type: &quot;DELETE&quot; }
+  | SuccessEvent
+  | FailureEvent;
+
+export interface DataContext {
+  pageData?: object;
+  results?: any[];
+  message?: string;
+}
+
+export const dataMachine = (machineId: string) =&gt;
+  Machine&lt;DataContext, DataSchema, DataEvents&gt;(
+    {
+      id: machineId,
+      initial: &quot;idle&quot;,
+      context: {
+        pageData: {},
+        results: [],
+        message: undefined,
+      },
+      states: {
+        idle: {
+          on: {
+            FETCH: &quot;loading&quot;,
+            CREATE: &quot;creating&quot;,
+            UPDATE: &quot;updating&quot;,
+            DELETE: &quot;deleting&quot;,
+          },
+        },
+        loading: {
+          invoke: {
+            src: &quot;fetchData&quot;,
+            onDone: { target: &quot;success&quot; },
+            onError: { target: &quot;failure&quot;, actions: &quot;setMessage&quot; },
+          },
+        },
+        updating: {
+          invoke: {
+            src: &quot;updateData&quot;,
+            onDone: { target: &quot;loading&quot; },
+            onError: { target: &quot;failure&quot;, actions: &quot;setMessage&quot; },
+          },
+        },
+        creating: {
+          invoke: {
+            src: &quot;createData&quot;,
+            onDone: { target: &quot;loading&quot; },
+            onError: { target: &quot;failure&quot;, actions: &quot;setMessage&quot; },
+          },
+        },
+        deleting: {
+          invoke: {
+            src: &quot;deleteData&quot;,
+            onDone: { target: &quot;loading&quot; },
+            onError: { target: &quot;failure&quot;, actions: &quot;setMessage&quot; },
+          },
+        },
+        success: {
+          entry: [&quot;setResults&quot;, &quot;setPageData&quot;],
+          on: {
+            FETCH: &quot;loading&quot;,
+            CREATE: &quot;creating&quot;,
+            UPDATE: &quot;updating&quot;,
+            DELETE: &quot;deleting&quot;,
+          },
+          initial: &quot;unknown&quot;,
+          states: {
+            unknown: {
+              on: {
+                &quot;&quot;: [{ target: &quot;withData&quot;, cond: &quot;hasData&quot; }, { target: &quot;withoutData&quot; }],
+              },
+            },
+            withData: {},
+            withoutData: {},
+          },
+        },
+        failure: {
+          entry: [&quot;setMessage&quot;],
+          on: {
+            FETCH: &quot;loading&quot;,
+          },
+        },
+      },
+    },
+    {
+      actions: {
+        setResults: assign((ctx: DataContext, event: any) =&gt; ({
+          results:
+            event.data &amp;&amp; event.data.pageData &amp;&amp; event.data.pageData.page &gt; 1
+              ? concat(ctx.results, event.data.results)
+              : event.data.results,
+        })),
+        setPageData: assign((ctx: DataContext, event: any) =&gt; ({
+          pageData: event.data.pageData,
+        })),
+
+        setMessage: /* istanbul ignore next */ assign((ctx, event: any) =&gt; ({
+          message: event.message,
+        })),
+      },
+      guards: {
+        hasData: (ctx: DataContext, event) =&gt; !!ctx.results &amp;&amp; ctx.results.length &gt; 0,
+      },
+    }
+  );
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

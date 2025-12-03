@@ -1,0 +1,72 @@
+<html>
+<head>
+    <title>vite.config.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">vite.config.ts (<b>43</b> lines of code) (<a href="vite.config.ts">raw</a>):</h3>
+<div id="editor">import { defineConfig, loadEnv } from &quot;vite&quot;;
+import react from &quot;@vitejs/plugin-react&quot;;
+import eslint from &quot;vite-plugin-eslint&quot;;
+import istanbul from &quot;vite-plugin-istanbul&quot;;
+
+export default defineConfig(({ mode }) =&gt; {
+  const env = loadEnv(mode, process.cwd(), &quot;VITE&quot;);
+  return {
+    // expose all vite &quot;VITE_*&quot; variables as process.env.VITE_* in the browser
+    define: {
+      &quot;process.env&quot;: env,
+    },
+    server: {
+      port: 3000,
+    },
+    build: {
+      outDir: &quot;build&quot;,
+      sourcemap: true,
+    },
+    plugins: [
+      react(),
+      eslint(),
+      istanbul({
+        cypress: true,
+        requireEnv: true,
+        exclude: [&quot;node_modules&quot;, &quot;cypress&quot;, &quot;dist&quot;],
+        forceBuildInstrument: true,
+      }),
+    ],
+    // to get aws amplify to work with vite
+    resolve: {
+      alias: [
+        {
+          find: &quot;./runtimeConfig&quot;,
+          replacement: &quot;./runtimeConfig.browser&quot;, // ensures browser compatible version of AWS JS SDK is used
+        },
+      ],
+    },
+    test: {
+      environment: &quot;jsdom&quot;,
+      setupFiles: &quot;./src/setup-tests.js&quot;,
+      exclude: [&quot;node_modules&quot;, &quot;cypress&quot;, &quot;dist&quot;],
+      fileParallelism: false, // #1666: Run tests sequentially to avoid race conditions with shared database.json file.
+    },
+  };
+});
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

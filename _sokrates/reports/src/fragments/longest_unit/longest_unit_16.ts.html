@@ -1,0 +1,69 @@
+<html>
+<head>
+    <title>balance: Number()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">balance: Number()</h3>
+<p style="margin-top: 4px">in <i>backend/database.ts [189:235]</i></p>
+<ul>
+    <li><b>32</b> lines of code</li>
+    <li><b>2</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="ts">
+    balance: Number(userDetails.balance!) || 0,
+    avatar: userDetails.avatar!,
+    defaultPrivacyLevel: userDetails.defaultPrivacyLevel!,
+    createdAt: new Date(),
+    modifiedAt: new Date(),
+  };
+
+  saveUser(user);
+  return user;
+};
+
+const saveUser = (user: User) =&gt; {
+  db.get(USER_TABLE).push(user).write();
+};
+
+export const updateUserById = (userId: string, edits: Partial&lt;User&gt;) =&gt; {
+  const user = getUserById(userId);
+
+  db.get(USER_TABLE).find(user).assign(edits).write();
+};
+
+// Contact
+export const getContactBy = (key: string, value: any) =&gt; getBy(CONTACT_TABLE, key, value);
+
+export const getContactsBy = (key: string, value: any) =&gt; getAllBy(CONTACT_TABLE, key, value);
+
+export const getContactsByUsername = (username: string) =&gt;
+  flow(getUserByUsername, getUserId, getContactsByUserId)(username);
+
+export const getContactsByUserId = (userId: string): Contact[] =&gt; getContactsBy(&quot;userId&quot;, userId);
+
+export const createContact = (contact: Contact) =&gt; {
+  db.get(CONTACT_TABLE).push(contact).write();
+
+  // manual lookup after create
+  return getContactBy(&quot;id&quot;, contact.id);
+};
+
+export const removeContactById = (contactId: string) =&gt; {
+  const contact = getContactBy(&quot;id&quot;, contactId);
+
+  db.get(CONTACT_TABLE).remove(contact).write();
+};
+
+export const createContactForUser = (userId: string, contactUserId: string) =&gt; {
+  const contactId = shortid();
+  const contact: Contact = {
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

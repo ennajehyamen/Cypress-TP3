@@ -1,0 +1,152 @@
+<html>
+<head>
+    <title>backend/helpers.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">backend/helpers.ts (<b>94</b> lines of code) (<a href="helpers.ts">raw</a>):</h3>
+<div id="editor">import dotenv from &quot;dotenv&quot;;
+import { set } from &quot;lodash&quot;;
+import { Request, Response, NextFunction } from &quot;express&quot;;
+import { validationResult } from &quot;express-validator&quot;;
+import jwt from &quot;express-jwt&quot;;
+import jwksRsa from &quot;jwks-rsa&quot;;
+
+// @ts-ignore
+import OktaJwtVerifier from &quot;@okta/jwt-verifier&quot;;
+// @ts-ignore
+import awsConfig from &quot;../src/aws-exports&quot;;
+
+dotenv.config();
+
+const auth0JwtConfig = {
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://${process.env.VITE_AUTH0_DOMAIN}/.well-known/jwks.json`,
+  }),
+
+  // Validate the audience and the issuer.
+  audience: process.env.VITE_AUTH0_AUDIENCE,
+  issuer: `https://${process.env.VITE_AUTH0_DOMAIN}/`,
+  algorithms: [&quot;RS256&quot;],
+};
+
+// Okta Validate the JWT Signature
+const oktaJwtVerifier = new OktaJwtVerifier({
+  issuer: `https://${process.env.VITE_OKTA_DOMAIN}/oauth2/default`,
+  clientId: process.env.VITE_OKTA_CLIENTID,
+  assertClaims: {
+    aud: &quot;api://default&quot;,
+    cid: process.env.VITE_OKTA_CLIENTID,
+  },
+});
+const googleJwtConfig = {
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: &quot;https://www.googleapis.com/oauth2/v3/certs&quot;,
+  }),
+
+  // Validate the audience and the issuer.
+  audience: process.env.VITE_GOOGLE_CLIENTID,
+  issuer: &quot;accounts.google.com&quot;,
+  algorithms: [&quot;RS256&quot;],
+};
+
+/* istanbul ignore next */
+export const verifyOktaToken = (req: Request, res: Response, next: NextFunction) =&gt; {
+  const bearerHeader = req.headers[&quot;authorization&quot;];
+
+  if (bearerHeader) {
+    const bearer = bearerHeader.split(&quot; &quot;);
+    const bearerToken = bearer[1];
+
+    oktaJwtVerifier
+      .verifyAccessToken(bearerToken, &quot;api://default&quot;)
+      .then((jwt: any) =&gt; {
+        // the token is valid
+        req.user = {
+          // @ts-ignore
+          sub: jwt.sub,
+        };
+        return next();
+      })
+      .catch((err: any) =&gt; {
+        // a validation failed, inspect the error
+        console.log(&quot;error&quot;, err);
+      });
+  } else {
+    res.status(401).send({
+      error: &quot;Unauthorized&quot;,
+    });
+  }
+};
+
+// Amazon Cognito Validate the JWT Signature
+// https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-verifying-a-jwt.html#amazon-cognito-user-pools-using-tokens-step-2
+const userPoolId = awsConfig.Auth.Cognito.userPoolId;
+const region = userPoolId.split(&quot;_&quot;)[0];
+const awsCognitoJwtConfig = {
+  secret: jwksRsa.expressJwtSecret({
+    jwksUri: `https://cognito-idp.${region}.amazonaws.com/${userPoolId}/.well-known/jwks.json`,
+  }),
+
+  issuer: `https://cognito-idp.${region}.amazonaws.com/${userPoolId}`,
+  algorithms: [&quot;RS256&quot;],
+};
+
+export const checkAuth0Jwt = jwt(auth0JwtConfig).unless({ path: [&quot;/testData/*&quot;] });
+export const checkCognitoJwt = jwt(awsCognitoJwtConfig).unless({ path: [&quot;/testData/*&quot;] });
+export const checkGoogleJwt = jwt(googleJwtConfig).unless({ path: [&quot;/testData/*&quot;] });
+
+export const ensureAuthenticated = (req: Request, res: Response, next: NextFunction) =&gt; {
+  if (req.isAuthenticated()) {
+    // @ts-ignore
+    // Map sub to id on req.user
+    if (req.user?.sub) {
+      /* istanbul ignore next */
+      // @ts-ignore
+      set(req.user, &quot;id&quot;, req.user.sub);
+    }
+    return next();
+  }
+  /* istanbul ignore next */
+  res.status(401).send({
+    error: &quot;Unauthorized&quot;,
+  });
+};
+
+export const validateMiddleware = (validations: any[]) =&gt; {
+  return async (req: Request, res: Response, next: NextFunction) =&gt; {
+    await Promise.all(validations.map((validation: any) =&gt; validation.run(req)));
+
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
+      return next();
+    }
+
+    res.status(422).json({ errors: errors.array() });
+  };
+};
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

@@ -1,0 +1,325 @@
+<html>
+<head>
+    <title>src/components/NavDrawer.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/NavDrawer.tsx (<b>273</b> lines of code) (<a href="NavDrawer.tsx">raw</a>):</h3>
+<div id="editor">import React from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { head } from &quot;lodash/fp&quot;;
+import { Interpreter } from &quot;xstate&quot;;
+import { useActor } from &quot;@xstate/react&quot;;
+import clsx from &quot;clsx&quot;;
+import {
+  useMediaQuery,
+  useTheme,
+  Drawer,
+  List,
+  Divider,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Grid,
+  Avatar,
+  Typography,
+} from &quot;@mui/material&quot;;
+import { Link as RouterLink } from &quot;react-router-dom&quot;;
+import {
+  Home as HomeIcon,
+  Person as PersonIcon,
+  ExitToApp as LogoutIcon,
+  Notifications as NotificationsIcon,
+  AccountBalance as AccountBalanceIcon,
+} from &quot;@mui/icons-material&quot;;
+
+import { formatAmount } from &quot;../utils/transactionUtils&quot;;
+import { AuthMachineContext, AuthMachineEvents } from &quot;../machines/authMachine&quot;;
+
+const PREFIX = &quot;NavDrawer&quot;;
+
+const classes = {
+  toolbar: `${PREFIX}-toolbar`,
+  toolbarIcon: `${PREFIX}-toolbarIcon`,
+  drawerPaper: `${PREFIX}-drawerPaper`,
+  drawerPaperClose: `${PREFIX}-drawerPaperClose`,
+  userProfile: `${PREFIX}-userProfile`,
+  userProfileHidden: `${PREFIX}-userProfileHidden`,
+  avatar: `${PREFIX}-avatar`,
+  accountBalance: `${PREFIX}-accountBalance`,
+  amount: `${PREFIX}-amount`,
+  accountBalanceHidden: `${PREFIX}-accountBalanceHidden`,
+  cypressLogo: `${PREFIX}-cypressLogo`,
+};
+
+const StyledDrawer = styled(Drawer)(({ theme }) =&gt; ({
+  [`&amp; .${classes.toolbar}`]: {
+    paddingRight: 24, // keep right padding when drawer closed
+  },
+
+  [`&amp; .${classes.toolbarIcon}`]: {
+    display: &quot;flex&quot;,
+    alignItems: &quot;center&quot;,
+    justifyContent: &quot;flex-end&quot;,
+    padding: &quot;0 8px&quot;,
+    ...theme.mixins.toolbar,
+  },
+
+  [`&amp; .${classes.drawerPaper}`]: {
+    position: &quot;relative&quot;,
+    whiteSpace: &quot;nowrap&quot;,
+    width: drawerWidth,
+    transition: theme.transitions.create(&quot;width&quot;, {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+
+  [`&amp; .${classes.drawerPaperClose}`]: {
+    marginTop: 50,
+    overflowX: &quot;hidden&quot;,
+    transition: theme.transitions.create(&quot;width&quot;, {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    width: theme.spacing(7),
+    [theme.breakpoints.up(&quot;sm&quot;)]: {
+      width: theme.spacing(9),
+    },
+  },
+
+  [`&amp; .${classes.userProfile}`]: {
+    padding: theme.spacing(2),
+  },
+
+  [`&amp; .${classes.userProfileHidden}`]: {
+    display: &quot;none&quot;,
+  },
+
+  [`&amp; .${classes.avatar}`]: {
+    marginRight: theme.spacing(2),
+  },
+
+  [`&amp; .${classes.accountBalance}`]: {
+    marginLeft: theme.spacing(2),
+  },
+
+  [`&amp; .${classes.amount}`]: {
+    fontWeight: &quot;bold&quot;,
+  },
+
+  [`&amp; .${classes.accountBalanceHidden}`]: {
+    display: &quot;none&quot;,
+  },
+
+  [`&amp; .${classes.cypressLogo}`]: {
+    width: &quot;40%&quot;,
+  },
+}));
+
+const drawerWidth = 240;
+
+export const mainListItems = (
+  toggleDrawer: ((event: React.MouseEvent&lt;HTMLAnchorElement, MouseEvent&gt;) =&gt; void) | undefined,
+  showTemporaryDrawer: Boolean
+) =&gt; (
+  &lt;div&gt;
+    &lt;ListItem
+      button
+      // @ts-ignore
+      onClick={() =&gt; showTemporaryDrawer &amp;&amp; toggleDrawer()}
+      component={RouterLink}
+      to=&quot;/&quot;
+      data-test=&quot;sidenav-home&quot;
+    &gt;
+      &lt;ListItemIcon&gt;
+        &lt;HomeIcon /&gt;
+      &lt;/ListItemIcon&gt;
+      &lt;ListItemText primary=&quot;Home&quot; /&gt;
+    &lt;/ListItem&gt;
+    &lt;ListItem
+      button
+      // @ts-ignore
+      onClick={() =&gt; showTemporaryDrawer &amp;&amp; toggleDrawer()}
+      component={RouterLink}
+      to=&quot;/user/settings&quot;
+      data-test=&quot;sidenav-user-settings&quot;
+    &gt;
+      &lt;ListItemIcon&gt;
+        &lt;PersonIcon /&gt;
+      &lt;/ListItemIcon&gt;
+      &lt;ListItemText primary=&quot;My Account&quot; /&gt;
+    &lt;/ListItem&gt;
+    &lt;ListItem
+      button
+      // @ts-ignore
+      onClick={() =&gt; showTemporaryDrawer &amp;&amp; toggleDrawer()}
+      component={RouterLink}
+      to=&quot;/bankaccounts&quot;
+      data-test=&quot;sidenav-bankaccounts&quot;
+    &gt;
+      &lt;ListItemIcon&gt;
+        &lt;AccountBalanceIcon /&gt;
+      &lt;/ListItemIcon&gt;
+      &lt;ListItemText primary=&quot;Bank Accounts&quot; /&gt;
+    &lt;/ListItem&gt;
+    &lt;ListItem
+      button
+      // @ts-ignore
+      onClick={() =&gt; showTemporaryDrawer &amp;&amp; toggleDrawer()}
+      component={RouterLink}
+      to=&quot;/notifications&quot;
+      data-test=&quot;sidenav-notifications&quot;
+    &gt;
+      &lt;ListItemIcon&gt;
+        &lt;NotificationsIcon /&gt;
+      &lt;/ListItemIcon&gt;
+      &lt;ListItemText primary=&quot;Notifications&quot; /&gt;
+    &lt;/ListItem&gt;
+  &lt;/div&gt;
+);
+
+export const secondaryListItems = (signOutPending: Function) =&gt; (
+  &lt;div&gt;
+    &lt;ListItem button onClick={() =&gt; signOutPending()} data-test=&quot;sidenav-signout&quot;&gt;
+      &lt;ListItemIcon&gt;
+        &lt;LogoutIcon /&gt;
+      &lt;/ListItemIcon&gt;
+      &lt;ListItemText primary=&quot;Logout&quot; /&gt;
+    &lt;/ListItem&gt;
+  &lt;/div&gt;
+);
+
+interface Props {
+  closeMobileDrawer: () =&gt; void;
+  toggleDrawer: () =&gt; void;
+  drawerOpen: boolean;
+  authService: Interpreter&lt;AuthMachineContext, any, AuthMachineEvents, any&gt;;
+}
+
+const NavDrawer: React.FC&lt;Props&gt; = ({
+  toggleDrawer,
+  closeMobileDrawer,
+  drawerOpen,
+  authService,
+}) =&gt; {
+  const theme = useTheme();
+  const [authState, sendAuth] = useActor(authService);
+  const showTemporaryDrawer = useMediaQuery(theme.breakpoints.only(&quot;xs&quot;));
+
+  const currentUser = authState?.context?.user;
+  const signOut = () =&gt; sendAuth(&quot;LOGOUT&quot;);
+
+  return (
+    &lt;StyledDrawer
+      data-test=&quot;sidenav&quot;
+      variant={showTemporaryDrawer ? &quot;temporary&quot; : &quot;persistent&quot;}
+      classes={{
+        paper: clsx(classes.drawerPaper, !drawerOpen &amp;&amp; classes.drawerPaperClose),
+      }}
+      open={drawerOpen}
+      ModalProps={{
+        onBackdropClick: () =&gt; closeMobileDrawer(),
+        closeAfterTransition: showTemporaryDrawer,
+      }}
+    &gt;
+      &lt;Grid
+        container
+        direction=&quot;row&quot;
+        justifyContent=&quot;space-between&quot;
+        alignItems=&quot;center&quot;
+        className={drawerOpen ? classes.userProfile : classes.userProfileHidden}
+      &gt;
+        &lt;Grid item&gt;
+          {currentUser &amp;&amp; (
+            &lt;Avatar
+              className={classes.avatar}
+              alt={`${currentUser.firstName} ${currentUser.lastName}`}
+              src={currentUser.avatar}
+            /&gt;
+          )}
+        &lt;/Grid&gt;
+        &lt;Grid item&gt;
+          {currentUser &amp;&amp; (
+            &lt;&gt;
+              &lt;Typography
+                variant=&quot;subtitle1&quot;
+                color=&quot;textPrimary&quot;
+                data-test=&quot;sidenav-user-full-name&quot;
+              &gt;
+                {currentUser.firstName} {head(currentUser.lastName)}
+              &lt;/Typography&gt;
+              &lt;Typography
+                variant=&quot;subtitle2&quot;
+                color=&quot;inherit&quot;
+                gutterBottom
+                data-test=&quot;sidenav-username&quot;
+              &gt;
+                @{currentUser.username}
+              &lt;/Typography&gt;
+            &lt;/&gt;
+          )}
+        &lt;/Grid&gt;
+        &lt;Grid item style={{ width: &quot;30%&quot; }}&gt;&lt;/Grid&gt;
+      &lt;/Grid&gt;
+      &lt;Grid
+        container
+        direction=&quot;row&quot;
+        justifyContent=&quot;space-between&quot;
+        alignItems=&quot;center&quot;
+        className={drawerOpen ? classes.userProfile : classes.userProfileHidden}
+      &gt;
+        &lt;Grid item&gt;
+          {currentUser &amp;&amp; (
+            &lt;&gt;
+              &lt;Typography
+                variant=&quot;h6&quot;
+                color=&quot;textPrimary&quot;
+                className={classes.amount}
+                data-test=&quot;sidenav-user-balance&quot;
+              &gt;
+                {currentUser.balance ? formatAmount(currentUser.balance) : formatAmount(0)}
+              &lt;/Typography&gt;
+              &lt;Typography variant=&quot;subtitle2&quot; color=&quot;inherit&quot; gutterBottom&gt;
+                Account Balance
+              &lt;/Typography&gt;
+            &lt;/&gt;
+          )}
+        &lt;/Grid&gt;
+        &lt;Grid item&gt;
+          &lt;Divider /&gt;
+        &lt;/Grid&gt;
+        &lt;Grid item&gt;
+          &lt;List&gt;{mainListItems(toggleDrawer, showTemporaryDrawer)}&lt;/List&gt;
+        &lt;/Grid&gt;
+        &lt;Grid item&gt;
+          &lt;Divider /&gt;
+        &lt;/Grid&gt;
+        &lt;Grid item&gt;
+          &lt;List&gt;{secondaryListItems(signOut)}&lt;/List&gt;
+        &lt;/Grid&gt;
+      &lt;/Grid&gt;
+    &lt;/StyledDrawer&gt;
+  );
+};
+
+export default NavDrawer;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

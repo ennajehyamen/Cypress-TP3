@@ -1,0 +1,109 @@
+<html>
+<head>
+    <title>src/containers/App.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/containers/App.tsx (<b>65</b> lines of code) (<a href="App.tsx">raw</a>):</h3>
+<div id="editor">import React from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { Switch, Route, Redirect } from &quot;react-router-dom&quot;;
+import { useActor, useMachine } from &quot;@xstate/react&quot;;
+import { CssBaseline } from &quot;@mui/material&quot;;
+
+import { snackbarMachine } from &quot;../machines/snackbarMachine&quot;;
+import { notificationsMachine } from &quot;../machines/notificationsMachine&quot;;
+import { authService } from &quot;../machines/authMachine&quot;;
+import AlertBar from &quot;../components/AlertBar&quot;;
+import SignInForm from &quot;../components/SignInForm&quot;;
+import SignUpForm from &quot;../components/SignUpForm&quot;;
+import { bankAccountsMachine } from &quot;../machines/bankAccountsMachine&quot;;
+import PrivateRoutesContainer from &quot;./PrivateRoutesContainer&quot;;
+
+const PREFIX = &quot;App&quot;;
+
+const classes = {
+  root: `${PREFIX}-root`,
+};
+
+const Root = styled(&quot;div&quot;)(({ theme }) =&gt; ({
+  [`&amp;.${classes.root}`]: {
+    display: &quot;flex&quot;,
+  },
+}));
+
+// @ts-ignore
+if (window.Cypress) {
+  // Expose authService on window for Cypress
+  // @ts-ignore
+  window.authService = authService;
+}
+
+const App: React.FC = () =&gt; {
+  const [authState] = useActor(authService);
+  const [, , notificationsService] = useMachine(notificationsMachine);
+
+  const [, , snackbarService] = useMachine(snackbarMachine);
+
+  const [, , bankAccountsService] = useMachine(bankAccountsMachine);
+
+  const isLoggedIn =
+    authState.matches(&quot;authorized&quot;) ||
+    authState.matches(&quot;refreshing&quot;) ||
+    authState.matches(&quot;updating&quot;);
+
+  return (
+    &lt;Root className={classes.root}&gt;
+      &lt;CssBaseline /&gt;
+
+      {isLoggedIn &amp;&amp; (
+        &lt;PrivateRoutesContainer
+          isLoggedIn={isLoggedIn}
+          notificationsService={notificationsService}
+          authService={authService}
+          snackbarService={snackbarService}
+          bankAccountsService={bankAccountsService}
+        /&gt;
+      )}
+      {authState.matches(&quot;unauthorized&quot;) &amp;&amp; (
+        &lt;Switch&gt;
+          &lt;Route exact path=&quot;/signup&quot;&gt;
+            &lt;SignUpForm authService={authService} /&gt;
+          &lt;/Route&gt;
+          &lt;Route exact path=&quot;/signin&quot;&gt;
+            &lt;SignInForm authService={authService} /&gt;
+          &lt;/Route&gt;
+          &lt;Route path=&quot;/*&quot;&gt;
+            &lt;Redirect
+              to={{
+                pathname: &quot;/signin&quot;,
+              }}
+            /&gt;
+          &lt;/Route&gt;
+        &lt;/Switch&gt;
+      )}
+      &lt;AlertBar snackbarService={snackbarService} /&gt;
+    &lt;/Root&gt;
+  );
+};
+
+export default App;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

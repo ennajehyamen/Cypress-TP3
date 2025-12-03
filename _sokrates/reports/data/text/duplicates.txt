@@ -1,0 +1,2154 @@
+duplicated block id: 1
+size: 19 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (127:145)
+ - src/components/UserSettingsForm.tsx (133:151)
+
+duplicated block id: 2
+size: 18 cleaned lines of code
+in 2 files:
+ - src/components/SignInForm.tsx (41:62)
+ - src/components/SignUpForm.tsx (22:43)
+
+duplicated block id: 3
+size: 18 cleaned lines of code
+in 2 files:
+ - scripts/mock-aws-exports.js (3:21)
+ - src/aws-exports.js (3:21)
+
+duplicated block id: 4
+size: 18 cleaned lines of code
+in 2 files:
+ - aws-exports-es5.js (3:21)
+ - scripts/mock-aws-exports-es5.js (3:21)
+
+duplicated block id: 5
+size: 17 cleaned lines of code
+in 2 files:
+ - backend/transaction-routes.ts (42:62)
+ - backend/transaction-routes.ts (74:94)
+
+duplicated block id: 6
+size: 17 cleaned lines of code
+in 2 files:
+ - aws-exports-es5.js (3:19)
+ - src/aws-exports.js (3:19)
+
+duplicated block id: 7
+size: 17 cleaned lines of code
+in 2 files:
+ - scripts/mock-aws-exports-es5.js (3:19)
+ - scripts/mock-aws-exports.js (3:19)
+
+duplicated block id: 8
+size: 17 cleaned lines of code
+in 2 files:
+ - src/containers/App.tsx (43:61)
+ - src/containers/AppOkta.tsx (66:84)
+
+duplicated block id: 9
+size: 17 cleaned lines of code
+in 2 files:
+ - aws-exports-es5.js (3:19)
+ - scripts/mock-aws-exports.js (3:19)
+
+duplicated block id: 10
+size: 17 cleaned lines of code
+in 2 files:
+ - scripts/mock-aws-exports-es5.js (3:19)
+ - src/aws-exports.js (3:19)
+
+duplicated block id: 11
+size: 16 cleaned lines of code
+in 2 files:
+ - src/index.google.tsx (5:25)
+ - src/index.okta.tsx (5:28)
+
+duplicated block id: 12
+size: 16 cleaned lines of code
+in 2 files:
+ - src/containers/App.tsx (43:60)
+ - src/containers/AppAuth0.tsx (52:69)
+
+duplicated block id: 13
+size: 16 cleaned lines of code
+in 2 files:
+ - src/index.cognito.tsx (5:25)
+ - src/index.google.tsx (5:25)
+
+duplicated block id: 14
+size: 16 cleaned lines of code
+in 2 files:
+ - src/index.cognito.tsx (5:25)
+ - src/index.okta.tsx (5:28)
+
+duplicated block id: 15
+size: 16 cleaned lines of code
+in 2 files:
+ - src/components/CommentForm.tsx (13:30)
+ - src/components/UserListSearchForm.tsx (7:24)
+
+duplicated block id: 16
+size: 16 cleaned lines of code
+in 2 files:
+ - src/containers/AppAuth0.tsx (52:69)
+ - src/containers/AppOkta.tsx (66:83)
+
+duplicated block id: 17
+size: 15 cleaned lines of code
+in 2 files:
+ - src/containers/BankAccountsContainer.tsx (5:27)
+ - src/containers/UserOnboardingContainer.tsx (15:39)
+
+duplicated block id: 18
+size: 15 cleaned lines of code
+in 2 files:
+ - src/index.auth0.tsx (5:23)
+ - src/index.google.tsx (5:23)
+
+duplicated block id: 19
+size: 15 cleaned lines of code
+in 2 files:
+ - src/index.auth0.tsx (5:23)
+ - src/index.cognito.tsx (5:23)
+
+duplicated block id: 20
+size: 15 cleaned lines of code
+in 2 files:
+ - src/index.auth0.tsx (5:23)
+ - src/index.okta.tsx (5:26)
+
+duplicated block id: 21
+size: 13 cleaned lines of code
+in 2 files:
+ - src/containers/AppGoogle.tsx (74:88)
+ - src/containers/AppOkta.tsx (71:84)
+
+duplicated block id: 22
+size: 13 cleaned lines of code
+in 2 files:
+ - src/containers/App.tsx (48:61)
+ - src/containers/AppGoogle.tsx (74:88)
+
+duplicated block id: 23
+size: 12 cleaned lines of code
+in 2 files:
+ - backend/transaction-routes.ts (46:59)
+ - backend/transaction-routes.ts (121:134)
+
+duplicated block id: 24
+size: 12 cleaned lines of code
+in 2 files:
+ - backend/transaction-routes.ts (78:91)
+ - backend/transaction-routes.ts (121:134)
+
+duplicated block id: 25
+size: 12 cleaned lines of code
+in 2 files:
+ - src/containers/AppAuth0.tsx (57:69)
+ - src/containers/AppGoogle.tsx (74:86)
+
+duplicated block id: 26
+size: 12 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (31:44)
+ - src/components/TransactionCreateStepTwo.tsx (19:32)
+
+duplicated block id: 27
+size: 11 cleaned lines of code
+in 2 files:
+ - src/components/NavBar.tsx (87:97)
+ - src/components/TransactionDetail.tsx (81:91)
+
+duplicated block id: 28
+size: 11 cleaned lines of code
+in 2 files:
+ - src/components/TransactionListFilters.tsx (11:22)
+ - src/containers/UserSettingsContainer.tsx (12:23)
+
+duplicated block id: 29
+size: 11 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepOne.tsx (10:22)
+ - src/components/TransactionListFilters.tsx (11:22)
+
+duplicated block id: 30
+size: 11 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepOne.tsx (10:22)
+ - src/containers/BankAccountsContainer.tsx (31:42)
+
+duplicated block id: 31
+size: 11 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepOne.tsx (10:22)
+ - src/containers/UserSettingsContainer.tsx (12:23)
+
+duplicated block id: 32
+size: 11 cleaned lines of code
+in 2 files:
+ - src/components/TransactionListFilters.tsx (11:22)
+ - src/containers/BankAccountsContainer.tsx (31:42)
+
+duplicated block id: 33
+size: 11 cleaned lines of code
+in 2 files:
+ - src/components/SignInForm.tsx (120:130)
+ - src/components/SignUpForm.tsx (141:151)
+
+duplicated block id: 34
+size: 11 cleaned lines of code
+in 2 files:
+ - src/containers/BankAccountsContainer.tsx (31:42)
+ - src/containers/UserSettingsContainer.tsx (12:23)
+
+duplicated block id: 35
+size: 10 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (127:136)
+ - src/components/TransactionCreateStepTwo.tsx (164:173)
+
+duplicated block id: 36
+size: 10 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (107:116)
+ - src/components/UserSettingsForm.tsx (82:91)
+
+duplicated block id: 37
+size: 10 cleaned lines of code
+in 2 files:
+ - src/components/SkeletonList.tsx (32:41)
+ - src/components/SkeletonList.tsx (42:51)
+
+duplicated block id: 38
+size: 10 cleaned lines of code
+in 2 files:
+ - src/components/SkeletonList.tsx (32:41)
+ - src/components/SkeletonList.tsx (52:61)
+
+duplicated block id: 39
+size: 10 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (29:39)
+ - src/components/CommentForm.tsx (19:29)
+
+duplicated block id: 40
+size: 10 cleaned lines of code
+in 2 files:
+ - src/containers/AppAuth0.tsx (17:31)
+ - src/containers/AppOkta.tsx (19:33)
+
+duplicated block id: 41
+size: 10 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepTwo.tsx (164:173)
+ - src/components/UserSettingsForm.tsx (133:142)
+
+duplicated block id: 42
+size: 10 cleaned lines of code
+in 2 files:
+ - src/components/SkeletonList.tsx (22:31)
+ - src/components/SkeletonList.tsx (52:61)
+
+duplicated block id: 43
+size: 10 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (29:39)
+ - src/components/UserListSearchForm.tsx (13:23)
+
+duplicated block id: 44
+size: 10 cleaned lines of code
+in 2 files:
+ - src/components/SkeletonList.tsx (22:31)
+ - src/components/SkeletonList.tsx (42:51)
+
+duplicated block id: 45
+size: 10 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepThree.tsx (87:96)
+ - src/components/TransactionCreateStepThree.tsx (105:114)
+
+duplicated block id: 46
+size: 10 cleaned lines of code
+in 2 files:
+ - src/components/SkeletonList.tsx (22:31)
+ - src/components/SkeletonList.tsx (32:41)
+
+duplicated block id: 47
+size: 10 cleaned lines of code
+in 2 files:
+ - src/containers/App.tsx (18:32)
+ - src/containers/AppOkta.tsx (19:33)
+
+duplicated block id: 48
+size: 10 cleaned lines of code
+in 2 files:
+ - src/containers/App.tsx (18:32)
+ - src/containers/AppAuth0.tsx (17:31)
+
+duplicated block id: 49
+size: 10 cleaned lines of code
+in 2 files:
+ - src/components/SkeletonList.tsx (42:51)
+ - src/components/SkeletonList.tsx (52:61)
+
+duplicated block id: 50
+size: 9 cleaned lines of code
+in 2 files:
+ - src/components/TransactionContactsList.tsx (32:42)
+ - src/components/TransactionPersonalList.tsx (32:42)
+
+duplicated block id: 51
+size: 9 cleaned lines of code
+in 2 files:
+ - src/components/TransactionPersonalList.tsx (32:42)
+ - src/components/TransactionPublicList.tsx (32:42)
+
+duplicated block id: 52
+size: 9 cleaned lines of code
+in 2 files:
+ - src/components/TransactionContactsList.tsx (32:42)
+ - src/components/TransactionPublicList.tsx (32:42)
+
+duplicated block id: 53
+size: 9 cleaned lines of code
+in 2 files:
+ - src/components/TransactionContactsList.tsx (44:52)
+ - src/components/TransactionPublicList.tsx (44:52)
+
+duplicated block id: 54
+size: 9 cleaned lines of code
+in 2 files:
+ - src/components/NavDrawer.tsx (219:227)
+ - src/components/NavDrawer.tsx (258:266)
+
+duplicated block id: 55
+size: 8 cleaned lines of code
+in 2 files:
+ - src/containers/AppAuth0.tsx (17:25)
+ - src/containers/AppCognito.tsx (19:27)
+
+duplicated block id: 56
+size: 8 cleaned lines of code
+in 2 files:
+ - src/machines/bankAccountsMachine.ts (10:17)
+ - src/machines/bankAccountsMachine.ts (36:43)
+
+duplicated block id: 57
+size: 8 cleaned lines of code
+in 2 files:
+ - src/containers/BankAccountsContainer.tsx (5:20)
+ - src/containers/TransactionCreateContainer.tsx (11:22)
+
+duplicated block id: 58
+size: 8 cleaned lines of code
+in 2 files:
+ - src/components/CommentForm.tsx (21:29)
+ - src/components/TransactionCreateStepTwo.tsx (19:27)
+
+duplicated block id: 59
+size: 8 cleaned lines of code
+in 2 files:
+ - src/components/MainLayout.tsx (62:69)
+ - src/containers/NotificationsContainer.tsx (34:41)
+
+duplicated block id: 60
+size: 8 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (34:43)
+ - src/components/TransactionCreateStepTwo.tsx (22:31)
+
+duplicated block id: 61
+size: 8 cleaned lines of code
+in 2 files:
+ - src/containers/App.tsx (36:46)
+ - src/containers/AppCognito.tsx (39:49)
+
+duplicated block id: 62
+size: 8 cleaned lines of code
+in 2 files:
+ - src/components/UserSettingsForm.tsx (139:146)
+ - src/containers/UserSettingsContainer.tsx (40:47)
+
+duplicated block id: 63
+size: 8 cleaned lines of code
+in 2 files:
+ - src/containers/TransactionCreateContainer.tsx (11:22)
+ - src/containers/UserOnboardingContainer.tsx (15:32)
+
+duplicated block id: 64
+size: 8 cleaned lines of code
+in 2 files:
+ - src/components/TransactionDetail.tsx (28:36)
+ - src/components/TransactionListFilters.tsx (13:21)
+
+duplicated block id: 65
+size: 8 cleaned lines of code
+in 2 files:
+ - src/components/MainLayout.tsx (62:69)
+ - src/containers/PrivateRoutesContainer.tsx (26:33)
+
+duplicated block id: 66
+size: 8 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (133:140)
+ - src/containers/UserSettingsContainer.tsx (40:47)
+
+duplicated block id: 67
+size: 8 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (34:43)
+ - src/components/SignInForm.tsx (53:62)
+
+duplicated block id: 68
+size: 8 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepOne.tsx (12:21)
+ - src/components/TransactionDetail.tsx (28:36)
+
+duplicated block id: 69
+size: 8 cleaned lines of code
+in 2 files:
+ - src/components/TransactionDetail.tsx (28:36)
+ - src/containers/BankAccountsContainer.tsx (33:41)
+
+duplicated block id: 70
+size: 8 cleaned lines of code
+in 2 files:
+ - backend/database.ts (70:77)
+ - src/models/db-schema.ts (11:18)
+
+duplicated block id: 71
+size: 8 cleaned lines of code
+in 2 files:
+ - src/components/SignInForm.tsx (53:62)
+ - src/components/TransactionCreateStepTwo.tsx (22:31)
+
+duplicated block id: 72
+size: 8 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepTwo.tsx (19:27)
+ - src/components/UserListSearchForm.tsx (15:23)
+
+duplicated block id: 73
+size: 8 cleaned lines of code
+in 2 files:
+ - src/components/TransactionDateRangeFilter.tsx (118:125)
+ - src/components/TransactionListAmountRangeFilter.tsx (132:139)
+
+duplicated block id: 74
+size: 8 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (34:43)
+ - src/components/SignUpForm.tsx (34:43)
+
+duplicated block id: 75
+size: 8 cleaned lines of code
+in 2 files:
+ - src/containers/AppCognito.tsx (19:27)
+ - src/containers/AppOkta.tsx (19:27)
+
+duplicated block id: 76
+size: 8 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (139:146)
+ - src/components/TransactionCreateStepTwo.tsx (176:183)
+
+duplicated block id: 77
+size: 8 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (26:34)
+ - src/components/UserSettingsForm.tsx (13:21)
+
+duplicated block id: 78
+size: 8 cleaned lines of code
+in 2 files:
+ - src/components/TransactionDetail.tsx (28:36)
+ - src/containers/UserSettingsContainer.tsx (14:22)
+
+duplicated block id: 79
+size: 8 cleaned lines of code
+in 2 files:
+ - src/containers/NotificationsContainer.tsx (34:41)
+ - src/containers/PrivateRoutesContainer.tsx (26:33)
+
+duplicated block id: 80
+size: 8 cleaned lines of code
+in 2 files:
+ - src/containers/App.tsx (18:26)
+ - src/containers/AppCognito.tsx (19:27)
+
+duplicated block id: 81
+size: 7 cleaned lines of code
+in 2 files:
+ - src/components/NavBar.tsx (108:114)
+ - src/containers/NotificationsContainer.tsx (35:41)
+
+duplicated block id: 82
+size: 7 cleaned lines of code
+in 2 files:
+ - src/containers/BankAccountsContainer.tsx (21:27)
+ - src/containers/PrivateRoutesContainer.tsx (41:47)
+
+duplicated block id: 83
+size: 7 cleaned lines of code
+in 2 files:
+ - src/components/TransactionDateRangeFilter.tsx (128:134)
+ - src/components/TransactionDateRangeFilter.tsx (148:154)
+
+duplicated block id: 84
+size: 7 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (64:71)
+ - src/components/UserSettingsForm.tsx (56:63)
+
+duplicated block id: 85
+size: 7 cleaned lines of code
+in 2 files:
+ - src/containers/PrivateRoutesContainer.tsx (4:24)
+ - src/containers/TransactionCreateContainer.tsx (11:21)
+
+duplicated block id: 86
+size: 7 cleaned lines of code
+in 2 files:
+ - backend/comment-routes.ts (7:17)
+ - backend/like-routes.ts (7:17)
+
+duplicated block id: 87
+size: 7 cleaned lines of code
+in 2 files:
+ - src/components/MainLayout.tsx (63:69)
+ - src/components/NavBar.tsx (108:114)
+
+duplicated block id: 88
+size: 7 cleaned lines of code
+in 2 files:
+ - src/components/TransactionDetail.tsx (158:164)
+ - src/components/TransactionItem.tsx (142:148)
+
+duplicated block id: 89
+size: 7 cleaned lines of code
+in 2 files:
+ - src/containers/NotificationsContainer.tsx (26:33)
+ - src/containers/UserSettingsContainer.tsx (18:25)
+
+duplicated block id: 90
+size: 7 cleaned lines of code
+in 2 files:
+ - src/components/AlertBar.tsx (15:21)
+ - src/containers/PrivateRoutesContainer.tsx (34:40)
+
+duplicated block id: 91
+size: 7 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (140:146)
+ - src/components/TransactionCreateStepTwo.tsx (191:197)
+
+duplicated block id: 92
+size: 7 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (59:65)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (75:81)
+
+duplicated block id: 93
+size: 7 cleaned lines of code
+in 2 files:
+ - src/machines/authMachine.ts (129:135)
+ - src/machines/authMachine.ts (139:145)
+
+duplicated block id: 94
+size: 7 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepThree.tsx (24:31)
+ - src/components/TransactionCreateStepTwo.tsx (15:22)
+
+duplicated block id: 95
+size: 7 cleaned lines of code
+in 2 files:
+ - src/containers/BankAccountsContainer.tsx (5:19)
+ - src/containers/PrivateRoutesContainer.tsx (4:24)
+
+duplicated block id: 96
+size: 7 cleaned lines of code
+in 2 files:
+ - src/containers/PrivateRoutesContainer.tsx (4:24)
+ - src/containers/UserOnboardingContainer.tsx (15:31)
+
+duplicated block id: 97
+size: 7 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepThree.tsx (77:83)
+ - src/components/TransactionCreateStepTwo.tsx (99:105)
+
+duplicated block id: 98
+size: 7 cleaned lines of code
+in 2 files:
+ - src/machines/authMachine.ts (84:90)
+ - src/machines/authMachine.ts (94:100)
+
+duplicated block id: 99
+size: 7 cleaned lines of code
+in 2 files:
+ - src/containers/PrivateRoutesContainer.tsx (34:40)
+ - src/containers/TransactionCreateContainer.tsx (23:29)
+
+duplicated block id: 100
+size: 7 cleaned lines of code
+in 2 files:
+ - backend/transaction-routes.ts (32:38)
+ - backend/transaction-routes.ts (64:70)
+
+duplicated block id: 101
+size: 7 cleaned lines of code
+in 2 files:
+ - src/components/UserSettingsForm.tsx (16:22)
+ - src/containers/AppGoogle.tsx (33:39)
+
+duplicated block id: 102
+size: 7 cleaned lines of code
+in 2 files:
+ - src/components/TransactionDateRangeFilter.cy.tsx (11:17)
+ - src/components/TransactionDateRangeFilter.cy.tsx (47:53)
+
+duplicated block id: 103
+size: 7 cleaned lines of code
+in 2 files:
+ - src/machines/authMachine.ts (84:90)
+ - src/machines/authMachine.ts (119:125)
+
+duplicated block id: 104
+size: 7 cleaned lines of code
+in 2 files:
+ - src/machines/authMachine.ts (84:90)
+ - src/machines/authMachine.ts (129:135)
+
+duplicated block id: 105
+size: 7 cleaned lines of code
+in 2 files:
+ - src/machines/authMachine.ts (84:90)
+ - src/machines/authMachine.ts (139:145)
+
+duplicated block id: 106
+size: 7 cleaned lines of code
+in 2 files:
+ - src/components/NavBar.tsx (108:114)
+ - src/containers/PrivateRoutesContainer.tsx (27:33)
+
+duplicated block id: 107
+size: 7 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepTwo.tsx (177:183)
+ - src/components/TransactionCreateStepTwo.tsx (191:197)
+
+duplicated block id: 108
+size: 7 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (99:105)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (268:274)
+
+duplicated block id: 109
+size: 7 cleaned lines of code
+in 2 files:
+ - backend/database.ts (734:741)
+ - backend/database.ts (754:761)
+
+duplicated block id: 110
+size: 7 cleaned lines of code
+in 2 files:
+ - src/machines/authMachine.ts (119:125)
+ - src/machines/authMachine.ts (129:135)
+
+duplicated block id: 111
+size: 7 cleaned lines of code
+in 2 files:
+ - src/machines/authMachine.ts (119:125)
+ - src/machines/authMachine.ts (139:145)
+
+duplicated block id: 112
+size: 7 cleaned lines of code
+in 2 files:
+ - src/containers/PrivateRoutesContainer.tsx (41:47)
+ - src/containers/UserOnboardingContainer.tsx (33:39)
+
+duplicated block id: 113
+size: 7 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (148:154)
+ - src/components/UserSettingsForm.tsx (154:160)
+
+duplicated block id: 114
+size: 7 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepTwo.tsx (176:182)
+ - src/components/UserSettingsForm.tsx (145:151)
+
+duplicated block id: 115
+size: 7 cleaned lines of code
+in 2 files:
+ - src/components/AlertBar.tsx (15:21)
+ - src/containers/TransactionCreateContainer.tsx (23:29)
+
+duplicated block id: 116
+size: 7 cleaned lines of code
+in 2 files:
+ - src/machines/authMachine.ts (94:100)
+ - src/machines/authMachine.ts (139:145)
+
+duplicated block id: 117
+size: 7 cleaned lines of code
+in 2 files:
+ - src/machines/authMachine.ts (94:100)
+ - src/machines/authMachine.ts (129:135)
+
+duplicated block id: 118
+size: 7 cleaned lines of code
+in 2 files:
+ - src/machines/authMachine.ts (94:100)
+ - src/machines/authMachine.ts (119:125)
+
+duplicated block id: 119
+size: 7 cleaned lines of code
+in 2 files:
+ - backend/database.ts (714:721)
+ - backend/database.ts (734:741)
+
+duplicated block id: 120
+size: 7 cleaned lines of code
+in 2 files:
+ - backend/database.ts (714:721)
+ - backend/database.ts (754:761)
+
+duplicated block id: 121
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (93:98)
+ - src/components/SignUpForm.tsx (107:112)
+
+duplicated block id: 122
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (107:112)
+ - src/components/UserSettingsForm.tsx (99:104)
+
+duplicated block id: 123
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (93:98)
+ - src/components/SignUpForm.tsx (124:129)
+
+duplicated block id: 124
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (93:98)
+ - src/components/TransactionCreateStepTwo.tsx (164:169)
+
+duplicated block id: 125
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (114:119)
+ - src/components/SignUpForm.tsx (131:136)
+
+duplicated block id: 126
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/UserSettingsForm.tsx (82:87)
+ - src/components/UserSettingsForm.tsx (133:138)
+
+duplicated block id: 127
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (131:136)
+ - src/components/SignUpForm.tsx (165:170)
+
+duplicated block id: 128
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (141:146)
+ - src/components/SignUpForm.tsx (175:180)
+
+duplicated block id: 129
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (96:101)
+ - src/components/SignUpForm.tsx (165:170)
+
+duplicated block id: 130
+size: 6 cleaned lines of code
+in 2 files:
+ - cypress/support/commands.ts (231:236)
+ - cypress/support/commands.ts (259:264)
+
+duplicated block id: 131
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignInForm.tsx (120:125)
+ - src/components/UserSettingsForm.tsx (116:121)
+
+duplicated block id: 132
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (114:119)
+ - src/components/SignUpForm.tsx (148:153)
+
+duplicated block id: 133
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (124:129)
+ - src/components/SignUpForm.tsx (141:146)
+
+duplicated block id: 134
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (107:112)
+ - src/components/UserSettingsForm.tsx (116:121)
+
+duplicated block id: 135
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/NavBar.tsx (109:114)
+ - src/containers/UserOnboardingContainer.tsx (34:39)
+
+duplicated block id: 136
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (185:190)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (228:233)
+
+duplicated block id: 137
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (158:163)
+ - src/components/UserSettingsForm.tsx (116:121)
+
+duplicated block id: 138
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (124:129)
+ - src/components/SignUpForm.tsx (175:180)
+
+duplicated block id: 139
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (131:136)
+ - src/components/SignUpForm.tsx (148:153)
+
+duplicated block id: 140
+size: 6 cleaned lines of code
+in 2 files:
+ - src/machines/contactsTransactionsMachine.ts (11:16)
+ - src/machines/personalTransactionsMachine.ts (11:16)
+
+duplicated block id: 141
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/AlertBar.tsx (4:9)
+ - src/containers/NotificationsContainer.tsx (4:9)
+
+duplicated block id: 142
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (96:101)
+ - src/components/SignUpForm.tsx (148:153)
+
+duplicated block id: 143
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (99:104)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (178:183)
+
+duplicated block id: 144
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (217:222)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (250:255)
+
+duplicated block id: 145
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (124:129)
+ - src/components/SignUpForm.tsx (158:163)
+
+duplicated block id: 146
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/UserSettingsForm.tsx (89:94)
+ - src/components/UserSettingsForm.tsx (123:128)
+
+duplicated block id: 147
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (158:163)
+ - src/components/UserSettingsForm.tsx (99:104)
+
+duplicated block id: 148
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (96:101)
+ - src/components/SignUpForm.tsx (131:136)
+
+duplicated block id: 149
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (158:163)
+ - src/components/TransactionCreateStepTwo.tsx (164:169)
+
+duplicated block id: 150
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (100:105)
+ - src/components/TransactionCreateStepTwo.tsx (154:159)
+
+duplicated block id: 151
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (117:122)
+ - src/components/UserSettingsForm.tsx (123:128)
+
+duplicated block id: 152
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (217:222)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (228:233)
+
+duplicated block id: 153
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (185:190)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (217:222)
+
+duplicated block id: 154
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (127:132)
+ - src/components/SignInForm.tsx (120:125)
+
+duplicated block id: 155
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (100:105)
+ - src/components/TransactionCreateStepTwo.tsx (132:137)
+
+duplicated block id: 156
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (93:98)
+ - src/components/UserSettingsForm.tsx (82:87)
+
+duplicated block id: 157
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (141:146)
+ - src/components/SignUpForm.tsx (181:186)
+
+duplicated block id: 158
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignInForm.tsx (120:125)
+ - src/components/TransactionCreateStepTwo.tsx (164:169)
+
+duplicated block id: 159
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignInForm.tsx (120:125)
+ - src/components/SignUpForm.tsx (107:112)
+
+duplicated block id: 160
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (141:146)
+ - src/components/TransactionCreateStepTwo.tsx (164:169)
+
+duplicated block id: 161
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepTwo.tsx (164:169)
+ - src/components/UserSettingsForm.tsx (82:87)
+
+duplicated block id: 162
+size: 6 cleaned lines of code
+in 2 files:
+ - src/containers/NotificationsContainer.tsx (4:9)
+ - src/containers/PrivateRoutesContainer.tsx (4:9)
+
+duplicated block id: 163
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignInForm.tsx (120:125)
+ - src/components/SignUpForm.tsx (124:129)
+
+duplicated block id: 164
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (158:163)
+ - src/components/UserSettingsForm.tsx (82:87)
+
+duplicated block id: 165
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignInForm.tsx (44:49)
+ - src/components/UserListSearchForm.tsx (13:18)
+
+duplicated block id: 166
+size: 6 cleaned lines of code
+in 2 files:
+ - src/machines/dataMachine.ts (50:55)
+ - src/machines/dataMachine.ts (87:92)
+
+duplicated block id: 167
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/CommentForm.tsx (19:24)
+ - src/containers/AppGoogle.tsx (33:38)
+
+duplicated block id: 168
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignInForm.tsx (120:125)
+ - src/components/UserSettingsForm.tsx (82:87)
+
+duplicated block id: 169
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (141:146)
+ - src/components/SignUpForm.tsx (158:163)
+
+duplicated block id: 170
+size: 6 cleaned lines of code
+in 2 files:
+ - src/index.tsx (25:30)
+ - src/index.tsx (32:37)
+
+duplicated block id: 171
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (127:132)
+ - src/components/SignUpForm.tsx (141:146)
+
+duplicated block id: 172
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepTwo.tsx (164:169)
+ - src/components/UserSettingsForm.tsx (99:104)
+
+duplicated block id: 173
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (114:119)
+ - src/components/SignUpForm.tsx (165:170)
+
+duplicated block id: 174
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (127:132)
+ - src/components/SignUpForm.tsx (158:163)
+
+duplicated block id: 175
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepTwo.tsx (164:169)
+ - src/components/UserSettingsForm.tsx (116:121)
+
+duplicated block id: 176
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignInForm.tsx (120:125)
+ - src/components/UserSettingsForm.tsx (99:104)
+
+duplicated block id: 177
+size: 6 cleaned lines of code
+in 2 files:
+ - src/containers/NotificationsContainer.tsx (36:41)
+ - src/containers/PrivateRoutesContainer.tsx (42:47)
+
+duplicated block id: 178
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (96:101)
+ - src/components/SignUpForm.tsx (114:119)
+
+duplicated block id: 179
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (178:183)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (243:248)
+
+duplicated block id: 180
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (141:146)
+ - src/components/UserSettingsForm.tsx (133:138)
+
+duplicated block id: 181
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/MainLayout.tsx (5:10)
+ - src/containers/PrivateRoutesContainer.tsx (4:9)
+
+duplicated block id: 182
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/UserListSearchForm.tsx (13:18)
+ - src/containers/AppGoogle.tsx (33:38)
+
+duplicated block id: 183
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/MainLayout.tsx (5:10)
+ - src/components/NavBar.tsx (5:10)
+
+duplicated block id: 184
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (110:115)
+ - src/components/SignUpForm.tsx (175:180)
+
+duplicated block id: 185
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (83:88)
+ - src/components/TransactionCreateStepTwo.tsx (154:159)
+
+duplicated block id: 186
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (100:105)
+ - src/components/UserSettingsForm.tsx (89:94)
+
+duplicated block id: 187
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (178:183)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (261:266)
+
+duplicated block id: 188
+size: 6 cleaned lines of code
+in 2 files:
+ - src/containers/NotificationsContainer.tsx (4:9)
+ - src/containers/TransactionCreateContainer.tsx (11:16)
+
+duplicated block id: 189
+size: 6 cleaned lines of code
+in 2 files:
+ - src/containers/NotificationsContainer.tsx (4:9)
+ - src/containers/UserOnboardingContainer.tsx (15:20)
+
+duplicated block id: 190
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (127:132)
+ - src/components/SignUpForm.tsx (175:180)
+
+duplicated block id: 191
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (100:105)
+ - src/components/UserSettingsForm.tsx (106:111)
+
+duplicated block id: 192
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (178:183)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (268:273)
+
+duplicated block id: 193
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepThree.tsx (6:11)
+ - src/containers/BankAccountsContainer.tsx (5:10)
+
+duplicated block id: 194
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (29:34)
+ - src/containers/AppGoogle.tsx (33:38)
+
+duplicated block id: 195
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (124:129)
+ - src/components/UserSettingsForm.tsx (116:121)
+
+duplicated block id: 196
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (83:88)
+ - src/components/TransactionCreateStepTwo.tsx (132:137)
+
+duplicated block id: 197
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (110:115)
+ - src/components/TransactionCreateStepTwo.tsx (164:169)
+
+duplicated block id: 198
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/UserSettingsForm.tsx (72:77)
+ - src/components/UserSettingsForm.tsx (89:94)
+
+duplicated block id: 199
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepTwo.tsx (132:137)
+ - src/components/TransactionCreateStepTwo.tsx (154:159)
+
+duplicated block id: 200
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (181:186)
+ - src/components/TransactionCreateStepTwo.tsx (192:197)
+
+duplicated block id: 201
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignInForm.tsx (152:157)
+ - src/components/SignUpForm.tsx (181:186)
+
+duplicated block id: 202
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (178:183)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (210:215)
+
+duplicated block id: 203
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (124:129)
+ - src/components/UserSettingsForm.tsx (99:104)
+
+duplicated block id: 204
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/UserSettingsForm.tsx (72:77)
+ - src/components/UserSettingsForm.tsx (106:111)
+
+duplicated block id: 205
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (181:186)
+ - src/components/TransactionCreateStepTwo.tsx (178:183)
+
+duplicated block id: 206
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (124:129)
+ - src/components/UserSettingsForm.tsx (82:87)
+
+duplicated block id: 207
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/NavBar.tsx (5:10)
+ - src/containers/NotificationsContainer.tsx (4:9)
+
+duplicated block id: 208
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/NavBar.tsx (5:10)
+ - src/containers/TransactionCreateContainer.tsx (11:16)
+
+duplicated block id: 209
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (93:98)
+ - src/components/SignUpForm.tsx (158:163)
+
+duplicated block id: 210
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (110:115)
+ - src/components/BankAccountForm.tsx (127:132)
+
+duplicated block id: 211
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (141:146)
+ - src/components/UserSettingsForm.tsx (82:87)
+
+duplicated block id: 212
+size: 6 cleaned lines of code
+in 2 files:
+ - src/containers/BankAccountsContainer.tsx (22:27)
+ - src/containers/PrivateRoutesContainer.tsx (28:33)
+
+duplicated block id: 213
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepThree.tsx (6:11)
+ - src/containers/PrivateRoutesContainer.tsx (4:9)
+
+duplicated block id: 214
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (93:98)
+ - src/components/SignUpForm.tsx (175:180)
+
+duplicated block id: 215
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (83:88)
+ - src/components/BankAccountForm.tsx (117:122)
+
+duplicated block id: 216
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (141:146)
+ - src/components/UserSettingsForm.tsx (116:121)
+
+duplicated block id: 217
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepThree.tsx (6:11)
+ - src/containers/UserOnboardingContainer.tsx (15:20)
+
+duplicated block id: 218
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (185:190)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (250:255)
+
+duplicated block id: 219
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (228:233)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (250:255)
+
+duplicated block id: 220
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (93:98)
+ - src/components/SignUpForm.tsx (141:146)
+
+duplicated block id: 221
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (141:146)
+ - src/components/UserSettingsForm.tsx (99:104)
+
+duplicated block id: 222
+size: 6 cleaned lines of code
+in 2 files:
+ - src/machines/contactsTransactionsMachine.ts (11:16)
+ - src/machines/publicTransactionsMachine.ts (11:16)
+
+duplicated block id: 223
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (110:115)
+ - src/components/UserSettingsForm.tsx (133:138)
+
+duplicated block id: 224
+size: 6 cleaned lines of code
+in 2 files:
+ - backend/like-routes.ts (12:17)
+ - backend/transaction-routes.ts (156:161)
+
+duplicated block id: 225
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (110:115)
+ - src/components/SignUpForm.tsx (141:146)
+
+duplicated block id: 226
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (100:105)
+ - src/components/UserSettingsForm.tsx (72:77)
+
+duplicated block id: 227
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (100:105)
+ - src/components/BankAccountForm.tsx (117:122)
+
+duplicated block id: 228
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (93:98)
+ - src/components/BankAccountForm.tsx (110:115)
+
+duplicated block id: 229
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/NavBar.tsx (5:10)
+ - src/containers/UserOnboardingContainer.tsx (15:20)
+
+duplicated block id: 230
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (25:30)
+ - src/components/UserListSearchForm.tsx (13:18)
+
+duplicated block id: 231
+size: 6 cleaned lines of code
+in 2 files:
+ - src/machines/contactsTransactionsMachine.ts (11:16)
+ - src/machines/usersMachine.ts (12:17)
+
+duplicated block id: 232
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (110:115)
+ - src/components/SignUpForm.tsx (158:163)
+
+duplicated block id: 233
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionItem.tsx (118:123)
+ - src/components/TransactionListFilters.tsx (46:51)
+
+duplicated block id: 234
+size: 6 cleaned lines of code
+in 2 files:
+ - src/containers/BankAccountsContainer.tsx (37:42)
+ - src/containers/NotificationsContainer.tsx (26:31)
+
+duplicated block id: 235
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (83:88)
+ - src/components/BankAccountForm.tsx (100:105)
+
+duplicated block id: 236
+size: 6 cleaned lines of code
+in 2 files:
+ - src/machines/personalTransactionsMachine.ts (11:16)
+ - src/machines/usersMachine.ts (12:17)
+
+duplicated block id: 237
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (158:163)
+ - src/components/UserSettingsForm.tsx (133:138)
+
+duplicated block id: 238
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (107:112)
+ - src/components/SignUpForm.tsx (175:180)
+
+duplicated block id: 239
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (261:266)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (268:273)
+
+duplicated block id: 240
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/CommentForm.tsx (19:24)
+ - src/components/UserSettingsForm.tsx (16:21)
+
+duplicated block id: 241
+size: 6 cleaned lines of code
+in 2 files:
+ - src/containers/PrivateRoutesContainer.tsx (28:33)
+ - src/containers/PrivateRoutesContainer.tsx (42:47)
+
+duplicated block id: 242
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/NavBar.tsx (5:10)
+ - src/components/TransactionCreateStepThree.tsx (6:11)
+
+duplicated block id: 243
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/UserSettingsForm.tsx (99:104)
+ - src/components/UserSettingsForm.tsx (116:121)
+
+duplicated block id: 244
+size: 6 cleaned lines of code
+in 2 files:
+ - src/machines/notificationsMachine.ts (19:24)
+ - src/machines/transactionDetailMachine.ts (33:38)
+
+duplicated block id: 245
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepThree.tsx (6:11)
+ - src/containers/NotificationsContainer.tsx (4:9)
+
+duplicated block id: 246
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/UserSettingsForm.tsx (116:121)
+ - src/components/UserSettingsForm.tsx (133:138)
+
+duplicated block id: 247
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/MainLayout.tsx (64:69)
+ - src/containers/PrivateRoutesContainer.tsx (42:47)
+
+duplicated block id: 248
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepTwo.tsx (132:137)
+ - src/components/UserSettingsForm.tsx (106:111)
+
+duplicated block id: 249
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepTwo.tsx (191:196)
+ - src/components/UserSettingsForm.tsx (146:151)
+
+duplicated block id: 250
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/NavBar.tsx (5:10)
+ - src/containers/BankAccountsContainer.tsx (5:10)
+
+duplicated block id: 251
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (141:146)
+ - src/components/SignInForm.tsx (152:157)
+
+duplicated block id: 252
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepThree.tsx (6:11)
+ - src/containers/TransactionCreateContainer.tsx (11:16)
+
+duplicated block id: 253
+size: 6 cleaned lines of code
+in 2 files:
+ - src/containers/BankAccountsContainer.tsx (5:10)
+ - src/containers/NotificationsContainer.tsx (4:9)
+
+duplicated block id: 254
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/AlertBar.tsx (4:9)
+ - src/containers/PrivateRoutesContainer.tsx (4:9)
+
+duplicated block id: 255
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (83:88)
+ - src/components/UserSettingsForm.tsx (106:111)
+
+duplicated block id: 256
+size: 6 cleaned lines of code
+in 2 files:
+ - src/machines/personalTransactionsMachine.ts (11:16)
+ - src/machines/publicTransactionsMachine.ts (11:16)
+
+duplicated block id: 257
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/UserSettingsForm.tsx (82:87)
+ - src/components/UserSettingsForm.tsx (116:121)
+
+duplicated block id: 258
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepTwo.tsx (132:137)
+ - src/components/UserSettingsForm.tsx (89:94)
+
+duplicated block id: 259
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/UserSettingsForm.tsx (82:87)
+ - src/components/UserSettingsForm.tsx (99:104)
+
+duplicated block id: 260
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (107:112)
+ - src/components/SignUpForm.tsx (158:163)
+
+duplicated block id: 261
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepTwo.tsx (154:159)
+ - src/components/UserSettingsForm.tsx (72:77)
+
+duplicated block id: 262
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (110:115)
+ - src/components/UserSettingsForm.tsx (82:87)
+
+duplicated block id: 263
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (83:88)
+ - src/components/UserSettingsForm.tsx (123:128)
+
+duplicated block id: 264
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (243:248)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (261:266)
+
+duplicated block id: 265
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (110:115)
+ - src/components/UserSettingsForm.tsx (116:121)
+
+duplicated block id: 266
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (93:98)
+ - src/components/SignInForm.tsx (120:125)
+
+duplicated block id: 267
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepTwo.tsx (154:159)
+ - src/components/UserSettingsForm.tsx (106:111)
+
+duplicated block id: 268
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/AlertBar.tsx (4:9)
+ - src/components/TransactionCreateStepThree.tsx (6:11)
+
+duplicated block id: 269
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (99:104)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (261:266)
+
+duplicated block id: 270
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (243:248)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (268:273)
+
+duplicated block id: 271
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (107:112)
+ - src/components/SignUpForm.tsx (141:146)
+
+duplicated block id: 272
+size: 6 cleaned lines of code
+in 2 files:
+ - src/containers/BankAccountsContainer.tsx (22:27)
+ - src/containers/NotificationsContainer.tsx (36:41)
+
+duplicated block id: 273
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/AlertBar.tsx (4:9)
+ - src/components/MainLayout.tsx (5:10)
+
+duplicated block id: 274
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/NavBar.tsx (109:114)
+ - src/containers/PrivateRoutesContainer.tsx (42:47)
+
+duplicated block id: 275
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (110:115)
+ - src/components/UserSettingsForm.tsx (99:104)
+
+duplicated block id: 276
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/AlertBar.tsx (4:9)
+ - src/components/NavBar.tsx (5:10)
+
+duplicated block id: 277
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepTwo.tsx (154:159)
+ - src/components/UserSettingsForm.tsx (89:94)
+
+duplicated block id: 278
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (195:200)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (250:255)
+
+duplicated block id: 279
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionListFilters.tsx (17:22)
+ - src/containers/NotificationsContainer.tsx (26:31)
+
+duplicated block id: 280
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignInForm.tsx (120:125)
+ - src/components/SignUpForm.tsx (158:163)
+
+duplicated block id: 281
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (25:30)
+ - src/components/UserSettingsForm.tsx (16:21)
+
+duplicated block id: 282
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (127:132)
+ - src/components/UserSettingsForm.tsx (116:121)
+
+duplicated block id: 283
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/CommentForm.tsx (19:24)
+ - src/components/SignInForm.tsx (44:49)
+
+duplicated block id: 284
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignInForm.tsx (120:125)
+ - src/components/SignUpForm.tsx (175:180)
+
+duplicated block id: 285
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (83:88)
+ - src/components/UserSettingsForm.tsx (72:77)
+
+duplicated block id: 286
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (99:104)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (243:248)
+
+duplicated block id: 287
+size: 6 cleaned lines of code
+in 2 files:
+ - src/containers/NotificationsContainer.tsx (36:41)
+ - src/containers/UserOnboardingContainer.tsx (34:39)
+
+duplicated block id: 288
+size: 6 cleaned lines of code
+in 2 files:
+ - src/containers/PrivateRoutesContainer.tsx (28:33)
+ - src/containers/UserOnboardingContainer.tsx (34:39)
+
+duplicated block id: 289
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (83:88)
+ - src/components/UserSettingsForm.tsx (89:94)
+
+duplicated block id: 290
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (93:98)
+ - src/components/BankAccountForm.tsx (127:132)
+
+duplicated block id: 291
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (107:112)
+ - src/components/TransactionCreateStepTwo.tsx (164:169)
+
+duplicated block id: 292
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (99:104)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (210:215)
+
+duplicated block id: 293
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (127:132)
+ - src/components/UserSettingsForm.tsx (82:87)
+
+duplicated block id: 294
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (110:115)
+ - src/components/SignUpForm.tsx (107:112)
+
+duplicated block id: 295
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepOne.tsx (17:22)
+ - src/containers/NotificationsContainer.tsx (26:31)
+
+duplicated block id: 296
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (175:180)
+ - src/components/UserSettingsForm.tsx (133:138)
+
+duplicated block id: 297
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (195:200)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (217:222)
+
+duplicated block id: 298
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/AlertBar.tsx (4:9)
+ - src/containers/BankAccountsContainer.tsx (5:10)
+
+duplicated block id: 299
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/MainLayout.tsx (64:69)
+ - src/containers/UserOnboardingContainer.tsx (34:39)
+
+duplicated block id: 300
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignInForm.tsx (152:157)
+ - src/components/TransactionCreateStepTwo.tsx (192:197)
+
+duplicated block id: 301
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (195:200)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (228:233)
+
+duplicated block id: 302
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/MainLayout.tsx (5:10)
+ - src/components/TransactionCreateStepThree.tsx (6:11)
+
+duplicated block id: 303
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (127:132)
+ - src/components/UserSettingsForm.tsx (99:104)
+
+duplicated block id: 304
+size: 6 cleaned lines of code
+in 2 files:
+ - cypress/support/commands.ts (215:221)
+ - cypress/support/commands.ts (250:256)
+
+duplicated block id: 305
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignInForm.tsx (152:157)
+ - src/components/TransactionCreateStepTwo.tsx (178:183)
+
+duplicated block id: 306
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (25:30)
+ - src/containers/AppGoogle.tsx (33:38)
+
+duplicated block id: 307
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (107:112)
+ - src/components/UserSettingsForm.tsx (133:138)
+
+duplicated block id: 308
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (110:115)
+ - src/components/SignUpForm.tsx (124:129)
+
+duplicated block id: 309
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/MainLayout.tsx (5:10)
+ - src/containers/TransactionCreateContainer.tsx (11:16)
+
+duplicated block id: 310
+size: 6 cleaned lines of code
+in 2 files:
+ - backend/comment-routes.ts (12:17)
+ - backend/transaction-routes.ts (156:161)
+
+duplicated block id: 311
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (117:122)
+ - src/components/TransactionCreateStepTwo.tsx (132:137)
+
+duplicated block id: 312
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (175:180)
+ - src/components/UserSettingsForm.tsx (116:121)
+
+duplicated block id: 313
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/UserSettingsForm.tsx (106:111)
+ - src/components/UserSettingsForm.tsx (123:128)
+
+duplicated block id: 314
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/UserSettingsForm.tsx (89:94)
+ - src/components/UserSettingsForm.tsx (106:111)
+
+duplicated block id: 315
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/UserListSearchForm.tsx (13:18)
+ - src/components/UserSettingsForm.tsx (16:21)
+
+duplicated block id: 316
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/UserSettingsForm.tsx (99:104)
+ - src/components/UserSettingsForm.tsx (133:138)
+
+duplicated block id: 317
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (117:122)
+ - src/components/UserSettingsForm.tsx (72:77)
+
+duplicated block id: 318
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/NavBar.tsx (5:10)
+ - src/containers/PrivateRoutesContainer.tsx (4:9)
+
+duplicated block id: 319
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (117:122)
+ - src/components/TransactionCreateStepTwo.tsx (154:159)
+
+duplicated block id: 320
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (117:122)
+ - src/components/UserSettingsForm.tsx (106:111)
+
+duplicated block id: 321
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionListFilters.tsx (47:52)
+ - src/components/UserListItem.tsx (24:29)
+
+duplicated block id: 322
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (124:129)
+ - src/components/UserSettingsForm.tsx (133:138)
+
+duplicated block id: 323
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (210:215)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (261:266)
+
+duplicated block id: 324
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (175:180)
+ - src/components/UserSettingsForm.tsx (99:104)
+
+duplicated block id: 325
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (29:34)
+ - src/components/SignUpForm.tsx (25:30)
+
+duplicated block id: 326
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (210:215)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (268:273)
+
+duplicated block id: 327
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (117:122)
+ - src/components/UserSettingsForm.tsx (89:94)
+
+duplicated block id: 328
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/MainLayout.tsx (64:69)
+ - src/containers/BankAccountsContainer.tsx (22:27)
+
+duplicated block id: 329
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (107:112)
+ - src/components/SignUpForm.tsx (124:129)
+
+duplicated block id: 330
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/CommentForm.tsx (19:24)
+ - src/components/SignUpForm.tsx (25:30)
+
+duplicated block id: 331
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/AlertBar.tsx (4:9)
+ - src/containers/TransactionCreateContainer.tsx (11:16)
+
+duplicated block id: 332
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (127:132)
+ - src/components/SignUpForm.tsx (107:112)
+
+duplicated block id: 333
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignInForm.tsx (44:49)
+ - src/components/UserSettingsForm.tsx (16:21)
+
+duplicated block id: 334
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (124:129)
+ - src/components/TransactionCreateStepTwo.tsx (164:169)
+
+duplicated block id: 335
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (175:180)
+ - src/components/TransactionCreateStepTwo.tsx (164:169)
+
+duplicated block id: 336
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (127:132)
+ - src/components/SignUpForm.tsx (124:129)
+
+duplicated block id: 337
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (93:98)
+ - src/components/UserSettingsForm.tsx (116:121)
+
+duplicated block id: 338
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (210:215)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (243:248)
+
+duplicated block id: 339
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (93:98)
+ - src/components/UserSettingsForm.tsx (99:104)
+
+duplicated block id: 340
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (93:98)
+ - src/components/UserSettingsForm.tsx (133:138)
+
+duplicated block id: 341
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/MainLayout.tsx (5:10)
+ - src/containers/UserOnboardingContainer.tsx (15:20)
+
+duplicated block id: 342
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepTwo.tsx (132:137)
+ - src/components/UserSettingsForm.tsx (123:128)
+
+duplicated block id: 343
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (148:153)
+ - src/components/SignUpForm.tsx (165:170)
+
+duplicated block id: 344
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (158:163)
+ - src/components/SignUpForm.tsx (175:180)
+
+duplicated block id: 345
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/MainLayout.tsx (5:10)
+ - src/containers/NotificationsContainer.tsx (4:9)
+
+duplicated block id: 346
+size: 6 cleaned lines of code
+in 2 files:
+ - src/machines/publicTransactionsMachine.ts (11:16)
+ - src/machines/usersMachine.ts (12:17)
+
+duplicated block id: 347
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignInForm.tsx (44:49)
+ - src/containers/AppGoogle.tsx (33:38)
+
+duplicated block id: 348
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (110:115)
+ - src/components/SignInForm.tsx (120:125)
+
+duplicated block id: 349
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (100:105)
+ - src/components/UserSettingsForm.tsx (123:128)
+
+duplicated block id: 350
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/AlertBar.tsx (4:9)
+ - src/containers/UserOnboardingContainer.tsx (15:20)
+
+duplicated block id: 351
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepTwo.tsx (132:137)
+ - src/components/UserSettingsForm.tsx (72:77)
+
+duplicated block id: 352
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignUpForm.tsx (175:180)
+ - src/components/UserSettingsForm.tsx (82:87)
+
+duplicated block id: 353
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (185:190)
+ - src/components/SvgUndrawTransferMoneyRywa.tsx (195:200)
+
+duplicated block id: 354
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/TransactionCreateStepTwo.tsx (154:159)
+ - src/components/UserSettingsForm.tsx (123:128)
+
+duplicated block id: 355
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/NavBar.tsx (109:114)
+ - src/containers/BankAccountsContainer.tsx (22:27)
+
+duplicated block id: 356
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/UserSettingsForm.tsx (72:77)
+ - src/components/UserSettingsForm.tsx (123:128)
+
+duplicated block id: 357
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/SignInForm.tsx (120:125)
+ - src/components/UserSettingsForm.tsx (133:138)
+
+duplicated block id: 358
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/MainLayout.tsx (5:10)
+ - src/containers/BankAccountsContainer.tsx (5:10)
+
+duplicated block id: 359
+size: 6 cleaned lines of code
+in 2 files:
+ - src/components/BankAccountForm.tsx (29:34)
+ - src/components/SignInForm.tsx (44:49)
+

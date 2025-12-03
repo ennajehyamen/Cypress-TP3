@@ -1,0 +1,116 @@
+<html>
+<head>
+    <title>export default defineConfig()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">export default defineConfig()</h3>
+<p style="margin-top: 4px">in <i>cypress.config.ts [21:114]</i></p>
+<ul>
+    <li><b>51</b> lines of code</li>
+    <li><b>2</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="ts">
+export default defineConfig({
+  projectId: &quot;7s5okt&quot;,
+  retries: {
+    runMode: 2,
+  },
+  env: {
+    apiUrl: &quot;http://localhost:3001&quot;,
+    mobileViewportWidthBreakpoint: 414,
+    coverage: false,
+    codeCoverage: {
+      url: &quot;http://localhost:3001/__coverage__&quot;,
+      exclude: &quot;cypress/**/*.*&quot;,
+    },
+    defaultPassword: process.env.SEED_DEFAULT_USER_PASSWORD,
+    paginationPageSize: process.env.PAGINATION_PAGE_SIZE,
+
+    // Auth0
+    auth0_username: process.env.AUTH0_USERNAME,
+    auth0_password: process.env.AUTH0_PASSWORD,
+    auth0_domain: process.env.VITE_AUTH0_DOMAIN,
+
+    // Okta
+    okta_username: process.env.OKTA_USERNAME,
+    okta_password: process.env.OKTA_PASSWORD,
+    okta_domain: process.env.VITE_OKTA_DOMAIN,
+    okta_client_id: process.env.VITE_OKTA_CLIENTID,
+    okta_programmatic_login: process.env.OKTA_PROGRAMMATIC_LOGIN || false,
+
+    // Amazon Cognito
+    cognito_username: process.env.AWS_COGNITO_USERNAME,
+    cognito_password: process.env.AWS_COGNITO_PASSWORD,
+    cognito_domain: process.env.AWS_COGNITO_DOMAIN,
+    cognito_programmatic_login: false,
+    awsConfig: awsConfig.default,
+
+    // Google
+    googleRefreshToken: process.env.GOOGLE_REFRESH_TOKEN,
+    googleClientId: process.env.VITE_GOOGLE_CLIENTID,
+    googleClientSecret: process.env.VITE_GOOGLE_CLIENT_SECRET,
+  },
+  component: {
+    devServer: {
+      framework: &quot;react&quot;,
+      bundler: &quot;vite&quot;,
+      viteConfig,
+    },
+    specPattern: &quot;src/**/*.cy.{js,jsx,ts,tsx}&quot;,
+    supportFile: &quot;cypress/support/component.ts&quot;,
+    setupNodeEvents(on, config) {
+      codeCoverageTask(on, config);
+      return config;
+    },
+  },
+  e2e: {
+    baseUrl: &quot;http://localhost:3000&quot;,
+    specPattern: &quot;cypress/tests/**/*.spec.{js,jsx,ts,tsx}&quot;,
+    supportFile: &quot;cypress/support/e2e.ts&quot;,
+    viewportHeight: 1000,
+    viewportWidth: 1280,
+    experimentalRunAllSpecs: true,
+    experimentalStudio: true,
+    setupNodeEvents(on, config) {
+      const testDataApiEndpoint = `${config.env.apiUrl}/testData`;
+
+      const queryDatabase = ({ entity, query }, callback) =&gt; {
+        const fetchData = async (attrs) =&gt; {
+          const { data } = await axios.get(`${testDataApiEndpoint}/${entity}`);
+          return callback(data, attrs);
+        };
+
+        return Array.isArray(query) ? Promise.map(query, fetchData) : fetchData(query);
+      };
+
+      on(&quot;task&quot;, {
+        async &quot;db:seed&quot;() {
+          // seed database with test data
+          const { data } = await axios.post(`${testDataApiEndpoint}/seed`);
+          return data;
+        },
+
+        // fetch test data from a database (MySQL, PostgreSQL, etc...)
+        &quot;filter:database&quot;(queryPayload) {
+          return queryDatabase(queryPayload, (data, attrs) =&gt; _.filter(data.results, attrs));
+        },
+        &quot;find:database&quot;(queryPayload) {
+          return queryDatabase(queryPayload, (data, attrs) =&gt; _.find(data.results, attrs));
+        },
+      });
+
+      codeCoverageTask(on, config);
+      return config;
+    },
+  },
+});
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

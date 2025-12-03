@@ -1,0 +1,85 @@
+[ {
+  "relativePath" : "cypress/tests/ui/auth.spec.ts",
+  "extension" : "ts",
+  "linesOfCode" : 143,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "cypress/tests/ui/bankaccounts.spec.ts",
+  "extension" : "ts",
+  "linesOfCode" : 136,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "cypress/tests/ui/new-transaction.spec.ts",
+  "extension" : "ts",
+  "linesOfCode" : 225,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "src/utils/__tests__/transactionUtils.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 139,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "src/__tests__/bankaccounts.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 48,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "src/__tests__/comments.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 31,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "src/__tests__/contacts.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 47,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "src/__tests__/generateSeedData.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 51,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "src/__tests__/likes.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 29,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "src/__tests__/notifications.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 120,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "src/__tests__/transactions.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 258,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+}, {
+  "relativePath" : "src/__tests__/users.test.ts",
+  "extension" : "ts",
+  "linesOfCode" : 38,
+  "unitsCount" : 0,
+  "unitsMcCabeIndexSum" : 0,
+  "linesOfCodeInUnits" : 0
+} ]

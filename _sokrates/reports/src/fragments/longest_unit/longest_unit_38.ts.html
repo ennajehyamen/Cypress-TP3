@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>uuid: v4()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">uuid: v4()</h3>
+<p style="margin-top: 4px">in <i>backend/database.ts [533:549]</i></p>
+<ul>
+    <li><b>14</b> lines of code</li>
+    <li><b>4</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="ts">
+    uuid: v4(),
+    source: transactionDetails.source,
+    amount: transactionDetails.amount * 100,
+    description: transactionDetails.description,
+    receiverId: transactionDetails.receiverId,
+    senderId: userId,
+    privacyLevel: transactionDetails.privacyLevel || sender.defaultPrivacyLevel,
+    status: TransactionStatus.pending,
+    requestStatus: transactionType === &quot;request&quot; ? TransactionRequestStatus.pending : undefined,
+    createdAt: new Date(),
+    modifiedAt: new Date(),
+  };
+
+  const savedTransaction = saveTransaction(transaction);
+
+  // if payment, debit sender's balance for payment amount
+  if (isPayment(transaction)) {
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

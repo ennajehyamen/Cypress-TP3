@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Files Explorer</title>
+    <style>
+        body {
+            font-family: Vollkorn, Ubuntu, Optima, Segoe, Segoe UI, Candara, Calibri, Arial, sans-serif;
+        }
+
+        .group {
+            display: inline-block;
+            border: 1px solid lightgrey;
+            border-radius: 6px;
+            margin: 8px 18px 8px 8px;
+            padding: 5px;
+            background-color: #f8f8f8;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .icon {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-top: 26px;
+            margin-bottom: 20px;
+            filter: grayscale(100%);
+        }
+
+        body {
+            margin: 40px;
+        }
+
+        ::placeholder {
+            color: lightgrey;
+            opacity: 1;
+        }
+
+        :-ms-input-placeholder {
+            color: lightgrey;
+        }
+
+        ::-ms-input-placeholder {
+            color: lightgrey;
+        }
+
+        td {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    </style>
+    <link rel="stylesheet" target="_blank" href="https://fonts.googleapis.com/css?family=Ubuntu">
+    <link rel="stylesheet" target="_blank" href="https://fonts.googleapis.com/css?family=Lato">
+</head>
+<body style="margin: 12px">
+
+<div style="margin: 0; color: grey">
+    <div>
+        <div style="padding: 0px; margin-bottom: 26px; white-space: nowrap">
+            Scope: &nbsp;
+            <label><input type="checkbox" id="main" checked onchange="update()"><span
+                    id="label_main">main</span></label>&nbsp;&nbsp;
+            <label><input type="checkbox" id="test" checked onchange="update()"><span
+                    id="label_test">test</span></label>&nbsp;&nbsp;
+            <label><input type="checkbox" id="generated" checked onchange="update()"><span id="label_generated">generated</span></label>&nbsp;&nbsp;
+            <label><input type="checkbox" id="build" checked onchange="update()"><span
+                    id="label_build">build</span></label>&nbsp;&nbsp;
+            <label><input type="checkbox" id="other" checked onchange="update()"><span
+                    id="label_other">other</span></label>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span id="scope-summary" style="background-color: #f8f8f8"></span>
+        </div>
+        <input id="filter" type="text" placeholder="search..."
+               style="font-size: 16px; height: 32px; width: 320px; margin-bottom: 10px"
+               onkeyup="update()">
+        <div id="search-summary" style="display: inline-block"></div>
+    </div>
+</div>
+
+<div id="content"></div>
+
+<script>
+    let importedFiles = [{"repository":"","path":"aws-exports-es5.js","scope":"main","linesOfCode":18},{"repository":"","path":"backend/app.ts","scope":"main","linesOfCode":98},{"repository":"","path":"backend/auth.ts","scope":"main","linesOfCode":50},{"repository":"","path":"backend/bankaccount-routes.ts","scope":"main","linesOfCode":43},{"repository":"","path":"backend/banktransfer-routes.ts","scope":"main","linesOfCode":10},{"repository":"","path":"backend/comment-routes.ts","scope":"main","linesOfCode":28},{"repository":"","path":"backend/contact-routes.ts","scope":"main","linesOfCode":34},{"repository":"","path":"backend/database.ts","scope":"main","linesOfCode":665},{"repository":"","path":"backend/gql-playground-routes.ts","scope":"main","linesOfCode":5},{"repository":"","path":"backend/graphql/resolvers/index.ts","scope":"main","linesOfCode":7},{"repository":"","path":"backend/graphql/resolvers/Mutation.ts","scope":"main","linesOfCode":11},{"repository":"","path":"backend/graphql/resolvers/Query.ts","scope":"main","linesOfCode":11},{"repository":"","path":"backend/graphql/schema.graphql","scope":"main","linesOfCode":18},{"repository":"","path":"backend/helpers.ts","scope":"main","linesOfCode":94},{"repository":"","path":"backend/like-routes.ts","scope":"main","linesOfCode":27},{"repository":"","path":"backend/notification-routes.ts","scope":"main","linesOfCode":40},{"repository":"","path":"backend/testdata-routes.ts","scope":"main","linesOfCode":17},{"repository":"","path":"backend/transaction-routes.ts","scope":"main","linesOfCode":145},{"repository":"","path":"backend/types.ts","scope":"main","linesOfCode":6},{"repository":"","path":"backend/user-routes.ts","scope":"main","linesOfCode":70},{"repository":"","path":"backend/validators.ts","scope":"main","linesOfCode":96},{"repository":"","path":"cypress/support/auth-provider-commands/auth0.ts","scope":"main","linesOfCode":28},{"repository":"","path":"cypress/support/auth-provider-commands/cognito.ts","scope":"main","linesOfCode":76},{"repository":"","path":"cypress/support/auth-provider-commands/okta.ts","scope":"main","linesOfCode":77},{"repository":"","path":"cypress/support/commands.ts","scope":"main","linesOfCode":309},{"repository":"","path":"cypress/support/component-index.html","scope":"main","linesOfCode":12},{"repository":"","path":"cypress/support/component.ts","scope":"main","linesOfCode":4},{"repository":"","path":"cypress/support/e2e.ts","scope":"main","linesOfCode":16},{"repository":"","path":"cypress/support/utils.ts","scope":"main","linesOfCode":3},{"repository":"","path":"cypress.config.ts","scope":"main","linesOfCode":95},{"repository":"","path":"eslint.config.mjs","scope":"main","linesOfCode":37},{"repository":"","path":"index.html","scope":"main","linesOfCode":24},{"repository":"","path":"scripts/generateSeedData.ts","scope":"main","linesOfCode":13},{"repository":"","path":"scripts/mock-aws-exports-es5.js","scope":"main","linesOfCode":18},{"repository":"","path":"scripts/mock-aws-exports.js","scope":"main","linesOfCode":18},{"repository":"","path":"scripts/seedDataUtils.ts","scope":"main","linesOfCode":505},{"repository":"","path":"scripts/testServer.ts","scope":"main","linesOfCode":10},{"repository":"","path":"src/aws-exports.js","scope":"main","linesOfCode":18},{"repository":"","path":"src/components/AlertBar.cy.tsx","scope":"main","linesOfCode":18},{"repository":"","path":"src/components/AlertBar.tsx","scope":"main","linesOfCode":41},{"repository":"","path":"src/components/BankAccountForm.tsx","scope":"main","linesOfCode":144},{"repository":"","path":"src/components/BankAccountItem.tsx","scope":"main","linesOfCode":39},{"repository":"","path":"src/components/BankAccountList.tsx","scope":"main","linesOfCode":29},{"repository":"","path":"src/components/CommentForm.tsx","scope":"main","linesOfCode":63},{"repository":"","path":"src/components/CommentList.tsx","scope":"main","linesOfCode":16},{"repository":"","path":"src/components/CommentListItem.tsx","scope":"main","linesOfCode":14},{"repository":"","path":"src/components/EmptyList.tsx","scope":"main","linesOfCode":46},{"repository":"","path":"src/components/Footer.tsx","scope":"main","linesOfCode":28},{"repository":"","path":"src/components/MainLayout.tsx","scope":"main","linesOfCode":111},{"repository":"","path":"src/components/NavBar.tsx","scope":"main","linesOfCode":178},{"repository":"","path":"src/components/NavDrawer.tsx","scope":"main","linesOfCode":273},{"repository":"","path":"src/components/NotificationList.tsx","scope":"main","linesOfCode":32},{"repository":"","path":"src/components/NotificationListItem.tsx","scope":"main","linesOfCode":109},{"repository":"","path":"src/components/PrivateRoute.tsx","scope":"main","linesOfCode":25},{"repository":"","path":"src/components/SignInForm.cy.tsx","scope":"main","linesOfCode":41},{"repository":"","path":"src/components/SignInForm.tsx","scope":"main","linesOfCode":155},{"repository":"","path":"src/components/SignUpForm.tsx","scope":"main","linesOfCode":181},{"repository":"","path":"src/components/SkeletonList.tsx","scope":"main","linesOfCode":63},{"repository":"","path":"src/components/SvgCypressLogo.tsx","scope":"main","linesOfCode":80},{"repository":"","path":"src/components/SvgUndrawNavigatorA479.tsx","scope":"main","linesOfCode":112},{"repository":"","path":"src/components/SvgUndrawPersonalFinanceTqcd.tsx","scope":"main","linesOfCode":82},{"repository":"","path":"src/components/SvgUndrawReminders697P.tsx","scope":"main","linesOfCode":126},{"repository":"","path":"src/components/SvgUndrawTransferMoneyRywa.tsx","scope":"main","linesOfCode":276},{"repository":"","path":"src/components/TransactionAmount.tsx","scope":"main","linesOfCode":42},{"repository":"","path":"src/components/TransactionContactsList.tsx","scope":"main","linesOfCode":45},{"repository":"","path":"src/components/TransactionCreateStepOne.tsx","scope":"main","linesOfCode":33},{"repository":"","path":"src/components/TransactionCreateStepThree.tsx","scope":"main","linesOfCode":134},{"repository":"","path":"src/components/TransactionCreateStepTwo.tsx","scope":"main","linesOfCode":198},{"repository":"","path":"src/components/TransactionDateRangeFilter.cy.tsx","scope":"main","linesOfCode":48},{"repository":"","path":"src/components/TransactionDateRangeFilter.tsx","scope":"main","linesOfCode":180},{"repository":"","path":"src/components/TransactionDetail.tsx","scope":"main","linesOfCode":231},{"repository":"","path":"src/components/TransactionInfiniteList.tsx","scope":"main","linesOfCode":78},{"repository":"","path":"src/components/TransactionItem.tsx","scope":"main","linesOfCode":141},{"repository":"","path":"src/components/TransactionList.tsx","scope":"main","linesOfCode":84},{"repository":"","path":"src/components/TransactionListAmountRangeFilter.tsx","scope":"main","linesOfCode":150},{"repository":"","path":"src/components/TransactionListFilters.tsx","scope":"main","linesOfCode":64},{"repository":"","path":"src/components/TransactionNavTabs.tsx","scope":"main","linesOfCode":28},{"repository":"","path":"src/components/TransactionPersonalList.tsx","scope":"main","linesOfCode":45},{"repository":"","path":"src/components/TransactionPublicList.tsx","scope":"main","linesOfCode":45},{"repository":"","path":"src/components/TransactionTitle.cy.tsx","scope":"main","linesOfCode":6},{"repository":"","path":"src/components/TransactionTitle.tsx","scope":"main","linesOfCode":69},{"repository":"","path":"src/components/UserListItem.tsx","scope":"main","linesOfCode":52},{"repository":"","path":"src/components/UserListSearchForm.tsx","scope":"main","linesOfCode":50},{"repository":"","path":"src/components/UserSettingsForm.tsx","scope":"main","linesOfCode":156},{"repository":"","path":"src/components/UsersList.tsx","scope":"main","linesOfCode":19},{"repository":"","path":"src/containers/App.tsx","scope":"main","linesOfCode":65},{"repository":"","path":"src/containers/AppAuth0.tsx","scope":"main","linesOfCode":57},{"repository":"","path":"src/containers/AppCognito.tsx","scope":"main","linesOfCode":82},{"repository":"","path":"src/containers/AppGoogle.tsx","scope":"main","linesOfCode":84},{"repository":"","path":"src/containers/AppOkta.tsx","scope":"main","linesOfCode":67},{"repository":"","path":"src/containers/BankAccountsContainer.tsx","scope":"main","linesOfCode":91},{"repository":"","path":"src/containers/NotificationsContainer.tsx","scope":"main","linesOfCode":56},{"repository":"","path":"src/containers/PrivateRoutesContainer.tsx","scope":"main","linesOfCode":87},{"repository":"","path":"src/containers/TransactionCreateContainer.tsx","scope":"main","linesOfCode":88},{"repository":"","path":"src/containers/TransactionDetailContainer.tsx","scope":"main","linesOfCode":50},{"repository":"","path":"src/containers/TransactionsContainer.cy.tsx","scope":"main","linesOfCode":48},{"repository":"","path":"src/containers/TransactionsContainer.tsx","scope":"main","linesOfCode":42},{"repository":"","path":"src/containers/UserOnboardingContainer.tsx","scope":"main","linesOfCode":128},{"repository":"","path":"src/containers/UserSettingsContainer.tsx","scope":"main","linesOfCode":47},{"repository":"","path":"src/index.auth0.tsx","scope":"main","linesOfCode":45},{"repository":"","path":"src/index.cognito.tsx","scope":"main","linesOfCode":35},{"repository":"","path":"src/index.google.tsx","scope":"main","linesOfCode":35},{"repository":"","path":"src/index.okta.tsx","scope":"main","linesOfCode":51},{"repository":"","path":"src/index.tsx","scope":"main","linesOfCode":47},{"repository":"","path":"src/machines/authMachine.ts","scope":"main","linesOfCode":254},{"repository":"","path":"src/machines/bankAccountsMachine.ts","scope":"main","linesOfCode":72},{"repository":"","path":"src/machines/contactsTransactionsMachine.ts","scope":"main","linesOfCode":15},{"repository":"","path":"src/machines/createTransactionMachine.ts","scope":"main","linesOfCode":80},{"repository":"","path":"src/machines/dataMachine.ts","scope":"main","linesOfCode":127},{"repository":"","path":"src/machines/drawerMachine.ts","scope":"main","linesOfCode":46},{"repository":"","path":"src/machines/notificationsMachine.ts","scope":"main","linesOfCode":23},{"repository":"","path":"src/machines/personalTransactionsMachine.ts","scope":"main","linesOfCode":15},{"repository":"","path":"src/machines/publicTransactionsMachine.ts","scope":"main","linesOfCode":15},{"repository":"","path":"src/machines/snackbarMachine.ts","scope":"main","linesOfCode":53},{"repository":"","path":"src/machines/transactionDetailMachine.ts","scope":"main","linesOfCode":36},{"repository":"","path":"src/machines/transactionFiltersMachine.ts","scope":"main","linesOfCode":100},{"repository":"","path":"src/machines/userOnboardingMachine.ts","scope":"main","linesOfCode":47},{"repository":"","path":"src/machines/usersMachine.ts","scope":"main","linesOfCode":16},{"repository":"","path":"src/models/bankaccount.ts","scope":"main","linesOfCode":15},{"repository":"","path":"src/models/banktransfer.ts","scope":"main","linesOfCode":16},{"repository":"","path":"src/models/comment.ts","scope":"main","linesOfCode":9},{"repository":"","path":"src/models/contact.ts","scope":"main","linesOfCode":8},{"repository":"","path":"src/models/db-schema.ts","scope":"main","linesOfCode":18},{"repository":"","path":"src/models/index.ts","scope":"main","linesOfCode":8},{"repository":"","path":"src/models/like.ts","scope":"main","linesOfCode":8},{"repository":"","path":"src/models/notification.ts","scope":"main","linesOfCode":60},{"repository":"","path":"src/models/transaction.ts","scope":"main","linesOfCode":93},{"repository":"","path":"src/models/user.ts","scope":"main","linesOfCode":28},{"repository":"","path":"src/setup-tests.js","scope":"main","linesOfCode":7},{"repository":"","path":"src/setupProxy.js","scope":"main","linesOfCode":11},{"repository":"","path":"src/utils/asyncUtils.ts","scope":"main","linesOfCode":17},{"repository":"","path":"src/utils/historyUtils.ts","scope":"main","linesOfCode":2},{"repository":"","path":"src/utils/portUtils.ts","scope":"main","linesOfCode":22},{"repository":"","path":"src/utils/transactionUtils.ts","scope":"main","linesOfCode":182},{"repository":"","path":"vite.config.ts","scope":"main","linesOfCode":43},{"repository":"","path":"vite.cypress.config.ts","scope":"main","linesOfCode":15},{"repository":"","path":"cypress/tests/ui/auth.spec.ts","scope":"test","linesOfCode":143},{"repository":"","path":"cypress/tests/ui/bankaccounts.spec.ts","scope":"test","linesOfCode":136},{"repository":"","path":"cypress/tests/ui/new-transaction.spec.ts","scope":"test","linesOfCode":225},{"repository":"","path":"src/utils/__tests__/transactionUtils.test.ts","scope":"test","linesOfCode":139},{"repository":"","path":"src/__tests__/bankaccounts.test.ts","scope":"test","linesOfCode":48},{"repository":"","path":"src/__tests__/comments.test.ts","scope":"test","linesOfCode":31},{"repository":"","path":"src/__tests__/contacts.test.ts","scope":"test","linesOfCode":47},{"repository":"","path":"src/__tests__/generateSeedData.test.ts","scope":"test","linesOfCode":51},{"repository":"","path":"src/__tests__/likes.test.ts","scope":"test","linesOfCode":29},{"repository":"","path":"src/__tests__/notifications.test.ts","scope":"test","linesOfCode":120},{"repository":"","path":"src/__tests__/transactions.test.ts","scope":"test","linesOfCode":258},{"repository":"","path":"src/__tests__/users.test.ts","scope":"test","linesOfCode":38},{"repository":"","path":"amplify/backend/auth/cypressrealworldapp3a466349/cli-inputs.json","scope":"other","linesOfCode":67},{"repository":"","path":"amplify/backend/backend-config.json","scope":"other","linesOfCode":30},{"repository":"","path":"cypress/fixtures/public-transactions.json","scope":"other","linesOfCode":70},{"repository":"","path":"cypress/tsconfig.json","scope":"other","linesOfCode":14},{"repository":"","path":"data/empty-seed.json","scope":"other","linesOfCode":10},{"repository":"","path":"git-history.txt","scope":"other","linesOfCode":1},{"repository":"","path":"package.json","scope":"other","linesOfCode":234},{"repository":"","path":"patches/react-virtualized+9.22.5.patch","scope":"other","linesOfCode":12},{"repository":"","path":"public/manifest.json","scope":"other","linesOfCode":25},{"repository":"","path":"public/robots.txt","scope":"other","linesOfCode":2},{"repository":"","path":"README.md","scope":"other","linesOfCode":1},{"repository":"","path":"renovate.json","scope":"other","linesOfCode":132},{"repository":"","path":"sandbox.config.json","scope":"other","linesOfCode":9},{"repository":"","path":"scripts/tsconfig.json","scope":"other","linesOfCode":9},{"repository":"","path":"src/components/oldStylesTransactionRangePopover.txt","scope":"other","linesOfCode":1},{"repository":"","path":"tsconfig.json","scope":"other","linesOfCode":29},{"repository":"","path":"tsconfig.tsnode.json","scope":"other","linesOfCode":8}];
+
+    importedFiles.forEach(file => {
+        let key = file.scope.replace('.txt', '').replace('aspect_', '').trim().toLowerCase();
+        if (key == 'build_and_deployment') {
+            key = 'build';
+        }
+        if (!document.getElementById(key)) {
+            key = 'other';
+        }
+        file.scope = key;
+    });
+
+
+    const importedFileMap = {};
+
+    let files = [];
+
+    importedFiles.forEach(file => {
+        const key = file.repository + '/' + file.path;
+        if (!importedFileMap[key]) {
+            importedFileMap[key] = true;
+            files.push(file);
+        }
+    });
+
+    function getScopes(files) {
+        const scopeMap = {};
+        const scopes = [];
+        files.forEach(file => {
+            const key = file.scope;
+            if (!scopeMap[key]) {
+                scopeMap[key] = {scope: key, filesCount: 0};
+                scopes.push(scopeMap[key]);
+            }
+
+            scopeMap[key].filesCount += 1;
+        });
+
+        scopes.sort((a, b) => b.filesCount - a.filesCount);
+        return scopes;
+    }
+
+
+    files = files.sort((a, b) => b.linesOfCode - a.linesOfCode);
+
+    function getReposCount(files) {
+        const allReposMap = {};
+        let reposCount = 0;
+
+        files.forEach(file => {
+            if (file.repository && !allReposMap[file.repository]) {
+                allReposMap[file.repository] = true;
+                reposCount++;
+            }
+        });
+
+        return reposCount;
+    }
+
+    function getLoc(files) {
+        return files.map(item => item.linesOfCode).reduce((a, b) => a + b, 0);
+    }
+
+    let lastSort = 'loc';
+
+    function update(sortBy) {
+        if (!sortBy) sortBy = lastSort || 'loc';
+        lastSort = sortBy;
+        files = files.sort((a, b) => {
+            if (sortBy === 'name') {
+                return (a.repository + '/' + a.path).localeCompare(b.repository + '/' + b.path);
+            } else {
+                return b.linesOfCode - a.linesOfCode;
+            }
+        });
+        const filter = document.getElementById('filter').value.toLowerCase().trim();
+        let html = '';
+
+        const scopedData = files
+            .filter(item => document.getElementById(item.scope).checked);
+
+        let scopedCount = scopedData.length;
+        let scopedLoc = scopedData.map(item => item.linesOfCode).reduce((a, b) => a + b, 0);
+        const scopedReposCount = getReposCount(scopedData)
+
+        const scopedRepoInfo = scopedReposCount ? ', ' + scopedReposCount + ' repositories' : '';
+        let totalReposCount = getReposCount(files);
+        const totalRepoInfo = totalReposCount ? ', ' + totalReposCount + ' repositories' : '';
+        document.getElementById('scope-summary').innerHTML = '[' + scopedCount.toLocaleString('en-US') + ' ' + (scopedCount === 1 ? 'file' : 'files') + '; ' + scopedLoc.toLocaleString('en-US') + ' LOC' + scopedRepoInfo + '] of ' + '[' + files.length.toLocaleString('en-US') + ' ' + (files.length === 1 ? 'file' : 'files') + '; ' + getLoc(files).toLocaleString('en-US') + ' LOC' + totalRepoInfo + ']';
+
+        const filteredData = scopedData
+            .filter(item => item.path && (!filter || (item.repository + ' ' + item.path).toLowerCase().includes(filter)));
+
+        let maxLoc = 1;
+        filteredData.forEach(item => maxLoc = Math.max(maxLoc, item.linesOfCode));
+
+        let filteredCount = filteredData.length;
+        let filteredLoc = filteredData.map(item => item.linesOfCode).reduce((a, b) => a + b, 0);
+        const filteredReposCount = getReposCount(filteredData)
+
+        const repoInfo = filteredReposCount ? ', ' + filteredReposCount + ' repositories' : '';
+
+        document.getElementById('search-summary').innerHTML = ' = ' + filteredCount.toLocaleString('en-US') + ' ' + (filteredCount === 1 ? 'file' : 'files') + ' (' + filteredLoc.toLocaleString('en-US') + ' LOC' + repoInfo + ')';
+
+        if (scopedLoc > filteredLoc) {
+            html += '<div style="width: 400px; margin: 0; padding: 0; white-space: nowrap">';
+            const w1count = Math.round(100 * filteredCount / scopedCount);
+            const w2count = 100 - w1count;
+            html += '<div style="margin: 0; display: inline-block; width: ' + w1count + '%; background-color: #303030; height: 12px"></div>';
+            html += '<div style="margin: 0; display: inline-block; width: ' + w2count + '%; background-color: #c0c0c0; height: 12px"></div>';
+            html += '<div style="margin: 0; display: inline-block; font-size: 80%; width: 100px; color: grey; vertical-align: top">&nbsp;' + (filteredLoc == 0 || w1count > 0 ? w1count : '<1') + '% of scoped files</div>';
+            html += '</div>';
+            if (filteredReposCount) {
+                html += '<div style="width: 400px; margin: 0; padding: 0; white-space: nowrap">';
+                const w1repo = Math.round(100 * filteredReposCount / scopedReposCount);
+                const w2repo = 100 - w1repo;
+                html += '<div style="margin: 0; display: inline-block; width: ' + w1repo + '%; background-color: #303030; height: 12px"></div>';
+                html += '<div style="margin: 0; display: inline-block; width: ' + w2repo + '%; background-color: #c0c0c0; height: 12px"></div>';
+                html += '<div style="margin: 0; display: inline-block; font-size: 80%; width: 100px; color: grey; vertical-align: top">&nbsp;' + (filteredLoc == 0 || w1repo > 0 ? w1repo : '<1') + '% of scoped repositories</div>';
+                html += '</div>';
+            }
+            html += '<div style="width: 400px; margin: 0; padding: 0; white-space: nowrap">';
+            const w1loc = Math.round(100 * filteredLoc / scopedLoc);
+            const w2loc = 100 - w1loc;
+            html += '<div style="margin: 0; display: inline-block; width: ' + w1loc + '%; background-color: skyblue; height: 12px"></div>';
+            html += '<div style="margin: 0; display: inline-block; width: ' + w2loc + '%; background-color: #c0c0c0; height: 12px"></div>';
+            html += '<div style="margin: 0; display: inline-block; font-size: 80%; width: 100px; color: grey; vertical-align: top">&nbsp;' + (filteredLoc == 0 || w1loc > 0 ? w1loc : '<1') + '% of scoped LOC</div>';
+            html += '</div>';
+            html += '<div style="width: 400px; margin: 0; padding: 0; white-space: nowrap">';
+
+        }
+
+        html += '<table style="width: 100%">';
+
+        html += '<tr style="color: #777777; background-color: #f8f8f8">';
+        if (filteredReposCount) {
+            html += '<td style="text-align: left">repo</td>';
+        }
+        html += '<td style="text-align: left"><a href="#" onclick="update(\'name\');">file</a></td>';
+        html += '<td style="text-align: left"><a href="#" onclick="update(\'loc\');">&nbsp;LOC</a></td>';
+        html += '<td style="text-align: center">scope</td>';
+        html += '</tr>';
+
+        let displayCounter = 0;
+
+        filteredData.forEach(item => {
+            if (displayCounter > 1000) {
+                return;
+            }
+            displayCounter++;
+            html += '<tr>';
+            if (filteredReposCount) {
+                html += '<td>';
+                html += item.repository;
+                html += '</td>';
+            }
+            html += '<td>';
+            const paths = item.path.split('/');
+            const fileName = paths[paths.length - 1];
+            const folder = paths.slice(0, paths.length - 1).join('/');
+            html += '<span style="color: #afafaf">' + (folder + folder ? folder + '/' : '') + '</span>';
+            html += '<span style="color: black; font-weight: bold">' + fileName + '</span>';
+            html += '</td>';
+
+            let scope = item.scope;
+            html += '<td style="text-align: left; padding-right: 5px; padding-left: 5px">';
+            html += '<div style=" border-radius: 4px; padding 2px;">';
+            const w = maxLoc > 0 ? Math.round(50 * item.linesOfCode / maxLoc + 1) : 0;
+            if (scope === 'main') {
+                html += '<div style="vertical-align: top; display: inline-block; height: 16px; background-color: blue; width: ' + w + 'px"></div>';
+            } else {
+                html += '<div style="vertical-align: top; display: inline-block; height: 16px; background-color: lightgrey; width: ' + w + 'px"></div>';
+            }
+            html += '<div style="margin-left: 2px; vertical-align: top; display: inline-block; font-size: 80%">' + item.linesOfCode.toLocaleString("en-US") + '</div>';
+            html += '</div>';
+            html += '</td>';
+            html += '<td style="text-align: center; padding-right: 5px; padding-left: 5px;">';
+            if (scope === 'main') {
+                html += '<div style="border: 1px solid #d0d0d0; border-radius: 4px; padding 2px; color: blue">';
+            } else {
+                html += '<div style="border: 1px solid #d0d0d0; background-color: #f4f4f4; border-radius: 4px; padding 2px;">';
+            }
+            html += scope;
+            html += '</div>';
+            html += '</td>';
+            html += '<td style="text-align: left; padding-right: 5px; padding-left: 5px;">';
+            html += '</td>';
+            html += '</tr>';
+        });
+
+        html += '</table>';
+
+        document.getElementById('content').innerHTML = html;
+    }
+
+    update();
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>src/components/TransactionPersonalList.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/TransactionPersonalList.tsx (<b>45</b> lines of code) (<a href="TransactionPersonalList.tsx">raw</a>):</h3>
+<div id="editor">import React, { useEffect, ReactNode } from &quot;react&quot;;
+import { useMachine } from &quot;@xstate/react&quot;;
+import {
+  TransactionPagination,
+  TransactionResponseItem,
+  TransactionDateRangePayload,
+  TransactionAmountRangePayload,
+} from &quot;../models&quot;;
+import TransactionList from &quot;./TransactionList&quot;;
+import { personalTransactionsMachine } from &quot;../machines/personalTransactionsMachine&quot;;
+
+export interface TransactionPersonalListProps {
+  filterComponent: ReactNode;
+  dateRangeFilters: TransactionDateRangePayload;
+  amountRangeFilters: TransactionAmountRangePayload;
+}
+
+const TransactionPersonalList: React.FC&lt;TransactionPersonalListProps&gt; = ({
+  filterComponent,
+  dateRangeFilters,
+  amountRangeFilters,
+}) =&gt; {
+  const [current, send, personalTransactionService] = useMachine(personalTransactionsMachine);
+  const { pageData, results } = current.context;
+
+  // @ts-ignore
+  if (window.Cypress) {
+    // @ts-ignore
+    window.personalTransactionService = personalTransactionService;
+  }
+
+  useEffect(() =&gt; {
+    send(&quot;FETCH&quot;, { ...dateRangeFilters, ...amountRangeFilters });
+  }, [send, dateRangeFilters, amountRangeFilters]);
+
+  const loadNextPage = (page: number) =&gt;
+    send(&quot;FETCH&quot;, { page, ...dateRangeFilters, ...amountRangeFilters });
+
+  return (
+    &lt;&gt;
+      &lt;TransactionList
+        filterComponent={filterComponent}
+        header=&quot;Personal&quot;
+        transactions={results as TransactionResponseItem[]}
+        isLoading={current.matches(&quot;loading&quot;)}
+        loadNextPage={loadNextPage}
+        pagination={pageData as TransactionPagination}
+        showCreateButton={true}
+      /&gt;
+    &lt;/&gt;
+  );
+};
+
+export default TransactionPersonalList;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

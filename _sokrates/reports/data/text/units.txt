@@ -1,0 +1,1206 @@
+id: 1
+unit: function SvgUndrawReminders697P()
+file: src/components/SvgUndrawReminders697P.tsx
+start line: 3
+end line: 126
+size: 124 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 2
+unit: function SvgUndrawNavigatorA479()
+file: src/components/SvgUndrawNavigatorA479.tsx
+start line: 3
+end line: 112
+size: 110 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 3
+unit: function SvgUndrawPersonalFinanceTqcd()
+file: src/components/SvgUndrawPersonalFinanceTqcd.tsx
+start line: 3
+end line: 82
+size: 80 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 4
+unit: function SvgCypressLogo()
+file: src/components/SvgCypressLogo.tsx
+start line: 3
+end line: 80
+size: 78 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 5
+unit: contactsTransactions: getTransactionsForUserContacts()
+file: backend/database.ts
+start line: 483
+end line: 552
+size: 59 LOC
+McCabe index: 5
+number of parameters: 1
+
+id: 6
+unit: export default defineConfig()
+file: cypress.config.ts
+start line: 21
+end line: 114
+size: 51 LOC
+McCabe index: 2
+number of parameters: 36
+
+id: 7
+unit: dateRangeStart: localDateToUTCISOString()
+file: src/components/TransactionDateRangeFilter.tsx
+start line: 53
+end line: 106
+size: 48 LOC
+McCabe index: 6
+number of parameters: 1
+
+id: 8
+unit: dateRangeEnd: localDateToUTCISOString()
+file: src/components/TransactionDateRangeFilter.tsx
+start line: 54
+end line: 106
+size: 47 LOC
+McCabe index: 6
+number of parameters: 1
+
+id: 9
+unit: id: shortid()
+file: backend/database.ts
+start line: 181
+end line: 235
+size: 40 LOC
+McCabe index: 2
+number of parameters: 0
+
+id: 10
+unit: uuid: v4()
+file: backend/database.ts
+start line: 182
+end line: 235
+size: 39 LOC
+McCabe index: 2
+number of parameters: 0
+
+id: 11
+unit: export default defineConfig()
+file: vite.config.ts
+start line: 6
+end line: 46
+size: 39 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 12
+unit: id: shortid()
+file: scripts/seedDataUtils.ts
+start line: 434
+end line: 473
+size: 35 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 13
+unit: export function RangeCalendar()
+file: src/components/TransactionDateRangeFilter.tsx
+start line: 161
+end line: 198
+size: 35 LOC
+McCabe index: 3
+number of parameters: 6
+
+id: 14
+unit: amountMin: padAmountWithZeros()
+file: src/components/TransactionListAmountRangeFilter.tsx
+start line: 53
+end line: 88
+size: 34 LOC
+McCabe index: 2
+number of parameters: 1
+
+id: 15
+unit: amountMax: padAmountWithZeros()
+file: src/components/TransactionListAmountRangeFilter.tsx
+start line: 54
+end line: 88
+size: 33 LOC
+McCabe index: 2
+number of parameters: 1
+
+id: 16
+unit: balance: Number()
+file: backend/database.ts
+start line: 189
+end line: 235
+size: 32 LOC
+McCabe index: 2
+number of parameters: 1
+
+id: 17
+unit: id: shortid()
+file: backend/database.ts
+start line: 308
+end line: 354
+size: 31 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 18
+unit: uuid: v4()
+file: backend/database.ts
+start line: 309
+end line: 354
+size: 30 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 19
+unit: publicTransactions: getNonContactPublicTransactionsForApi()
+file: backend/database.ts
+start line: 484
+end line: 552
+size: 29 LOC
+McCabe index: 2
+number of parameters: 1
+
+id: 20
+unit: uuid: v4()
+file: backend/database.ts
+start line: 269
+end line: 307
+size: 25 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 21
+unit: export default function Footer()
+file: src/components/Footer.tsx
+start line: 6
+end line: 30
+size: 25 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 22
+unit: setupNodeEvents()
+file: cypress.config.ts
+start line: 82
+end line: 112
+size: 24 LOC
+McCabe index: 2
+number of parameters: 2
+
+id: 23
+unit: uuid: v4()
+file: backend/database.ts
+start line: 237
+end line: 267
+size: 20 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 24
+unit: function NumberFormatCustom()
+file: src/components/TransactionCreateStepTwo.tsx
+start line: 46
+end line: 66
+size: 20 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 25
+unit: id: shortid()
+file: scripts/seedDataUtils.ts
+start line: 336
+end line: 356
+size: 19 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 26
+unit: id: shortid()
+file: backend/database.ts
+start line: 709
+end line: 728
+size: 18 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 27
+unit: id: shortid()
+file: backend/database.ts
+start line: 729
+end line: 748
+size: 18 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 28
+unit: id: shortid()
+file: backend/database.ts
+start line: 749
+end line: 769
+size: 18 LOC
+McCabe index: 3
+number of parameters: 0
+
+id: 29
+unit: id: shortid()
+file: scripts/seedDataUtils.ts
+start line: 142
+end line: 162
+size: 18 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 30
+unit: id: shortid()
+file: scripts/seedDataUtils.ts
+start line: 521
+end line: 539
+size: 18 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 31
+unit: uuid: v4()
+file: backend/database.ts
+start line: 710
+end line: 728
+size: 17 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 32
+unit: uuid: v4()
+file: backend/database.ts
+start line: 730
+end line: 748
+size: 17 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 33
+unit: uuid: v4()
+file: backend/database.ts
+start line: 750
+end line: 769
+size: 17 LOC
+McCabe index: 3
+number of parameters: 0
+
+id: 34
+unit: mutation CreateBankAccount()
+file: src/machines/bankAccountsMachine.ts
+start line: 30
+end line: 45
+size: 16 LOC
+McCabe index: 1
+number of parameters: 3
+
+id: 35
+unit: id: shortid()
+file: backend/database.ts
+start line: 532
+end line: 549
+size: 15 LOC
+McCabe index: 4
+number of parameters: 0
+
+id: 36
+unit: id: shortid()
+file: backend/database.ts
+start line: 656
+end line: 675
+size: 15 LOC
+McCabe index: 3
+number of parameters: 0
+
+id: 37
+unit: export function localDateToUTCISOString()
+file: src/utils/transactionUtils.ts
+start line: 220
+end line: 234
+size: 15 LOC
+McCabe index: 2
+number of parameters: 1
+
+id: 38
+unit: uuid: v4()
+file: backend/database.ts
+start line: 533
+end line: 549
+size: 14 LOC
+McCabe index: 4
+number of parameters: 0
+
+id: 39
+unit: id: shortid()
+file: backend/database.ts
+start line: 610
+end line: 628
+size: 14 LOC
+McCabe index: 3
+number of parameters: 0
+
+id: 40
+unit: uuid: v4()
+file: backend/database.ts
+start line: 657
+end line: 675
+size: 14 LOC
+McCabe index: 3
+number of parameters: 0
+
+id: 41
+unit: id: shortid()
+file: scripts/seedDataUtils.ts
+start line: 404
+end line: 418
+size: 14 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 42
+unit: id: shortid()
+file: scripts/seedDataUtils.ts
+start line: 419
+end line: 433
+size: 14 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 43
+unit: amount: getFakeAmount()
+file: scripts/seedDataUtils.ts
+start line: 525
+end line: 539
+size: 14 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 44
+unit: uuid: v4()
+file: backend/database.ts
+start line: 611
+end line: 628
+size: 13 LOC
+McCabe index: 3
+number of parameters: 0
+
+id: 45
+unit: id: shortid()
+file: scripts/seedDataUtils.ts
+start line: 374
+end line: 385
+size: 11 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 46
+unit: bankName: string()
+file: src/components/BankAccountForm.tsx
+start line: 10
+end line: 22
+size: 11 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 47
+unit: function PrivateRoute()
+file: src/components/PrivateRoute.tsx
+start line: 8
+end line: 27
+size: 11 LOC
+McCabe index: 1
+number of parameters: 3
+
+id: 48
+unit: firstName: string()
+file: src/components/SignUpForm.tsx
+start line: 47
+end line: 58
+size: 11 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 49
+unit: function rowRenderer()
+file: src/components/TransactionInfiniteList.tsx
+start line: 54
+end line: 65
+size: 11 LOC
+McCabe index: 2
+number of parameters: 3
+
+id: 50
+unit: performLogin: async()
+file: src/machines/authMachine.ts
+start line: 156
+end line: 166
+size: 11 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 51
+unit: contacts: randomContactsForUser()
+file: scripts/seedDataUtils.ts
+start line: 164
+end line: 175
+size: 10 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 52
+unit: balanceAtCompletion: getFakeAmount()
+file: scripts/seedDataUtils.ts
+start line: 241
+end line: 251
+size: 10 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 53
+unit: routingNumber: string()
+file: src/components/BankAccountForm.tsx
+start line: 11
+end line: 22
+size: 10 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 54
+unit: lastName: string()
+file: src/components/SignUpForm.tsx
+start line: 48
+end line: 58
+size: 10 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 55
+unit: updateData: async()
+file: src/machines/transactionDetailMachine.ts
+start line: 27
+end line: 36
+size: 10 LOC
+McCabe index: 3
+number of parameters: 2
+
+id: 56
+unit: username: string()
+file: src/components/SignUpForm.tsx
+start line: 49
+end line: 58
+size: 9 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 57
+unit: firstName: string()
+file: src/components/UserSettingsForm.tsx
+start line: 35
+end line: 44
+size: 9 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 58
+unit: deleteData: async()
+file: src/machines/bankAccountsMachine.ts
+start line: 58
+end line: 66
+size: 9 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 59
+unit: createData: async()
+file: src/machines/bankAccountsMachine.ts
+start line: 67
+end line: 75
+size: 9 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 60
+unit: fetchData: async()
+file: src/machines/transactionDetailMachine.ts
+start line: 8
+end line: 17
+size: 9 LOC
+McCabe index: 3
+number of parameters: 2
+
+id: 61
+unit: createData: async()
+file: src/machines/transactionDetailMachine.ts
+start line: 18
+end line: 26
+size: 9 LOC
+McCabe index: 2
+number of parameters: 2
+
+id: 62
+unit: module.exports = function()
+file: src/setupProxy.js
+start line: 4
+end line: 12
+size: 9 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 63
+unit: contactsTransactions: getTransactionsForUserContacts()
+file: backend/database.ts
+start line: 475
+end line: 482
+size: 8 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 64
+unit: consoleProps()
+file: cypress/support/commands.ts
+start line: 73
+end line: 80
+size: 8 LOC
+McCabe index: 2
+number of parameters: 0
+
+id: 65
+unit: isLoggedIn ?()
+file: src/components/PrivateRoute.tsx
+start line: 13
+end line: 21
+size: 8 LOC
+McCabe index: 2
+number of parameters: 1
+
+id: 66
+unit: password: string()
+file: src/components/SignUpForm.tsx
+start line: 50
+end line: 58
+size: 8 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 67
+unit: lastName: string()
+file: src/components/UserSettingsForm.tsx
+start line: 36
+end line: 44
+size: 8 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 68
+unit: updateProfile: async()
+file: src/machines/authMachine.ts
+start line: 215
+end line: 222
+size: 8 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 69
+unit: updateData: async()
+file: src/machines/notificationsMachine.ts
+start line: 15
+end line: 22
+size: 8 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 70
+unit: fetchData: async()
+file: src/machines/usersMachine.ts
+start line: 8
+end line: 15
+size: 8 LOC
+McCabe index: 3
+number of parameters: 2
+
+id: 71
+unit: publicTransactions: flow()
+file: backend/database.ts
+start line: 476
+end line: 482
+size: 7 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 72
+unit: listBankAccount()
+file: backend/graphql/resolvers/Query.ts
+start line: 4
+end line: 13
+size: 7 LOC
+McCabe index: 2
+number of parameters: 3
+
+id: 73
+unit: consoleProps()
+file: cypress/support/commands.ts
+start line: 148
+end line: 155
+size: 7 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 74
+unit: avatar: getUserAvatar()
+file: scripts/seedDataUtils.ts
+start line: 126
+end line: 132
+size: 7 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 75
+unit: accountNumber: string()
+file: src/components/BankAccountForm.tsx
+start line: 14
+end line: 22
+size: 7 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 76
+unit: username: string()
+file: src/components/SignInForm.tsx
+start line: 27
+end line: 35
+size: 7 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 77
+unit: email: string()
+file: src/components/UserSettingsForm.tsx
+start line: 37
+end line: 44
+size: 7 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 78
+unit: fetchData: async()
+file: src/machines/bankAccountsMachine.ts
+start line: 50
+end line: 57
+size: 7 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 79
+unit: fetchData: async()
+file: src/machines/contactsTransactionsMachine.ts
+start line: 8
+end line: 14
+size: 7 LOC
+McCabe index: 2
+number of parameters: 2
+
+id: 80
+unit: fetchData: async()
+file: src/machines/notificationsMachine.ts
+start line: 8
+end line: 14
+size: 7 LOC
+McCabe index: 3
+number of parameters: 2
+
+id: 81
+unit: fetchData: async()
+file: src/machines/personalTransactionsMachine.ts
+start line: 8
+end line: 14
+size: 7 LOC
+McCabe index: 2
+number of parameters: 2
+
+id: 82
+unit: fetchData: async()
+file: src/machines/publicTransactionsMachine.ts
+start line: 8
+end line: 14
+size: 7 LOC
+McCabe index: 2
+number of parameters: 2
+
+id: 83
+unit: consoleProps()
+file: cypress/support/commands.ts
+start line: 245
+end line: 250
+size: 6 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 84
+unit: consoleProps()
+file: cypress/support/commands.ts
+start line: 273
+end line: 278
+size: 6 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 85
+unit: id: shortid()
+file: scripts/seedDataUtils.ts
+start line: 227
+end line: 232
+size: 6 LOC
+McCabe index: 2
+number of parameters: 0
+
+id: 86
+unit: password: string()
+file: src/components/SignInForm.tsx
+start line: 28
+end line: 35
+size: 6 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 87
+unit: amount: number()
+file: src/components/TransactionCreateStepTwo.tsx
+start line: 35
+end line: 41
+size: 6 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 88
+unit: phoneNumber: string()
+file: src/components/UserSettingsForm.tsx
+start line: 38
+end line: 44
+size: 6 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 89
+unit: performSignup: async()
+file: src/machines/authMachine.ts
+start line: 150
+end line: 155
+size: 6 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 90
+unit: createData: async()
+file: src/machines/createTransactionMachine.ts
+start line: 19
+end line: 24
+size: 6 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 91
+unit: setResults: assign()
+file: src/machines/dataMachine.ts
+start line: 114
+end line: 119
+size: 6 LOC
+McCabe index: 4
+number of parameters: 2
+
+id: 92
+unit: consoleProps()
+file: cypress/support/commands.ts
+start line: 108
+end line: 112
+size: 5 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 93
+unit: confirmPassword: string()
+file: src/components/SignUpForm.tsx
+start line: 53
+end line: 58
+size: 5 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 94
+unit: description: string()
+file: src/components/TransactionCreateStepTwo.tsx
+start line: 36
+end line: 41
+size: 5 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 95
+unit: redirectHomeAfterLogin: async()
+file: src/machines/authMachine.ts
+start line: 241
+end line: 246
+size: 5 LOC
+McCabe index: 2
+number of parameters: 2
+
+id: 96
+unit: contactsTransactions: getTransactionsForUserContacts()
+file: backend/database.ts
+start line: 465
+end line: 469
+size: 4 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 97
+unit: validate()
+file: cypress/support/auth-provider-commands/cognito.ts
+start line: 91
+end line: 104
+size: 4 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 98
+unit: validate()
+file: cypress/support/auth-provider-commands/okta.ts
+start line: 90
+end line: 99
+size: 4 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 99
+unit: setupNodeEvents()
+file: cypress.config.ts
+start line: 69
+end line: 72
+size: 4 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 100
+unit: id: shortid()
+file: scripts/seedDataUtils.ts
+start line: 182
+end line: 185
+size: 4 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 101
+unit: content: string()
+file: src/components/CommentForm.tsx
+start line: 8
+end line: 13
+size: 4 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 102
+unit: paper: clsx()
+file: src/components/NavDrawer.tsx
+start line: 211
+end line: 214
+size: 4 LOC
+McCabe index: 2
+number of parameters: 2
+
+id: 103
+unit: senderId: string()
+file: src/components/TransactionCreateStepTwo.tsx
+start line: 37
+end line: 41
+size: 4 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 104
+unit: getUserProfile: async()
+file: src/machines/authMachine.ts
+start line: 182
+end line: 185
+size: 4 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 105
+unit: performLogout: async()
+file: src/machines/authMachine.ts
+start line: 223
+end line: 226
+size: 4 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 106
+unit: onSuccess: assign()
+file: src/machines/authMachine.ts
+start line: 253
+end line: 256
+size: 4 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 107
+unit: setSenderAndReceiver: assign()
+file: src/machines/createTransactionMachine.ts
+start line: 75
+end line: 78
+size: 4 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 108
+unit: setSnackbar: assign()
+file: src/machines/snackbarMachine.ts
+start line: 47
+end line: 50
+size: 4 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 109
+unit: resetSnackbar: assign()
+file: src/machines/snackbarMachine.ts
+start line: 51
+end line: 54
+size: 4 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 110
+unit: setDateRange: assign()
+file: src/machines/transactionFiltersMachine.ts
+start line: 86
+end line: 89
+size: 4 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 111
+unit: resetDateRange: assign()
+file: src/machines/transactionFiltersMachine.ts
+start line: 90
+end line: 93
+size: 4 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 112
+unit: setAmountRange: assign()
+file: src/machines/transactionFiltersMachine.ts
+start line: 94
+end line: 97
+size: 4 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 113
+unit: resetAmountRange: assign()
+file: src/machines/transactionFiltersMachine.ts
+start line: 98
+end line: 101
+size: 4 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 114
+unit: export function isoStringToLocalMidnightStart()
+file: src/utils/transactionUtils.ts
+start line: 201
+end line: 204
+size: 4 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 115
+unit: export function isoStringToLocalMidnightEnd()
+file: src/utils/transactionUtils.ts
+start line: 206
+end line: 209
+size: 4 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 116
+unit: export function isoStringToLocalDateFull()
+file: src/utils/transactionUtils.ts
+start line: 211
+end line: 214
+size: 4 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 117
+unit: context: async()
+file: backend/app.ts
+start line: 106
+end line: 108
+size: 3 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 118
+unit: publicTransactions: getNonContactPublicTransactionsForApi()
+file: backend/database.ts
+start line: 466
+end line: 469
+size: 3 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 119
+unit: consoleProps()
+file: cypress/support/commands.ts
+start line: 213
+end line: 215
+size: 3 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 120
+unit: consoleProps()
+file: cypress/support/commands.ts
+start line: 339
+end line: 341
+size: 3 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 121
+unit: amount: getFakeAmount()
+file: scripts/seedDataUtils.ts
+start line: 230
+end line: 232
+size: 3 LOC
+McCabe index: 2
+number of parameters: 0
+
+id: 122
+unit: receiverId: string()
+file: src/components/TransactionCreateStepTwo.tsx
+start line: 38
+end line: 41
+size: 3 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 123
+unit: defaultPrivacyLevel: mixed()
+file: src/components/UserSettingsForm.tsx
+start line: 41
+end line: 44
+size: 3 LOC
+McCabe index: 1
+number of parameters: 0
+
+id: 124
+unit: resetUser: assign()
+file: src/machines/authMachine.ts
+start line: 247
+end line: 249
+size: 3 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 125
+unit: setUserProfile: assign()
+file: src/machines/authMachine.ts
+start line: 250
+end line: 252
+size: 3 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 126
+unit: onError: assign()
+file: src/machines/authMachine.ts
+start line: 257
+end line: 259
+size: 3 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 127
+unit: mutation DeleteBankAccount()
+file: src/machines/bankAccountsMachine.ts
+start line: 24
+end line: 26
+size: 3 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 128
+unit: setTransactionDetails: assign()
+file: src/machines/createTransactionMachine.ts
+start line: 79
+end line: 81
+size: 3 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 129
+unit: setPageData: assign()
+file: src/machines/dataMachine.ts
+start line: 120
+end line: 122
+size: 3 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 130
+unit: setMessage:  assign()
+file: src/machines/dataMachine.ts
+start line: 124
+end line: 126
+size: 3 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 131
+unit: export function localDateToIsoString()
+file: src/utils/transactionUtils.ts
+start line: 216
+end line: 218
+size: 3 LOC
+McCabe index: 1
+number of parameters: 1
+
+id: 132
+unit: description: isPayment()
+file: scripts/seedDataUtils.ts
+start line: 231
+end line: 232
+size: 2 LOC
+McCabe index: 2
+number of parameters: 1
+
+id: 133
+unit: clearContext: assign()
+file: src/machines/createTransactionMachine.ts
+start line: 82
+end line: 82
+size: 1 LOC
+McCabe index: 1
+number of parameters: 2
+
+id: 134
+unit: export default defineConfig()
+file: vite.cypress.config.ts
+start line: 4
+end line: 4
+size: 1 LOC
+McCabe index: 1
+number of parameters: 2
+

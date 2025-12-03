@@ -1,0 +1,150 @@
+<html>
+<head>
+    <title>backend/app.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">backend/app.ts (<b>98</b> lines of code) (<a href="app.ts">raw</a>):</h3>
+<div id="editor">import express from &quot;express&quot;;
+import { join } from &quot;path&quot;;
+import logger from &quot;morgan&quot;;
+import passport from &quot;passport&quot;;
+import session from &quot;express-session&quot;;
+import bodyParser from &quot;body-parser&quot;;
+import cors from &quot;cors&quot;;
+import paginate from &quot;express-paginate&quot;;
+import { createHandler as graphqlHandler } from &quot;graphql-http/lib/use/express&quot;;
+import { loadSchemaSync } from &quot;@graphql-tools/load&quot;;
+import { GraphQLFileLoader } from &quot;@graphql-tools/graphql-file-loader&quot;;
+import { addResolversToSchema } from &quot;@graphql-tools/schema&quot;;
+
+import auth from &quot;./auth&quot;;
+import userRoutes from &quot;./user-routes&quot;;
+import contactRoutes from &quot;./contact-routes&quot;;
+import bankAccountRoutes from &quot;./bankaccount-routes&quot;;
+import gqlPlaygroundRoutes from &quot;./gql-playground-routes&quot;;
+import transactionRoutes from &quot;./transaction-routes&quot;;
+import likeRoutes from &quot;./like-routes&quot;;
+import commentRoutes from &quot;./comment-routes&quot;;
+import notificationRoutes from &quot;./notification-routes&quot;;
+import bankTransferRoutes from &quot;./banktransfer-routes&quot;;
+import testDataRoutes from &quot;./testdata-routes&quot;;
+import { checkAuth0Jwt, verifyOktaToken, checkCognitoJwt, checkGoogleJwt } from &quot;./helpers&quot;;
+import resolvers from &quot;./graphql/resolvers&quot;;
+import { frontendPort, getBackendPort } from &quot;../src/utils/portUtils&quot;;
+
+require(&quot;dotenv&quot;).config();
+
+const corsOption = {
+  origin: `http://localhost:${frontendPort}`,
+  credentials: true,
+};
+
+const schema = loadSchemaSync(join(__dirname, &quot;./graphql/schema.graphql&quot;), {
+  loaders: [new GraphQLFileLoader()],
+});
+
+const schemaWithResolvers = addResolversToSchema({
+  schema,
+  resolvers,
+});
+
+const app = express();
+
+/* istanbul ignore next */
+// @ts-expect-error
+if (global.__coverage__) {
+  require(&quot;@cypress/code-coverage/middleware/express&quot;)(app);
+}
+
+app.use(cors(corsOption));
+app.use(logger(&quot;dev&quot;));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.use(
+  session({
+    secret: &quot;session secret&quot;,
+    resave: false,
+    saveUninitialized: false,
+    unset: &quot;destroy&quot;,
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(paginate.middleware(+process.env.PAGINATION_PAGE_SIZE!));
+
+/* istanbul ignore next */
+if (process.env.NODE_ENV === &quot;test&quot; || process.env.NODE_ENV === &quot;development&quot;) {
+  app.use(&quot;/testData&quot;, testDataRoutes);
+}
+
+app.use(auth);
+
+/* istanbul ignore if */
+if (process.env.VITE_AUTH0) {
+  app.use(checkAuth0Jwt);
+}
+
+/* istanbul ignore if */
+if (process.env.VITE_OKTA) {
+  app.use(verifyOktaToken);
+}
+
+/* istanbul ignore if */
+if (process.env.VITE_AWS_COGNITO) {
+  app.use(checkCognitoJwt);
+}
+
+/* istanbul ignore if */
+if (process.env.VITE_GOOGLE) {
+  app.use(checkGoogleJwt);
+}
+
+app.get(&quot;/&quot;, (req, res) =&gt; {
+  res.send(&quot;Cypress Realworld App - backend&quot;);
+});
+app.use(&quot;/graphql&quot;, gqlPlaygroundRoutes);
+app.use(
+  &quot;/graphql&quot;,
+  graphqlHandler({
+    schema: schemaWithResolvers,
+    context: async (req, _args) =&gt; {
+      return { user: req.raw.user };
+    },
+  })
+);
+app.use(&quot;/users&quot;, userRoutes);
+app.use(&quot;/contacts&quot;, contactRoutes);
+app.use(&quot;/bankAccounts&quot;, bankAccountRoutes);
+app.use(&quot;/transactions&quot;, transactionRoutes);
+app.use(&quot;/likes&quot;, likeRoutes);
+app.use(&quot;/comments&quot;, commentRoutes);
+app.use(&quot;/notifications&quot;, notificationRoutes);
+app.use(&quot;/bankTransfers&quot;, bankTransferRoutes);
+
+app.use(express.static(join(__dirname, &quot;../public&quot;)));
+
+getBackendPort().then((port) =&gt; {
+  app.listen(port);
+});
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

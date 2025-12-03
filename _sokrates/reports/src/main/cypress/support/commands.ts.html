@@ -1,0 +1,414 @@
+<html>
+<head>
+    <title>cypress/support/commands.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">cypress/support/commands.ts (<b>309</b> lines of code) (<a href="commands.ts">raw</a>):</h3>
+<div id="editor">// @ts-check
+///&lt;reference path=&quot;../global.d.ts&quot; /&gt;
+
+import { pick } from &quot;lodash/fp&quot;;
+import { differenceInMonths, parse as parseDate } from &quot;date-fns&quot;;
+import { isMobile } from &quot;./utils&quot;;
+
+// Import Cypress Percy plugin command (https://docs.percy.io/docs/cypress)
+import &quot;@percy/cypress&quot;;
+
+// Import commands for third-party auth providers
+import &quot;./auth-provider-commands/auth0&quot;;
+import &quot;./auth-provider-commands/okta&quot;;
+
+// custom command to make taking snapshots with full name
+// formed from the test title + suffix easier
+// cy.visualSnapshot() // default full test title
+// cy.visualSnapshot('clicked') // full test title + ' - clicked'
+// also sets the width and height to the current viewport
+Cypress.Commands.add(&quot;visualSnapshot&quot;, (maybeName) =&gt; {
+  // @ts-ignore
+  let snapshotTitle = cy.state(&quot;runnable&quot;).fullTitle();
+  if (maybeName) {
+    snapshotTitle = snapshotTitle + &quot; - &quot; + maybeName;
+  }
+  cy.percySnapshot(snapshotTitle, {
+    // @ts-ignore
+    widths: [cy.state(&quot;viewportWidth&quot;)],
+    // @ts-ignore
+    minHeight: cy.state(&quot;viewportHeight&quot;),
+  });
+});
+
+Cypress.Commands.add(&quot;getBySel&quot;, (selector, ...args) =&gt; {
+  return cy.get(`[data-test=${selector}]`, ...args);
+});
+
+Cypress.Commands.add(&quot;getBySelLike&quot;, (selector, ...args) =&gt; {
+  return cy.get(`[data-test*=${selector}]`, ...args);
+});
+
+Cypress.Commands.add(&quot;login&quot;, (username, password, { rememberUser = false } = {}) =&gt; {
+  const signinPath = &quot;/signin&quot;;
+  const log = Cypress.log({
+    name: &quot;login&quot;,
+    displayName: &quot;LOGIN&quot;,
+    message: [`🔐 Authenticating | ${username}`],
+    // @ts-ignore
+    autoEnd: false,
+  });
+
+  cy.intercept(&quot;POST&quot;, &quot;/login&quot;).as(&quot;loginUser&quot;);
+  cy.intercept(&quot;GET&quot;, &quot;checkAuth&quot;).as(&quot;getUserProfile&quot;);
+
+  cy.location(&quot;pathname&quot;, { log: false }).then((currentPath) =&gt; {
+    if (currentPath !== signinPath) {
+      cy.visit(signinPath);
+    }
+  });
+
+  log.snapshot(&quot;before&quot;);
+
+  cy.getBySel(&quot;signin-username&quot;).type(username);
+  cy.getBySel(&quot;signin-password&quot;).type(password);
+
+  if (rememberUser) {
+    cy.getBySel(&quot;signin-remember-me&quot;).find(&quot;input&quot;).check();
+  }
+
+  cy.getBySel(&quot;signin-submit&quot;).click();
+  cy.wait(&quot;@loginUser&quot;).then((loginUser: any) =&gt; {
+    log.set({
+      consoleProps() {
+        return {
+          username,
+          password,
+          rememberUser,
+          userId: loginUser.response.statusCode !== 401 &amp;&amp; loginUser.response.body.user.id,
+        };
+      },
+    });
+
+    log.snapshot(&quot;after&quot;);
+    log.end();
+  });
+});
+
+Cypress.Commands.add(&quot;loginByApi&quot;, (username, password = Cypress.env(&quot;defaultPassword&quot;)) =&gt; {
+  return cy.request(&quot;POST&quot;, `${Cypress.env(&quot;apiUrl&quot;)}/login`, {
+    username,
+    password,
+  });
+});
+
+Cypress.Commands.add(&quot;reactComponent&quot;, { prevSubject: &quot;element&quot; }, ($el) =&gt; {
+  if ($el.length !== 1) {
+    throw new Error(`cy.component() requires element of length 1 but got ${$el.length}`);
+  }
+  // Query for key starting with __reactInternalInstance$ for React v16.x
+  //
+  const key = Object.keys($el.get(0)).find((key) =&gt; key.startsWith(&quot;__reactFiber$&quot;));
+
+  // @ts-ignore
+  const domFiber = $el.prop(key);
+
+  Cypress.log({
+    name: &quot;component&quot;,
+    consoleProps() {
+      return {
+        component: domFiber,
+      };
+    },
+  });
+
+  return domFiber.return;
+});
+
+Cypress.Commands.add(&quot;setTransactionAmountRange&quot;, (min, max) =&gt; {
+  cy.getBySel(&quot;transaction-list-filter-amount-range-button&quot;).scrollIntoView();
+  cy.getBySel(&quot;transaction-list-filter-amount-range-button&quot;).click({ force: true });
+
+  return cy
+    .getBySelLike(&quot;filter-amount-range-slider&quot;)
+    .reactComponent()
+    .its(&quot;memoizedProps&quot;)
+    .its(&quot;ownerState&quot;)
+    .invoke(&quot;onChange&quot;, null, [min / 10, max / 10]);
+});
+
+Cypress.Commands.add(&quot;loginByXstate&quot;, (username, password = Cypress.env(&quot;defaultPassword&quot;)) =&gt; {
+  const log = Cypress.log({
+    name: &quot;loginbyxstate&quot;,
+    displayName: &quot;LOGIN BY XSTATE&quot;,
+    message: [`🔐 Authenticating | ${username}`],
+    autoEnd: false,
+  });
+
+  cy.intercept(&quot;POST&quot;, &quot;/login&quot;).as(&quot;loginUser&quot;);
+  cy.intercept(&quot;GET&quot;, &quot;/checkAuth&quot;).as(&quot;getUserProfile&quot;);
+  cy.visit(&quot;/signin&quot;, { log: false }).then(() =&gt; {
+    log.snapshot(&quot;before&quot;);
+  });
+
+  cy.window({ log: false }).then((win) =&gt; win.authService.send(&quot;LOGIN&quot;, { username, password }));
+
+  cy.wait(&quot;@loginUser&quot;).then((loginUser) =&gt; {
+    log.set({
+      consoleProps() {
+        return {
+          username,
+          password,
+          // @ts-ignore
+          userId: loginUser.response.body.user.id,
+        };
+      },
+    });
+  });
+
+  return cy
+    .getBySel(&quot;list-skeleton&quot;)
+    .should(&quot;not.exist&quot;)
+    .then(() =&gt; {
+      log.snapshot(&quot;after&quot;);
+      log.end();
+    });
+});
+
+Cypress.Commands.add(&quot;logoutByXstate&quot;, () =&gt; {
+  const log = Cypress.log({
+    name: &quot;logoutByXstate&quot;,
+    displayName: &quot;LOGOUT BY XSTATE&quot;,
+    message: [`🔒 Logging out current user`],
+    // @ts-ignore
+    autoEnd: false,
+  });
+
+  cy.window({ log: false }).then((win) =&gt; {
+    log.snapshot(&quot;before&quot;);
+    win.authService.send(&quot;LOGOUT&quot;);
+  });
+
+  return cy
+    .location(&quot;pathname&quot;)
+    .should(&quot;equal&quot;, &quot;/signin&quot;)
+    .then(() =&gt; {
+      log.snapshot(&quot;after&quot;);
+      log.end();
+    });
+});
+
+Cypress.Commands.add(&quot;switchUserByXstate&quot;, (username) =&gt; {
+  cy.logoutByXstate();
+  return cy.loginByXstate(username).then(() =&gt; {
+    if (isMobile()) {
+      cy.getBySel(&quot;sidenav-toggle&quot;).click();
+      cy.getBySel(&quot;sidenav-username&quot;).contains(username);
+      cy.getBySel(&quot;sidenav-toggle&quot;).click({ force: true });
+    } else {
+      cy.getBySel(&quot;sidenav-username&quot;).contains(username);
+    }
+    cy.getBySel(&quot;list-skeleton&quot;).should(&quot;not.exist&quot;);
+    cy.getBySelLike(&quot;transaction-item&quot;).should(&quot;have.length.greaterThan&quot;, 1);
+  });
+});
+
+Cypress.Commands.add(&quot;createTransaction&quot;, (payload) =&gt; {
+  const log = Cypress.log({
+    name: &quot;createTransaction&quot;,
+    displayName: &quot;CREATE TRANSACTION&quot;,
+    message: [`💸 (${payload.transactionType}): ${payload.sender.id} &lt;&gt; ${payload.receiver.id}`],
+    // @ts-ignore
+    autoEnd: false,
+    consoleProps() {
+      return payload;
+    },
+  });
+
+  return cy
+    .window({ log: false })
+    .then((win) =&gt; {
+      log.snapshot(&quot;before&quot;);
+      win.createTransactionService.send(&quot;SET_USERS&quot;, payload);
+
+      const createPayload = pick([&quot;amount&quot;, &quot;description&quot;, &quot;transactionType&quot;], payload);
+
+      return win.createTransactionService.send(&quot;CREATE&quot;, {
+        ...createPayload,
+        senderId: payload.sender.id,
+        receiverId: payload.receiver.id,
+      });
+    })
+    .then(() =&gt; {
+      log.snapshot(&quot;after&quot;);
+      log.end();
+    });
+});
+
+Cypress.Commands.add(&quot;nextTransactionFeedPage&quot;, (service, page) =&gt; {
+  const log = Cypress.log({
+    name: &quot;nextTransactionFeedPage&quot;,
+    displayName: &quot;NEXT TRANSACTION FEED PAGE&quot;,
+    message: [`📃 Fetching page ${page} with ${service}`],
+    // @ts-ignore
+    autoEnd: false,
+    consoleProps() {
+      return {
+        service,
+        page,
+      };
+    },
+  });
+
+  return cy
+    .window({ log: false })
+    .then((win) =&gt; {
+      log.snapshot(&quot;before&quot;);
+      // @ts-ignore
+      return win[service].send(&quot;FETCH&quot;, { page });
+    })
+    .then(() =&gt; {
+      log.snapshot(&quot;after&quot;);
+      log.end();
+    });
+});
+
+Cypress.Commands.add(&quot;pickDateRange&quot;, (startDate, endDate) =&gt; {
+  const log = Cypress.log({
+    name: &quot;pickDateRange&quot;,
+    displayName: &quot;PICK DATE RANGE&quot;,
+    message: [`🗓 ${startDate.toDateString()} to ${endDate.toDateString()}`],
+    // @ts-ignore
+    autoEnd: false,
+    consoleProps() {
+      return {
+        startDate,
+        endDate,
+      };
+    },
+  });
+
+  const selectDate = (date: Date) =&gt; {
+    const targetDay = date.getDate();
+
+    return cy
+      .get(&quot;.react-calendar__navigation__label&quot;)
+      .invoke(&quot;text&quot;)
+      .then((label: string) =&gt; {
+        const parsedDate = parseDate(label, &quot;MMMM yyyy&quot;, new Date());
+        const monthsDiff = differenceInMonths(new Date(), parsedDate);
+
+        if (monthsDiff &lt; 0) {
+          for (let i = 0; i &lt; Math.abs(monthsDiff); i++) {
+            cy.get(&quot;.react-calendar__navigation__prev-button&quot;).click();
+          }
+        } else if (monthsDiff &gt; 0) {
+          for (let i = 0; i &lt; monthsDiff; i++) {
+            cy.get(&quot;.react-calendar__navigation__next-button&quot;).click();
+          }
+        }
+      })
+      .then(() =&gt; {
+        cy.get(&quot;.react-calendar__month-view__days__day&quot;)
+          .contains(new RegExp(`^${targetDay}$`))
+          .click({ force: true });
+      });
+  };
+
+  log.snapshot(&quot;before&quot;);
+  // Focus initial viewable date picker range around target start date
+  // @ts-ignore
+  cy.clock(startDate.getTime(), [&quot;Date&quot;]);
+
+  // Open date range picker
+  cy.getBySelLike(&quot;filter-date-range-button&quot;).click({ force: true });
+  cy.get(&quot;.react-calendar&quot;).should(&quot;be.visible&quot;);
+
+  // Select date range
+  selectDate(startDate);
+  selectDate(endDate).then(() =&gt; {
+    log.snapshot(&quot;after&quot;);
+    log.end();
+  });
+
+  cy.get(&quot;.react-calendar&quot;).should(&quot;not.exist&quot;);
+});
+
+Cypress.Commands.add(&quot;database&quot;, (operation, entity, query, logTask = false) =&gt; {
+  const params = {
+    entity,
+    query,
+  };
+
+  const log = Cypress.log({
+    name: &quot;database&quot;,
+    displayName: &quot;DATABASE&quot;,
+    message: [`🔎 ${operation}ing within ${entity} data`],
+    // @ts-ignore
+    autoEnd: false,
+    consoleProps() {
+      return params;
+    },
+  });
+
+  return cy.task(`${operation}:database`, params, { log: logTask }).then((data) =&gt; {
+    log.snapshot();
+    log.end();
+    return data;
+  });
+});
+
+Cypress.Commands.add(&quot;loginByGoogleApi&quot;, () =&gt; {
+  cy.log(&quot;Logging in to Google&quot;);
+
+  cy.request({
+    method: &quot;POST&quot;,
+    url: &quot;https://www.googleapis.com/oauth2/v4/token&quot;,
+    body: {
+      grant_type: &quot;refresh_token&quot;,
+      client_id: Cypress.env(&quot;googleClientId&quot;),
+      client_secret: Cypress.env(&quot;googleClientSecret&quot;),
+      refresh_token: Cypress.env(&quot;googleRefreshToken&quot;),
+    },
+  }).then(({ body }) =&gt; {
+    const { access_token, id_token } = body;
+
+    cy.request({
+      method: &quot;GET&quot;,
+      url: &quot;https://www.googleapis.com/oauth2/v3/userinfo&quot;,
+      headers: { Authorization: `Bearer ${access_token}` },
+    }).then(({ body }) =&gt; {
+      cy.log(body);
+      const userItem = {
+        token: id_token,
+        user: {
+          googleId: body.sub,
+          email: body.email,
+          givenName: body.given_name,
+          familyName: body.family_name,
+          imageUrl: body.picture,
+        },
+      };
+
+      window.localStorage.setItem(&quot;googleCypress&quot;, JSON.stringify(userItem));
+
+      cy.visit(&quot;/&quot;);
+    });
+  });
+});
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

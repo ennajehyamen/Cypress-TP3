@@ -1,0 +1,93 @@
+[ {
+  "key" : "general",
+  "concerns" : [ {
+    "name" : "TODOs",
+    "filesCount" : 2,
+    "linesOfCode" : 148,
+    "numberOfRegexLineMatches" : 2,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.tsx",
+      "value" : 1,
+      "description" : [ ]
+    }, {
+      "name" : "  *.mjs",
+      "value" : 1,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.tsx",
+      "value" : 111,
+      "description" : [ ]
+    }, {
+      "name" : "  *.mjs",
+      "value" : 37,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "Unclassified",
+    "filesCount" : 134,
+    "linesOfCode" : 9454,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.tsx",
+      "value" : 65,
+      "description" : [ ]
+    }, {
+      "name" : "  *.ts",
+      "value" : 60,
+      "description" : [ ]
+    }, {
+      "name" : "  *.js",
+      "value" : 6,
+      "description" : [ ]
+    }, {
+      "name" : "  *.html",
+      "value" : 2,
+      "description" : [ ]
+    }, {
+      "name" : "  *.graphql",
+      "value" : 1,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.tsx",
+      "value" : 5274,
+      "description" : [ ]
+    }, {
+      "name" : "  *.ts",
+      "value" : 4036,
+      "description" : [ ]
+    }, {
+      "name" : "  *.js",
+      "value" : 90,
+      "description" : [ ]
+    }, {
+      "name" : "  *.html",
+      "value" : 36,
+      "description" : [ ]
+    }, {
+      "name" : "  *.graphql",
+      "value" : 18,
+      "description" : [ ]
+    } ]
+  } ],
+  "concernsGroup" : null,
+  "fileCountPerConcern" : [ {
+    "name" : "TODOs",
+    "value" : 2,
+    "description" : [ ]
+  }, {
+    "name" : "Unclassified",
+    "value" : 134,
+    "description" : [ ]
+  } ],
+  "linesOfCodePerConcern" : [ {
+    "name" : "TODOs",
+    "value" : 148,
+    "description" : [ ]
+  }, {
+    "name" : "Unclassified",
+    "value" : 9454,
+    "description" : [ ]
+  } ]
+} ]

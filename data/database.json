@@ -74,19 +74,6 @@
       "balance": 47417,
       "createdAt": "2025-10-09T19:25:23.702Z",
       "modifiedAt": "2025-12-01T09:06:55.189Z"
-    },
-    {
-      "id": "9Qvh_GJ-b",
-      "uuid": "53010d62-8586-470d-a43f-eb7d845e4099",
-      "firstName": "YAMEN",
-      "lastName": "NAJEH",
-      "username": "yamen",
-      "password": "$2a$10$1G4Ns4.gMGjcCk/4IGsbBecvtiDXUpPmqIVJdYqWmzLDRWSLGww1u",
-      "email": "ennajehyamen@gmail.com",
-      "phoneNumber": "4382251208",
-      "balance": 0,
-      "createdAt": "2025-12-02T15:19:48.775Z",
-      "modifiedAt": "2025-12-02T15:19:48.775Z"
     }
   ],
   "contacts": [
@@ -266,17 +253,6 @@
       "isDeleted": false,
       "createdAt": "2025-08-12T11:45:06.447Z",
       "modifiedAt": "2025-12-02T01:57:29.425Z"
-    },
-    {
-      "id": "wq44IIyir",
-      "uuid": "43ab8e71-de4b-4ffc-94b9-6ae22e9c1806",
-      "userId": "9Qvh_GJ-b",
-      "bankName": "teste22",
-      "accountNumber": "073815344",
-      "routingNumber": "124245767",
-      "isDeleted": false,
-      "createdAt": "2025-12-02T15:20:05.694Z",
-      "modifiedAt": "2025-12-02T15:20:05.694Z"
     }
   ],
   "transactions": [

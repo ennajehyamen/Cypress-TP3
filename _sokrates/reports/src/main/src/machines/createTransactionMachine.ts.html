@@ -1,0 +1,111 @@
+<html>
+<head>
+    <title>src/machines/createTransactionMachine.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/machines/createTransactionMachine.ts (<b>80</b> lines of code) (<a href="createTransactionMachine.ts">raw</a>):</h3>
+<div id="editor">import { omit } from &quot;lodash/fp&quot;;
+import { Machine, assign } from &quot;xstate&quot;;
+import { dataMachine } from &quot;./dataMachine&quot;;
+import { httpClient } from &quot;../utils/asyncUtils&quot;;
+import { User, TransactionCreatePayload } from &quot;../models&quot;;
+import { authService } from &quot;./authMachine&quot;;
+import { backendPort } from &quot;../utils/portUtils&quot;;
+
+export interface CreateTransactionMachineSchema {
+  states: {
+    stepOne: {};
+    stepTwo: {};
+    stepThree: {};
+  };
+}
+
+const transactionDataMachine = dataMachine(&quot;transactionData&quot;).withConfig({
+  services: {
+    createData: async (ctx, event: any) =&gt; {
+      const payload = omit(&quot;type&quot;, event);
+      const resp = await httpClient.post(`http://localhost:${backendPort}/transactions`, payload);
+      authService.send(&quot;REFRESH&quot;);
+      return resp.data;
+    },
+  },
+});
+
+export type CreateTransactionMachineEvents =
+  | { type: &quot;SET_USERS&quot; }
+  | { type: &quot;CREATE&quot; }
+  | { type: &quot;RESET&quot; };
+
+export interface CreateTransactionMachineContext {
+  sender: User;
+  receiver: User;
+  transactionDetails: TransactionCreatePayload;
+}
+
+export const createTransactionMachine = Machine&lt;
+  CreateTransactionMachineContext,
+  CreateTransactionMachineSchema,
+  CreateTransactionMachineEvents
+&gt;(
+  {
+    id: &quot;createTransaction&quot;,
+    initial: &quot;stepOne&quot;,
+    states: {
+      stepOne: {
+        entry: &quot;clearContext&quot;,
+        on: {
+          SET_USERS: &quot;stepTwo&quot;,
+        },
+      },
+      stepTwo: {
+        entry: &quot;setSenderAndReceiver&quot;,
+        invoke: {
+          id: &quot;transactionDataMachine&quot;,
+          src: transactionDataMachine,
+          autoForward: true,
+        },
+        on: {
+          CREATE: &quot;stepThree&quot;,
+        },
+      },
+      stepThree: {
+        entry: &quot;setTransactionDetails&quot;,
+        on: {
+          RESET: &quot;stepOne&quot;,
+        },
+      },
+    },
+  },
+  {
+    actions: {
+      setSenderAndReceiver: assign((ctx, event: any) =&gt; ({
+        sender: event.sender,
+        receiver: event.receiver,
+      })),
+      setTransactionDetails: assign((ctx, event: any) =&gt; ({
+        transactionDetails: event,
+      })),
+      clearContext: assign((ctx, event: any) =&gt; ({})),
+    },
+  }
+);
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

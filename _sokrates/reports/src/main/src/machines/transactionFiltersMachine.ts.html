@@ -1,0 +1,130 @@
+<html>
+<head>
+    <title>src/machines/transactionFiltersMachine.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/machines/transactionFiltersMachine.ts (<b>100</b> lines of code) (<a href="transactionFiltersMachine.ts">raw</a>):</h3>
+<div id="editor">import { Machine, assign } from &quot;xstate&quot;;
+
+interface FilterSchema {
+  states: {
+    dateRange: {
+      states: {
+        none: {};
+        filter: {};
+      };
+    };
+    amountRange: {
+      states: {
+        none: {};
+        filter: {};
+      };
+    };
+  };
+}
+
+type DateFilterEvent = {
+  type: &quot;DATE_FILTER&quot;;
+  dateRangeStart: string;
+  dateRangeEnd: string;
+};
+type AmountFilterEvent = {
+  type: &quot;AMOUNT_FILTER&quot;;
+  amountMin: string;
+  amountMax: string;
+};
+type DateResetEvent = { type: &quot;DATE_RESET&quot; };
+type AmountResetEvent = { type: &quot;AMOUNT_RESET&quot; };
+type FilterEvents =
+  | { type: &quot;NONE&quot; }
+  | DateFilterEvent
+  | AmountFilterEvent
+  | DateResetEvent
+  | AmountResetEvent;
+
+export interface FilterContext {}
+
+export const transactionFiltersMachine = Machine&lt;FilterContext, FilterSchema, FilterEvents&gt;(
+  {
+    id: &quot;filters&quot;,
+    type: &quot;parallel&quot;,
+    context: {},
+    states: {
+      dateRange: {
+        initial: &quot;none&quot;,
+        states: {
+          none: {
+            entry: &quot;resetDateRange&quot;,
+            on: {
+              DATE_FILTER: &quot;filter&quot;,
+            },
+          },
+          filter: {
+            entry: &quot;setDateRange&quot;,
+            on: {
+              DATE_RESET: &quot;none&quot;,
+            },
+          },
+        },
+      },
+      amountRange: {
+        initial: &quot;none&quot;,
+        states: {
+          none: {
+            entry: &quot;resetAmountRange&quot;,
+            on: {
+              AMOUNT_FILTER: &quot;filter&quot;,
+            },
+          },
+          filter: {
+            entry: &quot;setAmountRange&quot;,
+            on: {
+              AMOUNT_RESET: &quot;none&quot;,
+              AMOUNT_FILTER: &quot;filter&quot;,
+            },
+          },
+        },
+      },
+    },
+  },
+  {
+    actions: {
+      setDateRange: assign((ctx: FilterContext, event: any) =&gt; ({
+        dateRangeStart: event.dateRangeStart,
+        dateRangeEnd: event.dateRangeEnd,
+      })),
+      resetDateRange: assign((ctx: FilterContext, event: any) =&gt; ({
+        dateRangeStart: undefined,
+        dateRangeEnd: undefined,
+      })),
+      setAmountRange: assign((ctx: FilterContext, event: any) =&gt; ({
+        amountMin: event.amountMin,
+        amountMax: event.amountMax,
+      })),
+      resetAmountRange: assign((ctx: FilterContext, event: any) =&gt; ({
+        amountMin: undefined,
+        amountMax: undefined,
+      })),
+    },
+  }
+);
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>src/components/Footer.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/Footer.tsx (<b>28</b> lines of code) (<a href="Footer.tsx">raw</a>):</h3>
+<div id="editor">import React from &quot;react&quot;;
+import { Container, Typography } from &quot;@mui/material&quot;;
+
+import CypressLogo from &quot;../components/SvgCypressLogo&quot;;
+
+export default function Footer() {
+  return (
+    &lt;Container maxWidth=&quot;sm&quot; style={{ marginTop: 50 }}&gt;
+      &lt;Typography variant=&quot;body2&quot; color=&quot;textSecondary&quot; align=&quot;center&quot;&gt;
+        Built by
+        &lt;a
+          style={{ textDecoration: &quot;none&quot; }}
+          target=&quot;_blank&quot;
+          rel=&quot;noopener noreferrer&quot;
+          href=&quot;https://cypress.io&quot;
+        &gt;
+          &lt;CypressLogo
+            style={{
+              marginTop: -2,
+              marginLeft: 5,
+              height: &quot;20px&quot;,
+              width: &quot;55px&quot;,
+              verticalAlign: &quot;middle&quot;,
+            }}
+          /&gt;
+        &lt;/a&gt;
+      &lt;/Typography&gt;
+    &lt;/Container&gt;
+  );
+}
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

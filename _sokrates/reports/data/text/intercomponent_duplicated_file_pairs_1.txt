@@ -1,0 +1,5 @@
+scripts/mock-aws-exports.js
+src/aws-exports.js
+
+scripts/mock-aws-exports-es5.js
+src/aws-exports.js

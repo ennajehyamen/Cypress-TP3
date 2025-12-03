@@ -1,0 +1,58 @@
+<html>
+<head>
+    <title>amountMin: padAmountWithZeros()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">amountMin: padAmountWithZeros()</h3>
+<p style="margin-top: 4px">in <i>src/components/TransactionListAmountRangeFilter.tsx [53:88]</i></p>
+<ul>
+    <li><b>34</b> lines of code</li>
+    <li><b>2</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="tsx">
+      amountMin: padAmountWithZeros(first(amountRange as number[]) as number),
+      amountMax: padAmountWithZeros(last(amountRange as number[]) as number),
+    });
+    setAmountRangeValue(amountRange as number[]);
+  };
+
+  const amountRangeOpen = Boolean(amountRangeAnchorEl);
+  const amountRangeId = amountRangeOpen ? &quot;amount-range-popover&quot; : undefined;
+
+  const AmountRangeFilter = () =&gt; (
+    &lt;Grid
+      data-test=&quot;transaction-list-filter-amount-range&quot;
+      container
+      direction=&quot;column&quot;
+      justifyContent=&quot;flex-start&quot;
+      alignItems=&quot;flex-start&quot;
+      spacing={1}
+      sx={{ width: &quot;300px&quot;, margin: &quot;30px&quot; }}
+    &gt;
+      &lt;Grid item&gt;
+        &lt;Grid
+          container
+          direction=&quot;row&quot;
+          justifyContent=&quot;space-between&quot;
+          alignItems=&quot;center&quot;
+          sx={{ width: &quot;100%&quot; }}
+        &gt;
+          &lt;Grid item sx={{ width: &quot;225px&quot; }}&gt;
+            &lt;Typography color=&quot;textSecondary&quot; data-test=&quot;transaction-list-filter-amount-range-text&quot;&gt;
+              Amount Range: {formatAmountRangeValues(amountRangeValue)}
+            &lt;/Typography&gt;
+          &lt;/Grid&gt;
+          &lt;Grid item&gt;
+            &lt;Button
+              data-test=&quot;transaction-list-filter-amount-clear-button&quot;
+              onClick={() =&gt; {
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

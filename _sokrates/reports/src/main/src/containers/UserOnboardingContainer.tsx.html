@@ -1,0 +1,165 @@
+<html>
+<head>
+    <title>src/containers/UserOnboardingContainer.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/containers/UserOnboardingContainer.tsx (<b>128</b> lines of code) (<a href="UserOnboardingContainer.tsx">raw</a>):</h3>
+<div id="editor">import React, { useEffect } from &quot;react&quot;;
+import {
+  Button,
+  Box,
+  useTheme,
+  useMediaQuery,
+  Grid,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from &quot;@mui/material&quot;;
+import {
+  BaseActionObject,
+  Interpreter,
+  ResolveTypegenMeta,
+  ServiceMap,
+  TypegenDisabled,
+} from &quot;xstate&quot;;
+import { isEmpty } from &quot;lodash/fp&quot;;
+import { useActor, useMachine } from &quot;@xstate/react&quot;;
+
+import { userOnboardingMachine } from &quot;../machines/userOnboardingMachine&quot;;
+import BankAccountForm from &quot;../components/BankAccountForm&quot;;
+import { DataContext, DataEvents, DataSchema } from &quot;../machines/dataMachine&quot;;
+import { AuthMachineContext, AuthMachineEvents, AuthMachineSchema } from &quot;../machines/authMachine&quot;;
+import NavigatorIllustration from &quot;../components/SvgUndrawNavigatorA479&quot;;
+import PersonalFinance from &quot;../components/SvgUndrawPersonalFinanceTqcd&quot;;
+
+export interface Props {
+  authService: Interpreter&lt;AuthMachineContext, AuthMachineSchema, AuthMachineEvents, any, any&gt;;
+  bankAccountsService: Interpreter&lt;
+    DataContext,
+    DataSchema,
+    DataEvents,
+    any,
+    ResolveTypegenMeta&lt;TypegenDisabled, DataEvents, BaseActionObject, ServiceMap&gt;
+  &gt;;
+}
+
+const UserOnboardingContainer: React.FC&lt;Props&gt; = ({ authService, bankAccountsService }) =&gt; {
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down(&quot;md&quot;));
+  const [bankAccountsState, sendBankAccounts] = useActor(bankAccountsService);
+  const [authState, sendAuth] = useActor(authService);
+  const [userOnboardingState, sendUserOnboarding] = useMachine(userOnboardingMachine);
+
+  const currentUser = authState?.context?.user;
+
+  useEffect(() =&gt; {
+    sendBankAccounts(&quot;FETCH&quot;);
+  }, [sendBankAccounts]);
+
+  const noBankAccounts =
+    bankAccountsState?.matches(&quot;success.withoutData&quot;) &amp;&amp;
+    isEmpty(bankAccountsState?.context?.results);
+
+  const dialogIsOpen =
+    (userOnboardingState.matches(&quot;stepTwo&quot;) &amp;&amp; !noBankAccounts) ||
+    (userOnboardingState.matches(&quot;stepThree&quot;) &amp;&amp; !noBankAccounts) ||
+    (!userOnboardingState.matches(&quot;done&quot;) &amp;&amp; noBankAccounts) ||
+    false;
+
+  const nextStep = () =&gt; sendUserOnboarding(&quot;NEXT&quot;);
+
+  const createBankAccountWithNextStep = (payload: any) =&gt; {
+    sendBankAccounts({ type: &quot;CREATE&quot;, ...payload });
+    nextStep();
+  };
+
+  return (
+    &lt;Dialog data-test=&quot;user-onboarding-dialog&quot; fullScreen={fullScreen} open={dialogIsOpen}&gt;
+      &lt;DialogTitle data-test=&quot;user-onboarding-dialog-title&quot;&gt;
+        {userOnboardingState.matches(&quot;stepOne&quot;) &amp;&amp; &quot;Get Started with Real World App&quot;}
+        {userOnboardingState.matches(&quot;stepTwo&quot;) &amp;&amp; &quot;Create Bank Account&quot;}
+        {userOnboardingState.matches(&quot;stepThree&quot;) &amp;&amp; &quot;Finished&quot;}
+      &lt;/DialogTitle&gt;
+      &lt;DialogContent data-test=&quot;user-onboarding-dialog-content&quot;&gt;
+        &lt;Box display=&quot;flex&quot; alignItems=&quot;center&quot; justifyContent=&quot;center&quot;&gt;
+          {userOnboardingState.matches(&quot;stepOne&quot;) &amp;&amp; (
+            &lt;&gt;
+              &lt;NavigatorIllustration /&gt;
+              &lt;br /&gt;
+              &lt;DialogContentText style={{ paddingLeft: 20 }}&gt;
+                Real World App requires a Bank Account to perform transactions.
+                &lt;br /&gt;
+                &lt;br /&gt;
+                Click &lt;b&gt;Next&lt;/b&gt; to begin setup of your Bank Account.
+              &lt;/DialogContentText&gt;
+            &lt;/&gt;
+          )}
+          {userOnboardingState.matches(&quot;stepTwo&quot;) &amp;&amp; (
+            &lt;BankAccountForm
+              userId={currentUser?.id!}
+              createBankAccount={createBankAccountWithNextStep}
+              onboarding
+            /&gt;
+          )}
+          {userOnboardingState.matches(&quot;stepThree&quot;) &amp;&amp; (
+            &lt;&gt;
+              &lt;PersonalFinance /&gt;
+              &lt;br /&gt;
+              &lt;DialogContentText style={{ paddingLeft: 20 }}&gt;
+                You're all set!
+                &lt;br /&gt;
+                &lt;br /&gt;
+                We're excited to have you aboard the Real World App!
+              &lt;/DialogContentText&gt;
+            &lt;/&gt;
+          )}
+        &lt;/Box&gt;
+      &lt;/DialogContent&gt;
+      &lt;DialogActions&gt;
+        &lt;Grid container justifyContent=&quot;space-between&quot;&gt;
+          &lt;Grid item&gt;
+            &lt;Button
+              style={{ paddingRight: &quot;80%&quot; }}
+              onClick={/* istanbul ignore next */ () =&gt; sendAuth(&quot;LOGOUT&quot;)}
+              color=&quot;secondary&quot;
+              data-test=&quot;user-onboarding-logout&quot;
+            &gt;
+              Logout
+            &lt;/Button&gt;
+          &lt;/Grid&gt;
+          &lt;Grid item&gt;
+            {!userOnboardingState.matches(&quot;stepTwo&quot;) &amp;&amp; (
+              &lt;Button onClick={() =&gt; nextStep()} color=&quot;primary&quot; data-test=&quot;user-onboarding-next&quot;&gt;
+                {userOnboardingState.matches(&quot;stepThree&quot;) ? &quot;Done&quot; : &quot;Next&quot;}
+              &lt;/Button&gt;
+            )}
+          &lt;/Grid&gt;
+        &lt;/Grid&gt;
+      &lt;/DialogActions&gt;
+    &lt;/Dialog&gt;
+  );
+};
+
+export default UserOnboardingContainer;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

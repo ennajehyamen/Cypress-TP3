@@ -1,0 +1,211 @@
+<html>
+<head>
+    <title>backend/transaction-routes.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">backend/transaction-routes.ts (<b>145</b> lines of code) (<a href="transaction-routes.ts">raw</a>):</h3>
+<div id="editor">///&lt;reference path=&quot;types.ts&quot; /&gt;
+
+import express from &quot;express&quot;;
+import { remove, isEmpty, slice, concat } from &quot;lodash/fp&quot;;
+import {
+  getTransactionsForUserContacts,
+  createTransaction,
+  updateTransactionById,
+  getPublicTransactionsDefaultSort,
+  getTransactionByIdForApi,
+  getTransactionsForUserForApi,
+  getPublicTransactionsByQuery,
+} from &quot;./database&quot;;
+import { ensureAuthenticated, validateMiddleware } from &quot;./helpers&quot;;
+import {
+  sanitizeTransactionStatus,
+  sanitizeRequestStatus,
+  isTransactionQSValidator,
+  isTransactionPayloadValidator,
+  shortIdValidation,
+  isTransactionPatchValidator,
+  isTransactionPublicQSValidator,
+} from &quot;./validators&quot;;
+import { getPaginatedItems } from &quot;../src/utils/transactionUtils&quot;;
+const router = express.Router();
+
+// Routes
+
+//GET /transactions - scoped user, auth-required
+router.get(
+  &quot;/&quot;,
+  ensureAuthenticated,
+  validateMiddleware([
+    sanitizeTransactionStatus,
+    sanitizeRequestStatus,
+    ...isTransactionQSValidator,
+  ]),
+  (req, res) =&gt; {
+    /* istanbul ignore next */
+    const transactions = getTransactionsForUserForApi(req.user?.id!, req.query);
+
+    const { totalPages, data: paginatedItems } = getPaginatedItems(
+      req.query.page as unknown as number,
+      req.query.limit as unknown as number,
+      transactions
+    );
+
+    res.status(200);
+    res.json({
+      pageData: {
+        page: res.locals.paginate.page,
+        limit: res.locals.paginate.limit,
+        hasNextPages: res.locals.paginate.hasNextPages(totalPages),
+        totalPages,
+      },
+      results: paginatedItems,
+    });
+  }
+);
+
+//GET /transactions/contacts - scoped user, auth-required
+router.get(
+  &quot;/contacts&quot;,
+  ensureAuthenticated,
+  validateMiddleware([
+    sanitizeTransactionStatus,
+    sanitizeRequestStatus,
+    ...isTransactionQSValidator,
+  ]),
+  (req, res) =&gt; {
+    /* istanbul ignore next */
+    const transactions = getTransactionsForUserContacts(req.user?.id!, req.query);
+
+    const { totalPages, data: paginatedItems } = getPaginatedItems(
+      req.query.page as unknown as number,
+      req.query.limit as unknown as number,
+      transactions
+    );
+
+    res.status(200);
+    res.json({
+      pageData: {
+        page: res.locals.paginate.page,
+        limit: res.locals.paginate.limit,
+        hasNextPages: res.locals.paginate.hasNextPages(totalPages),
+        totalPages,
+      },
+      results: paginatedItems,
+    });
+  }
+);
+
+//GET /transactions/public - auth-required
+router.get(
+  &quot;/public&quot;,
+  ensureAuthenticated,
+  validateMiddleware(isTransactionPublicQSValidator),
+  (req, res) =&gt; {
+    const isFirstPage = (req.query.page as unknown as number) === 1;
+
+    /* istanbul ignore next */
+    let transactions = !isEmpty(req.query)
+      ? getPublicTransactionsByQuery(req.user?.id!, req.query)
+      : /* istanbul ignore next */
+        getPublicTransactionsDefaultSort(req.user?.id!);
+
+    const { contactsTransactions, publicTransactions } = transactions;
+
+    let publicTransactionsWithContacts;
+
+    if (isFirstPage) {
+      const firstFiveContacts = slice(0, 5, contactsTransactions);
+
+      publicTransactionsWithContacts = concat(firstFiveContacts, publicTransactions);
+    }
+
+    const { totalPages, data: paginatedItems } = getPaginatedItems(
+      req.query.page as unknown as number,
+      req.query.limit as unknown as number,
+      isFirstPage ? publicTransactionsWithContacts : publicTransactions
+    );
+
+    res.status(200);
+    res.json({
+      pageData: {
+        page: res.locals.paginate.page,
+        limit: res.locals.paginate.limit,
+        hasNextPages: res.locals.paginate.hasNextPages(totalPages),
+        totalPages,
+      },
+      results: paginatedItems,
+    });
+  }
+);
+
+//POST /transactions - scoped-user
+router.post(
+  &quot;/&quot;,
+  ensureAuthenticated,
+  validateMiddleware(isTransactionPayloadValidator),
+  (req, res) =&gt; {
+    const transactionPayload = req.body;
+    const transactionType = transactionPayload.transactionType;
+
+    remove(&quot;transactionType&quot;, transactionPayload);
+
+    /* istanbul ignore next */
+    const transaction = createTransaction(req.user?.id!, transactionType, transactionPayload);
+
+    res.status(200);
+    res.json({ transaction });
+  }
+);
+
+//GET /transactions/:transactionId - scoped-user
+router.get(
+  &quot;/:transactionId&quot;,
+  ensureAuthenticated,
+  validateMiddleware([shortIdValidation(&quot;transactionId&quot;)]),
+  (req, res) =&gt; {
+    const { transactionId } = req.params;
+
+    const transaction = getTransactionByIdForApi(transactionId);
+
+    res.status(200);
+    res.json({ transaction });
+  }
+);
+
+//PATCH /transactions/:transactionId - scoped-user
+router.patch(
+  &quot;/:transactionId&quot;,
+  ensureAuthenticated,
+  validateMiddleware([shortIdValidation(&quot;transactionId&quot;), ...isTransactionPatchValidator]),
+  (req, res) =&gt; {
+    const { transactionId } = req.params;
+
+    /* istanbul ignore next */
+    updateTransactionById(transactionId, req.body);
+
+    res.sendStatus(204);
+  }
+);
+
+export default router;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

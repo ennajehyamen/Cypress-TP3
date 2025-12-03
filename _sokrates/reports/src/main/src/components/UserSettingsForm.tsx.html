@@ -1,0 +1,193 @@
+<html>
+<head>
+    <title>src/components/UserSettingsForm.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/UserSettingsForm.tsx (<b>156</b> lines of code) (<a href="UserSettingsForm.tsx">raw</a>):</h3>
+<div id="editor">import React from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { TextField, Button, Grid } from &quot;@mui/material&quot;;
+import { Formik, Form, Field, FieldProps } from &quot;formik&quot;;
+import { string, object, mixed } from &quot;yup&quot;;
+import { User, DefaultPrivacyLevel, UserSettingsPayload } from &quot;../models&quot;;
+
+const PREFIX = &quot;UserSettingsForm&quot;;
+
+const classes = {
+  paper: `${PREFIX}-paper`,
+  form: `${PREFIX}-form`,
+};
+
+const StyledFormik = styled(Formik)(({ theme }) =&gt; ({
+  [`&amp; .${classes.paper}`]: {
+    marginTop: theme.spacing(8),
+    display: &quot;flex&quot;,
+    flexDirection: &quot;column&quot;,
+    alignItems: &quot;center&quot;,
+  },
+}));
+
+const MarginHonoringDiv = styled(&quot;div&quot;)(({ theme }) =&gt; ({
+  width: &quot;100%&quot;, // Fix IE 11 issue.
+  marginTop: theme.spacing(1),
+}));
+
+const phoneRegExp =
+  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
+const DefaultPrivacyLevelValues = Object.values(DefaultPrivacyLevel);
+
+const validationSchema = object({
+  firstName: string().required(&quot;Enter a first name&quot;),
+  lastName: string().required(&quot;Enter a last name&quot;),
+  email: string().email(&quot;Must contain a valid email address&quot;).required(&quot;Enter an email address&quot;),
+  phoneNumber: string()
+    .matches(phoneRegExp, &quot;Phone number is not valid&quot;)
+    .required(&quot;Enter a phone number&quot;),
+  defaultPrivacyLevel: mixed&lt;DefaultPrivacyLevel&gt;().oneOf(DefaultPrivacyLevelValues),
+});
+
+export interface UserSettingsProps {
+  userProfile: User;
+  updateUser: Function;
+}
+
+const UserSettingsForm: React.FC&lt;UserSettingsProps&gt; = ({ userProfile, updateUser }) =&gt; {
+  const initialValues: UserSettingsPayload = {
+    firstName: userProfile.firstName,
+    lastName: userProfile.lastName,
+    email: userProfile.email,
+    phoneNumber: userProfile.phoneNumber,
+    defaultPrivacyLevel: userProfile.defaultPrivacyLevel,
+  };
+
+  return (
+    &lt;StyledFormik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={(values, { setSubmitting }) =&gt; {
+        setSubmitting(true);
+        updateUser({ id: userProfile.id, ...values });
+        setSubmitting(false);
+      }}
+    &gt;
+      {({ isValid, isSubmitting }) =&gt; (
+        &lt;MarginHonoringDiv&gt;
+          &lt;Form data-test=&quot;user-settings-form&quot;&gt;
+            &lt;Field name=&quot;firstName&quot;&gt;
+              {({ field, meta: { error, value, initialValue, touched } }: FieldProps) =&gt; (
+                &lt;TextField
+                  variant=&quot;outlined&quot;
+                  margin=&quot;dense&quot;
+                  fullWidth
+                  required
+                  id={&quot;user-settings-firstName-input&quot;}
+                  type=&quot;text&quot;
+                  placeholder=&quot;First Name&quot;
+                  inputProps={{ &quot;data-test&quot;: &quot;user-settings-firstName-input&quot; }}
+                  error={(touched || value !== initialValue) &amp;&amp; Boolean(error)}
+                  helperText={touched || value !== initialValue ? error : &quot;&quot;}
+                  {...field}
+                /&gt;
+              )}
+            &lt;/Field&gt;
+            &lt;Field name=&quot;lastName&quot;&gt;
+              {({ field, meta: { error, value, initialValue, touched } }: FieldProps) =&gt; (
+                &lt;TextField
+                  variant=&quot;outlined&quot;
+                  margin=&quot;dense&quot;
+                  fullWidth
+                  required
+                  id={&quot;user-settings-lastName-input&quot;}
+                  type=&quot;text&quot;
+                  placeholder=&quot;Last Name&quot;
+                  inputProps={{ &quot;data-test&quot;: &quot;user-settings-lastName-input&quot; }}
+                  error={(touched || value !== initialValue) &amp;&amp; Boolean(error)}
+                  helperText={touched || value !== initialValue ? error : &quot;&quot;}
+                  {...field}
+                /&gt;
+              )}
+            &lt;/Field&gt;
+            &lt;Field name=&quot;email&quot;&gt;
+              {({ field, meta: { error, value, initialValue, touched } }: FieldProps) =&gt; (
+                &lt;TextField
+                  variant=&quot;outlined&quot;
+                  margin=&quot;dense&quot;
+                  fullWidth
+                  required
+                  id={&quot;user-settings-email-input&quot;}
+                  type=&quot;text&quot;
+                  placeholder=&quot;Email&quot;
+                  inputProps={{ &quot;data-test&quot;: &quot;user-settings-email-input&quot; }}
+                  error={(touched || value !== initialValue) &amp;&amp; Boolean(error)}
+                  helperText={touched || value !== initialValue ? error : &quot;&quot;}
+                  {...field}
+                /&gt;
+              )}
+            &lt;/Field&gt;
+            &lt;Field name=&quot;phoneNumber&quot;&gt;
+              {({ field, meta: { error, value, initialValue, touched } }: FieldProps) =&gt; (
+                &lt;TextField
+                  variant=&quot;outlined&quot;
+                  margin=&quot;dense&quot;
+                  fullWidth
+                  required
+                  id={&quot;user-settings-phoneNumber-input&quot;}
+                  type=&quot;text&quot;
+                  placeholder=&quot;Phone Number&quot;
+                  inputProps={{ &quot;data-test&quot;: &quot;user-settings-phoneNumber-input&quot; }}
+                  error={(touched || value !== initialValue) &amp;&amp; Boolean(error)}
+                  helperText={touched || value !== initialValue ? error : &quot;&quot;}
+                  {...field}
+                /&gt;
+              )}
+            &lt;/Field&gt;
+            &lt;Grid
+              container
+              spacing={2}
+              direction=&quot;row&quot;
+              justifyContent=&quot;flex-start&quot;
+              alignItems=&quot;flex-start&quot;
+            &gt;
+              &lt;Grid item&gt;
+                &lt;Button
+                  type=&quot;submit&quot;
+                  fullWidth
+                  variant=&quot;contained&quot;
+                  color=&quot;primary&quot;
+                  sx={{ marginTop: 3, marginLeft: 0, marginBottom: 2 }}
+                  data-test=&quot;user-settings-submit&quot;
+                  disabled={!isValid || isSubmitting}
+                &gt;
+                  Save
+                &lt;/Button&gt;
+              &lt;/Grid&gt;
+            &lt;/Grid&gt;
+          &lt;/Form&gt;
+        &lt;/MarginHonoringDiv&gt;
+      )}
+    &lt;/StyledFormik&gt;
+  );
+};
+
+export default UserSettingsForm;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

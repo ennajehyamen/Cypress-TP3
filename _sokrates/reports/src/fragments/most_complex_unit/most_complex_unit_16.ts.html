@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>updateData: async()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">updateData: async()</h3>
+<p style="margin-top: 4px">in <i>src/machines/transactionDetailMachine.ts [27:36]</i></p>
+<ul>
+    <li><b>10</b> lines of code</li>
+    <li><b>3</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="ts">
+    updateData: async (ctx, event: any) =&gt; {
+      const payload = omit(&quot;type&quot;, event);
+      const contextTransactionId = !isEmpty(ctx.results) &amp;&amp; first(ctx.results)[&quot;id&quot;];
+      const transactionId = contextTransactionId || payload.id;
+      const resp = await httpClient.patch(
+        `http://localhost:${backendPort}/transactions/${transactionId}`,
+        payload
+      );
+      return resp.data;
+    },
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

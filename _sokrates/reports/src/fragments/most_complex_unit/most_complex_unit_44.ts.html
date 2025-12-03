@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>uuid: v4()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">uuid: v4()</h3>
+<p style="margin-top: 4px">in <i>backend/database.ts [309:354]</i></p>
+<ul>
+    <li><b>30</b> lines of code</li>
+    <li><b>1</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="ts">
+    uuid: v4(),
+    ...bankTransferDetails,
+    createdAt: new Date(),
+    modifiedAt: new Date(),
+  };
+
+  const savedBankTransfer = saveBankTransfer(bankTransfer);
+  return savedBankTransfer;
+};
+
+/* istanbul ignore next */
+const saveBankTransfer = (bankTransfer: BankTransfer): BankTransfer =&gt; {
+  db.get(BANK_TRANSFER_TABLE).push(bankTransfer).write();
+
+  // manual lookup after banktransfer created
+  return getBankTransferBy(&quot;id&quot;, bankTransfer.id);
+};
+
+// Transaction
+
+export const getTransactionBy = (key: string, value: any) =&gt; getBy(TRANSACTION_TABLE, key, value);
+
+export const getTransactionById = (id: string) =&gt; getTransactionBy(&quot;id&quot;, id);
+
+export const getTransactionsByObj = (query: object) =&gt; getAllByObj(TRANSACTION_TABLE, query);
+
+export const getTransactionByIdForApi = (id: string) =&gt;
+  formatTransactionForApiResponse(getTransactionBy(&quot;id&quot;, id));
+
+export const getTransactionsForUserForApi = (userId: string, query?: object) =&gt;
+  flow(getTransactionsForUserByObj(userId), formatTransactionsForApiResponse)(query);
+
+export const getFullNameForUser = (userId: User[&quot;id&quot;]) =&gt; flow(getUserById, formatFullName)(userId);
+
+export const formatTransactionForApiResponse = (
+  transaction: Transaction
+): TransactionResponseItem =&gt; {
+  const receiver = getUserById(transaction.receiverId);
+  const sender = getUserById(transaction.senderId);
+
+  const receiverName = getFullNameForUser(transaction.receiverId);
+  const senderName = getFullNameForUser(transaction.senderId);
+  const likes = getLikesByTransactionId(transaction.id);
+  const comments = getCommentsByTransactionId(transaction.id);
+
+  return {
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

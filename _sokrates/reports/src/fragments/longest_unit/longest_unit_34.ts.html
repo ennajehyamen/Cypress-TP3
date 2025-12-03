@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>mutation CreateBankAccount()</title>
+    <link rel="stylesheet" charset="UTF-8" href="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/styles/docco.min.css">
+    <script charset="UTF-8" type="application/javascript" src="https://d2bb1mtyn3kglb.cloudfront.net/lib/highlight/highlight.min.js"></script>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">mutation CreateBankAccount()</h3>
+<p style="margin-top: 4px">in <i>src/machines/bankAccountsMachine.ts [30:45]</i></p>
+<ul>
+    <li><b>16</b> lines of code</li>
+    <li><b>1</b> McCabe index (conditional complexity)</li>
+</ul>
+<pre>
+<code class="ts">
+  mutation CreateBankAccount($bankName: String!, $accountNumber: String!, $routingNumber: String!) {
+    createBankAccount(
+      bankName: $bankName
+      accountNumber: $accountNumber
+      routingNumber: $routingNumber
+    ) {
+      id
+      uuid
+      userId
+      bankName
+      accountNumber
+      routingNumber
+      isDeleted
+      createdAt
+    }
+  }
+
+</code>
+</pre>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+</body>

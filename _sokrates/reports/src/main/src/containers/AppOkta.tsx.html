@@ -1,0 +1,125 @@
+<html>
+<head>
+    <title>src/containers/AppOkta.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/containers/AppOkta.tsx (<b>67</b> lines of code) (<a href="AppOkta.tsx">raw</a>):</h3>
+<div id="editor">/* istanbul ignore next */
+import React, { useEffect } from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { useActor, useMachine } from &quot;@xstate/react&quot;;
+import { CssBaseline } from &quot;@mui/material&quot;;
+// @ts-ignore
+import { LoginCallback, SecureRoute, useOktaAuth, withOktaAuth } from &quot;@okta/okta-react&quot;;
+import { Route } from &quot;react-router-dom&quot;;
+
+import { snackbarMachine } from &quot;../machines/snackbarMachine&quot;;
+import { notificationsMachine } from &quot;../machines/notificationsMachine&quot;;
+import { authService } from &quot;../machines/authMachine&quot;;
+import AlertBar from &quot;../components/AlertBar&quot;;
+import { bankAccountsMachine } from &quot;../machines/bankAccountsMachine&quot;;
+import PrivateRoutesContainer from &quot;./PrivateRoutesContainer&quot;;
+
+const PREFIX = &quot;appOkta&quot;;
+
+const classes = {
+  root: `${PREFIX}-root`,
+};
+
+const Root = styled(&quot;div&quot;)(({ theme }) =&gt; ({
+  [`&amp;.${classes.root}`]: {
+    display: &quot;flex&quot;,
+  },
+}));
+
+// @ts-ignore
+if (window.Cypress) {
+  // Expose authService on window for Cypress
+  // @ts-ignore
+  window.authService = authService;
+}
+
+/* istanbul ignore next */
+const AppOkta: React.FC = () =&gt; {
+  const { authState: oktaAuthState, oktaAuth: oktaAuthService } = useOktaAuth();
+
+  const [authState] = useActor(authService);
+  const [, , notificationsService] = useMachine(notificationsMachine);
+
+  const [, , snackbarService] = useMachine(snackbarMachine);
+
+  const [, , bankAccountsService] = useMachine(bankAccountsMachine);
+
+  // @ts-ignore
+  if (window.Cypress &amp;&amp; process.env.VITE_OKTA_PROGRAMMATIC) {
+    useEffect(() =&gt; {
+      const okta = JSON.parse(localStorage.getItem(&quot;oktaCypress&quot;)!);
+      authService.send(&quot;OKTA&quot;, {
+        user: okta.user,
+        token: okta.token,
+      });
+    }, []);
+  } else {
+    useEffect(() =&gt; {
+      if (oktaAuthState.isAuthenticated) {
+        oktaAuthService.getUser().then((user: any) =&gt; {
+          authService.send(&quot;OKTA&quot;, { user, token: oktaAuthState.accessToken });
+        });
+      }
+    }, [oktaAuthState, oktaAuthService]);
+  }
+
+  const isLoggedIn =
+    authState.matches(&quot;authorized&quot;) ||
+    authState.matches(&quot;refreshing&quot;) ||
+    authState.matches(&quot;updating&quot;);
+
+  return (
+    &lt;Root className={classes.root}&gt;
+      &lt;CssBaseline /&gt;
+
+      {isLoggedIn &amp;&amp; (
+        &lt;PrivateRoutesContainer
+          isLoggedIn={isLoggedIn}
+          notificationsService={notificationsService}
+          authService={authService}
+          snackbarService={snackbarService}
+          bankAccountsService={bankAccountsService}
+        /&gt;
+      )}
+      {authState.matches(&quot;unauthorized&quot;) &amp;&amp; (
+        &lt;&gt;
+          &lt;Route path=&quot;/implicit/callback&quot; component={LoginCallback} /&gt;
+          &lt;SecureRoute exact path=&quot;/&quot; /&gt;
+        &lt;/&gt;
+      )}
+
+      &lt;AlertBar snackbarService={snackbarService} /&gt;
+    &lt;/Root&gt;
+  );
+};
+
+let appOkta =
+  //@ts-ignore
+  window.Cypress &amp;&amp; process.env.VITE_OKTA_PROGRAMMATIC ? AppOkta : withOktaAuth(AppOkta);
+export default appOkta;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

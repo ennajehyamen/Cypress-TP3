@@ -1,0 +1,96 @@
+<html>
+<head>
+    <title>src/components/SkeletonList.tsx</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">src/components/SkeletonList.tsx (<b>63</b> lines of code) (<a href="SkeletonList.tsx">raw</a>):</h3>
+<div id="editor">import React from &quot;react&quot;;
+import { styled } from &quot;@mui/material/styles&quot;;
+import { Skeleton } from &quot;@mui/material&quot;;
+const PREFIX = &quot;ListSkeleton&quot;;
+
+const classes = {
+  root: `${PREFIX}-root`,
+};
+
+const Root = styled(&quot;div&quot;)(({ theme }) =&gt; ({
+  [`&amp;.${classes.root}`]: {
+    minHeight: &quot;100vh&quot;,
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2),
+    width: &quot;95%&quot;,
+  },
+}));
+
+const ListSkeleton = () =&gt; {
+  return (
+    &lt;Root className={classes.root} data-test=&quot;list-skeleton&quot;&gt;
+      &lt;br /&gt;
+      &lt;Skeleton /&gt;
+      &lt;Skeleton animation={false} /&gt;
+      &lt;Skeleton animation=&quot;wave&quot; /&gt;
+      &lt;br /&gt;
+      &lt;br /&gt;
+      &lt;Skeleton /&gt;
+      &lt;Skeleton animation={false} /&gt;
+      &lt;Skeleton animation=&quot;wave&quot; /&gt;
+      &lt;br /&gt;
+      &lt;br /&gt;
+      &lt;Skeleton /&gt;
+      &lt;Skeleton animation={false} /&gt;
+      &lt;Skeleton animation=&quot;wave&quot; /&gt;
+      &lt;br /&gt;
+      &lt;br /&gt;
+      &lt;Skeleton /&gt;
+      &lt;Skeleton animation={false} /&gt;
+      &lt;Skeleton animation=&quot;wave&quot; /&gt;
+      &lt;br /&gt;
+      &lt;br /&gt;
+      &lt;Skeleton /&gt;
+      &lt;Skeleton animation={false} /&gt;
+      &lt;Skeleton animation=&quot;wave&quot; /&gt;
+      &lt;br /&gt;
+      &lt;br /&gt;
+      &lt;Skeleton /&gt;
+      &lt;Skeleton animation={false} /&gt;
+      &lt;Skeleton animation=&quot;wave&quot; /&gt;
+      &lt;br /&gt;
+      &lt;br /&gt;
+      &lt;Skeleton /&gt;
+      &lt;Skeleton animation={false} /&gt;
+      &lt;Skeleton animation=&quot;wave&quot; /&gt;
+      &lt;br /&gt;
+      &lt;br /&gt;
+      &lt;Skeleton /&gt;
+      &lt;Skeleton animation={false} /&gt;
+      &lt;Skeleton animation=&quot;wave&quot; /&gt;
+      &lt;br /&gt;
+      &lt;br /&gt;
+      &lt;Skeleton /&gt;
+      &lt;Skeleton animation={false} /&gt;
+      &lt;Skeleton animation=&quot;wave&quot; /&gt;
+    &lt;/Root&gt;
+  );
+};
+
+export default ListSkeleton;
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

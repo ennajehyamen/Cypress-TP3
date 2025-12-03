@@ -1,0 +1,144 @@
+<html>
+<head>
+    <title>backend/validators.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">backend/validators.ts (<b>96</b> lines of code) (<a href="validators.ts">raw</a>):</h3>
+<div id="editor">import { body, check, oneOf, query, sanitizeQuery } from &quot;express-validator&quot;;
+import { isValid } from &quot;shortid&quot;;
+import {
+  TransactionStatus,
+  TransactionRequestStatus,
+  DefaultPrivacyLevel,
+  NotificationsType,
+} from &quot;../src/models&quot;;
+import { includes } from &quot;lodash/fp&quot;;
+
+const TransactionStatusValues = Object.values(TransactionStatus);
+const RequestStatusValues = Object.values(TransactionRequestStatus);
+const DefaultPrivacyLevelValues = Object.values(DefaultPrivacyLevel);
+const NotificationsTypeValues = Object.values(NotificationsType);
+
+// Validators
+
+const isShortId = (value: string) =&gt; isValid(value);
+
+export const shortIdValidation = (key: string) =&gt; check(key).custom(isShortId);
+
+export const searchValidation = query(&quot;q&quot;).exists();
+
+export const userFieldsValidator = oneOf([
+  check(&quot;firstName&quot;).exists(),
+  check(&quot;lastName&quot;).exists(),
+  check(&quot;password&quot;).exists(),
+  check(&quot;balance&quot;).exists(),
+  check(&quot;avatar&quot;).exists(),
+  check(&quot;defaultPrivacyLevel&quot;).exists(),
+]);
+
+export const isBankAccountValidator = [
+  body(&quot;bankName&quot;).isString().trim(),
+  body(&quot;accountNumber&quot;).isString().trim(),
+  body(&quot;routingNumber&quot;).isString().trim(),
+];
+
+export const isUserValidator = [
+  check(&quot;firstName&quot;).optional({ checkFalsy: true }).isString().trim(),
+  check(&quot;lastName&quot;).optional({ checkFalsy: true }).isString().trim(),
+  check(&quot;username&quot;).optional({ checkFalsy: true }).isString().trim(),
+  check(&quot;password&quot;).optional({ checkFalsy: true }).isString().trim(),
+  check(&quot;email&quot;).optional({ checkFalsy: true }).isString().trim(),
+  check(&quot;phoneNumber&quot;).optional({ checkFalsy: true }).isString().trim(),
+  check(&quot;balance&quot;).optional({ checkFalsy: true }).isNumeric().trim(),
+  check(&quot;avatar&quot;).optional({ checkFalsy: true }).isURL().trim(),
+  check(&quot;defaultPrivacyLevel&quot;)
+    .optional({ checkFalsy: true })
+    .isIn([&quot;public&quot;, &quot;private&quot;, &quot;contacts&quot;]),
+];
+
+export const sanitizeTransactionStatus = sanitizeQuery(&quot;status&quot;).customSanitizer((value) =&gt; {
+  /* istanbul ignore if*/
+  if (includes(value, TransactionStatusValues)) {
+    return value;
+  }
+  return;
+});
+
+// default request status to undefined if not provided
+export const sanitizeRequestStatus = sanitizeQuery(&quot;requestStatus&quot;).customSanitizer((value) =&gt; {
+  /* istanbul ignore if*/
+  if (includes(value, RequestStatusValues)) {
+    return value;
+  }
+  return;
+});
+
+export const isTransactionQSValidator = [
+  query(&quot;status&quot;).isIn(TransactionStatusValues).optional().trim(),
+  query(&quot;requestStatus&quot;).optional({ checkFalsy: true }).isIn(RequestStatusValues).trim(),
+  query(&quot;receiverId&quot;).optional({ checkFalsy: true }).isString().trim(),
+  query(&quot;senderId&quot;).optional({ checkFalsy: true }).isString().trim(),
+  query(&quot;rangeStartTs&quot;).optional({ checkFalsy: true }).isString().trim(),
+  query(&quot;rangeEndTs&quot;).optional({ checkFalsy: true }).isString().trim(),
+  query(&quot;amountMax&quot;).optional({ checkFalsy: true }).isNumeric().trim(),
+  query(&quot;amountMin&quot;).optional({ checkFalsy: true }).isNumeric().trim(),
+];
+
+export const isTransactionPayloadValidator = [
+  body(&quot;transactionType&quot;).isIn([&quot;payment&quot;, &quot;request&quot;]).trim(),
+  body(&quot;privacyLevel&quot;).optional().isIn(DefaultPrivacyLevelValues).trim(),
+  body(&quot;source&quot;).optional().isString().trim(),
+  body(&quot;receiverId&quot;).isString().trim(),
+  body(&quot;description&quot;).isString().trim(),
+  body(&quot;amount&quot;).isNumeric().trim().toInt(),
+];
+
+export const isTransactionPatchValidator = [body(&quot;requestStatus&quot;).isIn(RequestStatusValues)];
+
+export const isTransactionPublicQSValidator = [
+  query(&quot;order&quot;).optional({ checkFalsy: true }).isIn([&quot;default&quot;]),
+];
+
+export const isCommentValidator = body(&quot;content&quot;).isString().trim();
+
+export const isNotificationsBodyValidator = [
+  body(&quot;items.*.type&quot;).isIn(NotificationsTypeValues).trim(),
+  body(&quot;items.*.transactionId&quot;).custom(isShortId),
+];
+
+export const isNotificationPatchValidator = [body(&quot;isRead&quot;).isBoolean()];
+
+export const isValidEntityValidator = [
+  check(&quot;entity&quot;)
+    .isIn([
+      &quot;users&quot;,
+      &quot;contacts&quot;,
+      &quot;bankaccounts&quot;,
+      &quot;notifications&quot;,
+      &quot;transactions&quot;,
+      &quot;likes&quot;,
+      &quot;comments&quot;,
+      &quot;banktransfers&quot;,
+    ])
+    .trim(),
+];
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>

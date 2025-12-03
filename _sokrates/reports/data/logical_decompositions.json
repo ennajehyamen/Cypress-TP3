@@ -1,0 +1,281 @@
+[ {
+  "key" : "primary",
+  "components" : [ {
+    "name" : "ROOT",
+    "filesCount" : 6,
+    "linesOfCode" : 232,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 3,
+      "description" : [ ]
+    }, {
+      "name" : "  *.mjs",
+      "value" : 1,
+      "description" : [ ]
+    }, {
+      "name" : "  *.html",
+      "value" : 1,
+      "description" : [ ]
+    }, {
+      "name" : "  *.js",
+      "value" : 1,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 153,
+      "description" : [ ]
+    }, {
+      "name" : "  *.mjs",
+      "value" : 37,
+      "description" : [ ]
+    }, {
+      "name" : "  *.html",
+      "value" : 24,
+      "description" : [ ]
+    }, {
+      "name" : "  *.js",
+      "value" : 18,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "backend",
+    "filesCount" : 20,
+    "linesOfCode" : 1475,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 19,
+      "description" : [ ]
+    }, {
+      "name" : "  *.graphql",
+      "value" : 1,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 1457,
+      "description" : [ ]
+    }, {
+      "name" : "  *.graphql",
+      "value" : 18,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "cypress",
+    "filesCount" : 8,
+    "linesOfCode" : 525,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 7,
+      "description" : [ ]
+    }, {
+      "name" : "  *.html",
+      "value" : 1,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 513,
+      "description" : [ ]
+    }, {
+      "name" : "  *.html",
+      "value" : 12,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "scripts",
+    "filesCount" : 5,
+    "linesOfCode" : 564,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 3,
+      "description" : [ ]
+    }, {
+      "name" : "  *.js",
+      "value" : 2,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.ts",
+      "value" : 528,
+      "description" : [ ]
+    }, {
+      "name" : "  *.js",
+      "value" : 36,
+      "description" : [ ]
+    } ]
+  }, {
+    "name" : "src",
+    "filesCount" : 97,
+    "linesOfCode" : 6806,
+    "numberOfRegexLineMatches" : 0,
+    "fileCountPerExtension" : [ {
+      "name" : "  *.tsx",
+      "value" : 66,
+      "description" : [ ]
+    }, {
+      "name" : "  *.ts",
+      "value" : 28,
+      "description" : [ ]
+    }, {
+      "name" : "  *.js",
+      "value" : 3,
+      "description" : [ ]
+    } ],
+    "linesOfCodePerExtension" : [ {
+      "name" : "  *.tsx",
+      "value" : 5385,
+      "description" : [ ]
+    }, {
+      "name" : "  *.ts",
+      "value" : 1385,
+      "description" : [ ]
+    }, {
+      "name" : "  *.js",
+      "value" : 36,
+      "description" : [ ]
+    } ]
+  } ],
+  "componentDependencies" : [ ],
+  "componentDependenciesErrors" : [ ],
+  "logicalDecomposition" : {
+    "name" : "primary",
+    "scope" : "main",
+    "filters" : [ ],
+    "componentsFolderDepth" : 1,
+    "minComponentsCount" : 0,
+    "components" : [ {
+      "name" : "ROOT",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "./.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      }, {
+        "pathPattern" : "./backend/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "./cypress/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "./scripts/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      }, {
+        "pathPattern" : "./src/.*",
+        "contentPattern" : "",
+        "exception" : true,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "backend",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "./backend/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "cypress",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "./cypress/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "scripts",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "./scripts/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    }, {
+      "name" : "src",
+      "sourceFileFilters" : [ {
+        "pathPattern" : "./src/.*",
+        "contentPattern" : "",
+        "exception" : false,
+        "note" : ""
+      } ],
+      "files" : [ ]
+    } ],
+    "metaComponents" : [ ],
+    "groups" : [ ],
+    "includeRemainingFiles" : true,
+    "dependenciesFinder" : {
+      "useBuiltInDependencyFinders" : true,
+      "rules" : [ ],
+      "metaRules" : [ ]
+    },
+    "renderingOptions" : {
+      "orientation" : "TB",
+      "maxNumberOfDependencies" : 100,
+      "renderComponentsWithoutDependencies" : true,
+      "renderIndirectDependencies" : false,
+      "renderInternalIndirectDependencies" : false,
+      "reverseDirection" : false
+    },
+    "includeExternalComponents" : true,
+    "dependencyLinkThreshold" : 1,
+    "duplicationLinkThreshold" : 50,
+    "temporalLinkThreshold" : 1,
+    "maxSearchDepthLines" : 200
+  },
+  "fileCountPerComponent" : [ {
+    "name" : "ROOT",
+    "value" : 6,
+    "description" : [ ]
+  }, {
+    "name" : "backend",
+    "value" : 20,
+    "description" : [ ]
+  }, {
+    "name" : "cypress",
+    "value" : 8,
+    "description" : [ ]
+  }, {
+    "name" : "scripts",
+    "value" : 5,
+    "description" : [ ]
+  }, {
+    "name" : "src",
+    "value" : 97,
+    "description" : [ ]
+  } ],
+  "linesOfCodePerComponent" : [ {
+    "name" : "ROOT",
+    "value" : 232,
+    "description" : [ ]
+  }, {
+    "name" : "backend",
+    "value" : 1475,
+    "description" : [ ]
+  }, {
+    "name" : "cypress",
+    "value" : 525,
+    "description" : [ ]
+  }, {
+    "name" : "scripts",
+    "value" : 564,
+    "description" : [ ]
+  }, {
+    "name" : "src",
+    "value" : 6806,
+    "description" : [ ]
+  } ]
+} ]

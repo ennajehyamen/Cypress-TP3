@@ -1,0 +1,8 @@
+18 duplicated lines in:
+  - scripts/mock-aws-exports.js (3:21, 100%)
+  - src/aws-exports.js (3:21, 100%)
+
+17 duplicated lines in:
+  - scripts/mock-aws-exports-es5.js (3:19, 94%)
+  - src/aws-exports.js (3:19, 94%)
+

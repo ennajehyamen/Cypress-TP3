@@ -1,0 +1,128 @@
+<html>
+<head>
+    <title>cypress/support/auth-provider-commands/okta.ts</title>
+    <style type="text/css" media="screen">
+        #editor {
+            position: absolute;
+            top: 40px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body style="font-family: 'DejaVu Sans', Arial, Helvetica, sans-serif">
+<h3 style="margin-bottom: 0">cypress/support/auth-provider-commands/okta.ts (<b>77</b> lines of code) (<a href="okta.ts">raw</a>):</h3>
+<div id="editor">// @ts-check
+///&lt;reference path=&quot;../../global.d.ts&quot; /&gt;
+
+// @ts-ignore
+import { OktaAuth } from &quot;@okta/okta-auth-js&quot;;
+
+import { frontendPort } from &quot;../../../src/utils/portUtils&quot;;
+
+// Okta
+Cypress.Commands.add(&quot;loginByOktaApi&quot;, (username: string, password?: string) =&gt; {
+  const log = Cypress.log({
+    displayName: &quot;OKTA LOGIN&quot;,
+    message: [`🔐 Authenticating | ${username}`],
+    autoEnd: false,
+  });
+
+  log.snapshot(&quot;before&quot;);
+
+  cy.request({
+    method: &quot;POST&quot;,
+    url: `https://${Cypress.env(&quot;okta_domain&quot;)}/api/v1/authn`,
+    body: {
+      username,
+      password,
+    },
+  }).then(({ body }) =&gt; {
+    const user = body._embedded.user;
+    const config = {
+      issuer: `https://${Cypress.env(&quot;okta_domain&quot;)}/oauth2/default`,
+      clientId: Cypress.env(&quot;okta_client_id&quot;),
+      redirectUri: `http://localhost:${frontendPort}/implicit/callback`,
+      scope: [&quot;openid&quot;, &quot;email&quot;, &quot;profile&quot;],
+    };
+
+    const authClient = new OktaAuth(config);
+
+    return authClient.token
+      .getWithoutPrompt({
+        sessionToken: body.sessionToken,
+      })
+      .then(({ tokens }: any) =&gt; {
+        const userItem = {
+          token: tokens.accessToken.value,
+          user: {
+            sub: user.id,
+            email: user.profile.login,
+            given_name: user.profile.firstName,
+            family_name: user.profile.lastName,
+            preferred_username: user.profile.login,
+          },
+        };
+
+        window.localStorage.setItem(&quot;oktaCypress&quot;, JSON.stringify(userItem));
+
+        log.snapshot(&quot;after&quot;);
+        log.end();
+      });
+  });
+
+  cy.visit(&quot;/&quot;);
+});
+
+// Okta
+Cypress.Commands.add(&quot;loginByOkta&quot;, (username: string, password: string) =&gt; {
+  cy.session(
+    `okta-${username}`,
+    () =&gt; {
+      Cypress.log({
+        displayName: &quot;OKTA LOGIN&quot;,
+        message: [`🔐 Authenticating | ${username}`],
+      });
+
+      cy.visit(&quot;/&quot;);
+
+      cy.origin(
+        Cypress.env(&quot;okta_domain&quot;),
+        { args: { username, password } },
+        ({ username, password }) =&gt; {
+          cy.get('input[name=&quot;identifier&quot;]').type(username);
+          cy.get('input[name=&quot;credentials.passcode&quot;]').type(password, {
+            log: false,
+          });
+          cy.get('[type=&quot;submit&quot;]').click();
+        }
+      );
+
+      cy.get('[data-test=&quot;sidenav-username&quot;]').should(&quot;contain&quot;, username);
+    },
+    {
+      validate() {
+        cy.visit(&quot;/&quot;);
+        /**
+         * NOTE: We recommend validating sessions by either validating
+         * localStorage or cookies values, or possibly accessing an
+         * endpoint to validate that the correct user is logged.
+         */
+        // revalidate our session to make sure we are logged in
+        cy.get('[data-test=&quot;sidenav-username&quot;]').should(&quot;contain&quot;, username);
+      },
+    }
+  );
+});
+</div>
+<script src="https://www.zeljkoobrenovic.com/tools/common/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.session.setMode("ace/mode/typescript");
+    editor.setTheme("ace/theme/xcode");
+    editor.setReadOnly(true);
+    editor.setOption("wrap", true);
+    editor.setPrintMarginColumn(120);
+</script>
+</body>
