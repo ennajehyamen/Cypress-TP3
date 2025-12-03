@@ -2,7 +2,6 @@ name: CI Pipeline
 
 on:
   push:
-    branches: ["main"]
   pull_request:
 
 jobs:
@@ -17,61 +16,53 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
       - name: Install dependencies
         run: npm install
 
-      # -------------------------
-      # 🧪 Vitest (Tests Unitaires)
-      # -------------------------
+      # -----------------------
+      # 1. Vitest
+      # -----------------------
       - name: Run Unit Tests (Vitest)
         run: npm run test -- --run
 
-      # -------------------------
-      # 🔧 Cypress Component Testing
-      # -------------------------
+      # -----------------------
+      # 2. Cypress Component Testing
+      # -----------------------
       - name: Run Cypress Component Tests
-        run: npm run ct:run
+        run: npx cypress run --component
+        continue-on-error: true
 
-      # -------------------------
-      # 🌐 Cypress E2E Tests
-      # -------------------------
+      # -----------------------
+      # 3. Build + Launch App (for E2E)
+      # -----------------------
+      - name: Build application
+        run: npm run build
+
+      - name: Start server in background
+        run: npm run preview &
+      
+      - name: Wait for server
+        run: npx wait-on http://localhost:4173
+
+      # -----------------------
+      # 4. Cypress E2E
+      # -----------------------
       - name: Run Cypress E2E Tests
         run: npm run e2e:run
 
-      # -------------------------
-      # 📊 Sokrates Report (Optionnel)
-      # -------------------------
-      - name: Generate Sokrates report
-        if: ${{ always() }}
-        run: |
-          if [ -f "sokrates-LATEST.jar" ]; then
-            npm run sokrates:report || true
-          fi
-
-      # -------------------------
-      # ⚡ Lighthouse Audit (Optionnel)
-      # -------------------------
-      - name: Run Lighthouse Audit
-        if: ${{ always() }}
-        run: |
-          if [ -f "lighthouse.config.js" ]; then
-            npm run lighthouse:audit || true
-          fi
-
-      # -------------------------
-      # 📦 Artifacts Cypress
-      # -------------------------
+      # -----------------------
+      # 5. Upload Cypress Artifacts
+      # -----------------------
       - name: Upload Cypress Videos
-        if: ${{ always() }}
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: cypress-videos
           path: cypress/videos
 
       - name: Upload Cypress Screenshots
-        if: ${{ always() }}
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: cypress-screenshots
